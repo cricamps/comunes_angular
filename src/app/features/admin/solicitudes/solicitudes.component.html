@@ -1,0 +1,231 @@
+<app-navbar></app-navbar>
+
+<main class="container my-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="fw-bold mb-0"><i class="bi bi-envelope-check"></i> Solicitudes de Cuenta</h1>
+            <p class="text-muted mb-0">Revisa y aprueba las solicitudes de nuevos residentes</p>
+        </div>
+    </div>
+
+    <!-- ESTADÍSTICAS -->
+    <div class="row g-4 mb-4">
+        <div class="col-12 col-md-4">
+            <div class="card border-warning shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-hourglass-split fs-1 text-warning mb-2"></i>
+                    <h6 class="text-muted">Pendientes</h6>
+                    <h2 class="fw-bold text-warning">{{ estadisticas.pendientes }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card border-success shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-check-circle fs-1 text-success mb-2"></i>
+                    <h6 class="text-muted">Aprobadas</h6>
+                    <h2 class="fw-bold text-success">{{ estadisticas.aprobadas }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card border-danger shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-x-circle fs-1 text-danger mb-2"></i>
+                    <h6 class="text-muted">Rechazadas</h6>
+                    <h2 class="fw-bold text-danger">{{ estadisticas.rechazadas }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FILTROS -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">
+                        <i class="bi bi-funnel"></i> Filtrar por Estado
+                    </label>
+                    <select class="form-select" [(ngModel)]="filtroEstado" (ngModelChange)="aplicarFiltros()">
+                        <option value="">Todas las solicitudes</option>
+                        <option value="pendiente">Pendientes</option>
+                        <option value="aprobada">Aprobadas</option>
+                        <option value="rechazada">Rechazadas</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">
+                        <i class="bi bi-search"></i> Buscar
+                    </label>
+                    <input type="text" 
+                           class="form-control" 
+                           [(ngModel)]="busqueda"
+                           (ngModelChange)="aplicarFiltros()"
+                           placeholder="Nombre, email, RUT...">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold d-block">&nbsp;</label>
+                    <button class="btn btn-secondary w-100" (click)="limpiarFiltros()">
+                        <i class="bi bi-x-circle"></i> Limpiar Filtros
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLA DE SOLICITUDES -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0"><i class="bi bi-list-ul"></i> Lista de Solicitudes</h5>
+            <span class="badge bg-light text-dark">{{ solicitudesFiltradas.length }}</span>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>RUT</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Casa</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="solicitudesFiltradas.length === 0">
+                            <td colspan="8" class="text-center text-muted py-5">
+                                <i class="bi bi-inbox fs-1 d-block mb-2"></i>
+                                No hay solicitudes
+                            </td>
+                        </tr>
+                        <tr *ngFor="let solicitud of solicitudesFiltradas">
+                            <td>{{ solicitud.fecha | date:'dd/MM/yyyy HH:mm' }}</td>
+                            <td>{{ solicitud.nombre }}</td>
+                            <td>{{ solicitud.rut }}</td>
+                            <td>{{ solicitud.email }}</td>
+                            <td>+56 {{ solicitud.telefono }}</td>
+                            <td><span class="badge bg-secondary">{{ solicitud.pasaje }}-{{ solicitud.casa }}</span></td>
+                            <td>
+                                <span class="badge" 
+                                      [ngClass]="{
+                                        'bg-warning': solicitud.estado === 'pendiente',
+                                        'bg-success': solicitud.estado === 'aprobada',
+                                        'bg-danger': solicitud.estado === 'rechazada'
+                                      }">
+                                    {{ solicitud.estado | uppercase }}
+                                </span>
+                            </td>
+                            <td class="text-nowrap">
+                                <button class="btn btn-sm btn-info" 
+                                        (click)="verDetalle(solicitud)"
+                                        title="Ver detalles">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                                <button *ngIf="solicitud.estado === 'pendiente'" 
+                                        class="btn btn-sm btn-success" 
+                                        (click)="aprobarSolicitud(solicitud)"
+                                        title="Aprobar">
+                                    <i class="bi bi-check-circle"></i>
+                                </button>
+                                <button *ngIf="solicitud.estado === 'pendiente'" 
+                                        class="btn btn-sm btn-danger" 
+                                        (click)="rechazarSolicitud(solicitud)"
+                                        title="Rechazar">
+                                    <i class="bi bi-x-circle"></i>
+                                </button>
+                                <button class="btn btn-sm btn-secondary" 
+                                        (click)="eliminarSolicitud(solicitud)"
+                                        title="Eliminar">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- MODAL VER DETALLE -->
+<div class="modal fade" [class.show]="mostrarModal" [style.display]="mostrarModal ? 'block' : 'none'" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" *ngIf="solicitudDetalle">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title">
+                    <i class="bi bi-eye"></i> Detalle de Solicitud
+                </h5>
+                <button type="button" class="btn-close btn-close-white" (click)="cerrarModal()"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <strong><i class="bi bi-person"></i> Nombre Completo:</strong><br>
+                        {{ solicitudDetalle.nombre }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong><i class="bi bi-card-text"></i> RUT:</strong><br>
+                        {{ solicitudDetalle.rut }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong><i class="bi bi-envelope"></i> Email:</strong><br>
+                        {{ solicitudDetalle.email }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong><i class="bi bi-phone"></i> Teléfono:</strong><br>
+                        +56 {{ solicitudDetalle.telefono }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong><i class="bi bi-geo-alt"></i> Pasaje:</strong><br>
+                        Pasaje {{ solicitudDetalle.pasaje }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong><i class="bi bi-house-door"></i> Casa:</strong><br>
+                        Casa {{ solicitudDetalle.casa }}
+                    </div>
+                    <div class="col-12 mb-3" *ngIf="solicitudDetalle.mensaje">
+                        <strong><i class="bi bi-chat-text"></i> Mensaje:</strong><br>
+                        {{ solicitudDetalle.mensaje }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong><i class="bi bi-calendar"></i> Fecha de Solicitud:</strong><br>
+                        {{ solicitudDetalle.fecha | date:'dd/MM/yyyy HH:mm' }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong><i class="bi bi-flag"></i> Estado:</strong><br>
+                        <span class="badge" 
+                              [ngClass]="{
+                                'bg-warning': solicitudDetalle.estado === 'pendiente',
+                                'bg-success': solicitudDetalle.estado === 'aprobada',
+                                'bg-danger': solicitudDetalle.estado === 'rechazada'
+                              }">
+                            {{ solicitudDetalle.estado | uppercase }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+                <button *ngIf="solicitudDetalle.estado === 'pendiente'" 
+                        type="button" 
+                        class="btn btn-success" 
+                        (click)="aprobarSolicitud(solicitudDetalle)">
+                    <i class="bi bi-check-circle"></i> Aprobar
+                </button>
+                <button *ngIf="solicitudDetalle.estado === 'pendiente'" 
+                        type="button" 
+                        class="btn btn-danger" 
+                        (click)="rechazarSolicitud(solicitudDetalle)">
+                    <i class="bi bi-x-circle"></i> Rechazar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BACKDROP MODAL -->
+<div class="modal-backdrop fade show" *ngIf="mostrarModal"></div>

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" 
+       [routerLink]="esAdmin ? '/admin/dashboard' : '/usuario/dashboard'"
+       style="cursor: pointer;">
+      <i class="bi bi-building"></i> Gastos Comunes
+      <span *ngIf="esAdmin" class="badge bg-light text-primary ms-2">Admin</span>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" *ngFor="let item of menuItems">
+          <a class="nav-link" 
+             [routerLink]="item.route" 
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: false}">
+            <i class="bi" [ngClass]="item.icon"></i> {{ item.label }}
+          </a>
+        </li>
+        
+        <!-- DROPDOWN -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" 
+             (click)="toggleDropdown($event)">
+            <i class="bi bi-person-circle"></i> {{ nombreUsuario }}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" 
+              [class.show]="dropdownAbierto">
+            <li>
+              <a class="dropdown-item" (click)="irAPerfil($event)">
+                <i class="bi bi-person"></i> Mi Perfil
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item" (click)="cerrarSesion($event)">
+                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

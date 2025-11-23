@@ -1,0 +1,368 @@
+<!-- NAVEGACIÓN SIMPLE -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" routerLink="/">
+            <i class="bi bi-building"></i> Gastos Comunes
+        </a>
+        
+        <div class="ms-auto">
+            <a class="btn btn-outline-light" routerLink="/login">
+                <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- CONTENIDO PRINCIPAL -->
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <div class="card shadow-lg border-0 fade-in">
+                <div class="card-header bg-primary text-white py-3">
+                    <h2 class="mb-0 text-center">
+                        <i class="bi bi-person-plus-fill"></i> Registro de Nuevo Usuario
+                    </h2>
+                </div>
+
+                <div class="card-body p-4 p-md-5">
+                    <!-- ALERTA INFORMATIVA -->
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle-fill"></i>
+                        <strong>Importante:</strong> Todos los campos marcados con (*) son obligatorios, excepto la dirección de despacho que es opcional.
+                    </div>
+
+                    <!-- FORMULARIO REACTIVO -->
+                    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+                        
+                        <!-- SECCIÓN: DATOS PERSONALES -->
+                        <div class="mb-4">
+                            <h4 class="border-bottom pb-2 mb-3">
+                                <i class="bi bi-person-circle text-primary"></i> Datos Personales
+                            </h4>
+
+                            <div class="row">
+                                <!-- NOMBRE COMPLETO -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="nombre" class="form-label fw-bold">
+                                        <i class="bi bi-person"></i> Nombre Completo *
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control"
+                                        [ngClass]="obtenerClaseCampo('nombre')"
+                                        id="nombre" 
+                                        formControlName="nombre"
+                                        placeholder="Ej: Juan Pérez López">
+                                    
+                                    <div *ngIf="tieneError('nombre')" class="invalid-feedback">
+                                        {{ obtenerMensajeError('nombre') }}
+                                    </div>
+                                    <div *ngIf="!tieneError('nombre') && f['nombre'].touched" class="valid-feedback">
+                                        ✓ Nombre válido
+                                    </div>
+                                </div>
+
+                                <!-- RUT -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="rut" class="form-label fw-bold">
+                                        <i class="bi bi-card-text"></i> RUT *
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control"
+                                        [ngClass]="obtenerClaseCampo('rut')"
+                                        id="rut" 
+                                        formControlName="rut"
+                                        (input)="formatearRUT($event)"
+                                        placeholder="12.345.678-9"
+                                        maxlength="12">
+                                    
+                                    <div *ngIf="tieneError('rut')" class="invalid-feedback">
+                                        {{ obtenerMensajeError('rut') }}
+                                    </div>
+                                    <div *ngIf="!tieneError('rut') && f['rut'].touched" class="valid-feedback">
+                                        ✓ RUT válido
+                                    </div>
+                                </div>
+
+                                <!-- EMAIL -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label fw-bold">
+                                        <i class="bi bi-envelope"></i> Correo Electrónico *
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        class="form-control"
+                                        [ngClass]="obtenerClaseCampo('email')"
+                                        id="email" 
+                                        formControlName="email"
+                                        placeholder="tu@email.com">
+                                    
+                                    <div *ngIf="tieneError('email')" class="invalid-feedback">
+                                        {{ obtenerMensajeError('email') }}
+                                    </div>
+                                    <div *ngIf="!tieneError('email') && f['email'].touched" class="valid-feedback">
+                                        ✓ Email válido
+                                    </div>
+                                </div>
+
+                                <!-- TELÉFONO -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="telefono" class="form-label fw-bold">
+                                        <i class="bi bi-phone"></i> Teléfono *
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">+56</span>
+                                        <input 
+                                            type="tel" 
+                                            class="form-control"
+                                            [ngClass]="obtenerClaseCampo('telefono')"
+                                            id="telefono" 
+                                            formControlName="telefono"
+                                            placeholder="912345678"
+                                            maxlength="9">
+                                        
+                                        <div *ngIf="tieneError('telefono')" class="invalid-feedback">
+                                            {{ obtenerMensajeError('telefono') }}
+                                        </div>
+                                        <div *ngIf="!tieneError('telefono') && f['telefono'].touched" class="valid-feedback">
+                                            ✓ Teléfono válido
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">Debe comenzar con 9 y tener 9 dígitos</small>
+                                </div>
+
+                                <!-- FECHA DE NACIMIENTO -->
+                                <div class="col-md-12 mb-3">
+                                    <label for="fechaNacimiento" class="form-label fw-bold">
+                                        <i class="bi bi-calendar-event"></i> Fecha de Nacimiento *
+                                    </label>
+                                    <input 
+                                        type="date" 
+                                        class="form-control"
+                                        [ngClass]="obtenerClaseCampo('fechaNacimiento')"
+                                        id="fechaNacimiento" 
+                                        formControlName="fechaNacimiento"
+                                        [max]="'2012-12-31'">
+                                    
+                                    <div *ngIf="tieneError('fechaNacimiento')" class="invalid-feedback">
+                                        {{ obtenerMensajeError('fechaNacimiento') }}
+                                    </div>
+                                    <div *ngIf="!tieneError('fechaNacimiento') && f['fechaNacimiento'].touched" class="valid-feedback">
+                                        ✓ Edad válida
+                                    </div>
+                                    <small class="text-muted">Debes tener al menos 13 años para registrarte</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN: UBICACIÓN -->
+                        <div class="mb-4">
+                            <h4 class="border-bottom pb-2 mb-3">
+                                <i class="bi bi-geo-alt text-primary"></i> Ubicación
+                            </h4>
+
+                            <div class="row">
+                                <!-- PASAJE -->
+                                <div class="col-md-4 mb-3">
+                                    <label for="pasaje" class="form-label fw-bold">
+                                        <i class="bi bi-signpost"></i> Pasaje *
+                                    </label>
+                                    <select 
+                                        class="form-select"
+                                        [ngClass]="obtenerClaseCampo('pasaje')"
+                                        id="pasaje" 
+                                        formControlName="pasaje">
+                                        <option value="">Seleccione su pasaje...</option>
+                                        <option value="8651">Pasaje 8651</option>
+                                        <option value="8707">Pasaje 8707</option>
+                                    </select>
+                                    
+                                    <div *ngIf="tieneError('pasaje')" class="invalid-feedback">
+                                        {{ obtenerMensajeError('pasaje') }}
+                                    </div>
+                                </div>
+
+                                <!-- CASA -->
+                                <div class="col-md-4 mb-3">
+                                    <label for="casa" class="form-label fw-bold">
+                                        <i class="bi bi-house-door"></i> Casa *
+                                    </label>
+                                    <select 
+                                        class="form-select"
+                                        [ngClass]="obtenerClaseCampo('casa')"
+                                        id="casa" 
+                                        formControlName="casa"
+                                        [disabled]="!f['pasaje'].value">
+                                        <option value="">{{ f['pasaje'].value ? 'Seleccione su casa...' : 'Primero seleccione pasaje' }}</option>
+                                        <option *ngFor="let casa of casasDisponibles" [value]="casa">
+                                            Casa {{ casa }}
+                                        </option>
+                                    </select>
+                                    
+                                    <div *ngIf="tieneError('casa')" class="invalid-feedback">
+                                        {{ obtenerMensajeError('casa') }}
+                                    </div>
+                                </div>
+
+                                <!-- DIRECCIÓN DE DESPACHO (OPCIONAL) -->
+                                <div class="col-md-12 mb-3">
+                                    <label for="direccionDespacho" class="form-label fw-bold">
+                                        <i class="bi bi-mailbox"></i> Dirección de Despacho 
+                                        <span class="badge bg-secondary">Opcional</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control"
+                                        id="direccionDespacho" 
+                                        formControlName="direccionDespacho"
+                                        placeholder="Ej: Pasaje 8651, Casa A">
+                                    <small class="text-muted">Este campo es opcional. Puedes dejarlo vacío.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN: CONTRASEÑAS -->
+                        <div class="mb-4">
+                            <h4 class="border-bottom pb-2 mb-3">
+                                <i class="bi bi-shield-lock text-primary"></i> Seguridad
+                            </h4>
+
+                            <div class="row">
+                                <!-- CONTRASEÑA -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="password" class="form-label fw-bold">
+                                        <i class="bi bi-lock"></i> Contraseña *
+                                    </label>
+                                    <div class="input-group">
+                                        <input 
+                                            [type]="mostrarPassword ? 'text' : 'password'"
+                                            class="form-control"
+                                            [ngClass]="obtenerClaseCampo('password')"
+                                            id="password" 
+                                            formControlName="password"
+                                            placeholder="••••••••">
+                                        <button 
+                                            class="btn btn-outline-secondary" 
+                                            type="button" 
+                                            (click)="togglePassword()">
+                                            <i class="bi" [ngClass]="mostrarPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                                        </button>
+                                    </div>
+                                    
+                                    <div *ngIf="tieneError('password')" class="invalid-feedback d-block">
+                                        {{ obtenerMensajeError('password') }}
+                                    </div>
+                                    <div *ngIf="!tieneError('password') && f['password'].touched" class="valid-feedback d-block">
+                                        ✓ Contraseña válida
+                                    </div>
+                                    <small class="text-muted">6-18 caracteres, al menos una mayúscula y un número</small>
+                                </div>
+
+                                <!-- CONFIRMAR CONTRASEÑA -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="confirmPassword" class="form-label fw-bold">
+                                        <i class="bi bi-lock-fill"></i> Confirmar Contraseña *
+                                    </label>
+                                    <div class="input-group">
+                                        <input 
+                                            [type]="mostrarConfirmPassword ? 'text' : 'password'"
+                                            class="form-control"
+                                            [ngClass]="obtenerClaseCampo('confirmPassword')"
+                                            id="confirmPassword" 
+                                            formControlName="confirmPassword"
+                                            placeholder="••••••••">
+                                        <button 
+                                            class="btn btn-outline-secondary" 
+                                            type="button" 
+                                            (click)="toggleConfirmPassword()">
+                                            <i class="bi" [ngClass]="mostrarConfirmPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                                        </button>
+                                    </div>
+                                    
+                                    <div *ngIf="tieneError('confirmPassword')" class="invalid-feedback d-block">
+                                        {{ obtenerMensajeError('confirmPassword') }}
+                                    </div>
+                                    <div *ngIf="!tieneError('confirmPassword') && f['confirmPassword'].touched && f['password'].value" class="valid-feedback d-block">
+                                        ✓ Las contraseñas coinciden
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- REQUISITOS DE CONTRASEÑA -->
+                            <div class="alert alert-light border">
+                                <strong>Requisitos de contraseña:</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li [class.text-success]="f['password'].value?.length >= 6 && f['password'].value?.length <= 18"
+                                        [class.text-muted]="!f['password'].value || f['password'].value?.length < 6 || f['password'].value?.length > 18">
+                                        <i class="bi" [ngClass]="f['password'].value?.length >= 6 && f['password'].value?.length <= 18 ? 'bi-check-circle-fill' : 'bi-circle'"></i>
+                                        Entre 6 y 18 caracteres
+                                    </li>
+                                    <li [class.text-success]="tienePasswordMayuscula()"
+                                        [class.text-muted]="!tienePasswordMayuscula()">
+                                        <i class="bi" [ngClass]="tienePasswordMayuscula() ? 'bi-check-circle-fill' : 'bi-circle'"></i>
+                                        Al menos una letra mayúscula
+                                    </li>
+                                    <li [class.text-success]="tienePasswordNumero()"
+                                        [class.text-muted]="!tienePasswordNumero()">
+                                        <i class="bi" [ngClass]="tienePasswordNumero() ? 'bi-check-circle-fill' : 'bi-circle'"></i>
+                                        Al menos un número
+                                    </li>
+                                    <li [class.text-success]="!tieneError('confirmPassword') && f['confirmPassword'].value"
+                                        [class.text-muted]="tieneError('confirmPassword') || !f['confirmPassword'].value">
+                                        <i class="bi" [ngClass]="!tieneError('confirmPassword') && f['confirmPassword'].value ? 'bi-check-circle-fill' : 'bi-circle'"></i>
+                                        Las contraseñas deben coincidir
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- BOTONES -->
+                        <div class="row mt-4">
+                            <div class="col-md-6 mb-2">
+                                <button 
+                                    type="submit" 
+                                    class="btn btn-primary btn-lg w-100"
+                                    [disabled]="formularioEnviado && registroForm.invalid">
+                                    <i class="bi bi-check-circle"></i> Enviar Registro
+                                </button>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <button 
+                                    type="button" 
+                                    class="btn btn-outline-secondary btn-lg w-100"
+                                    (click)="limpiarFormulario()">
+                                    <i class="bi bi-x-circle"></i> Limpiar Formulario
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ESTADO DEL FORMULARIO -->
+                        <div class="mt-4" *ngIf="formularioEnviado">
+                            <div class="alert" [ngClass]="registroForm.valid ? 'alert-success' : 'alert-danger'">
+                                <strong>Estado del formulario:</strong> 
+                                {{ registroForm.valid ? '✅ Válido - Listo para enviar' : '❌ Inválido - Revisa los errores' }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card-footer text-center bg-light">
+                    <p class="mb-0">
+                        ¿Ya tienes una cuenta? 
+                        <a routerLink="/login" class="text-decoration-none fw-bold">Inicia sesión aquí</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+        <p class="mb-0">
+            <i class="bi bi-c-circle"></i> 2025 Gastos Comunes. Todos los derechos reservados.
+        </p>
+    </div>
+</footer>

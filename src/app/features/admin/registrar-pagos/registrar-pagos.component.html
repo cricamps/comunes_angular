@@ -1,0 +1,221 @@
+<app-navbar></app-navbar>
+
+<main class="container my-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="fw-bold mb-0"><i class="bi bi-credit-card"></i> Registrar Pagos</h1>
+            <p class="text-muted mb-0">Registra los pagos realizados por los residentes</p>
+        </div>
+    </div>
+
+    <!-- FORMULARIO REGISTRO DE PAGO -->
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-plus-circle"></i> Nuevo Pago</h5>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="registrarPago()" #formPago="ngForm">
+                        <div class="row">
+                            <!-- RESIDENTE -->
+                            <div class="col-md-6 mb-3">
+                                <label for="residente" class="form-label fw-bold">
+                                    <i class="bi bi-person"></i> Residente *
+                                </label>
+                                <select class="form-select form-select-lg" 
+                                        [(ngModel)]="pagoForm.residenteEmail"
+                                        name="residente"
+                                        (ngModelChange)="onResidenteChange()"
+                                        required>
+                                    <option value="">Seleccione un residente...</option>
+                                    <option *ngFor="let residente of residentes" [value]="residente.email">
+                                        {{ residente.nombre }} - {{ residente.pasaje }}-{{ residente.casa }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <!-- MES -->
+                            <div class="col-md-6 mb-3">
+                                <label for="mes" class="form-label fw-bold">
+                                    <i class="bi bi-calendar"></i> Mes de Pago *
+                                </label>
+                                <input type="month" 
+                                       class="form-control form-control-lg" 
+                                       [(ngModel)]="pagoForm.mes"
+                                       name="mes"
+                                       required>
+                            </div>
+
+                            <!-- MONTO -->
+                            <div class="col-md-6 mb-3">
+                                <label for="monto" class="form-label fw-bold">
+                                    <i class="bi bi-cash"></i> Monto *
+                                </label>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" 
+                                           class="form-control" 
+                                           [(ngModel)]="pagoForm.monto"
+                                           name="monto"
+                                           placeholder="0" 
+                                           min="0" 
+                                           required>
+                                </div>
+                                <small class="text-muted">Monto sugerido por casa: <strong>{{ montoSugerido | currency:'CLP':'symbol-narrow':'1.0-0' }}</strong></small>
+                            </div>
+
+                            <!-- FECHA DE PAGO -->
+                            <div class="col-md-6 mb-3">
+                                <label for="fechaPago" class="form-label fw-bold">
+                                    <i class="bi bi-calendar-check"></i> Fecha de Pago *
+                                </label>
+                                <input type="datetime-local" 
+                                       class="form-control form-control-lg" 
+                                       [(ngModel)]="pagoForm.fechaPago"
+                                       name="fechaPago"
+                                       required>
+                            </div>
+
+                            <!-- MÉTODO DE PAGO -->
+                            <div class="col-md-6 mb-3">
+                                <label for="metodoPago" class="form-label fw-bold">
+                                    <i class="bi bi-wallet2"></i> Método de Pago *
+                                </label>
+                                <select class="form-select form-select-lg" 
+                                        [(ngModel)]="pagoForm.metodoPago"
+                                        name="metodoPago"
+                                        required>
+                                    <option value="">Seleccione método...</option>
+                                    <option value="efectivo">Efectivo</option>
+                                    <option value="transferencia">Transferencia</option>
+                                    <option value="deposito">Depósito</option>
+                                    <option value="cheque">Cheque</option>
+                                </select>
+                            </div>
+
+                            <!-- COMPROBANTE -->
+                            <div class="col-md-6 mb-3">
+                                <label for="comprobante" class="form-label fw-bold">
+                                    <i class="bi bi-file-text"></i> N° Comprobante
+                                </label>
+                                <input type="text" 
+                                       class="form-control form-control-lg" 
+                                       [(ngModel)]="pagoForm.comprobante"
+                                       name="comprobante"
+                                       placeholder="Ej: TRF-20251105-001">
+                                <small class="text-muted">Opcional</small>
+                            </div>
+
+                            <!-- OBSERVACIONES -->
+                            <div class="col-12 mb-3">
+                                <label for="observaciones" class="form-label fw-bold">
+                                    <i class="bi bi-chat-text"></i> Observaciones
+                                </label>
+                                <textarea class="form-control" 
+                                          [(ngModel)]="pagoForm.observaciones"
+                                          name="observaciones"
+                                          rows="3" 
+                                          placeholder="Comentarios adicionales..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="button" class="btn btn-secondary btn-lg" (click)="limpiarFormulario()">
+                                <i class="bi bi-x-circle"></i> Limpiar
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-lg" [disabled]="!formPago.valid">
+                                <i class="bi bi-check-circle"></i> Registrar Pago
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESUMEN -->
+        <div class="col-12 col-lg-4">
+            <div class="card shadow-sm border-primary mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h6 class="mb-0"><i class="bi bi-info-circle"></i> Información</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <small class="text-muted">Total Gastos del Mes</small>
+                        <h3 class="text-primary mb-0">{{ totalGastosMes | currency:'CLP':'symbol-narrow':'1.0-0' }}</h3>
+                    </div>
+                    <div class="mb-3">
+                        <small class="text-muted">Monto por Casa (÷13)</small>
+                        <h4 class="text-primary mb-0">{{ montoPorCasa | currency:'CLP':'symbol-narrow':'1.0-0' }}</h4>
+                    </div>
+                    <hr>
+                    <div class="mb-2">
+                        <small class="text-muted">Total Pagado</small>
+                        <h5 class="text-success mb-0">{{ totalPagado | currency:'CLP':'symbol-narrow':'1.0-0' }}</h5>
+                    </div>
+                    <div>
+                        <small class="text-muted">Pendiente por Cobrar</small>
+                        <h5 class="text-danger mb-0">{{ pendientePorCobrar | currency:'CLP':'symbol-narrow':'1.0-0' }}</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <i class="bi bi-lightbulb"></i> <strong>Consejos:</strong>
+                <ul class="mb-0 mt-2 small">
+                    <li>Verifica el método de pago antes de registrar</li>
+                    <li>Guarda el comprobante físico o digital</li>
+                    <li>Puedes registrar pagos de meses anteriores</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTA DE PAGOS RECIENTES -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0"><i class="bi bi-clock-history"></i> Últimos Pagos Registrados</h5>
+            <span class="badge bg-light text-dark">{{ pagos.length }}</span>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Residente</th>
+                            <th>Casa</th>
+                            <th>Mes</th>
+                            <th>Monto</th>
+                            <th>Método</th>
+                            <th>Fecha Pago</th>
+                            <th>Registrado Por</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="pagos.length === 0">
+                            <td colspan="8" class="text-center text-muted py-4">
+                                <i class="bi bi-inbox fs-1 d-block mb-2"></i>
+                                No hay pagos registrados
+                            </td>
+                        </tr>
+                        <tr *ngFor="let pago of pagos">
+                            <td>{{ pago.residenteNombre }}</td>
+                            <td><span class="badge bg-secondary">{{ pago.casa }}</span></td>
+                            <td>{{ pago.mes }}</td>
+                            <td class="fw-bold">{{ pago.monto | currency:'CLP':'symbol-narrow':'1.0-0' }}</td>
+                            <td><span class="badge bg-info">{{ pago.metodoPago }}</span></td>
+                            <td>{{ pago.fechaPago | date:'dd/MM/yyyy HH:mm' }}</td>
+                            <td>{{ pago.registradoPor }}</td>
+                            <td>
+                                <button class="btn btn-sm btn-danger" (click)="eliminarPago(pago.id)">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

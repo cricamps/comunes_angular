@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+
+<main class="container-fluid my-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="fw-bold mb-0">Mis Gastos Comunes</h1>
+            <p class="text-muted mb-0">Detalle de los gastos de la comunidad</p>
+        </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-receipt fs-1 text-primary mb-2"></i>
+                    <h6 class="text-muted">Total Gastos del Mes</h6>
+                    <h2 class="fw-bold text-primary">{{ totalGastos | currency:'CLP':'symbol-narrow':'1.0-0' }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-calculator fs-1 text-success mb-2"></i>
+                    <h6 class="text-muted">Mi Parte (÷13 casas)</h6>
+                    <h2 class="fw-bold text-success">{{ miParte | currency:'CLP':'symbol-narrow':'1.0-0' }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-list-check fs-1 text-info mb-2"></i>
+                    <h6 class="text-muted">Gastos Activos</h6>
+                    <h2 class="fw-bold text-info">{{ gastos.length }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla de gastos -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-white">
+            <h5 class="mb-0"><i class="bi bi-list-ul"></i> Detalle de Gastos</h5>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Categoría</th>
+                            <th>Monto Total</th>
+                            <th>Mi Parte</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="gastos.length === 0">
+                            <td colspan="6" class="text-center text-muted py-5">
+                                <i class="bi bi-inbox fs-3"></i>
+                                <p class="mt-3 mb-0">No hay gastos activos</p>
+                            </td>
+                        </tr>
+                        <tr *ngFor="let gasto of gastos">
+                            <td>
+                                <strong>{{ gasto.concepto }}</strong>
+                                <br><small class="text-muted" *ngIf="gasto.descripcion">{{ gasto.descripcion }}</small>
+                            </td>
+                            <td><span class="badge bg-info">{{ gasto.categoria }}</span></td>
+                            <td class="text-success fw-bold">{{ gasto.monto | currency:'CLP':'symbol-narrow':'1.0-0' }}</td>
+                            <td class="fw-bold">{{ gasto.monto / 13 | currency:'CLP':'symbol-narrow':'1.0-0' }}</td>
+                            <td>{{ gasto.fecha | date:'dd/MM/yyyy' }}</td>
+                            <td><span class="badge" [ngClass]="obtenerClaseEstado(gasto.estado)">{{ gasto.estado }}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

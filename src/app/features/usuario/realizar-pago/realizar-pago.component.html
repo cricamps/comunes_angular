@@ -1,0 +1,162 @@
+<app-navbar></app-navbar>
+
+<main class="container my-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="fw-bold mb-0">Realizar Pago</h1>
+            <p class="text-muted mb-0">Paga tus gastos comunes de forma segura</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <!-- RESUMEN DEL PAGO -->
+            <div class="card shadow-lg mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-receipt"></i> Resumen del Pago</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <p class="text-muted mb-1">Residente:</p>
+                            <strong>{{ usuario.nombre }}</strong>
+                        </div>
+                        <div class="col-6 text-end">
+                            <p class="text-muted mb-1">Vivienda:</p>
+                            <strong>Pasaje {{ usuario.pasaje }}, Casa {{ usuario.casa }}</strong>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <p class="text-muted mb-1">Período:</p>
+                            <strong>{{ periodoActual }}</strong>
+                        </div>
+                        <div class="col-6 text-end">
+                            <p class="text-muted mb-1">Fecha:</p>
+                            <strong>{{ fechaActual | date:'dd/MM/yyyy' }}</strong>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>Total a Pagar:</h5>
+                        </div>
+                        <div class="col-6 text-end">
+                            <h2 class="text-success fw-bold mb-0">{{ montoPagar | currency:'CLP':'symbol-narrow':'1.0-0' }}</h2>
+                        </div>
+                    </div>
+
+                    <!-- ESTADO DE PAGO -->
+                    <div class="mt-4" *ngIf="yaPago">
+                        <div class="alert alert-success">
+                            <i class="bi bi-check-circle-fill"></i> 
+                            <strong>¡Ya realizaste el pago de este mes!</strong><br>
+                            <small>Fecha de pago: {{ fechaUltimoPago | date:'dd/MM/yyyy HH:mm' }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMULARIO DE PAGO -->
+            <div class="card shadow-lg" *ngIf="!yaPago">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-credit-card"></i> Datos de Pago</h5>
+                </div>
+                <div class="card-body p-4">
+                    <form (ngSubmit)="realizarPago()" #formPago="ngForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">
+                                <i class="bi bi-cash-coin"></i> Método de Pago *
+                            </label>
+                            <select class="form-select form-select-lg" 
+                                    [(ngModel)]="pago.metodoPago"
+                                    name="metodoPago"
+                                    (change)="onMetodoChange()"
+                                    required>
+                                <option value="">Seleccionar método...</option>
+                                <option value="transferencia">Transferencia Bancaria</option>
+                                <option value="debito">Tarjeta de Débito</option>
+                                <option value="credito">Tarjeta de Crédito</option>
+                                <option value="efectivo">Efectivo</option>
+                            </select>
+                        </div>
+
+                        <!-- INFORMACIÓN BANCARIA (para transferencia) -->
+                        <div *ngIf="mostrarInfoBancaria" class="alert alert-info">
+                            <h6 class="fw-bold"><i class="bi bi-bank"></i> Datos para Transferencia</h6>
+                            <p class="mb-1"><strong>Banco:</strong> Banco Estado</p>
+                            <p class="mb-1"><strong>Cuenta Corriente:</strong> 123456789</p>
+                            <p class="mb-1"><strong>RUT:</strong> 76.123.456-7</p>
+                            <p class="mb-0"><strong>Nombre:</strong> Comunidad Pasajes 8651 y 8707</p>
+                        </div>
+
+                        <!-- NÚMERO DE REFERENCIA -->
+                        <div class="mb-3">
+                            <label for="numeroReferencia" class="form-label fw-bold">
+                                <i class="bi bi-hash"></i> Número de Referencia
+                            </label>
+                            <input type="text" 
+                                   class="form-control form-control-lg" 
+                                   [(ngModel)]="pago.numeroReferencia"
+                                   name="numeroReferencia"
+                                   placeholder="Ej: 123456789">
+                            <small class="text-muted">Número de transferencia o comprobante</small>
+                        </div>
+
+                        <!-- CONFIRMACIÓN -->
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" 
+                                       type="checkbox" 
+                                       [(ngModel)]="pago.confirmacion"
+                                       name="confirmacion"
+                                       id="confirmar" 
+                                       required>
+                                <label class="form-check-label" for="confirmar">
+                                    Confirmo que he realizado el pago por el monto indicado
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- BOTONES -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" 
+                                    class="btn btn-success btn-lg"
+                                    [disabled]="!formPago.valid">
+                                <i class="bi bi-check-circle"></i> Confirmar Pago
+                            </button>
+                            <button type="button" 
+                                    class="btn btn-outline-secondary"
+                                    (click)="cancelar()">
+                                <i class="bi bi-x-circle"></i> Cancelar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-12 col-lg-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white">
+                    <h6 class="mb-0"><i class="bi bi-info-circle"></i> Información</h6>
+                </div>
+                <div class="card-body">
+                    <p class="small"><i class="bi bi-shield-check text-success"></i> Pago seguro y protegido</p>
+                    <p class="small"><i class="bi bi-clock text-info"></i> Procesamiento inmediato</p>
+                    <p class="small mb-0"><i class="bi bi-envelope text-primary"></i> Recibirás confirmación por email</p>
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0 bg-light">
+                <div class="card-body text-center">
+                    <i class="bi bi-question-circle fs-2 text-success mb-2"></i>
+                    <p class="mb-0"><strong>¿Problemas con el pago?</strong></p>
+                    <small class="text-muted">Contacta al administrador</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
