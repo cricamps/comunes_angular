@@ -1,31 +1,31 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { AuthService } from '../../../core/services/auth.service';
 
-describe('LoginComponent', () => {
+describe('LoginComponent - Semana 5', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let authService: jasmine.SpyObj<AuthService>;
-  let router: jasmine.SpyObj<Router>;
 
   beforeEach(async () => {
     const authServiceSpy = jasmine.createSpyObj('AuthService', ['login', 'isAdmin']);
-    const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
     await TestBed.configureTestingModule({
-      imports: [LoginComponent, ReactiveFormsModule],
+      imports: [
+        LoginComponent,
+        ReactiveFormsModule
+      ],
       providers: [
-        { provide: AuthService, useValue: authServiceSpy },
-        { provide: Router, useValue: routerSpy }
+        provideRouter([]), // Proveedor de router vacío para tests
+        { provide: AuthService, useValue: authServiceSpy }
       ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     authService = TestBed.inject(AuthService) as jasmine.SpyObj<AuthService>;
-    router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
     
     fixture.detectChanges();
   });
@@ -35,11 +35,11 @@ describe('LoginComponent', () => {
   });
 
   // ============================================
-  // PRUEBAS UNITARIAS - VALIDACIONES
+  // PRUEBAS UNITARIAS - VALIDACIONES DE LOGIN
   // ============================================
 
   describe('Validaciones de Login', () => {
-    it('debe validar email inválido', () => {
+    it('1. debe validar email inválido', () => {
       const emailControl = component.loginForm.get('email');
       
       emailControl?.setValue('correo-invalido');
@@ -48,7 +48,7 @@ describe('LoginComponent', () => {
       expect(emailControl?.valid).toBeFalse();
     });
 
-    it('debe aceptar email válido', () => {
+    it('2. debe aceptar email válido', () => {
       const emailControl = component.loginForm.get('email');
       
       emailControl?.setValue('test@test.com');
@@ -57,7 +57,7 @@ describe('LoginComponent', () => {
       expect(emailControl?.valid).toBeTrue();
     });
 
-    it('debe validar contraseña con longitud mínima', () => {
+    it('3. debe validar contraseña con longitud mínima', () => {
       const passwordControl = component.loginForm.get('password');
       
       passwordControl?.setValue('12345'); // 5 caracteres (menos de 6)
@@ -66,7 +66,7 @@ describe('LoginComponent', () => {
       expect(passwordControl?.valid).toBeFalse();
     });
 
-    it('debe validar contraseña con longitud máxima', () => {
+    it('4. debe validar contraseña con longitud máxima', () => {
       const passwordControl = component.loginForm.get('password');
       
       passwordControl?.setValue('1234567890123456789'); // 19 caracteres (más de 18)
@@ -75,7 +75,7 @@ describe('LoginComponent', () => {
       expect(passwordControl?.valid).toBeFalse();
     });
 
-    it('debe aceptar contraseña con longitud válida', () => {
+    it('5. debe aceptar contraseña con longitud válida', () => {
       const passwordControl = component.loginForm.get('password');
       
       passwordControl?.setValue('Pass123'); // 7 caracteres (6-18)
@@ -85,7 +85,7 @@ describe('LoginComponent', () => {
       expect(passwordControl?.valid).toBeTrue();
     });
 
-    it('debe validar formulario completo válido', () => {
+    it('6. debe validar formulario completo válido', () => {
       component.loginForm.patchValue({
         email: 'test@test.com',
         password: 'Pass123',
@@ -95,7 +95,7 @@ describe('LoginComponent', () => {
       expect(component.loginForm.valid).toBeTrue();
     });
 
-    it('debe invalidar formulario con campos vacíos', () => {
+    it('7. debe invalidar formulario con campos vacíos', () => {
       component.loginForm.patchValue({
         email: '',
         password: '',
@@ -106,8 +106,12 @@ describe('LoginComponent', () => {
     });
   });
 
+  // ============================================
+  // PRUEBAS UNITARIAS - VALIDACIONES DE SOLICITUD
+  // ============================================
+
   describe('Validaciones de Solicitud', () => {
-    it('debe validar email inválido en solicitud', () => {
+    it('8. debe validar email inválido en solicitud', () => {
       const emailControl = component.solicitudForm.get('email');
       
       emailControl?.setValue('correo-sin-arroba');
@@ -116,7 +120,7 @@ describe('LoginComponent', () => {
       expect(emailControl?.valid).toBeFalse();
     });
 
-    it('debe validar teléfono con formato inválido', () => {
+    it('9. debe validar teléfono con formato inválido', () => {
       const telefonoControl = component.solicitudForm.get('telefono');
       
       telefonoControl?.setValue('12345'); // menos de 9 dígitos
@@ -125,7 +129,7 @@ describe('LoginComponent', () => {
       expect(telefonoControl?.valid).toBeFalse();
     });
 
-    it('debe aceptar teléfono con 9 dígitos', () => {
+    it('10. debe aceptar teléfono con 9 dígitos', () => {
       const telefonoControl = component.solicitudForm.get('telefono');
       
       telefonoControl?.setValue('912345678');
@@ -134,20 +138,19 @@ describe('LoginComponent', () => {
       expect(telefonoControl?.valid).toBeTrue();
     });
 
-    it('debe validar contraseñas diferentes', () => {
+    it('11. debe validar contraseñas diferentes', () => {
       component.solicitudForm.patchValue({
         password: 'Pass123',
         confirmPassword: 'Pass456'
       });
       
-      // Ejecutar validator del formulario
       component.solicitudForm.updateValueAndValidity();
       
       const confirmPasswordControl = component.solicitudForm.get('confirmPassword');
       expect(confirmPasswordControl?.errors?.['passwordsNoCoinciden']).toBeTruthy();
     });
 
-    it('debe validar contraseñas iguales', () => {
+    it('12. debe validar contraseñas iguales', () => {
       component.solicitudForm.patchValue({
         password: 'Pass123',
         confirmPassword: 'Pass123'
@@ -159,7 +162,7 @@ describe('LoginComponent', () => {
       expect(confirmPasswordControl?.errors?.['passwordsNoCoinciden']).toBeFalsy();
     });
 
-    it('debe validar contraseña sin número', () => {
+    it('13. debe validar contraseña sin número', () => {
       const passwordControl = component.solicitudForm.get('password');
       
       passwordControl?.setValue('Password'); // solo letras
@@ -168,7 +171,7 @@ describe('LoginComponent', () => {
       expect(passwordControl?.errors?.['passwordDebil'].tieneNumero).toBeFalse();
     });
 
-    it('debe validar contraseña sin mayúscula', () => {
+    it('14. debe validar contraseña sin mayúscula', () => {
       const passwordControl = component.solicitudForm.get('password');
       
       passwordControl?.setValue('pass123'); // sin mayúscula
@@ -177,7 +180,7 @@ describe('LoginComponent', () => {
       expect(passwordControl?.errors?.['passwordDebil'].tieneMayuscula).toBeFalse();
     });
 
-    it('debe aceptar contraseña fuerte', () => {
+    it('15. debe aceptar contraseña fuerte', () => {
       const passwordControl = component.solicitudForm.get('password');
       
       passwordControl?.setValue('Pass123'); // con mayúscula y número
@@ -186,7 +189,7 @@ describe('LoginComponent', () => {
       expect(passwordControl?.valid).toBeTrue();
     });
 
-    it('debe validar edad menor a 13 años', () => {
+    it('16. debe validar edad menor a 13 años', () => {
       const fechaNacimientoControl = component.solicitudForm.get('fechaNacimiento');
       
       // Fecha que da 10 años
@@ -199,7 +202,7 @@ describe('LoginComponent', () => {
       expect(fechaNacimientoControl?.valid).toBeFalse();
     });
 
-    it('debe aceptar edad de 13 años o más', () => {
+    it('17. debe aceptar edad de 13 años o más', () => {
       const fechaNacimientoControl = component.solicitudForm.get('fechaNacimiento');
       
       // Fecha que da 15 años
@@ -212,7 +215,7 @@ describe('LoginComponent', () => {
       expect(fechaNacimientoControl?.valid).toBeTrue();
     });
 
-    it('debe validar campo dirección como opcional', () => {
+    it('18. debe validar campo dirección como opcional', () => {
       const direccionControl = component.solicitudForm.get('direccion');
       
       // Campo vacío debe ser válido
@@ -222,7 +225,7 @@ describe('LoginComponent', () => {
       expect(direccionControl?.valid).toBeTrue();
     });
 
-    it('debe validar campo mensaje como opcional', () => {
+    it('19. debe validar campo mensaje como opcional', () => {
       const mensajeControl = component.solicitudForm.get('mensaje');
       
       // Campo vacío debe ser válido
@@ -232,7 +235,7 @@ describe('LoginComponent', () => {
       expect(mensajeControl?.valid).toBeTrue();
     });
 
-    it('debe validar formulario de solicitud completo válido', () => {
+    it('20. debe validar formulario de solicitud completo válido', () => {
       const fechaNacimiento = new Date();
       fechaNacimiento.setFullYear(fechaNacimiento.getFullYear() - 20);
       
@@ -253,7 +256,7 @@ describe('LoginComponent', () => {
       expect(component.solicitudForm.valid).toBeTrue();
     });
 
-    it('debe invalidar formulario de solicitud con campos requeridos vacíos', () => {
+    it('21. debe invalidar formulario de solicitud con campos requeridos vacíos', () => {
       component.solicitudForm.patchValue({
         nombre: '',
         rut: '',
@@ -270,8 +273,12 @@ describe('LoginComponent', () => {
     });
   });
 
+  // ============================================
+  // PRUEBAS UNITARIAS - MÉTODOS DEL COMPONENTE
+  // ============================================
+
   describe('Métodos del componente', () => {
-    it('debe limpiar formulario de login', () => {
+    it('22. debe limpiar formulario de login', () => {
       component.loginForm.patchValue({
         email: 'test@test.com',
         password: 'Pass123'
@@ -283,7 +290,7 @@ describe('LoginComponent', () => {
       expect(component.loginForm.get('password')?.value).toBeNull();
     });
 
-    it('debe limpiar formulario de solicitud', () => {
+    it('23. debe limpiar formulario de solicitud', () => {
       component.solicitudForm.patchValue({
         nombre: 'Juan',
         email: 'juan@test.com'
@@ -295,7 +302,7 @@ describe('LoginComponent', () => {
       expect(component.solicitudForm.get('email')?.value).toBeNull();
     });
 
-    it('debe alternar visibilidad de contraseña', () => {
+    it('24. debe alternar visibilidad de contraseña', () => {
       expect(component.mostrarPassword).toBeFalse();
       
       component.togglePassword();
@@ -305,18 +312,49 @@ describe('LoginComponent', () => {
       expect(component.mostrarPassword).toBeFalse();
     });
 
-    it('debe cargar casas disponibles al cambiar pasaje', () => {
+    it('25. debe cargar casas disponibles al cambiar pasaje 8651', () => {
       component.onPasajeChange('8651');
       
       expect(component.casasDisponibles.length).toBe(6);
       expect(component.casasDisponibles).toEqual(['A', 'B', 'C', 'D', 'E', 'F']);
     });
 
-    it('debe cargar diferentes casas para pasaje 8707', () => {
+    it('26. debe cargar casas disponibles al cambiar pasaje 8707', () => {
       component.onPasajeChange('8707');
       
       expect(component.casasDisponibles.length).toBe(7);
       expect(component.casasDisponibles).toEqual(['A', 'B', 'C', 'D', 'E', 'F', 'G']);
+    });
+
+    it('27. debe resetear casa al cambiar pasaje', () => {
+      component.solicitudForm.patchValue({
+        pasaje: '8651',
+        casa: 'A'
+      });
+      
+      component.onPasajeChange('8707');
+      
+      expect(component.solicitudForm.get('casa')?.value).toBe('');
+    });
+
+    it('28. debe verificar si un campo tiene error', () => {
+      const emailControl = component.loginForm.get('email');
+      emailControl?.setValue('');
+      emailControl?.markAsTouched();
+      
+      const tieneError = component.tieneError('login', 'email');
+      
+      expect(tieneError).toBeTrue();
+    });
+
+    it('29. debe obtener mensaje de error apropiado', () => {
+      const emailControl = component.loginForm.get('email');
+      emailControl?.setValue('correo-invalido');
+      emailControl?.markAsTouched();
+      
+      const mensaje = component.obtenerMensajeError('login', 'email');
+      
+      expect(mensaje).toBe('Ingrese un email válido');
     });
   });
 });
