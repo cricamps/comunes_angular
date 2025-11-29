@@ -1,0 +1,2152 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>comunes-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">comunes-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  GestionarGastosComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-gestionar-gastos</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>FormsModule</code>
+                                <code><a href="../components/NavbarComponent.html" target="_self" >NavbarComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./gestionar-gastos.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./gestionar-gastos.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#buscar" >buscar</a>
+                            </li>
+                            <li>
+                                <a href="#categoriaFiltro" >categoriaFiltro</a>
+                            </li>
+                            <li>
+                                <a href="#categorias" >categorias</a>
+                            </li>
+                            <li>
+                                <a href="#estadoFiltro" >estadoFiltro</a>
+                            </li>
+                            <li>
+                                <a href="#estados" >estados</a>
+                            </li>
+                            <li>
+                                <a href="#formulario" >formulario</a>
+                            </li>
+                            <li>
+                                <a href="#gastoEditando" >gastoEditando</a>
+                            </li>
+                            <li>
+                                <a href="#gastoIdEliminar" >gastoIdEliminar</a>
+                            </li>
+                            <li>
+                                <a href="#gastoNombreEliminar" >gastoNombreEliminar</a>
+                            </li>
+                            <li>
+                                <a href="#gastos" >gastos</a>
+                            </li>
+                            <li>
+                                <a href="#gastosFiltrados" >gastosFiltrados</a>
+                            </li>
+                            <li>
+                                <a href="#tituloModal" >tituloModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#abrirModalEliminar" >abrirModalEliminar</a>
+                            </li>
+                            <li>
+                                <a href="#abrirModalNuevo" >abrirModalNuevo</a>
+                            </li>
+                            <li>
+                                <a href="#aplicarFiltros" >aplicarFiltros</a>
+                            </li>
+                            <li>
+                                <a href="#cargarGastos" >cargarGastos</a>
+                            </li>
+                            <li>
+                                <a href="#cerrarModal" >cerrarModal</a>
+                            </li>
+                            <li>
+                                <a href="#confirmarEliminar" >confirmarEliminar</a>
+                            </li>
+                            <li>
+                                <a href="#editarGasto" >editarGasto</a>
+                            </li>
+                            <li>
+                                <a href="#formatearMoneda" >formatearMoneda</a>
+                            </li>
+                            <li>
+                                <a href="#guardarGasto" >guardarGasto</a>
+                            </li>
+                            <li>
+                                <a href="#limpiarFiltros" >limpiarFiltros</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarModal" >mostrarModal</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarToast" >mostrarToast</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#nuevoGastoVacio" >nuevoGastoVacio</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerClaseEstado" >obtenerClaseEstado</a>
+                            </li>
+                            <li>
+                                <a href="#validarFormulario" >validarFormulario</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#montoPorCasa" >montoPorCasa</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirModalEliminar"></a>
+                    <span class="name">
+                        <span ><b>abrirModalEliminar</b></span>
+                        <a href="#abrirModalEliminar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirModalEliminar(gasto: <a href="../interfaces/Gasto.html" target="_self">Gasto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:114</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>gasto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Gasto.html" target="_self" >Gasto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirModalNuevo"></a>
+                    <span class="name">
+                        <span ><b>abrirModalNuevo</b></span>
+                        <a href="#abrirModalNuevo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirModalNuevo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aplicarFiltros"></a>
+                    <span class="name">
+                        <span ><b>aplicarFiltros</b></span>
+                        <a href="#aplicarFiltros"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>aplicarFiltros()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarGastos"></a>
+                    <span class="name">
+                        <span ><b>cargarGastos</b></span>
+                        <a href="#cargarGastos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarGastos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cerrarModal"></a>
+                    <span class="name">
+                        <span ><b>cerrarModal</b></span>
+                        <a href="#cerrarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cerrarModal(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:177</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmarEliminar"></a>
+                    <span class="name">
+                        <span ><b>confirmarEliminar</b></span>
+                        <a href="#confirmarEliminar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmarEliminar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editarGasto"></a>
+                    <span class="name">
+                        <span ><b>editarGasto</b></span>
+                        <a href="#editarGasto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editarGasto(gasto: <a href="../interfaces/Gasto.html" target="_self">Gasto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>gasto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Gasto.html" target="_self" >Gasto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatearMoneda"></a>
+                    <span class="name">
+                        <span ><b>formatearMoneda</b></span>
+                        <a href="#formatearMoneda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatearMoneda(monto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>monto</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarGasto"></a>
+                    <span class="name">
+                        <span ><b>guardarGasto</b></span>
+                        <a href="#guardarGasto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarGasto()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="limpiarFiltros"></a>
+                    <span class="name">
+                        <span ><b>limpiarFiltros</b></span>
+                        <a href="#limpiarFiltros"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>limpiarFiltros()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarModal"></a>
+                    <span class="name">
+                        <span ><b>mostrarModal</b></span>
+                        <a href="#mostrarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mostrarModal(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarToast"></a>
+                    <span class="name">
+                        <span ><b>mostrarToast</b></span>
+                        <a href="#mostrarToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mostrarToast(mensaje: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:187</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>mensaje</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nuevoGastoVacio"></a>
+                    <span class="name">
+                        <span ><b>nuevoGastoVacio</b></span>
+                        <a href="#nuevoGastoVacio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>nuevoGastoVacio()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Gasto.html" target="_self" >Gasto</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerClaseEstado"></a>
+                    <span class="name">
+                        <span ><b>obtenerClaseEstado</b></span>
+                        <a href="#obtenerClaseEstado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerClaseEstado(estado: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>estado</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validarFormulario"></a>
+                    <span class="name">
+                        <span ><b>validarFormulario</b></span>
+                        <a href="#validarFormulario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validarFormulario()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buscar"></a>
+                    <span class="name">
+                        <span ><b>buscar</b></span>
+                        <a href="#buscar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoriaFiltro"></a>
+                    <span class="name">
+                        <span ><b>categoriaFiltro</b></span>
+                        <a href="#categoriaFiltro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categorias"></a>
+                    <span class="name">
+                        <span ><b>categorias</b></span>
+                        <a href="#categorias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Mantención&#x27;, &#x27;Servicios Básicos&#x27;, &#x27;Seguridad&#x27;, &#x27;Limpieza&#x27;, &#x27;Reparaciones&#x27;, &#x27;Otros&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estadoFiltro"></a>
+                    <span class="name">
+                        <span ><b>estadoFiltro</b></span>
+                        <a href="#estadoFiltro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estados"></a>
+                    <span class="name">
+                        <span ><b>estados</b></span>
+                        <a href="#estados"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Activo&#x27;, &#x27;Pendiente&#x27;, &#x27;Pagado&#x27;, &#x27;Vencido&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formulario"></a>
+                    <span class="name">
+                        <span ><b>formulario</b></span>
+                        <a href="#formulario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Gasto.html" target="_self" >Gasto</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.nuevoGastoVacio()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gastoEditando"></a>
+                    <span class="name">
+                        <span ><b>gastoEditando</b></span>
+                        <a href="#gastoEditando"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Gasto | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gastoIdEliminar"></a>
+                    <span class="name">
+                        <span ><b>gastoIdEliminar</b></span>
+                        <a href="#gastoIdEliminar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gastoNombreEliminar"></a>
+                    <span class="name">
+                        <span ><b>gastoNombreEliminar</b></span>
+                        <a href="#gastoNombreEliminar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gastos"></a>
+                    <span class="name">
+                        <span ><b>gastos</b></span>
+                        <a href="#gastos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Gasto[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gastosFiltrados"></a>
+                    <span class="name">
+                        <span ><b>gastosFiltrados</b></span>
+                        <a href="#gastosFiltrados"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Gasto[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tituloModal"></a>
+                    <span class="name">
+                        <span ><b>tituloModal</b></span>
+                        <a href="#tituloModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Nuevo Gasto Común&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="montoPorCasa"></a>
+                        <span class="name"><b>montoPorCasa</b><a href="#montoPorCasa"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>montoPorCasa()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts:148</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { NavbarComponent } from &#x27;../../../shared/components/navbar/navbar.component&#x27;;
+import { Gasto } from &#x27;../../../models/gasto.interface&#x27;;
+
+declare var bootstrap: any;
+
+@Component({
+  selector: &#x27;app-gestionar-gastos&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, NavbarComponent],
+  templateUrl: &#x27;./gestionar-gastos.component.html&#x27;,
+  styleUrl: &#x27;./gestionar-gastos.component.scss&#x27;
+})
+export class GestionarGastosComponent implements OnInit {
+  gastos: Gasto[] &#x3D; [];
+  gastosFiltrados: Gasto[] &#x3D; [];
+  gastoEditando: Gasto | null &#x3D; null;
+  
+  // Modelo del formulario
+  formulario: Gasto &#x3D; this.nuevoGastoVacio();
+  
+  // Filtros
+  buscar: string &#x3D; &#x27;&#x27;;
+  categoriaFiltro: string &#x3D; &#x27;&#x27;;
+  estadoFiltro: string &#x3D; &#x27;&#x27;;
+  
+  // Opciones
+  categorias: string[] &#x3D; [&#x27;Mantención&#x27;, &#x27;Servicios Básicos&#x27;, &#x27;Seguridad&#x27;, &#x27;Limpieza&#x27;, &#x27;Reparaciones&#x27;, &#x27;Otros&#x27;];
+  estados: string[] &#x3D; [&#x27;Activo&#x27;, &#x27;Pendiente&#x27;, &#x27;Pagado&#x27;, &#x27;Vencido&#x27;];
+  
+  // Modal
+  tituloModal: string &#x3D; &#x27;Nuevo Gasto Común&#x27;;
+  gastoIdEliminar: number &#x3D; 0;
+  gastoNombreEliminar: string &#x3D; &#x27;&#x27;;
+
+  ngOnInit(): void {
+    this.cargarGastos();
+  }
+
+  nuevoGastoVacio(): Gasto {
+    const hoy &#x3D; new Date().toISOString().split(&#x27;T&#x27;)[0];
+    return {
+      id: 0,
+      concepto: &#x27;&#x27;,
+      descripcion: &#x27;&#x27;,
+      monto: 0,
+      fecha: hoy,
+      estado: &#x27;Activo&#x27;,
+      categoria: &#x27;&#x27;
+    };
+  }
+
+  cargarGastos(): void {
+    const gastosStr &#x3D; localStorage.getItem(&#x27;gastos&#x27;);
+    this.gastos &#x3D; gastosStr ? JSON.parse(gastosStr) : [];
+    this.aplicarFiltros();
+  }
+
+  aplicarFiltros(): void {
+    this.gastosFiltrados &#x3D; this.gastos.filter(g &#x3D;&gt; {
+      const coincideBuscar &#x3D; g.concepto.toLowerCase().includes(this.buscar.toLowerCase()) ||
+                            (g.descripcion &amp;&amp; g.descripcion.toLowerCase().includes(this.buscar.toLowerCase()));
+      const coincideCategoria &#x3D; !this.categoriaFiltro || g.categoria &#x3D;&#x3D;&#x3D; this.categoriaFiltro;
+      const coincideEstado &#x3D; !this.estadoFiltro || g.estado &#x3D;&#x3D;&#x3D; this.estadoFiltro;
+      
+      return coincideBuscar &amp;&amp; coincideCategoria &amp;&amp; coincideEstado;
+    });
+  }
+
+  limpiarFiltros(): void {
+    this.buscar &#x3D; &#x27;&#x27;;
+    this.categoriaFiltro &#x3D; &#x27;&#x27;;
+    this.estadoFiltro &#x3D; &#x27;&#x27;;
+    this.aplicarFiltros();
+  }
+
+  abrirModalNuevo(): void {
+    this.formulario &#x3D; this.nuevoGastoVacio();
+    this.tituloModal &#x3D; &#x27;Nuevo Gasto Común&#x27;;
+    this.mostrarModal(&#x27;modalNuevoGasto&#x27;);
+  }
+
+  guardarGasto(): void {
+    if (!this.validarFormulario()) {
+      return;
+    }
+
+    if (this.formulario.id) {
+      // Editar
+      const index &#x3D; this.gastos.findIndex(g &#x3D;&gt; g.id &#x3D;&#x3D;&#x3D; this.formulario.id);
+      if (index !&#x3D;&#x3D; -1) {
+        this.gastos[index] &#x3D; { ...this.formulario };
+      }
+    } else {
+      // Nuevo
+      this.formulario.id &#x3D; Date.now();
+      this.gastos.push({ ...this.formulario });
+    }
+
+    localStorage.setItem(&#x27;gastos&#x27;, JSON.stringify(this.gastos));
+    this.cerrarModal(&#x27;modalNuevoGasto&#x27;);
+    this.cargarGastos();
+    this.mostrarToast(this.formulario.id ? &#x27;Gasto actualizado correctamente&#x27; : &#x27;Gasto creado correctamente&#x27;);
+  }
+
+  editarGasto(gasto: Gasto): void {
+    this.formulario &#x3D; { ...gasto };
+    this.tituloModal &#x3D; &#x27;Editar Gasto&#x27;;
+    this.mostrarModal(&#x27;modalNuevoGasto&#x27;);
+  }
+
+  abrirModalEliminar(gasto: Gasto): void {
+    this.gastoIdEliminar &#x3D; gasto.id!;
+    this.gastoNombreEliminar &#x3D; gasto.concepto;
+    this.mostrarModal(&#x27;modalEliminarGasto&#x27;);
+  }
+
+  confirmarEliminar(): void {
+    this.gastos &#x3D; this.gastos.filter(g &#x3D;&gt; g.id !&#x3D;&#x3D; this.gastoIdEliminar);
+    localStorage.setItem(&#x27;gastos&#x27;, JSON.stringify(this.gastos));
+    this.cerrarModal(&#x27;modalEliminarGasto&#x27;);
+    this.cargarGastos();
+    this.mostrarToast(&#x27;Gasto eliminado correctamente&#x27;);
+  }
+
+  validarFormulario(): boolean {
+    if (!this.formulario.concepto || this.formulario.concepto.trim().length &lt; 3) {
+      alert(&#x27;El concepto debe tener al menos 3 caracteres&#x27;);
+      return false;
+    }
+    if (!this.formulario.categoria) {
+      alert(&#x27;Debe seleccionar una categoría&#x27;);
+      return false;
+    }
+    if (!this.formulario.monto || this.formulario.monto &lt;&#x3D; 0) {
+      alert(&#x27;El monto debe ser mayor a 0&#x27;);
+      return false;
+    }
+    if (!this.formulario.fecha) {
+      alert(&#x27;Debe seleccionar una fecha&#x27;);
+      return false;
+    }
+    return true;
+  }
+
+  get montoPorCasa(): number {
+    return this.formulario.monto / 13;
+  }
+
+  formatearMoneda(monto: number): string {
+    return new Intl.NumberFormat(&#x27;es-CL&#x27;, {
+      style: &#x27;currency&#x27;,
+      currency: &#x27;CLP&#x27;
+    }).format(monto);
+  }
+
+  obtenerClaseEstado(estado: string): string {
+    const clases: { [key: string]: string } &#x3D; {
+      &#x27;Activo&#x27;: &#x27;bg-success&#x27;,
+      &#x27;Pendiente&#x27;: &#x27;bg-warning&#x27;,
+      &#x27;Pagado&#x27;: &#x27;bg-info&#x27;,
+      &#x27;Vencido&#x27;: &#x27;bg-danger&#x27;
+    };
+    return clases[estado] || &#x27;bg-secondary&#x27;;
+  }
+
+  mostrarModal(id: string): void {
+    const modalElement &#x3D; document.getElementById(id);
+    if (modalElement) {
+      const modal &#x3D; new bootstrap.Modal(modalElement);
+      modal.show();
+    }
+  }
+
+  cerrarModal(id: string): void {
+    const modalElement &#x3D; document.getElementById(id);
+    if (modalElement) {
+      const modal &#x3D; bootstrap.Modal.getInstance(modalElement);
+      if (modal) {
+        modal.hide();
+      }
+    }
+  }
+
+  mostrarToast(mensaje: string): void {
+    const toastElement &#x3D; document.getElementById(&#x27;toastExito&#x27;);
+    const mensajeElement &#x3D; document.getElementById(&#x27;toastMensaje&#x27;);
+    if (toastElement &amp;&amp; mensajeElement) {
+      mensajeElement.textContent &#x3D; mensaje;
+      const toast &#x3D; new bootstrap.Toast(toastElement);
+      toast.show();
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-navbar&gt;&lt;/app-navbar&gt;
+
+&lt;!-- CONTENIDO PRINCIPAL --&gt;
+&lt;main class&#x3D;&quot;container-fluid my-4&quot;&gt;
+    &lt;!-- HEADER --&gt;
+    &lt;div class&#x3D;&quot;row mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;col-12&quot;&gt;
+            &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center flex-wrap&quot;&gt;
+                &lt;div class&#x3D;&quot;mb-2 mb-md-0&quot;&gt;
+                    &lt;h1 class&#x3D;&quot;fw-bold mb-0&quot;&gt;Gestionar Gastos Comunes&lt;/h1&gt;
+                    &lt;p class&#x3D;&quot;text-muted mb-0&quot;&gt;Administra los gastos de la comunidad&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;abrirModalNuevo()&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-plus-circle&quot;&gt;&lt;/i&gt; Nuevo Gasto
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- FILTROS --&gt;
+    &lt;div class&#x3D;&quot;card shadow-sm mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;card-body&quot;&gt;
+            &lt;div class&#x3D;&quot;row g-3&quot;&gt;
+                &lt;div class&#x3D;&quot;col-12 col-md-4&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-search&quot;&gt;&lt;/i&gt; Buscar
+                    &lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;buscar&quot; (ngModelChange)&#x3D;&quot;aplicarFiltros()&quot; placeholder&#x3D;&quot;Buscar por concepto...&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-12 col-md-3&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-tag&quot;&gt;&lt;/i&gt; Categoría
+                    &lt;/label&gt;
+                    &lt;select class&#x3D;&quot;form-select&quot; [(ngModel)]&#x3D;&quot;categoriaFiltro&quot; (ngModelChange)&#x3D;&quot;aplicarFiltros()&quot;&gt;
+                        &lt;option value&#x3D;&quot;&quot;&gt;Todas las categorías&lt;/option&gt;
+                        &lt;option *ngFor&#x3D;&quot;let cat of categorias&quot; [value]&#x3D;&quot;cat&quot;&gt;{{ cat }}&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-12 col-md-3&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-circle-fill&quot;&gt;&lt;/i&gt; Estado
+                    &lt;/label&gt;
+                    &lt;select class&#x3D;&quot;form-select&quot; [(ngModel)]&#x3D;&quot;estadoFiltro&quot; (ngModelChange)&#x3D;&quot;aplicarFiltros()&quot;&gt;
+                        &lt;option value&#x3D;&quot;&quot;&gt;Todos los estados&lt;/option&gt;
+                        &lt;option *ngFor&#x3D;&quot;let est of estados&quot; [value]&#x3D;&quot;est&quot;&gt;{{ est }}&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-12 col-md-2&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label fw-bold d-block&quot;&gt;&amp;nbsp;&lt;/label&gt;
+                    &lt;button class&#x3D;&quot;btn btn-secondary w-100&quot; (click)&#x3D;&quot;limpiarFiltros()&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-x-circle&quot;&gt;&lt;/i&gt; Limpiar
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- TABLA DE GASTOS --&gt;
+    &lt;div class&#x3D;&quot;card shadow-sm&quot;&gt;
+        &lt;div class&#x3D;&quot;card-header bg-white&quot;&gt;
+            &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-list-ul&quot;&gt;&lt;/i&gt; Lista de Gastos Comunes
+            &lt;/h5&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card-body p-0&quot;&gt;
+            &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                &lt;table class&#x3D;&quot;table table-hover mb-0&quot;&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;ID&lt;/th&gt;
+                            &lt;th&gt;Concepto&lt;/th&gt;
+                            &lt;th&gt;Categoría&lt;/th&gt;
+                            &lt;th&gt;Monto&lt;/th&gt;
+                            &lt;th&gt;Fecha&lt;/th&gt;
+                            &lt;th&gt;Estado&lt;/th&gt;
+                            &lt;th&gt;Acciones&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr *ngIf&#x3D;&quot;gastosFiltrados.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+                            &lt;td colspan&#x3D;&quot;7&quot; class&#x3D;&quot;text-center text-muted py-5&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-inbox fs-3&quot;&gt;&lt;/i&gt;
+                                &lt;p class&#x3D;&quot;mt-3 mb-0&quot;&gt;No hay gastos registrados&lt;/p&gt;
+                                &lt;button class&#x3D;&quot;btn btn-primary mt-3&quot; (click)&#x3D;&quot;abrirModalNuevo()&quot;&gt;
+                                    &lt;i class&#x3D;&quot;bi bi-plus-circle&quot;&gt;&lt;/i&gt; Agregar Primer Gasto
+                                &lt;/button&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr *ngFor&#x3D;&quot;let gasto of gastosFiltrados&quot; class&#x3D;&quot;fade-in&quot;&gt;
+                            &lt;td&gt;&lt;strong&gt;#{{ gasto.id }}&lt;/strong&gt;&lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;strong&gt;{{ gasto.concepto }}&lt;/strong&gt;
+                                &lt;br *ngIf&#x3D;&quot;gasto.descripcion&quot;&gt;
+                                &lt;small class&#x3D;&quot;text-muted&quot; *ngIf&#x3D;&quot;gasto.descripcion&quot;&gt;{{ gasto.descripcion }}&lt;/small&gt;
+                            &lt;/td&gt;
+                            &lt;td&gt;&lt;span class&#x3D;&quot;badge bg-info&quot;&gt;{{ gasto.categoria }}&lt;/span&gt;&lt;/td&gt;
+                            &lt;td class&#x3D;&quot;text-success fw-bold&quot;&gt;{{ gasto.monto | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/td&gt;
+                            &lt;td&gt;{{ gasto.fecha | date:&#x27;dd/MM/yyyy&#x27; }}&lt;/td&gt;
+                            &lt;td&gt;&lt;span class&#x3D;&quot;badge&quot; [ngClass]&#x3D;&quot;obtenerClaseEstado(gasto.estado)&quot;&gt;{{ gasto.estado }}&lt;/span&gt;&lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;button class&#x3D;&quot;btn btn-sm btn-warning me-1&quot; (click)&#x3D;&quot;editarGasto(gasto)&quot; title&#x3D;&quot;Editar&quot;&gt;
+                                    &lt;i class&#x3D;&quot;bi bi-pencil&quot;&gt;&lt;/i&gt;
+                                &lt;/button&gt;
+                                &lt;button class&#x3D;&quot;btn btn-sm btn-danger&quot; (click)&#x3D;&quot;abrirModalEliminar(gasto)&quot; title&#x3D;&quot;Eliminar&quot;&gt;
+                                    &lt;i class&#x3D;&quot;bi bi-trash&quot;&gt;&lt;/i&gt;
+                                &lt;/button&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;!-- MODAL NUEVO/EDITAR GASTO --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;modalNuevoGasto&quot; tabindex&#x3D;&quot;-1&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-dialog modal-lg&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+            &lt;div class&#x3D;&quot;modal-header bg-primary text-white&quot;&gt;
+                &lt;h5 class&#x3D;&quot;modal-title&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-plus-circle&quot;&gt;&lt;/i&gt; {{ tituloModal }}
+                &lt;/h5&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-close btn-close-white&quot; data-bs-dismiss&#x3D;&quot;modal&quot;&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+                &lt;form&gt;
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                        &lt;!-- CONCEPTO --&gt;
+                        &lt;div class&#x3D;&quot;col-md-8 mb-3&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-receipt&quot;&gt;&lt;/i&gt; Concepto *
+                            &lt;/label&gt;
+                            &lt;input 
+                                type&#x3D;&quot;text&quot; 
+                                class&#x3D;&quot;form-control&quot; 
+                                [(ngModel)]&#x3D;&quot;formulario.concepto&quot;
+                                name&#x3D;&quot;concepto&quot;
+                                placeholder&#x3D;&quot;Ej: Cuenta de Agua&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- CATEGORÍA --&gt;
+                        &lt;div class&#x3D;&quot;col-md-4 mb-3&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-tag&quot;&gt;&lt;/i&gt; Categoría *
+                            &lt;/label&gt;
+                            &lt;select class&#x3D;&quot;form-select&quot; [(ngModel)]&#x3D;&quot;formulario.categoria&quot; name&#x3D;&quot;categoria&quot;&gt;
+                                &lt;option value&#x3D;&quot;&quot;&gt;Seleccionar...&lt;/option&gt;
+                                &lt;option *ngFor&#x3D;&quot;let cat of categorias&quot; [value]&#x3D;&quot;cat&quot;&gt;{{ cat }}&lt;/option&gt;
+                            &lt;/select&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- DESCRIPCIÓN --&gt;
+                        &lt;div class&#x3D;&quot;col-12 mb-3&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-text-paragraph&quot;&gt;&lt;/i&gt; Descripción
+                            &lt;/label&gt;
+                            &lt;textarea 
+                                class&#x3D;&quot;form-control&quot; 
+                                [(ngModel)]&#x3D;&quot;formulario.descripcion&quot;
+                                name&#x3D;&quot;descripcion&quot;
+                                rows&#x3D;&quot;3&quot;
+                                placeholder&#x3D;&quot;Descripción detallada del gasto...&quot;&gt;&lt;/textarea&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- MONTO --&gt;
+                        &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-cash&quot;&gt;&lt;/i&gt; Monto Total ($) *
+                            &lt;/label&gt;
+                            &lt;input 
+                                type&#x3D;&quot;number&quot; 
+                                class&#x3D;&quot;form-control&quot; 
+                                [(ngModel)]&#x3D;&quot;formulario.monto&quot;
+                                name&#x3D;&quot;monto&quot;
+                                placeholder&#x3D;&quot;0&quot;
+                                min&#x3D;&quot;1&quot;&gt;
+                            &lt;small class&#x3D;&quot;text-muted&quot;&gt;Monto total del gasto&lt;/small&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- FECHA --&gt;
+                        &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-calendar&quot;&gt;&lt;/i&gt; Fecha *
+                            &lt;/label&gt;
+                            &lt;input 
+                                type&#x3D;&quot;date&quot; 
+                                class&#x3D;&quot;form-control&quot; 
+                                [(ngModel)]&#x3D;&quot;formulario.fecha&quot;
+                                name&#x3D;&quot;fecha&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- ESTADO --&gt;
+                        &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-circle-fill&quot;&gt;&lt;/i&gt; Estado *
+                            &lt;/label&gt;
+                            &lt;select class&#x3D;&quot;form-select&quot; [(ngModel)]&#x3D;&quot;formulario.estado&quot; name&#x3D;&quot;estado&quot;&gt;
+                                &lt;option *ngFor&#x3D;&quot;let est of estados&quot; [value]&#x3D;&quot;est&quot;&gt;{{ est }}&lt;/option&gt;
+                            &lt;/select&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- MONTO POR CASA --&gt;
+                        &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-calculator&quot;&gt;&lt;/i&gt; Monto por Casa
+                            &lt;/label&gt;
+                            &lt;input 
+                                type&#x3D;&quot;text&quot; 
+                                class&#x3D;&quot;form-control bg-light&quot; 
+                                [value]&#x3D;&quot;formatearMoneda(montoPorCasa)&quot;
+                                readonly&gt;
+                            &lt;small class&#x3D;&quot;text-muted&quot;&gt;Se divide entre 13 casas&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; data-bs-dismiss&#x3D;&quot;modal&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-x-circle&quot;&gt;&lt;/i&gt; Cancelar
+                &lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;guardarGasto()&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-check-circle&quot;&gt;&lt;/i&gt; Guardar Gasto
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- MODAL ELIMINAR GASTO --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;modalEliminarGasto&quot; tabindex&#x3D;&quot;-1&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+            &lt;div class&#x3D;&quot;modal-header bg-danger text-white&quot;&gt;
+                &lt;h5 class&#x3D;&quot;modal-title&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-exclamation-triangle&quot;&gt;&lt;/i&gt; Confirmar Eliminación
+                &lt;/h5&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-close btn-close-white&quot; data-bs-dismiss&#x3D;&quot;modal&quot;&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+                &lt;p&gt;&lt;strong&gt;¿Estás seguro de que deseas eliminar este gasto?&lt;/strong&gt;&lt;/p&gt;
+                &lt;p class&#x3D;&quot;text-muted mb-0&quot;&gt;{{ gastoNombreEliminar }}&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; data-bs-dismiss&#x3D;&quot;modal&quot;&gt;Cancelar&lt;/button&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;confirmarEliminar()&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-trash&quot;&gt;&lt;/i&gt; Sí, Eliminar
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Toast de Éxito --&gt;
+&lt;div class&#x3D;&quot;position-fixed bottom-0 end-0 p-3&quot; style&#x3D;&quot;z-index: 11&quot;&gt;
+    &lt;div id&#x3D;&quot;toastExito&quot; class&#x3D;&quot;toast hide&quot; role&#x3D;&quot;alert&quot;&gt;
+        &lt;div class&#x3D;&quot;toast-header bg-success text-white&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-check-circle-fill me-2&quot;&gt;&lt;/i&gt;
+            &lt;strong class&#x3D;&quot;me-auto&quot;&gt;¡Éxito!&lt;/strong&gt;
+            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-close btn-close-white&quot; data-bs-dismiss&#x3D;&quot;toast&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;toast-body&quot; id&#x3D;&quot;toastMensaje&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-navbar></app-navbar><!-- CONTENIDO PRINCIPAL --><main class="container-fluid my-4">    <!-- HEADER -->    <div class="row mb-4">        <div class="col-12">            <div class="d-flex justify-content-between align-items-center flex-wrap">                <div class="mb-2 mb-md-0">                    <h1 class="fw-bold mb-0">Gestionar Gastos Comunes</h1>                    <p class="text-muted mb-0">Administra los gastos de la comunidad</p>                </div>                <button class="btn btn-primary" (click)="abrirModalNuevo()">                    <i class="bi bi-plus-circle"></i> Nuevo Gasto                </button>            </div>        </div>    </div>    <!-- FILTROS -->    <div class="card shadow-sm mb-4">        <div class="card-body">            <div class="row g-3">                <div class="col-12 col-md-4">                    <label class="form-label fw-bold">                        <i class="bi bi-search"></i> Buscar                    </label>                    <input type="text" class="form-control" [(ngModel)]="buscar" (ngModelChange)="aplicarFiltros()" placeholder="Buscar por concepto...">                </div>                <div class="col-12 col-md-3">                    <label class="form-label fw-bold">                        <i class="bi bi-tag"></i> Categoría                    </label>                    <select class="form-select" [(ngModel)]="categoriaFiltro" (ngModelChange)="aplicarFiltros()">                        <option value="">Todas las categorías</option>                        <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>                    </select>                </div>                <div class="col-12 col-md-3">                    <label class="form-label fw-bold">                        <i class="bi bi-circle-fill"></i> Estado                    </label>                    <select class="form-select" [(ngModel)]="estadoFiltro" (ngModelChange)="aplicarFiltros()">                        <option value="">Todos los estados</option>                        <option *ngFor="let est of estados" [value]="est">{{ est }}</option>                    </select>                </div>                <div class="col-12 col-md-2">                    <label class="form-label fw-bold d-block">&nbsp;</label>                    <button class="btn btn-secondary w-100" (click)="limpiarFiltros()">                        <i class="bi bi-x-circle"></i> Limpiar                    </button>                </div>            </div>        </div>    </div>    <!-- TABLA DE GASTOS -->    <div class="card shadow-sm">        <div class="card-header bg-white">            <h5 class="mb-0">                <i class="bi bi-list-ul"></i> Lista de Gastos Comunes            </h5>        </div>        <div class="card-body p-0">            <div class="table-responsive">                <table class="table table-hover mb-0">                    <thead>                        <tr>                            <th>ID</th>                            <th>Concepto</th>                            <th>Categoría</th>                            <th>Monto</th>                            <th>Fecha</th>                            <th>Estado</th>                            <th>Acciones</th>                        </tr>                    </thead>                    <tbody>                        <tr *ngIf="gastosFiltrados.length === 0">                            <td colspan="7" class="text-center text-muted py-5">                                <i class="bi bi-inbox fs-3"></i>                                <p class="mt-3 mb-0">No hay gastos registrados</p>                                <button class="btn btn-primary mt-3" (click)="abrirModalNuevo()">                                    <i class="bi bi-plus-circle"></i> Agregar Primer Gasto                                </button>                            </td>                        </tr>                        <tr *ngFor="let gasto of gastosFiltrados" class="fade-in">                            <td><strong>#{{ gasto.id }}</strong></td>                            <td>                                <strong>{{ gasto.concepto }}</strong>                                <br *ngIf="gasto.descripcion">                                <small class="text-muted" *ngIf="gasto.descripcion">{{ gasto.descripcion }}</small>                            </td>                            <td><span class="badge bg-info">{{ gasto.categoria }}</span></td>                            <td class="text-success fw-bold">{{ gasto.monto | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</td>                            <td>{{ gasto.fecha | date:\'dd/MM/yyyy\' }}</td>                            <td><span class="badge" [ngClass]="obtenerClaseEstado(gasto.estado)">{{ gasto.estado }}</span></td>                            <td>                                <button class="btn btn-sm btn-warning me-1" (click)="editarGasto(gasto)" title="Editar">                                    <i class="bi bi-pencil"></i>                                </button>                                <button class="btn btn-sm btn-danger" (click)="abrirModalEliminar(gasto)" title="Eliminar">                                    <i class="bi bi-trash"></i>                                </button>                            </td>                        </tr>                    </tbody>                </table>            </div>        </div>    </div></main><!-- MODAL NUEVO/EDITAR GASTO --><div class="modal fade" id="modalNuevoGasto" tabindex="-1">    <div class="modal-dialog modal-lg">        <div class="modal-content">            <div class="modal-header bg-primary text-white">                <h5 class="modal-title">                    <i class="bi bi-plus-circle"></i> {{ tituloModal }}                </h5>                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>            </div>            <div class="modal-body">                <form>                    <div class="row">                        <!-- CONCEPTO -->                        <div class="col-md-8 mb-3">                            <label class="form-label fw-bold">                                <i class="bi bi-receipt"></i> Concepto *                            </label>                            <input                                 type="text"                                 class="form-control"                                 [(ngModel)]="formulario.concepto"                                name="concepto"                                placeholder="Ej: Cuenta de Agua">                        </div>                        <!-- CATEGORÍA -->                        <div class="col-md-4 mb-3">                            <label class="form-label fw-bold">                                <i class="bi bi-tag"></i> Categoría *                            </label>                            <select class="form-select" [(ngModel)]="formulario.categoria" name="categoria">                                <option value="">Seleccionar...</option>                                <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>                            </select>                        </div>                        <!-- DESCRIPCIÓN -->                        <div class="col-12 mb-3">                            <label class="form-label fw-bold">                                <i class="bi bi-text-paragraph"></i> Descripción                            </label>                            <textarea                                 class="form-control"                                 [(ngModel)]="formulario.descripcion"                                name="descripcion"                                rows="3"                                placeholder="Descripción detallada del gasto..."></textarea>                        </div>                        <!-- MONTO -->                        <div class="col-md-6 mb-3">                            <label class="form-label fw-bold">                                <i class="bi bi-cash"></i> Monto Total ($) *                            </label>                            <input                                 type="number"                                 class="form-control"                                 [(ngModel)]="formulario.monto"                                name="monto"                                placeholder="0"                                min="1">                            <small class="text-muted">Monto total del gasto</small>                        </div>                        <!-- FECHA -->                        <div class="col-md-6 mb-3">                            <label class="form-label fw-bold">                                <i class="bi bi-calendar"></i> Fecha *                            </label>                            <input                                 type="date"                                 class="form-control"                                 [(ngModel)]="formulario.fecha"                                name="fecha">                        </div>                        <!-- ESTADO -->                        <div class="col-md-6 mb-3">                            <label class="form-label fw-bold">                                <i class="bi bi-circle-fill"></i> Estado *                            </label>                            <select class="form-select" [(ngModel)]="formulario.estado" name="estado">                                <option *ngFor="let est of estados" [value]="est">{{ est }}</option>                            </select>                        </div>                        <!-- MONTO POR CASA -->                        <div class="col-md-6 mb-3">                            <label class="form-label fw-bold">                                <i class="bi bi-calculator"></i> Monto por Casa                            </label>                            <input                                 type="text"                                 class="form-control bg-light"                                 [value]="formatearMoneda(montoPorCasa)"                                readonly>                            <small class="text-muted">Se divide entre 13 casas</small>                        </div>                    </div>                </form>            </div>            <div class="modal-footer">                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">                    <i class="bi bi-x-circle"></i> Cancelar                </button>                <button type="button" class="btn btn-primary" (click)="guardarGasto()">                    <i class="bi bi-check-circle"></i> Guardar Gasto                </button>            </div>        </div>    </div></div><!-- MODAL ELIMINAR GASTO --><div class="modal fade" id="modalEliminarGasto" tabindex="-1">    <div class="modal-dialog modal-dialog-centered">        <div class="modal-content">            <div class="modal-header bg-danger text-white">                <h5 class="modal-title">                    <i class="bi bi-exclamation-triangle"></i> Confirmar Eliminación                </h5>                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>            </div>            <div class="modal-body">                <p><strong>¿Estás seguro de que deseas eliminar este gasto?</strong></p>                <p class="text-muted mb-0">{{ gastoNombreEliminar }}</p>            </div>            <div class="modal-footer">                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>                <button type="button" class="btn btn-danger" (click)="confirmarEliminar()">                    <i class="bi bi-trash"></i> Sí, Eliminar                </button>            </div>        </div>    </div></div><!-- Toast de Éxito --><div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">    <div id="toastExito" class="toast hide" role="alert">        <div class="toast-header bg-success text-white">            <i class="bi bi-check-circle-fill me-2"></i>            <strong class="me-auto">¡Éxito!</strong>            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>        </div>        <div class="toast-body" id="toastMensaje"></div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfiguracionComponent', 'selector': 'app-configuracion'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetalleGastoComponent', 'selector': 'app-detalle-gasto'},{'name': 'GestionarGastosComponent', 'selector': 'app-gestionar-gastos'},{'name': 'GestionarResidentesComponent', 'selector': 'app-gestionar-residentes'},{'name': 'HistorialPagosComponent', 'selector': 'app-historial-pagos'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MisGastosComponent', 'selector': 'app-mis-gastos'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RealizarPagoComponent', 'selector': 'app-realizar-pago'},{'name': 'RecuperarComponent', 'selector': 'app-recuperar'},{'name': 'RegistrarPagosComponent', 'selector': 'app-registrar-pagos'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'ReportesComponent', 'selector': 'app-reportes'},{'name': 'SolicitudesComponent', 'selector': 'app-solicitudes'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'GestionarGastosComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GestionarGastosComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,795 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>comunes-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">comunes-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#appConfig" title="src/app/app.config.ts" ><b>appConfig</b>&nbsp;&nbsp;&nbsp;(src/.../app.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#authGuard" title="src/app/core/guards/auth.guard.ts" ><b>authGuard</b>&nbsp;&nbsp;&nbsp;(src/.../auth.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#bootstrap" title="src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(src/.../gestionar-gastos.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CASAS_PASAJE_8651" title="src/app/data/gastos-mock.ts" ><b>CASAS_PASAJE_8651</b>&nbsp;&nbsp;&nbsp;(src/.../gastos-mock.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CASAS_PASAJE_8707" title="src/app/data/gastos-mock.ts" ><b>CASAS_PASAJE_8707</b>&nbsp;&nbsp;&nbsp;(src/.../gastos-mock.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GASTOS_MOCK" title="src/app/data/gastos-mock.ts" ><b>GASTOS_MOCK</b>&nbsp;&nbsp;&nbsp;(src/.../gastos-mock.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PAGOS_MOCK" title="src/app/data/pagos-mock.ts" ><b>PAGOS_MOCK</b>&nbsp;&nbsp;&nbsp;(src/.../pagos-mock.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#routes" title="src/app/app.routes.ts" ><b>routes</b>&nbsp;&nbsp;&nbsp;(src/.../app.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TOTAL_CASAS" title="src/app/data/gastos-mock.ts" ><b>TOTAL_CASAS</b>&nbsp;&nbsp;&nbsp;(src/.../gastos-mock.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USUARIOS_MOCK" title="src/app/data/usuarios-mock.ts" ><b>USUARIOS_MOCK</b>&nbsp;&nbsp;&nbsp;(src/.../usuarios-mock.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/app.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appConfig"></a>
+                    <span class="name">
+                        <span ><b>appConfig</b></span>
+                        <a href="#appConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApplicationConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/guards/auth.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authGuard"></a>
+                    <span class="name">
+                        <span ><b>authGuard</b></span>
+                        <a href="#authGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  const authService &#x3D; inject(AuthService);
+  const router &#x3D; inject(Router);
+
+  if (authService.isAuthenticated()) {
+    return true;
+  }
+
+  // No autenticado, redirigir al login
+  router.navigate([&#x27;/login&#x27;]);
+  return false;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/admin/gestionar-gastos/gestionar-gastos.component.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bootstrap"></a>
+                    <span class="name">
+                        <span ><b>bootstrap</b></span>
+                        <a href="#bootstrap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/data/gastos-mock.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CASAS_PASAJE_8651"></a>
+                    <span class="name">
+                        <span ><b>CASAS_PASAJE_8651</b></span>
+                        <a href="#CASAS_PASAJE_8651"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>6</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CASAS_PASAJE_8707"></a>
+                    <span class="name">
+                        <span ><b>CASAS_PASAJE_8707</b></span>
+                        <a href="#CASAS_PASAJE_8707"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>7</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GASTOS_MOCK"></a>
+                    <span class="name">
+                        <span ><b>GASTOS_MOCK</b></span>
+                        <a href="#GASTOS_MOCK"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Gasto[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    id: 1,
+    concepto: &#x27;Mantención de Áreas Verdes&#x27;,
+    categoria: &#x27;Jardinería&#x27;,
+    monto: 65000,
+    fecha: new Date(&#x27;2025-11-01&#x27;),
+    descripcion: &#x27;Poda y mantención mensual de jardines comunes&#x27;,
+    estado: &#x27;aprobado&#x27;,
+    fechaCreacion: new Date(&#x27;2025-10-25&#x27;)
+  },
+  {
+    id: 2,
+    concepto: &#x27;Luz de Áreas Comunes&#x27;,
+    categoria: &#x27;Servicios Básicos&#x27;,
+    monto: 48000,
+    fecha: new Date(&#x27;2025-11-01&#x27;),
+    descripcion: &#x27;Consumo eléctrico de pasillos y zonas comunes&#x27;,
+    estado: &#x27;aprobado&#x27;,
+    fechaCreacion: new Date(&#x27;2025-10-25&#x27;)
+  },
+  {
+    id: 3,
+    concepto: &#x27;Agua Potable&#x27;,
+    categoria: &#x27;Servicios Básicos&#x27;,
+    monto: 32000,
+    fecha: new Date(&#x27;2025-11-01&#x27;),
+    descripcion: &#x27;Consumo de agua de áreas comunes&#x27;,
+    estado: &#x27;aprobado&#x27;,
+    fechaCreacion: new Date(&#x27;2025-10-25&#x27;)
+  },
+  {
+    id: 4,
+    concepto: &#x27;Seguridad&#x27;,
+    categoria: &#x27;Seguridad&#x27;,
+    monto: 120000,
+    fecha: new Date(&#x27;2025-11-01&#x27;),
+    descripcion: &#x27;Servicio de vigilancia nocturna&#x27;,
+    estado: &#x27;aprobado&#x27;,
+    fechaCreacion: new Date(&#x27;2025-10-25&#x27;)
+  },
+  {
+    id: 5,
+    concepto: &#x27;Limpieza de Áreas Comunes&#x27;,
+    categoria: &#x27;Limpieza&#x27;,
+    monto: 75000,
+    fecha: new Date(&#x27;2025-11-01&#x27;),
+    descripcion: &#x27;Servicio de aseo de pasillos y estacionamientos&#x27;,
+    estado: &#x27;aprobado&#x27;,
+    fechaCreacion: new Date(&#x27;2025-10-25&#x27;)
+  },
+  {
+    id: 6,
+    concepto: &#x27;Gas Común&#x27;,
+    categoria: &#x27;Servicios Básicos&#x27;,
+    monto: 28000,
+    fecha: new Date(&#x27;2025-11-01&#x27;),
+    descripcion: &#x27;Consumo de gas de áreas comunes&#x27;,
+    estado: &#x27;aprobado&#x27;,
+    fechaCreacion: new Date(&#x27;2025-10-25&#x27;)
+  }
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TOTAL_CASAS"></a>
+                    <span class="name">
+                        <span ><b>TOTAL_CASAS</b></span>
+                        <a href="#TOTAL_CASAS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>13</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/data/pagos-mock.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PAGOS_MOCK"></a>
+                    <span class="name">
+                        <span ><b>PAGOS_MOCK</b></span>
+                        <a href="#PAGOS_MOCK"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Pago[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    id: 1,
+    email: &#x27;maria@comunes.cl&#x27;,
+    pasaje: &#x27;8651&#x27;,
+    casa: &#x27;C&#x27;,
+    monto: 28308, // Total gastos / 13 casas
+    mes: &#x27;2025-10&#x27;,
+    fechaPago: new Date(&#x27;2025-10-15T14:30:00&#x27;),
+    metodoPago: &#x27;transferencia&#x27;,
+    comprobante: &#x27;TRF-20251015-001&#x27;,
+    estado: &#x27;confirmado&#x27;,
+    registradoPor: &#x27;admin@comunes.cl&#x27;
+  },
+  {
+    id: 2,
+    email: &#x27;pedro@comunes.cl&#x27;,
+    pasaje: &#x27;8707&#x27;,
+    casa: &#x27;A&#x27;,
+    monto: 28308,
+    mes: &#x27;2025-10&#x27;,
+    fechaPago: new Date(&#x27;2025-10-20T10:15:00&#x27;),
+    metodoPago: &#x27;efectivo&#x27;,
+    comprobante: &#x27;EFE-20251020-001&#x27;,
+    estado: &#x27;confirmado&#x27;,
+    registradoPor: &#x27;admin@comunes.cl&#x27;
+  },
+  {
+    id: 3,
+    email: &#x27;maria@comunes.cl&#x27;,
+    pasaje: &#x27;8651&#x27;,
+    casa: &#x27;C&#x27;,
+    monto: 28308,
+    mes: &#x27;2025-11&#x27;,
+    fechaPago: new Date(&#x27;2025-11-10T09:20:00&#x27;),
+    metodoPago: &#x27;transferencia&#x27;,
+    comprobante: &#x27;TRF-20251110-001&#x27;,
+    estado: &#x27;confirmado&#x27;,
+    registradoPor: &#x27;admin@comunes.cl&#x27;
+  }
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/app.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="routes"></a>
+                    <span class="name">
+                        <span ><b>routes</b></span>
+                        <a href="#routes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Routes</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  // Rutas públicas
+  {
+    path: &#x27;&#x27;,
+    redirectTo: &#x27;/login&#x27;,
+    pathMatch: &#x27;full&#x27;
+  },
+  {
+    path: &#x27;login&#x27;,
+    loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/auth/login/login.component&#x27;).then(m &#x3D;&gt; m.LoginComponent)&quot;
+  },
+  {
+    path: &#x27;registro&#x27;,
+    loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/auth/registro/registro.component&#x27;).then(m &#x3D;&gt; m.RegistroComponent)&quot;
+  },
+  {
+    path: &#x27;recuperar&#x27;,
+    loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/auth/recuperar/recuperar.component&#x27;).then(m &#x3D;&gt; m.RecuperarComponent)&quot;
+  },
+
+  // Rutas Admin
+  {
+    path: &#x27;admin&#x27;,
+    canActivate: [authGuard],
+    children: [
+      {
+        path: &#x27;dashboard&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/admin/dashboard/dashboard.component&#x27;).then(m &#x3D;&gt; m.DashboardComponent)&quot;
+      },
+      {
+        path: &#x27;gestionar-gastos&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/admin/gestionar-gastos/gestionar-gastos.component&#x27;).then(m &#x3D;&gt; m.GestionarGastosComponent)&quot;
+      },
+      {
+        path: &#x27;gestionar-residentes&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/admin/gestionar-residentes/gestionar-residentes.component&#x27;).then(m &#x3D;&gt; m.GestionarResidentesComponent)&quot;
+      },
+      {
+        path: &#x27;registrar-pagos&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/admin/registrar-pagos/registrar-pagos.component&#x27;).then(m &#x3D;&gt; m.RegistrarPagosComponent)&quot;
+      },
+      {
+        path: &#x27;solicitudes&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/admin/solicitudes/solicitudes.component&#x27;).then(m &#x3D;&gt; m.SolicitudesComponent)&quot;
+      },
+      {
+        path: &#x27;reportes&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/admin/reportes/reportes.component&#x27;).then(m &#x3D;&gt; m.ReportesComponent)&quot;
+      },
+      {
+        path: &#x27;configuracion&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/admin/configuracion/configuracion.component&#x27;).then(m &#x3D;&gt; m.ConfiguracionComponent)&quot;
+      }
+    ]
+  },
+
+  // Rutas Usuario
+  {
+    path: &#x27;usuario&#x27;,
+    canActivate: [authGuard],
+    children: [
+      {
+        path: &#x27;dashboard&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/usuario/dashboard/dashboard.component&#x27;).then(m &#x3D;&gt; m.DashboardComponent)&quot;
+      },
+      {
+        path: &#x27;mis-gastos&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/usuario/mis-gastos/mis-gastos.component&#x27;).then(m &#x3D;&gt; m.MisGastosComponent)&quot;
+      },
+      {
+        path: &#x27;historial-pagos&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/usuario/historial-pagos/historial-pagos.component&#x27;).then(m &#x3D;&gt; m.HistorialPagosComponent)&quot;
+      },
+      {
+        path: &#x27;realizar-pago&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/usuario/realizar-pago/realizar-pago.component&#x27;).then(m &#x3D;&gt; m.RealizarPagoComponent)&quot;
+      }
+    ]
+  },
+
+  // Rutas compartidas
+  {
+    path: &#x27;perfil&#x27;,
+    canActivate: [authGuard],
+    loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/shared/perfil/perfil.component&#x27;).then(m &#x3D;&gt; m.PerfilComponent)&quot;
+  },
+  {
+    path: &#x27;detalle-gasto&#x27;,
+    canActivate: [authGuard],
+    loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/shared/detalle-gasto/detalle-gasto.component&#x27;).then(m &#x3D;&gt; m.DetalleGastoComponent)&quot;
+  },
+
+  // Ruta 404
+  {
+    path: &#x27;**&#x27;,
+    redirectTo: &#x27;/login&#x27;
+  }
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/data/usuarios-mock.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USUARIOS_MOCK"></a>
+                    <span class="name">
+                        <span ><b>USUARIOS_MOCK</b></span>
+                        <a href="#USUARIOS_MOCK"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Usuario[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    // ADMINISTRADOR
+    email: &#x27;admin@comunes.cl&#x27;,
+    password: &#x27;Admin123!&#x27;,
+    nombre: &#x27;Administrador Principal&#x27;,
+    rut: &#x27;12345678-9&#x27;,
+    telefono: &#x27;987654321&#x27;,
+    pasaje: &#x27;8651&#x27;,
+    casa: &#x27;A&#x27;,
+    rol: &#x27;administrador&#x27;,
+    tipo: &#x27;administrador&#x27;,
+    fechaRegistro: new Date(&#x27;2024-01-01&#x27;)
+  },
+  {
+    // RESIDENTE 1
+    email: &#x27;usuario@comunes.cl&#x27;,
+    password: &#x27;User123!&#x27;,
+    nombre: &#x27;Juan Pérez Soto&#x27;,
+    rut: &#x27;98765432-1&#x27;,
+    telefono: &#x27;912345678&#x27;,
+    pasaje: &#x27;8651&#x27;,
+    casa: &#x27;B&#x27;,
+    rol: &#x27;residente&#x27;,
+    tipo: &#x27;residente&#x27;,
+    fechaRegistro: new Date(&#x27;2024-01-15&#x27;)
+  },
+  {
+    // RESIDENTE 2
+    email: &#x27;maria@comunes.cl&#x27;,
+    password: &#x27;Maria123!&#x27;,
+    nombre: &#x27;María González López&#x27;,
+    rut: &#x27;11222333-4&#x27;,
+    telefono: &#x27;923456789&#x27;,
+    pasaje: &#x27;8651&#x27;,
+    casa: &#x27;C&#x27;,
+    rol: &#x27;residente&#x27;,
+    tipo: &#x27;residente&#x27;,
+    fechaRegistro: new Date(&#x27;2024-02-01&#x27;)
+  },
+  {
+    // RESIDENTE 3
+    email: &#x27;pedro@comunes.cl&#x27;,
+    password: &#x27;Pedro123!&#x27;,
+    nombre: &#x27;Pedro Ramírez Castro&#x27;,
+    rut: &#x27;22333444-5&#x27;,
+    telefono: &#x27;934567890&#x27;,
+    pasaje: &#x27;8707&#x27;,
+    casa: &#x27;A&#x27;,
+    rol: &#x27;residente&#x27;,
+    tipo: &#x27;residente&#x27;,
+    fechaRegistro: new Date(&#x27;2024-02-15&#x27;)
+  },
+  {
+    // RESIDENTE 4
+    email: &#x27;ana@comunes.cl&#x27;,
+    password: &#x27;Ana123!&#x27;,
+    nombre: &#x27;Ana Martínez Silva&#x27;,
+    rut: &#x27;33444555-6&#x27;,
+    telefono: &#x27;945678901&#x27;,
+    pasaje: &#x27;8707&#x27;,
+    casa: &#x27;B&#x27;,
+    rol: &#x27;residente&#x27;,
+    tipo: &#x27;residente&#x27;,
+    fechaRegistro: new Date(&#x27;2024-03-01&#x27;)
+  }
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

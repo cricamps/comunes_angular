@@ -1,0 +1,1469 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>comunes-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">comunes-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Usuario</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/features/admin/gestionar-residentes/gestionar-residentes.component.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#casa" 
+>
+                                            casa
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#edad" 
+>
+                                            edad
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#email" 
+>
+                                            email
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#esTitular" 
+>
+                                            esTitular
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#fechaNacimiento" 
+>
+                                            fechaNacimiento
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#fechaRegistro" 
+>
+                                            fechaRegistro
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#nombre" 
+>
+                                            nombre
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#parentesco" 
+>
+                                            parentesco
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#pasaje" 
+>
+                                            pasaje
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#password" 
+>
+                                            password
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#rol" 
+>
+                                            rol
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#rut" 
+>
+                                            rut
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#telefono" 
+>
+                                            telefono
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#tipo" 
+>
+                                            tipo
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="casa"></a>
+                                        <span class="name "><b>casa</b>
+                                            <a href="#casa">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>casa:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="edad"></a>
+                                        <span class="name "><b>edad</b>
+                                            <a href="#edad">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>edad:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="email"></a>
+                                        <span class="name "><b>email</b>
+                                            <a href="#email">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>email:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="esTitular"></a>
+                                        <span class="name "><b>esTitular</b>
+                                            <a href="#esTitular">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>esTitular:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fechaNacimiento"></a>
+                                        <span class="name "><b>fechaNacimiento</b>
+                                            <a href="#fechaNacimiento">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fechaNacimiento:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fechaRegistro"></a>
+                                        <span class="name "><b>fechaRegistro</b>
+                                            <a href="#fechaRegistro">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fechaRegistro:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="nombre"></a>
+                                        <span class="name "><b>nombre</b>
+                                            <a href="#nombre">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>nombre:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="parentesco"></a>
+                                        <span class="name "><b>parentesco</b>
+                                            <a href="#parentesco">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>parentesco:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="pasaje"></a>
+                                        <span class="name "><b>pasaje</b>
+                                            <a href="#pasaje">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>pasaje:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="password"></a>
+                                        <span class="name "><b>password</b>
+                                            <a href="#password">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>password:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="rol"></a>
+                                        <span class="name "><b>rol</b>
+                                            <a href="#rol">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>rol:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="rut"></a>
+                                        <span class="name "><b>rut</b>
+                                            <a href="#rut">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>rut:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="telefono"></a>
+                                        <span class="name "><b>telefono</b>
+                                            <a href="#telefono">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>telefono:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="tipo"></a>
+                                        <span class="name "><b>tipo</b>
+                                            <a href="#tipo">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>tipo:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { AuthService } from &#x27;../../../core/services/auth.service&#x27;;
+import { NavbarComponent } from &#x27;../../../shared/components/navbar/navbar.component&#x27;;
+
+interface Usuario {
+  nombre: string;
+  rut: string;
+  fechaNacimiento?: string;
+  edad?: number;
+  email: string;
+  telefono: string;
+  pasaje: string;
+  casa: string;
+  parentesco?: string;
+  esTitular?: boolean;
+  rol: string;
+  tipo?: string;
+  password?: string;
+  fechaRegistro?: string;
+}
+
+interface Estadisticas {
+  totalResidentes: number;
+  casasOcupadas: number;
+  casasDisponibles: number;
+  porcentajeOcupacion: number;
+}
+
+@Component({
+  selector: &#x27;app-gestionar-residentes&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, NavbarComponent],
+  templateUrl: &#x27;./gestionar-residentes.component.html&#x27;,
+  styleUrls: [&#x27;./gestionar-residentes.component.scss&#x27;]
+})
+export class GestionarResidentesComponent implements OnInit {
+  // Datos
+  residentes: Usuario[] &#x3D; [];
+  residentesFiltrados: Usuario[] &#x3D; [];
+  sesionActual: any &#x3D; null;
+
+  // Estadísticas
+  estadisticas: Estadisticas &#x3D; {
+    totalResidentes: 0,
+    casasOcupadas: 0,
+    casasDisponibles: 0,
+    porcentajeOcupacion: 0
+  };
+
+  // Filtros
+  busqueda: string &#x3D; &#x27;&#x27;;
+  filtroPasaje: string &#x3D; &#x27;&#x27;;
+  filtroCasa: string &#x3D; &#x27;&#x27;;
+  casasFiltro: string[] &#x3D; [];
+
+  // Modal Nuevo/Editar
+  mostrarModal: boolean &#x3D; false;
+  tituloModal: string &#x3D; &#x27;Nuevo Residente&#x27;;
+  residenteForm: Usuario &#x3D; this.nuevoResidenteVacio();
+  emailOriginal: string &#x3D; &#x27;&#x27;;
+  casasDisponiblesModal: string[] &#x3D; [];
+  residentesEnCasa: Usuario[] &#x3D; [];
+
+  // Modal Ver Detalles
+  mostrarModalVer: boolean &#x3D; false;
+  residenteDetalle: Usuario | null &#x3D; null;
+
+  // Modal Eliminar
+  mostrarModalEliminar: boolean &#x3D; false;
+  residenteEliminar: Usuario | null &#x3D; null;
+
+  // Configuración
+  readonly CASAS_8651 &#x3D; [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;];
+  readonly CASAS_8707 &#x3D; [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;G&#x27;];
+  readonly TOTAL_CASAS &#x3D; 13;
+  readonly MAX_RESIDENTES_POR_CASA &#x3D; 10;
+
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
+    this.verificarSesionAdmin();
+    this.cargarResidentes();
+    this.cargarEstadisticas();
+  }
+
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  // GESTIÓN DE SESIÓN
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+
+  verificarSesionAdmin(): void {
+    const usuario &#x3D; this.authService.getCurrentUser();
+    if (usuario) {
+      this.sesionActual &#x3D; usuario;
+      if (!this.authService.isAdmin()) {
+        console.log(&#x27;No es admin, redirigiendo...&#x27;);
+        this.router.navigate([&#x27;/login&#x27;]);
+      } else {
+        console.log(&#x27;Admin verificado:&#x27;, usuario.nombre);
+      }
+    } else {
+      console.log(&#x27;No hay sesión, redirigiendo a login&#x27;);
+      this.router.navigate([&#x27;/login&#x27;]);
+    }
+  }
+
+  get nombreAdmin(): string {
+    return this.sesionActual?.nombre || &#x27;Admin&#x27;;
+  }
+
+  cerrarSesion(): void {
+    if (confirm(&#x27;¿Cerrar sesión?&#x27;)) {
+      this.authService.logout();
+      this.router.navigate([&#x27;/login&#x27;]);
+    }
+  }
+
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  // CARGA DE DATOS
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+
+  cargarResidentes(): void {
+    const usuarios &#x3D; this.obtenerUsuarios();
+    this.residentes &#x3D; usuarios.filter((u: Usuario) &#x3D;&gt; u.casa);
+    this.residentesFiltrados &#x3D; [...this.residentes];
+  }
+
+  cargarEstadisticas(): void {
+    const usuarios &#x3D; this.obtenerUsuarios();
+    const residentesCasa &#x3D; usuarios.filter((u: Usuario) &#x3D;&gt; u.pasaje &amp;&amp; u.casa);
+    
+    const casasUnicas &#x3D; new Set(residentesCasa.map((r: Usuario) &#x3D;&gt; &#x60;${r.pasaje}-${r.casa}&#x60;));
+    const casasOcupadas &#x3D; casasUnicas.size;
+    const casasDisponibles &#x3D; this.TOTAL_CASAS - casasOcupadas;
+    const porcentaje &#x3D; Math.round((casasOcupadas / this.TOTAL_CASAS) * 100);
+    
+    this.estadisticas &#x3D; {
+      totalResidentes: residentesCasa.length,
+      casasOcupadas,
+      casasDisponibles,
+      porcentajeOcupacion: porcentaje
+    };
+  }
+
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  // FILTROS
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+
+  aplicarFiltros(): void {
+    this.residentesFiltrados &#x3D; this.residentes.filter(r &#x3D;&gt; {
+      const busquedaLower &#x3D; this.busqueda.toLowerCase();
+      const coincideBuscar &#x3D; 
+        r.nombre.toLowerCase().includes(busquedaLower) ||
+        r.rut.includes(busquedaLower) ||
+        r.email.toLowerCase().includes(busquedaLower);
+      
+      const coincidePasaje &#x3D; !this.filtroPasaje || r.pasaje &#x3D;&#x3D;&#x3D; this.filtroPasaje;
+      const coincideCasa &#x3D; !this.filtroCasa || r.casa &#x3D;&#x3D;&#x3D; this.filtroCasa;
+      
+      return coincideBuscar &amp;&amp; coincidePasaje &amp;&amp; coincideCasa;
+    });
+  }
+
+  onFiltroPasajeChange(): void {
+    this.filtroCasa &#x3D; &#x27;&#x27;;
+    this.actualizarCasasFiltro();
+    this.aplicarFiltros();
+  }
+
+  actualizarCasasFiltro(): void {
+    if (this.filtroPasaje &#x3D;&#x3D;&#x3D; &#x27;8651&#x27;) {
+      this.casasFiltro &#x3D; this.CASAS_8651;
+    } else if (this.filtroPasaje &#x3D;&#x3D;&#x3D; &#x27;8707&#x27;) {
+      this.casasFiltro &#x3D; this.CASAS_8707;
+    } else {
+      this.casasFiltro &#x3D; [];
+    }
+  }
+
+  limpiarFiltros(): void {
+    this.busqueda &#x3D; &#x27;&#x27;;
+    this.filtroPasaje &#x3D; &#x27;&#x27;;
+    this.filtroCasa &#x3D; &#x27;&#x27;;
+    this.casasFiltro &#x3D; [];
+    this.residentesFiltrados &#x3D; [...this.residentes];
+  }
+
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  // MODAL NUEVO/EDITAR RESIDENTE
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+
+  abrirModalNuevo(): void {
+    this.residenteForm &#x3D; this.nuevoResidenteVacio();
+    this.emailOriginal &#x3D; &#x27;&#x27;;
+    this.tituloModal &#x3D; &#x27;Nuevo Residente&#x27;;
+    this.casasDisponiblesModal &#x3D; [];
+    this.residentesEnCasa &#x3D; [];
+    this.mostrarModal &#x3D; true;
+  }
+
+  abrirModalEditar(residente: Usuario): void {
+    this.residenteForm &#x3D; { ...residente };
+    this.emailOriginal &#x3D; residente.email;
+    this.tituloModal &#x3D; &#x27;Editar Residente&#x27;;
+    this.actualizarCasasModal();
+    this.mostrarResidentesEnCasa();
+    this.mostrarModal &#x3D; true;
+  }
+
+  cerrarModal(): void {
+    this.mostrarModal &#x3D; false;
+    this.residenteForm &#x3D; this.nuevoResidenteVacio();
+    this.emailOriginal &#x3D; &#x27;&#x27;;
+  }
+
+  onPasajeChange(): void {
+    this.residenteForm.casa &#x3D; &#x27;&#x27;;
+    this.actualizarCasasModal();
+    this.residentesEnCasa &#x3D; [];
+  }
+
+  onCasaChange(): void {
+    this.mostrarResidentesEnCasa();
+  }
+
+  actualizarCasasModal(): void {
+    if (this.residenteForm.pasaje &#x3D;&#x3D;&#x3D; &#x27;8651&#x27;) {
+      this.casasDisponiblesModal &#x3D; this.CASAS_8651;
+    } else if (this.residenteForm.pasaje &#x3D;&#x3D;&#x3D; &#x27;8707&#x27;) {
+      this.casasDisponiblesModal &#x3D; this.CASAS_8707;
+    } else {
+      this.casasDisponiblesModal &#x3D; [];
+    }
+  }
+
+  mostrarResidentesEnCasa(): void {
+    if (!this.residenteForm.pasaje || !this.residenteForm.casa) {
+      this.residentesEnCasa &#x3D; [];
+      return;
+    }
+
+    this.residentesEnCasa &#x3D; this.residentes.filter(r &#x3D;&gt;
+      r.pasaje &#x3D;&#x3D;&#x3D; this.residenteForm.pasaje &amp;&amp;
+      r.casa &#x3D;&#x3D;&#x3D; this.residenteForm.casa &amp;&amp;
+      r.email !&#x3D;&#x3D; this.emailOriginal
+    );
+  }
+
+  onEsTitularChange(): void {
+    if (!this.residenteForm.pasaje || !this.residenteForm.casa) {
+      alert(&#x27;Primero seleccione pasaje y casa&#x27;);
+      this.residenteForm.esTitular &#x3D; false;
+      return;
+    }
+
+    if (this.residenteForm.esTitular) {
+      const usuarios &#x3D; this.obtenerUsuarios();
+      const titularActual &#x3D; usuarios.find((u: Usuario) &#x3D;&gt;
+        u.pasaje &#x3D;&#x3D;&#x3D; this.residenteForm.pasaje &amp;&amp;
+        u.casa &#x3D;&#x3D;&#x3D; this.residenteForm.casa &amp;&amp;
+        u.esTitular &#x3D;&#x3D;&#x3D; true &amp;&amp;
+        u.email !&#x3D;&#x3D; this.emailOriginal
+      );
+
+      if (titularActual) {
+        const confirmar &#x3D; confirm(
+          &#x60;⚠️ ATENCIÓN: Ya existe un titular en esta casa:\n\n&#x60; +
+          &#x60;${titularActual.nombre} (${titularActual.parentesco || &#x27;Sin parentesco&#x27;})\n\n&#x60; +
+          &#x60;Si continúa, ${titularActual.nombre} dejará de ser el titular principal.\n\n&#x60; +
+          &#x60;¿Desea continuar?&#x60;
+        );
+
+        if (!confirmar) {
+          this.residenteForm.esTitular &#x3D; false;
+          return;
+        }
+      }
+
+      if (this.residenteForm.parentesco !&#x3D;&#x3D; &#x27;titular&#x27;) {
+        const cambiarParentesco &#x3D; confirm(
+          &#x27;¿Desea cambiar también el parentesco a &quot;Titular/Propietario&quot;?&#x27;
+        );
+        if (cambiarParentesco) {
+          this.residenteForm.parentesco &#x3D; &#x27;titular&#x27;;
+        }
+      }
+    }
+  }
+
+  onParentescoChange(): void {
+    if (this.residenteForm.parentesco &#x3D;&#x3D;&#x3D; &#x27;titular&#x27; &amp;&amp; !this.residenteForm.esTitular) {
+      const marcar &#x3D; confirm(
+        &#x27;¿Desea marcar también a esta persona como el titular principal de la casa?\n\n&#x27; +
+        &#x27;Esto le dará prioridad en notificaciones y documentos oficiales.&#x27;
+      );
+
+      if (marcar) {
+        this.residenteForm.esTitular &#x3D; true;
+        this.onEsTitularChange();
+      }
+    }
+  }
+
+  guardarResidente(): void {
+    if (!this.validarFormulario()) {
+      return;
+    }
+
+    let usuarios &#x3D; this.obtenerUsuarios();
+
+    // Validar capacidad de la casa
+    if (!this.emailOriginal || this.cambióDeCasa()) {
+      const cantidadEnCasa &#x3D; usuarios.filter((u: Usuario) &#x3D;&gt;
+        u.pasaje &#x3D;&#x3D;&#x3D; this.residenteForm.pasaje &amp;&amp;
+        u.casa &#x3D;&#x3D;&#x3D; this.residenteForm.casa
+      ).length;
+
+      if (cantidadEnCasa &gt;&#x3D; this.MAX_RESIDENTES_POR_CASA) {
+        alert(&#x60;❌ Esta casa ya tiene ${this.MAX_RESIDENTES_POR_CASA} residentes (máximo permitido)&#x60;);
+        return;
+      }
+    }
+
+    // Validar email único
+    const emailExiste &#x3D; usuarios.some((u: Usuario) &#x3D;&gt;
+      u.email &#x3D;&#x3D;&#x3D; this.residenteForm.email &amp;&amp; u.email !&#x3D;&#x3D; this.emailOriginal
+    );
+
+    if (emailExiste) {
+      alert(&#x27;❌ Este email ya está registrado&#x27;);
+      return;
+    }
+
+    // Calcular edad si hay fecha de nacimiento
+    if (this.residenteForm.fechaNacimiento) {
+      this.residenteForm.edad &#x3D; this.calcularEdad(this.residenteForm.fechaNacimiento);
+    }
+
+    if (this.emailOriginal) {
+      // Editar
+      const index &#x3D; usuarios.findIndex((u: Usuario) &#x3D;&gt; u.email &#x3D;&#x3D;&#x3D; this.emailOriginal);
+      if (index !&#x3D;&#x3D; -1) {
+        const usuarioActual &#x3D; usuarios[index];
+        usuarios[index] &#x3D; {
+          ...usuarioActual,
+          ...this.residenteForm,
+          password: usuarioActual.password,
+          fechaRegistro: usuarioActual.fechaRegistro
+        };
+      }
+    } else {
+      // Nuevo
+      const nuevoResidente &#x3D; {
+        ...this.residenteForm,
+        password: &#x27;User123!&#x27;,
+        tipo: this.residenteForm.rol,
+        fechaRegistro: new Date().toISOString()
+      };
+      usuarios.push(nuevoResidente);
+    }
+
+    // Si se marcó como titular, quitar el flag de otros
+    if (this.residenteForm.esTitular) {
+      usuarios.forEach((u: any) &#x3D;&gt; {
+        if (
+          u.pasaje &#x3D;&#x3D;&#x3D; this.residenteForm.pasaje &amp;&amp;
+          u.casa &#x3D;&#x3D;&#x3D; this.residenteForm.casa &amp;&amp;
+          u.email !&#x3D;&#x3D; this.residenteForm.email
+        ) {
+          u.esTitular &#x3D; false;
+        }
+      });
+    }
+
+    this.guardarUsuarios(usuarios);
+    this.cargarResidentes();
+    this.cargarEstadisticas();
+    this.cerrarModal();
+
+    const cantidadEnCasa &#x3D; usuarios.filter((u: Usuario) &#x3D;&gt;
+      u.pasaje &#x3D;&#x3D;&#x3D; this.residenteForm.pasaje &amp;&amp;
+      u.casa &#x3D;&#x3D;&#x3D; this.residenteForm.casa
+    ).length;
+
+    alert(
+      &#x60;✅ ${this.residenteForm.nombre} ${this.emailOriginal ? &#x27;actualizado&#x27; : &#x27;agregado&#x27;} correctamente\n&#x60; +
+      &#x60;(${cantidadEnCasa} persona${cantidadEnCasa &gt; 1 ? &#x27;s&#x27; : &#x27;&#x27;} en esta casa)&#x60;
+    );
+  }
+
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  // MODAL VER DETALLES
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+
+  verResidente(residente: Usuario): void {
+    this.residenteDetalle &#x3D; residente;
+    this.mostrarModalVer &#x3D; true;
+  }
+
+  cerrarModalVer(): void {
+    this.mostrarModalVer &#x3D; false;
+    this.residenteDetalle &#x3D; null;
+  }
+
+  get otrosResidentesEnCasaDetalle(): Usuario[] {
+    if (!this.residenteDetalle) return [];
+
+    return this.residentes.filter(r &#x3D;&gt;
+      r.pasaje &#x3D;&#x3D;&#x3D; this.residenteDetalle!.pasaje &amp;&amp;
+      r.casa &#x3D;&#x3D;&#x3D; this.residenteDetalle!.casa &amp;&amp;
+      r.email !&#x3D;&#x3D; this.residenteDetalle!.email
+    );
+  }
+
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  // MODAL ELIMINAR
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+
+  abrirModalEliminar(residente: Usuario): void {
+    this.residenteEliminar &#x3D; residente;
+    this.mostrarModalEliminar &#x3D; true;
+  }
+
+  cerrarModalEliminar(): void {
+    this.mostrarModalEliminar &#x3D; false;
+    this.residenteEliminar &#x3D; null;
+  }
+
+  confirmarEliminar(): void {
+    if (!this.residenteEliminar) return;
+
+    let usuarios &#x3D; this.obtenerUsuarios();
+
+    // Advertir si era titular
+    if (this.residenteEliminar.esTitular) {
+      const otrosEnCasa &#x3D; usuarios.filter((u: Usuario) &#x3D;&gt;
+        u.pasaje &#x3D;&#x3D;&#x3D; this.residenteEliminar!.pasaje &amp;&amp;
+        u.casa &#x3D;&#x3D;&#x3D; this.residenteEliminar!.casa &amp;&amp;
+        u.email !&#x3D;&#x3D; this.residenteEliminar!.email
+      );
+
+      if (otrosEnCasa.length &gt; 0) {
+        alert(
+          &#x60;⚠️ ${this.residenteEliminar.nombre} era el titular. &#x60; +
+          &#x27;Recuerde asignar un nuevo titular para esta casa.&#x27;
+        );
+      }
+    }
+
+    usuarios &#x3D; usuarios.filter((u: Usuario) &#x3D;&gt; u.email !&#x3D;&#x3D; this.residenteEliminar!.email);
+    this.guardarUsuarios(usuarios);
+    this.cargarResidentes();
+    this.cargarEstadisticas();
+    this.cerrarModalEliminar();
+
+    alert(&#x60;✅ ${this.residenteEliminar.nombre} eliminado correctamente&#x60;);
+  }
+
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  // UTILIDADES
+  // &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+
+  obtenerUsuarios(): Usuario[] {
+    const usuarios &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
+    return usuarios ? JSON.parse(usuarios) : [];
+  }
+
+  guardarUsuarios(usuarios: Usuario[]): void {
+    localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(usuarios));
+  }
+
+  nuevoResidenteVacio(): Usuario {
+    return {
+      nombre: &#x27;&#x27;,
+      rut: &#x27;&#x27;,
+      email: &#x27;&#x27;,
+      telefono: &#x27;&#x27;,
+      pasaje: &#x27;&#x27;,
+      casa: &#x27;&#x27;,
+      rol: &#x27;residente&#x27;,
+      parentesco: &#x27;&#x27;,
+      esTitular: false
+    };
+  }
+
+  validarFormulario(): boolean {
+    if (!this.residenteForm.nombre || this.residenteForm.nombre.length &lt; 3) {
+      alert(&#x27;❌ El nombre debe tener al menos 3 caracteres&#x27;);
+      return false;
+    }
+
+    if (!this.residenteForm.rut) {
+      alert(&#x27;❌ Debe ingresar el RUT&#x27;);
+      return false;
+    }
+
+    if (!this.validarRUT(this.residenteForm.rut)) {
+      alert(&#x27;❌ RUT inválido&#x27;);
+      return false;
+    }
+
+    if (!this.residenteForm.fechaNacimiento) {
+      alert(&#x27;❌ Debe ingresar la fecha de nacimiento&#x27;);
+      return false;
+    }
+
+    const edad &#x3D; this.calcularEdad(this.residenteForm.fechaNacimiento);
+    if (edad &lt; 18) {
+      alert(&#x27;❌ Debe ser mayor de 18 años&#x27;);
+      return false;
+    }
+
+    if (!this.residenteForm.email || !this.residenteForm.email.includes(&#x27;@&#x27;)) {
+      alert(&#x27;❌ Debe ingresar un email válido&#x27;);
+      return false;
+    }
+
+    if (!this.residenteForm.telefono || this.residenteForm.telefono.length !&#x3D;&#x3D; 9) {
+      alert(&#x27;❌ El teléfono debe tener 9 dígitos&#x27;);
+      return false;
+    }
+
+    if (!this.residenteForm.pasaje || !this.residenteForm.casa) {
+      alert(&#x27;❌ Debe seleccionar pasaje y casa&#x27;);
+      return false;
+    }
+
+    if (!this.residenteForm.parentesco) {
+      alert(&#x27;❌ Debe seleccionar el parentesco&#x27;);
+      return false;
+    }
+
+    return true;
+  }
+
+  validarRUT(rut: string): boolean {
+    // Validación básica de RUT chileno
+    const rutLimpio &#x3D; rut.replace(/\./g, &#x27;&#x27;).replace(/-/g, &#x27;&#x27;);
+    if (rutLimpio.length &lt; 2) return false;
+
+    const cuerpo &#x3D; rutLimpio.slice(0, -1);
+    const dv &#x3D; rutLimpio.slice(-1).toUpperCase();
+
+    if (!/^[0-9]+$/.test(cuerpo)) return false;
+
+    let suma &#x3D; 0;
+    let multiplicador &#x3D; 2;
+
+    for (let i &#x3D; cuerpo.length - 1; i &gt;&#x3D; 0; i--) {
+      suma +&#x3D; parseInt(cuerpo.charAt(i)) * multiplicador;
+      multiplicador &#x3D; multiplicador &#x3D;&#x3D;&#x3D; 7 ? 2 : multiplicador + 1;
+    }
+
+    const dvEsperado &#x3D; 11 - (suma % 11);
+    const dvCalculado &#x3D; dvEsperado &#x3D;&#x3D;&#x3D; 11 ? &#x27;0&#x27; : dvEsperado &#x3D;&#x3D;&#x3D; 10 ? &#x27;K&#x27; : dvEsperado.toString();
+
+    return dv &#x3D;&#x3D;&#x3D; dvCalculado;
+  }
+
+  formatearRUT(event: any): void {
+    let valor &#x3D; event.target.value.replace(/\./g, &#x27;&#x27;).replace(/-/g, &#x27;&#x27;);
+
+    if (valor.length &gt; 1) {
+      const cuerpo &#x3D; valor.slice(0, -1);
+      const dv &#x3D; valor.slice(-1);
+
+      const cuerpoFormateado &#x3D; cuerpo.replace(/\B(?&#x3D;(\d{3})+(?!\d))/g, &#x27;.&#x27;);
+
+      this.residenteForm.rut &#x3D; &#x60;${cuerpoFormateado}-${dv}&#x60;;
+    }
+  }
+
+  calcularEdad(fechaNacimiento: string): number {
+    const hoy &#x3D; new Date();
+    const nacimiento &#x3D; new Date(fechaNacimiento);
+    let edad &#x3D; hoy.getFullYear() - nacimiento.getFullYear();
+    const mes &#x3D; hoy.getMonth() - nacimiento.getMonth();
+
+    if (mes &lt; 0 || (mes &#x3D;&#x3D;&#x3D; 0 &amp;&amp; hoy.getDate() &lt; nacimiento.getDate())) {
+      edad--;
+    }
+
+    return edad;
+  }
+
+  cambióDeCasa(): boolean {
+    const usuarios &#x3D; this.obtenerUsuarios();
+    const residenteActual &#x3D; usuarios.find((u: Usuario) &#x3D;&gt; u.email &#x3D;&#x3D;&#x3D; this.emailOriginal);
+
+    if (!residenteActual) return false;
+
+    return (
+      residenteActual.pasaje !&#x3D;&#x3D; this.residenteForm.pasaje ||
+      residenteActual.casa !&#x3D;&#x3D; this.residenteForm.casa
+    );
+  }
+
+  obtenerEdad(residente: Usuario): number {
+    if (residente.edad) return residente.edad;
+    if (residente.fechaNacimiento) {
+      return this.calcularEdad(residente.fechaNacimiento);
+    }
+    return 0;
+  }
+
+  obtenerParentescoTexto(parentesco: string | undefined): string {
+    if (!parentesco) return &#x27;No especificado&#x27;;
+    return parentesco.charAt(0).toUpperCase() + parentesco.slice(1);
+  }
+
+  contarResidentesEnCasa(pasaje: string, casa: string): number {
+    return this.residentes.filter(r &#x3D;&gt; r.pasaje &#x3D;&#x3D;&#x3D; pasaje &amp;&amp; r.casa &#x3D;&#x3D;&#x3D; casa).length;
+  }
+
+  navegarA(ruta: string): void {
+    this.router.navigate([ruta]);
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Usuario-2.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

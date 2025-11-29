@@ -2,6 +2,23 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
 import { USUARIOS_MOCK, validarCredenciales } from '../../data/usuarios-mock';
 
+/**
+ * Servicio de autenticación
+ * 
+ * Maneja el inicio de sesión, cierre de sesión y gestión de la sesión del usuario.
+ * Utiliza localStorage para sesiones persistentes y sessionStorage para sesiones temporales.
+ * 
+ * @example
+ * ```typescript
+ * constructor(private authService: AuthService) {}
+ * 
+ * login() {
+ *   if (this.authService.login('admin@comunes.cl', 'Admin123!', true)) {
+ *     this.router.navigate(['/admin/dashboard']);
+ *   }
+ * }
+ * ```
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +32,12 @@ export class AuthService {
 
   /**
    * Cargar sesión desde localStorage o sessionStorage
+   * 
+   * Intenta cargar la sesión primero desde localStorage (sesión persistente),
+   * y si no existe, desde sessionStorage (sesión temporal).
+   * 
+   * @private
+   * @returns {void}
    */
   private cargarSesion(): void {
     // Intentar cargar desde localStorage primero
@@ -37,7 +60,24 @@ export class AuthService {
   }
 
   /**
-   * Iniciar sesión
+   * Iniciar sesión en el sistema
+   * 
+   * Valida las credenciales del usuario y crea una sesión activa.
+   * Si recordar es true, la sesión se guarda en localStorage (persistente).
+   * Si es false, se guarda en sessionStorage (se borra al cerrar el navegador).
+   * 
+   * @param {string} email - Correo electrónico del usuario
+   * @param {string} password - Contraseña del usuario
+   * @param {boolean} recordar - Si se debe recordar la sesión (por defecto false)
+   * @returns {boolean} True si el login fue exitoso, false en caso contrario
+   * 
+   * @example
+   * ```typescript
+   * const exito = this.authService.login('admin@comunes.cl', 'Admin123!', true);
+   * if (exito) {
+   *   console.log('Login exitoso');
+   * }
+   * ```
    */
   login(email: string, password: string, recordar: boolean = false): boolean {
     const usuario = validarCredenciales(email, password);
@@ -65,7 +105,18 @@ export class AuthService {
   }
 
   /**
-   * Cerrar sesión
+   * Cerrar sesión del usuario actual
+   * 
+   * Elimina los datos de sesión de localStorage y sessionStorage,
+   * y limpia el usuario actual en memoria.
+   * 
+   * @returns {void}
+   * 
+   * @example
+   * ```typescript
+   * this.authService.logout();
+   * this.router.navigate(['/login']);
+   * ```
    */
   logout(): void {
     this.currentUser = null;
@@ -75,7 +126,19 @@ export class AuthService {
   }
 
   /**
-   * Obtener usuario actual
+   * Obtener el usuario actualmente autenticado
+   * 
+   * Si no hay usuario en memoria, intenta cargarlo desde el storage.
+   * 
+   * @returns {Usuario | null} El usuario actual o null si no hay sesión activa
+   * 
+   * @example
+   * ```typescript
+   * const usuario = this.authService.getCurrentUser();
+   * if (usuario) {
+   *   console.log('Usuario:', usuario.nombre);
+   * }
+   * ```
    */
   getCurrentUser(): Usuario | null {
     // Si no hay usuario en memoria, intentar cargar de storage
@@ -86,7 +149,21 @@ export class AuthService {
   }
 
   /**
-   * Verificar si está autenticado
+   * Verificar si hay un usuario autenticado
+   * 
+   * Comprueba si existe una sesión activa. Si no hay usuario en memoria,
+   * intenta cargarlo del storage antes de responder.
+   * 
+   * @returns {boolean} True si hay un usuario autenticado, false en caso contrario
+   * 
+   * @example
+   * ```typescript
+   * if (this.authService.isAuthenticated()) {
+   *   // Usuario autenticado
+   * } else {
+   *   this.router.navigate(['/login']);
+   * }
+   * ```
    */
   isAuthenticated(): boolean {
     // Si no hay usuario en memoria, intentar cargar
@@ -100,42 +177,68 @@ export class AuthService {
   }
 
   /**
-   * Verificar si es administrador
+   * Verificar si el usuario actual es administrador
+   * 
+   * @returns {boolean} True si el usuario tiene rol de administrador
+   * 
+   * @example
+   * ```typescript
+   * if (this.authService.isAdmin()) {
+   *   // Mostrar opciones de administrador
+   * }
+   * ```
    */
   isAdmin(): boolean {
     return this.currentUser?.rol === 'administrador';
   }
 
   /**
-   * Verificar si es residente
+   * Verificar si el usuario actual es residente
+   * 
+   * @returns {boolean} True si el usuario tiene rol de residente
    */
   isResidente(): boolean {
     return this.currentUser?.rol === 'residente';
   }
 
   /**
-   * Obtener nombre del usuario
+   * Obtener el nombre completo del usuario actual
+   * 
+   * @returns {string} Nombre del usuario o cadena vacía si no hay sesión
    */
   getNombreUsuario(): string {
     return this.currentUser?.nombre || '';
   }
 
   /**
-   * Obtener pasaje del usuario
+   * Obtener el número de pasaje del usuario actual
+   * 
+   * @returns {string} Número del pasaje (8651 o 8707) o cadena vacía
    */
   getPasaje(): string {
     return this.currentUser?.pasaje || '';
   }
 
   /**
-   * Obtener casa del usuario
+   * Obtener la letra de casa del usuario actual
+   * 
+   * @returns {string} Letra de la casa (A-G) o cadena vacía
    */
   getCasa(): string {
     return this.currentUser?.casa || '';
   }
 
   /**
-   * Obtener identificación completa (Pasaje-Casa)
+   * Obtener la ubicación completa del usuario
+   * 
+   * Retorna la identificación en formato "Pasaje-Casa" (ej: "8651-A")
+   * 
+   * @returns {string} Ubicación en formato "Pasaje-Casa" o cadena vacía
+   * 
+   * @example
+   * ```typescript
+   * const ubicacion = this.authService.getUbicacion(); // "8651-A"
+   * ```
    */
   getUbicacion(): string {
     if (this.currentUser) {

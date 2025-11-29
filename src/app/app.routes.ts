@@ -81,11 +81,16 @@ export const routes: Routes = [
     ]
   },
 
-  // Ruta compartida
+  // Rutas compartidas
   {
     path: 'perfil',
     canActivate: [authGuard],
     loadComponent: () => import('./features/shared/perfil/perfil.component').then(m => m.PerfilComponent)
+  },
+  {
+    path: 'detalle-gasto',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/shared/detalle-gasto/detalle-gasto.component').then(m => m.DetalleGastoComponent)
   },
 
   // Ruta 404

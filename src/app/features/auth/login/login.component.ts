@@ -4,6 +4,25 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractContro
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 
+/**
+ * Componente de inicio de sesión
+ * 
+ * Maneja el inicio de sesión de usuarios con dos roles diferentes:
+ * - **Administrador**: Acceso completo al sistema de gestión
+ * - **Residente**: Acceso limitado a funcionalidades de usuario
+ * 
+ * Incluye validaciones de formulario reactivo, manejo de errores y
+ * un modal para solicitar nuevas cuentas de usuario.
+ * 
+ * @example
+ * **Ruta**: /login
+ * 
+ * **Credenciales de prueba**:
+ * - Admin: admin@comunes.cl / Admin123!
+ * - Usuario: usuario@comunes.cl / User123!
+ * 
+ * @see {@link AuthService} Para la lógica de autenticación
+ */
 @Component({
   selector: 'app-login',
   standalone: true,

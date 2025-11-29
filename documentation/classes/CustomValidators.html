@@ -1,0 +1,1113 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>comunes-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">comunes-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >CustomValidators</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/shared/validators/custom-validators.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Validadores personalizados para la aplicación Gastos Comunes
+Semana 5 - Desarrollo Full Stack II</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#casaValida" >casaValida</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#emailStrict" >emailStrict</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#minAge" >minAge</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#noWhitespace" >noWhitespace</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#passwordLength" >passwordLength</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#passwordsMatch" >passwordsMatch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#passwordStrength" >passwordStrength</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#rutValidator" >rutValidator</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#telefonoChileno" >telefonoChileno</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="casaValida"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>casaValida</b></span>
+                        <a href="#casaValida"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>casaValida(pasajeControl: AbstractControl)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="245"
+                                    class="link-to-prism">src/app/shared/validators/custom-validators.ts:245</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador: Casa debe estar en el rango correcto según el pasaje
+Uso: aplicar al control de casa</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>pasajeControl</td>
+                                            <td>
+                                                        <code>AbstractControl</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emailStrict"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>emailStrict</b></span>
+                        <a href="#emailStrict"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>emailStrict()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="208"
+                                    class="link-to-prism">src/app/shared/validators/custom-validators.ts:208</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador: Email válido (más estricto que el validator por defecto)
+Uso: aplicar al control de email</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="minAge"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>minAge</b></span>
+                        <a href="#minAge"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>minAge(minAge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/shared/validators/custom-validators.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador: Edad mínima de 13 años
+Uso: aplicar al control de fecha de nacimiento</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>minAge</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>13</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="noWhitespace"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>noWhitespace</b></span>
+                        <a href="#noWhitespace"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>noWhitespace()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="227"
+                                    class="link-to-prism">src/app/shared/validators/custom-validators.ts:227</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador: Campo no puede contener solo espacios en blanco
+Uso: aplicar a cualquier control de texto</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordLength"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>passwordLength</b></span>
+                        <a href="#passwordLength"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>passwordLength(min: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, max: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/shared/validators/custom-validators.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador: Longitud de contraseña entre 6 y 18 caracteres
+Uso: aplicar al control de contraseña</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>min</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>6</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>max</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>18</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordsMatch"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>passwordsMatch</b></span>
+                        <a href="#passwordsMatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>passwordsMatch(passwordField: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, confirmPasswordField: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="14"
+                                    class="link-to-prism">src/app/shared/validators/custom-validators.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador: Las dos contraseñas deben ser iguales
+Uso: aplicar al FormGroup completo</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>passwordField</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>confirmPasswordField</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordStrength"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>passwordStrength</b></span>
+                        <a href="#passwordStrength"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>passwordStrength()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/shared/validators/custom-validators.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador: La contraseña debe contener al menos un número y una letra mayúscula
+Uso: aplicar al control de contraseña</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rutValidator"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>rutValidator</b></span>
+                        <a href="#rutValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rutValidator()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/app/shared/validators/custom-validators.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador: RUT chileno válido
+Uso: aplicar al control de RUT</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="telefonoChileno"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>telefonoChileno</b></span>
+                        <a href="#telefonoChileno"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>telefonoChileno()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="189"
+                                    class="link-to-prism">src/app/shared/validators/custom-validators.ts:189</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validador: Teléfono chileno válido (+56 9 XXXX XXXX)
+Uso: aplicar al control de teléfono</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AbstractControl, ValidationErrors, ValidatorFn } from &#x27;@angular/forms&#x27;;
+
+/**
+ * Validadores personalizados para la aplicación Gastos Comunes
+ * Semana 5 - Desarrollo Full Stack II
+ */
+
+export class CustomValidators {
+
+  /**
+   * Validador: Las dos contraseñas deben ser iguales
+   * Uso: aplicar al FormGroup completo
+   */
+  static passwordsMatch(passwordField: string, confirmPasswordField: string): ValidatorFn {
+    return (formGroup: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const password &#x3D; formGroup.get(passwordField);
+      const confirmPassword &#x3D; formGroup.get(confirmPasswordField);
+
+      if (!password || !confirmPassword) {
+        return null;
+      }
+
+      if (confirmPassword.errors &amp;&amp; !confirmPassword.errors[&#x27;passwordMismatch&#x27;]) {
+        return null;
+      }
+
+      if (password.value !&#x3D;&#x3D; confirmPassword.value) {
+        confirmPassword.setErrors({ passwordMismatch: true });
+        return { passwordMismatch: true };
+      } else {
+        confirmPassword.setErrors(null);
+        return null;
+      }
+    };
+  }
+
+  /**
+   * Validador: La contraseña debe contener al menos un número y una letra mayúscula
+   * Uso: aplicar al control de contraseña
+   */
+  static passwordStrength(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const value &#x3D; control.value;
+
+      if (!value) {
+        return null;
+      }
+
+      // Verificar que tenga al menos una mayúscula
+      const hasUpperCase &#x3D; /[A-Z]/.test(value);
+
+      // Verificar que tenga al menos un número
+      const hasNumber &#x3D; /[0-9]/.test(value);
+
+      const passwordValid &#x3D; hasUpperCase &amp;&amp; hasNumber;
+
+      return passwordValid ? null : { 
+        passwordStrength: {
+          hasUpperCase,
+          hasNumber
+        }
+      };
+    };
+  }
+
+  /**
+   * Validador: Edad mínima de 13 años
+   * Uso: aplicar al control de fecha de nacimiento
+   */
+  static minAge(minAge: number &#x3D; 13): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      if (!control.value) {
+        return null;
+      }
+
+      const birthDate &#x3D; new Date(control.value);
+      const today &#x3D; new Date();
+      
+      // Calcular la edad
+      let age &#x3D; today.getFullYear() - birthDate.getFullYear();
+      const monthDiff &#x3D; today.getMonth() - birthDate.getMonth();
+      
+      // Ajustar si aún no ha cumplido años este año
+      if (monthDiff &lt; 0 || (monthDiff &#x3D;&#x3D;&#x3D; 0 &amp;&amp; today.getDate() &lt; birthDate.getDate())) {
+        age--;
+      }
+
+      return age &gt;&#x3D; minAge ? null : { 
+        minAge: {
+          minAge,
+          actualAge: age
+        }
+      };
+    };
+  }
+
+  /**
+   * Validador: Longitud de contraseña entre 6 y 18 caracteres
+   * Uso: aplicar al control de contraseña
+   */
+  static passwordLength(min: number &#x3D; 6, max: number &#x3D; 18): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const value &#x3D; control.value;
+
+      if (!value) {
+        return null;
+      }
+
+      const length &#x3D; value.length;
+
+      if (length &lt; min) {
+        return { 
+          passwordLength: {
+            min,
+            max,
+            actual: length,
+            message: &#x60;La contraseña debe tener al menos ${min} caracteres&#x60;
+          }
+        };
+      }
+
+      if (length &gt; max) {
+        return { 
+          passwordLength: {
+            min,
+            max,
+            actual: length,
+            message: &#x60;La contraseña no puede tener más de ${max} caracteres&#x60;
+          }
+        };
+      }
+
+      return null;
+    };
+  }
+
+  /**
+   * Validador: RUT chileno válido
+   * Uso: aplicar al control de RUT
+   */
+  static rutValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const value &#x3D; control.value;
+
+      if (!value) {
+        return null;
+      }
+
+      // Limpiar el RUT (quitar puntos y guión)
+      const rutLimpio &#x3D; value.replace(/\./g, &#x27;&#x27;).replace(/-/g, &#x27;&#x27;);
+
+      // Verificar formato básico (7-8 dígitos + 1 dígito verificador)
+      if (!/^\d{7,8}[0-9Kk]$/.test(rutLimpio)) {
+        return { rutInvalido: true };
+      }
+
+      // Separar número y dígito verificador
+      const rutNumero &#x3D; rutLimpio.slice(0, -1);
+      const dvIngresado &#x3D; rutLimpio.slice(-1).toUpperCase();
+
+      // Calcular dígito verificador
+      let suma &#x3D; 0;
+      let multiplicador &#x3D; 2;
+
+      for (let i &#x3D; rutNumero.length - 1; i &gt;&#x3D; 0; i--) {
+        suma +&#x3D; parseInt(rutNumero.charAt(i)) * multiplicador;
+        multiplicador &#x3D; multiplicador &#x3D;&#x3D;&#x3D; 7 ? 2 : multiplicador + 1;
+      }
+
+      const dvCalculado &#x3D; 11 - (suma % 11);
+      let dvEsperado: string;
+
+      if (dvCalculado &#x3D;&#x3D;&#x3D; 11) {
+        dvEsperado &#x3D; &#x27;0&#x27;;
+      } else if (dvCalculado &#x3D;&#x3D;&#x3D; 10) {
+        dvEsperado &#x3D; &#x27;K&#x27;;
+      } else {
+        dvEsperado &#x3D; dvCalculado.toString();
+      }
+
+      return dvIngresado &#x3D;&#x3D;&#x3D; dvEsperado ? null : { rutInvalido: true };
+    };
+  }
+
+  /**
+   * Validador: Teléfono chileno válido (+56 9 XXXX XXXX)
+   * Uso: aplicar al control de teléfono
+   */
+  static telefonoChileno(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const value &#x3D; control.value;
+
+      if (!value) {
+        return null;
+      }
+
+      // Formato: 9 dígitos, comenzando con 9
+      const telefonoRegex &#x3D; /^9\d{8}$/;
+
+      return telefonoRegex.test(value) ? null : { telefonoInvalido: true };
+    };
+  }
+
+  /**
+   * Validador: Email válido (más estricto que el validator por defecto)
+   * Uso: aplicar al control de email
+   */
+  static emailStrict(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const value &#x3D; control.value;
+
+      if (!value) {
+        return null;
+      }
+
+      // Regex más estricto para email
+      const emailRegex &#x3D; /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      return emailRegex.test(value) ? null : { emailInvalido: true };
+    };
+  }
+
+  /**
+   * Validador: Campo no puede contener solo espacios en blanco
+   * Uso: aplicar a cualquier control de texto
+   */
+  static noWhitespace(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const value &#x3D; control.value;
+
+      if (!value) {
+        return null;
+      }
+
+      const isWhitespace &#x3D; (value || &#x27;&#x27;).trim().length &#x3D;&#x3D;&#x3D; 0;
+      
+      return isWhitespace ? { whitespace: true } : null;
+    };
+  }
+
+  /**
+   * Validador: Casa debe estar en el rango correcto según el pasaje
+   * Uso: aplicar al control de casa
+   */
+  static casaValida(pasajeControl: AbstractControl): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const casa &#x3D; control.value;
+      const pasaje &#x3D; pasajeControl.value;
+
+      if (!casa || !pasaje) {
+        return null;
+      }
+
+      const casasPorPasaje: { [key: string]: string[] } &#x3D; {
+        &#x27;8651&#x27;: [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;],
+        &#x27;8707&#x27;: [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;G&#x27;]
+      };
+
+      const casasValidas &#x3D; casasPorPasaje[pasaje] || [];
+
+      return casasValidas.includes(casa) ? null : { casaInvalida: true };
+    };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'CustomValidators.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1510 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>comunes-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">comunes-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ReportesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/admin/reportes/reportes.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-reportes</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                                <code><a href="../components/NavbarComponent.html" target="_self" >NavbarComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./reportes.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./reportes.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#estadisticas" >estadisticas</a>
+                            </li>
+                            <li>
+                                <a href="#gastos" >gastos</a>
+                            </li>
+                            <li>
+                                <a href="#gastosMesActual" >gastosMesActual</a>
+                            </li>
+                            <li>
+                                <a href="#mesActual" >mesActual</a>
+                            </li>
+                            <li>
+                                <a href="#pagos" >pagos</a>
+                            </li>
+                            <li>
+                                <a href="#pagosMesActual" >pagosMesActual</a>
+                            </li>
+                            <li>
+                                <a href="#reporteActual" >reporteActual</a>
+                            </li>
+                            <li>
+                                <a href="#residentes" >residentes</a>
+                            </li>
+                            <li>
+                                <a href="#resumen" >resumen</a>
+                            </li>
+                            <li>
+                                <a href="#top5Gastos" >top5Gastos</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#calcularEstadisticas" >calcularEstadisticas</a>
+                            </li>
+                            <li>
+                                <a href="#calcularResumen" >calcularResumen</a>
+                            </li>
+                            <li>
+                                <a href="#cargarDatos" >cargarDatos</a>
+                            </li>
+                            <li>
+                                <a href="#establecerMesActual" >establecerMesActual</a>
+                            </li>
+                            <li>
+                                <a href="#imprimirReporte" >imprimirReporte</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#verReporte" >verReporte</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcularEstadisticas"></a>
+                    <span class="name">
+                        <span ><b>calcularEstadisticas</b></span>
+                        <a href="#calcularEstadisticas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcularEstadisticas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcularResumen"></a>
+                    <span class="name">
+                        <span ><b>calcularResumen</b></span>
+                        <a href="#calcularResumen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcularResumen()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarDatos"></a>
+                    <span class="name">
+                        <span ><b>cargarDatos</b></span>
+                        <a href="#cargarDatos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarDatos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="establecerMesActual"></a>
+                    <span class="name">
+                        <span ><b>establecerMesActual</b></span>
+                        <a href="#establecerMesActual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>establecerMesActual()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="imprimirReporte"></a>
+                    <span class="name">
+                        <span ><b>imprimirReporte</b></span>
+                        <a href="#imprimirReporte"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>imprimirReporte()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verReporte"></a>
+                    <span class="name">
+                        <span ><b>verReporte</b></span>
+                        <a href="#verReporte"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>verReporte(tipo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tipo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estadisticas"></a>
+                    <span class="name">
+                        <span ><b>estadisticas</b></span>
+                        <a href="#estadisticas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Estadisticas.html" target="_self" >Estadisticas</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    tasaPago: 0,
+    casasAlDia: 0,
+    totalResidentes: 0
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gastos"></a>
+                    <span class="name">
+                        <span ><b>gastos</b></span>
+                        <a href="#gastos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gastosMesActual"></a>
+                    <span class="name">
+                        <span ><b>gastosMesActual</b></span>
+                        <a href="#gastosMesActual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mesActual"></a>
+                    <span class="name">
+                        <span ><b>mesActual</b></span>
+                        <a href="#mesActual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pagos"></a>
+                    <span class="name">
+                        <span ><b>pagos</b></span>
+                        <a href="#pagos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pagosMesActual"></a>
+                    <span class="name">
+                        <span ><b>pagosMesActual</b></span>
+                        <a href="#pagosMesActual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reporteActual"></a>
+                    <span class="name">
+                        <span ><b>reporteActual</b></span>
+                        <a href="#reporteActual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="residentes"></a>
+                    <span class="name">
+                        <span ><b>residentes</b></span>
+                        <a href="#residentes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resumen"></a>
+                    <span class="name">
+                        <span ><b>resumen</b></span>
+                        <a href="#resumen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Resumen.html" target="_self" >Resumen</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    totalGastos: 0,
+    totalRecaudado: 0,
+    pendiente: 0,
+    balance: 0
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="top5Gastos"></a>
+                    <span class="name">
+                        <span ><b>top5Gastos</b></span>
+                        <a href="#top5Gastos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/features/admin/reportes/reportes.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NavbarComponent } from &#x27;../../../shared/components/navbar/navbar.component&#x27;;
+
+interface Resumen {
+  totalGastos: number;
+  totalRecaudado: number;
+  pendiente: number;
+  balance: number;
+}
+
+interface Estadisticas {
+  tasaPago: number;
+  casasAlDia: number;
+  totalResidentes: number;
+}
+
+@Component({
+  selector: &#x27;app-reportes&#x27;,
+  standalone: true,
+  imports: [CommonModule, NavbarComponent],
+  templateUrl: &#x27;./reportes.component.html&#x27;,
+  styleUrls: [&#x27;./reportes.component.scss&#x27;]
+})
+export class ReportesComponent implements OnInit {
+  reporteActual: string &#x3D; &#x27;&#x27;;
+  mesActual: string &#x3D; &#x27;&#x27;;
+  
+  gastos: any[] &#x3D; [];
+  pagos: any[] &#x3D; [];
+  residentes: any[] &#x3D; [];
+  
+  gastosMesActual: any[] &#x3D; [];
+  pagosMesActual: any[] &#x3D; [];
+  top5Gastos: any[] &#x3D; [];
+  
+  resumen: Resumen &#x3D; {
+    totalGastos: 0,
+    totalRecaudado: 0,
+    pendiente: 0,
+    balance: 0
+  };
+  
+  estadisticas: Estadisticas &#x3D; {
+    tasaPago: 0,
+    casasAlDia: 0,
+    totalResidentes: 0
+  };
+
+  ngOnInit(): void {
+    this.cargarDatos();
+    this.calcularResumen();
+    this.calcularEstadisticas();
+    this.establecerMesActual();
+  }
+
+  cargarDatos(): void {
+    // Cargar gastos
+    const gastosStorage &#x3D; localStorage.getItem(&#x27;gastos&#x27;);
+    this.gastos &#x3D; gastosStorage ? JSON.parse(gastosStorage) : [];
+    
+    // Cargar pagos
+    const pagosStorage &#x3D; localStorage.getItem(&#x27;pagos&#x27;);
+    this.pagos &#x3D; pagosStorage ? JSON.parse(pagosStorage) : [];
+    
+    // Cargar residentes
+    const usuariosStorage &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
+    const usuarios &#x3D; usuariosStorage ? JSON.parse(usuariosStorage) : [];
+    this.residentes &#x3D; usuarios.filter((u: any) &#x3D;&gt; u.casa &amp;&amp; u.pasaje);
+  }
+
+  establecerMesActual(): void {
+    const ahora &#x3D; new Date();
+    const meses &#x3D; [
+      &#x27;Enero&#x27;, &#x27;Febrero&#x27;, &#x27;Marzo&#x27;, &#x27;Abril&#x27;, &#x27;Mayo&#x27;, &#x27;Junio&#x27;,
+      &#x27;Julio&#x27;, &#x27;Agosto&#x27;, &#x27;Septiembre&#x27;, &#x27;Octubre&#x27;, &#x27;Noviembre&#x27;, &#x27;Diciembre&#x27;
+    ];
+    this.mesActual &#x3D; &#x60;${meses[ahora.getMonth()]} ${ahora.getFullYear()}&#x60;;
+  }
+
+  calcularResumen(): void {
+    const mesActual &#x3D; new Date().toISOString().substring(0, 7); // YYYY-MM
+    
+    // Filtrar datos del mes actual
+    this.gastosMesActual &#x3D; this.gastos.filter(g &#x3D;&gt; g.mes &#x3D;&#x3D;&#x3D; mesActual);
+    this.pagosMesActual &#x3D; this.pagos.filter(p &#x3D;&gt; p.mes &#x3D;&#x3D;&#x3D; mesActual);
+    
+    // Calcular totales
+    this.resumen.totalGastos &#x3D; this.gastosMesActual.reduce((sum, g) &#x3D;&gt; sum + g.monto, 0);
+    this.resumen.totalRecaudado &#x3D; this.pagosMesActual.reduce((sum, p) &#x3D;&gt; sum + p.monto, 0);
+    
+    const montoPorCasa &#x3D; Math.ceil(this.resumen.totalGastos / 13);
+    const totalEsperado &#x3D; montoPorCasa * 13;
+    
+    this.resumen.pendiente &#x3D; totalEsperado - this.resumen.totalRecaudado;
+    this.resumen.balance &#x3D; this.resumen.totalRecaudado - this.resumen.totalGastos;
+    
+    // Top 5 gastos
+    this.top5Gastos &#x3D; [...this.gastosMesActual]
+      .sort((a, b) &#x3D;&gt; b.monto - a.monto)
+      .slice(0, 5);
+  }
+
+  calcularEstadisticas(): void {
+    // Total residentes
+    this.estadisticas.totalResidentes &#x3D; this.residentes.length;
+    
+    // Tasa de pago
+    if (this.resumen.totalGastos &gt; 0) {
+      const montoPorCasa &#x3D; Math.ceil(this.resumen.totalGastos / 13);
+      const totalEsperado &#x3D; montoPorCasa * 13;
+      this.estadisticas.tasaPago &#x3D; Math.round((this.resumen.totalRecaudado / totalEsperado) * 100);
+    }
+    
+    // Casas al día (simulado - asumimos que si pagaron están al día)
+    const casasQuePagaron &#x3D; new Set(this.pagosMesActual.map(p &#x3D;&gt; p.casa));
+    this.estadisticas.casasAlDia &#x3D; casasQuePagaron.size;
+  }
+
+  verReporte(tipo: string): void {
+    this.reporteActual &#x3D; tipo;
+  }
+
+  imprimirReporte(): void {
+    window.print();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-navbar&gt;&lt;/app-navbar&gt;
+
+&lt;main class&#x3D;&quot;container-fluid my-4&quot;&gt;
+    &lt;div class&#x3D;&quot;row mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;col-12&quot;&gt;
+            &lt;h1 class&#x3D;&quot;fw-bold mb-0&quot;&gt;Reportes y Estadísticas&lt;/h1&gt;
+            &lt;p class&#x3D;&quot;text-muted mb-0&quot;&gt;Genera reportes detallados de la comunidad&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- GENERADORES DE REPORTES --&gt;
+    &lt;div class&#x3D;&quot;row g-4 mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;col-12 col-md-6 col-lg-3&quot;&gt;
+            &lt;div class&#x3D;&quot;card shadow-sm h-100 hover-card&quot; 
+                 style&#x3D;&quot;cursor: pointer;&quot; 
+                 (click)&#x3D;&quot;verReporte(&#x27;gastos&#x27;)&quot;&gt;
+                &lt;div class&#x3D;&quot;card-body text-center p-4&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-receipt-cutoff fs-1 text-primary mb-3&quot;&gt;&lt;/i&gt;
+                    &lt;h5 class&#x3D;&quot;fw-bold&quot;&gt;Reporte de Gastos&lt;/h5&gt;
+                    &lt;p class&#x3D;&quot;text-muted mb-0&quot;&gt;Gastos del mes actual&lt;/p&gt;
+                    &lt;small class&#x3D;&quot;text-primary&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-eye&quot;&gt;&lt;/i&gt; Click para vista previa
+                    &lt;/small&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-12 col-md-6 col-lg-3&quot;&gt;
+            &lt;div class&#x3D;&quot;card shadow-sm h-100 hover-card&quot; 
+                 style&#x3D;&quot;cursor: pointer;&quot; 
+                 (click)&#x3D;&quot;verReporte(&#x27;pagos&#x27;)&quot;&gt;
+                &lt;div class&#x3D;&quot;card-body text-center p-4&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-cash-stack fs-1 text-success mb-3&quot;&gt;&lt;/i&gt;
+                    &lt;h5 class&#x3D;&quot;fw-bold&quot;&gt;Reporte de Pagos&lt;/h5&gt;
+                    &lt;p class&#x3D;&quot;text-muted mb-0&quot;&gt;Pagos realizados&lt;/p&gt;
+                    &lt;small class&#x3D;&quot;text-success&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-eye&quot;&gt;&lt;/i&gt; Click para vista previa
+                    &lt;/small&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-12 col-md-6 col-lg-3&quot;&gt;
+            &lt;div class&#x3D;&quot;card shadow-sm h-100 hover-card&quot; 
+                 style&#x3D;&quot;cursor: pointer;&quot; 
+                 (click)&#x3D;&quot;verReporte(&#x27;residentes&#x27;)&quot;&gt;
+                &lt;div class&#x3D;&quot;card-body text-center p-4&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-people-fill fs-1 text-info mb-3&quot;&gt;&lt;/i&gt;
+                    &lt;h5 class&#x3D;&quot;fw-bold&quot;&gt;Lista de Residentes&lt;/h5&gt;
+                    &lt;p class&#x3D;&quot;text-muted mb-0&quot;&gt;Todos los residentes&lt;/p&gt;
+                    &lt;small class&#x3D;&quot;text-info&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-eye&quot;&gt;&lt;/i&gt; Click para vista previa
+                    &lt;/small&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-12 col-md-6 col-lg-3&quot;&gt;
+            &lt;div class&#x3D;&quot;card shadow-sm h-100 hover-card&quot; 
+                 style&#x3D;&quot;cursor: pointer;&quot; 
+                 (click)&#x3D;&quot;verReporte(&#x27;general&#x27;)&quot;&gt;
+                &lt;div class&#x3D;&quot;card-body text-center p-4&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-clipboard-data fs-1 text-warning mb-3&quot;&gt;&lt;/i&gt;
+                    &lt;h5 class&#x3D;&quot;fw-bold&quot;&gt;Reporte General&lt;/h5&gt;
+                    &lt;p class&#x3D;&quot;text-muted mb-0&quot;&gt;Resumen completo&lt;/p&gt;
+                    &lt;small class&#x3D;&quot;text-warning&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-eye&quot;&gt;&lt;/i&gt; Click para vista previa
+                    &lt;/small&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- RESUMEN DE DATOS --&gt;
+    &lt;div class&#x3D;&quot;row g-4&quot;&gt;
+        &lt;div class&#x3D;&quot;col-12 col-lg-6&quot;&gt;
+            &lt;div class&#x3D;&quot;card shadow-sm&quot;&gt;
+                &lt;div class&#x3D;&quot;card-header bg-white&quot;&gt;
+                    &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-bar-chart&quot;&gt;&lt;/i&gt; Resumen Financiero&lt;/h5&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                    &lt;div class&#x3D;&quot;mb-3 pb-3 border-bottom&quot;&gt;
+                        &lt;div class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+                            &lt;span&gt;&lt;strong&gt;Total Gastos del Mes:&lt;/strong&gt;&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;text-danger fw-bold&quot;&gt;{{ resumen.totalGastos | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;mb-3 pb-3 border-bottom&quot;&gt;
+                        &lt;div class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+                            &lt;span&gt;&lt;strong&gt;Total Recaudado:&lt;/strong&gt;&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;text-success fw-bold&quot;&gt;{{ resumen.totalRecaudado | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;mb-3 pb-3 border-bottom&quot;&gt;
+                        &lt;div class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+                            &lt;span&gt;&lt;strong&gt;Pendiente por Cobrar:&lt;/strong&gt;&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;text-warning fw-bold&quot;&gt;{{ resumen.pendiente | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;div class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+                            &lt;span&gt;&lt;strong&gt;Balance:&lt;/strong&gt;&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;fw-bold&quot; [class.text-success]&#x3D;&quot;resumen.balance &gt;&#x3D; 0&quot; [class.text-danger]&#x3D;&quot;resumen.balance &lt; 0&quot;&gt;
+                                {{ resumen.balance | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-12 col-lg-6&quot;&gt;
+            &lt;div class&#x3D;&quot;card shadow-sm&quot;&gt;
+                &lt;div class&#x3D;&quot;card-header bg-white&quot;&gt;
+                    &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-pie-chart&quot;&gt;&lt;/i&gt; Estadísticas&lt;/h5&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                    &lt;!-- TASA DE PAGO --&gt;
+                    &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+                        &lt;div class&#x3D;&quot;d-flex justify-content-between mb-2&quot;&gt;
+                            &lt;span&gt;&lt;strong&gt;Tasa de Pago del Mes&lt;/strong&gt;&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;fw-bold text-success&quot;&gt;{{ estadisticas.tasaPago }}%&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;progress&quot; style&#x3D;&quot;height: 30px;&quot;&gt;
+                            &lt;div class&#x3D;&quot;progress-bar bg-success&quot; 
+                                 [style.width.%]&#x3D;&quot;estadisticas.tasaPago&quot;&gt;
+                                {{ estadisticas.tasaPago }}%
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- CASAS AL DÍA --&gt;
+                    &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+                        &lt;div class&#x3D;&quot;d-flex justify-content-between mb-2&quot;&gt;
+                            &lt;span&gt;&lt;strong&gt;Casas al Día&lt;/strong&gt;&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;fw-bold&quot;&gt;{{ estadisticas.casasAlDia }} de 13&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;progress&quot; style&#x3D;&quot;height: 30px;&quot;&gt;
+                            &lt;div class&#x3D;&quot;progress-bar bg-info&quot; 
+                                 [style.width.%]&#x3D;&quot;(estadisticas.casasAlDia / 13) * 100&quot;&gt;
+                                {{ estadisticas.casasAlDia }} casas
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- RESIDENTES ACTIVOS --&gt;
+                    &lt;div&gt;
+                        &lt;div class&#x3D;&quot;d-flex justify-content-between mb-2&quot;&gt;
+                            &lt;span&gt;&lt;strong&gt;Residentes Activos&lt;/strong&gt;&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;fw-bold&quot;&gt;{{ estadisticas.totalResidentes }}&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;small class&#x3D;&quot;text-muted&quot;&gt;
+                            Promedio: {{ (estadisticas.totalResidentes / 13).toFixed(1) }} residentes por casa
+                        &lt;/small&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- ÁREA DE VISTA PREVIA --&gt;
+    &lt;div class&#x3D;&quot;row mt-4&quot;&gt;
+        &lt;div class&#x3D;&quot;col-12&quot;&gt;
+            &lt;div class&#x3D;&quot;card shadow-sm&quot;&gt;
+                &lt;div class&#x3D;&quot;card-header bg-white d-flex justify-content-between align-items-center&quot;&gt;
+                    &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-eye&quot;&gt;&lt;/i&gt; Vista Previa del Reporte&lt;/h5&gt;
+                    &lt;button class&#x3D;&quot;btn btn-primary&quot; 
+                            *ngIf&#x3D;&quot;reporteActual&quot;
+                            (click)&#x3D;&quot;imprimirReporte()&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-printer&quot;&gt;&lt;/i&gt; Imprimir
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                    &lt;div *ngIf&#x3D;&quot;!reporteActual&quot; class&#x3D;&quot;text-center text-muted py-5&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-file-earmark-text fs-1&quot;&gt;&lt;/i&gt;
+                        &lt;p class&#x3D;&quot;mt-3&quot;&gt;Selecciona un reporte para ver la vista previa&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- REPORTE DE GASTOS --&gt;
+                    &lt;div *ngIf&#x3D;&quot;reporteActual &#x3D;&#x3D;&#x3D; &#x27;gastos&#x27;&quot; id&#x3D;&quot;reporte-gastos&quot;&gt;
+                        &lt;h3 class&#x3D;&quot;mb-4&quot;&gt;Reporte de Gastos - {{ mesActual }}&lt;/h3&gt;
+                        &lt;table class&#x3D;&quot;table table-striped table-hover&quot;&gt;
+                            &lt;thead class&#x3D;&quot;table-dark&quot;&gt;
+                                &lt;tr&gt;
+                                    &lt;th&gt;Descripción&lt;/th&gt;
+                                    &lt;th&gt;Categoría&lt;/th&gt;
+                                    &lt;th&gt;Fecha&lt;/th&gt;
+                                    &lt;th class&#x3D;&quot;text-end&quot;&gt;Monto&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;tbody&gt;
+                                &lt;tr *ngFor&#x3D;&quot;let gasto of gastosMesActual&quot;&gt;
+                                    &lt;td&gt;{{ gasto.descripcion }}&lt;/td&gt;
+                                    &lt;td&gt;&lt;span class&#x3D;&quot;badge bg-primary&quot;&gt;{{ gasto.categoria }}&lt;/span&gt;&lt;/td&gt;
+                                    &lt;td&gt;{{ gasto.fecha | date:&#x27;dd/MM/yyyy&#x27; }}&lt;/td&gt;
+                                    &lt;td class&#x3D;&quot;text-end fw-bold&quot;&gt;{{ gasto.monto | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr class&#x3D;&quot;table-warning&quot;&gt;
+                                    &lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;fw-bold&quot;&gt;TOTAL&lt;/td&gt;
+                                    &lt;td class&#x3D;&quot;text-end fw-bold&quot;&gt;{{ resumen.totalGastos | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- REPORTE DE PAGOS --&gt;
+                    &lt;div *ngIf&#x3D;&quot;reporteActual &#x3D;&#x3D;&#x3D; &#x27;pagos&#x27;&quot; id&#x3D;&quot;reporte-pagos&quot;&gt;
+                        &lt;h3 class&#x3D;&quot;mb-4&quot;&gt;Reporte de Pagos - {{ mesActual }}&lt;/h3&gt;
+                        &lt;table class&#x3D;&quot;table table-striped table-hover&quot;&gt;
+                            &lt;thead class&#x3D;&quot;table-dark&quot;&gt;
+                                &lt;tr&gt;
+                                    &lt;th&gt;Residente&lt;/th&gt;
+                                    &lt;th&gt;Casa&lt;/th&gt;
+                                    &lt;th&gt;Fecha Pago&lt;/th&gt;
+                                    &lt;th&gt;Método&lt;/th&gt;
+                                    &lt;th class&#x3D;&quot;text-end&quot;&gt;Monto&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;tbody&gt;
+                                &lt;tr *ngFor&#x3D;&quot;let pago of pagosMesActual&quot;&gt;
+                                    &lt;td&gt;{{ pago.residenteNombre }}&lt;/td&gt;
+                                    &lt;td&gt;&lt;span class&#x3D;&quot;badge bg-secondary&quot;&gt;{{ pago.casa }}&lt;/span&gt;&lt;/td&gt;
+                                    &lt;td&gt;{{ pago.fechaPago | date:&#x27;dd/MM/yyyy&#x27; }}&lt;/td&gt;
+                                    &lt;td&gt;&lt;span class&#x3D;&quot;badge bg-info&quot;&gt;{{ pago.metodoPago }}&lt;/span&gt;&lt;/td&gt;
+                                    &lt;td class&#x3D;&quot;text-end fw-bold&quot;&gt;{{ pago.monto | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr class&#x3D;&quot;table-success&quot;&gt;
+                                    &lt;td colspan&#x3D;&quot;4&quot; class&#x3D;&quot;fw-bold&quot;&gt;TOTAL RECAUDADO&lt;/td&gt;
+                                    &lt;td class&#x3D;&quot;text-end fw-bold&quot;&gt;{{ resumen.totalRecaudado | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- LISTA DE RESIDENTES --&gt;
+                    &lt;div *ngIf&#x3D;&quot;reporteActual &#x3D;&#x3D;&#x3D; &#x27;residentes&#x27;&quot; id&#x3D;&quot;reporte-residentes&quot;&gt;
+                        &lt;h3 class&#x3D;&quot;mb-4&quot;&gt;Lista de Residentes&lt;/h3&gt;
+                        &lt;table class&#x3D;&quot;table table-striped table-hover&quot;&gt;
+                            &lt;thead class&#x3D;&quot;table-dark&quot;&gt;
+                                &lt;tr&gt;
+                                    &lt;th&gt;Nombre&lt;/th&gt;
+                                    &lt;th&gt;RUT&lt;/th&gt;
+                                    &lt;th&gt;Casa&lt;/th&gt;
+                                    &lt;th&gt;Email&lt;/th&gt;
+                                    &lt;th&gt;Teléfono&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;tbody&gt;
+                                &lt;tr *ngFor&#x3D;&quot;let residente of residentes&quot;&gt;
+                                    &lt;td&gt;{{ residente.nombre }}&lt;/td&gt;
+                                    &lt;td&gt;{{ residente.rut }}&lt;/td&gt;
+                                    &lt;td&gt;&lt;span class&#x3D;&quot;badge bg-secondary&quot;&gt;{{ residente.pasaje }}-{{ residente.casa }}&lt;/span&gt;&lt;/td&gt;
+                                    &lt;td&gt;{{ residente.email }}&lt;/td&gt;
+                                    &lt;td&gt;+56 {{ residente.telefono }}&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- REPORTE GENERAL --&gt;
+                    &lt;div *ngIf&#x3D;&quot;reporteActual &#x3D;&#x3D;&#x3D; &#x27;general&#x27;&quot; id&#x3D;&quot;reporte-general&quot;&gt;
+                        &lt;h3 class&#x3D;&quot;mb-4&quot;&gt;Reporte General - {{ mesActual }}&lt;/h3&gt;
+                        
+                        &lt;div class&#x3D;&quot;row mb-4&quot;&gt;
+                            &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+                                &lt;h5 class&#x3D;&quot;text-primary&quot;&gt;Resumen Financiero&lt;/h5&gt;
+                                &lt;ul class&#x3D;&quot;list-group&quot;&gt;
+                                    &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between&quot;&gt;
+                                        &lt;span&gt;Total Gastos:&lt;/span&gt;
+                                        &lt;strong class&#x3D;&quot;text-danger&quot;&gt;{{ resumen.totalGastos | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/strong&gt;
+                                    &lt;/li&gt;
+                                    &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between&quot;&gt;
+                                        &lt;span&gt;Total Recaudado:&lt;/span&gt;
+                                        &lt;strong class&#x3D;&quot;text-success&quot;&gt;{{ resumen.totalRecaudado | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/strong&gt;
+                                    &lt;/li&gt;
+                                    &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between&quot;&gt;
+                                        &lt;span&gt;Pendiente:&lt;/span&gt;
+                                        &lt;strong class&#x3D;&quot;text-warning&quot;&gt;{{ resumen.pendiente | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/strong&gt;
+                                    &lt;/li&gt;
+                                    &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between&quot;&gt;
+                                        &lt;span&gt;Balance:&lt;/span&gt;
+                                        &lt;strong [class.text-success]&#x3D;&quot;resumen.balance &gt;&#x3D; 0&quot; [class.text-danger]&#x3D;&quot;resumen.balance &lt; 0&quot;&gt;
+                                            {{ resumen.balance | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}
+                                        &lt;/strong&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+                                &lt;h5 class&#x3D;&quot;text-primary&quot;&gt;Estadísticas&lt;/h5&gt;
+                                &lt;ul class&#x3D;&quot;list-group&quot;&gt;
+                                    &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between&quot;&gt;
+                                        &lt;span&gt;Total Residentes:&lt;/span&gt;
+                                        &lt;strong&gt;{{ estadisticas.totalResidentes }}&lt;/strong&gt;
+                                    &lt;/li&gt;
+                                    &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between&quot;&gt;
+                                        &lt;span&gt;Casas al Día:&lt;/span&gt;
+                                        &lt;strong&gt;{{ estadisticas.casasAlDia }} de 13&lt;/strong&gt;
+                                    &lt;/li&gt;
+                                    &lt;li class&#x3D;&quot;list-group-item d-flex justify-content-between&quot;&gt;
+                                        &lt;span&gt;Tasa de Pago:&lt;/span&gt;
+                                        &lt;strong class&#x3D;&quot;text-success&quot;&gt;{{ estadisticas.tasaPago }}%&lt;/strong&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;h5 class&#x3D;&quot;text-primary mt-4&quot;&gt;Top 5 Gastos del Mes&lt;/h5&gt;
+                        &lt;table class&#x3D;&quot;table table-sm&quot;&gt;
+                            &lt;tbody&gt;
+                                &lt;tr *ngFor&#x3D;&quot;let gasto of top5Gastos&quot;&gt;
+                                    &lt;td&gt;{{ gasto.descripcion }}&lt;/td&gt;
+                                    &lt;td class&#x3D;&quot;text-end fw-bold&quot;&gt;{{ gasto.monto | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./reportes.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">// Estilos para reportes
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-navbar></app-navbar><main class="container-fluid my-4">    <div class="row mb-4">        <div class="col-12">            <h1 class="fw-bold mb-0">Reportes y Estadísticas</h1>            <p class="text-muted mb-0">Genera reportes detallados de la comunidad</p>        </div>    </div>    <!-- GENERADORES DE REPORTES -->    <div class="row g-4 mb-4">        <div class="col-12 col-md-6 col-lg-3">            <div class="card shadow-sm h-100 hover-card"                  style="cursor: pointer;"                  (click)="verReporte(\'gastos\')">                <div class="card-body text-center p-4">                    <i class="bi bi-receipt-cutoff fs-1 text-primary mb-3"></i>                    <h5 class="fw-bold">Reporte de Gastos</h5>                    <p class="text-muted mb-0">Gastos del mes actual</p>                    <small class="text-primary">                        <i class="bi bi-eye"></i> Click para vista previa                    </small>                </div>            </div>        </div>        <div class="col-12 col-md-6 col-lg-3">            <div class="card shadow-sm h-100 hover-card"                  style="cursor: pointer;"                  (click)="verReporte(\'pagos\')">                <div class="card-body text-center p-4">                    <i class="bi bi-cash-stack fs-1 text-success mb-3"></i>                    <h5 class="fw-bold">Reporte de Pagos</h5>                    <p class="text-muted mb-0">Pagos realizados</p>                    <small class="text-success">                        <i class="bi bi-eye"></i> Click para vista previa                    </small>                </div>            </div>        </div>        <div class="col-12 col-md-6 col-lg-3">            <div class="card shadow-sm h-100 hover-card"                  style="cursor: pointer;"                  (click)="verReporte(\'residentes\')">                <div class="card-body text-center p-4">                    <i class="bi bi-people-fill fs-1 text-info mb-3"></i>                    <h5 class="fw-bold">Lista de Residentes</h5>                    <p class="text-muted mb-0">Todos los residentes</p>                    <small class="text-info">                        <i class="bi bi-eye"></i> Click para vista previa                    </small>                </div>            </div>        </div>        <div class="col-12 col-md-6 col-lg-3">            <div class="card shadow-sm h-100 hover-card"                  style="cursor: pointer;"                  (click)="verReporte(\'general\')">                <div class="card-body text-center p-4">                    <i class="bi bi-clipboard-data fs-1 text-warning mb-3"></i>                    <h5 class="fw-bold">Reporte General</h5>                    <p class="text-muted mb-0">Resumen completo</p>                    <small class="text-warning">                        <i class="bi bi-eye"></i> Click para vista previa                    </small>                </div>            </div>        </div>    </div>    <!-- RESUMEN DE DATOS -->    <div class="row g-4">        <div class="col-12 col-lg-6">            <div class="card shadow-sm">                <div class="card-header bg-white">                    <h5 class="mb-0"><i class="bi bi-bar-chart"></i> Resumen Financiero</h5>                </div>                <div class="card-body">                    <div class="mb-3 pb-3 border-bottom">                        <div class="d-flex justify-content-between">                            <span><strong>Total Gastos del Mes:</strong></span>                            <span class="text-danger fw-bold">{{ resumen.totalGastos | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</span>                        </div>                    </div>                    <div class="mb-3 pb-3 border-bottom">                        <div class="d-flex justify-content-between">                            <span><strong>Total Recaudado:</strong></span>                            <span class="text-success fw-bold">{{ resumen.totalRecaudado | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</span>                        </div>                    </div>                    <div class="mb-3 pb-3 border-bottom">                        <div class="d-flex justify-content-between">                            <span><strong>Pendiente por Cobrar:</strong></span>                            <span class="text-warning fw-bold">{{ resumen.pendiente | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</span>                        </div>                    </div>                    <div>                        <div class="d-flex justify-content-between">                            <span><strong>Balance:</strong></span>                            <span class="fw-bold" [class.text-success]="resumen.balance >= 0" [class.text-danger]="resumen.balance < 0">                                {{ resumen.balance | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}                            </span>                        </div>                    </div>                </div>            </div>        </div>        <div class="col-12 col-lg-6">            <div class="card shadow-sm">                <div class="card-header bg-white">                    <h5 class="mb-0"><i class="bi bi-pie-chart"></i> Estadísticas</h5>                </div>                <div class="card-body">                    <!-- TASA DE PAGO -->                    <div class="mb-4">                        <div class="d-flex justify-content-between mb-2">                            <span><strong>Tasa de Pago del Mes</strong></span>                            <span class="fw-bold text-success">{{ estadisticas.tasaPago }}%</span>                        </div>                        <div class="progress" style="height: 30px;">                            <div class="progress-bar bg-success"                                  [style.width.%]="estadisticas.tasaPago">                                {{ estadisticas.tasaPago }}%                            </div>                        </div>                    </div>                    <!-- CASAS AL DÍA -->                    <div class="mb-4">                        <div class="d-flex justify-content-between mb-2">                            <span><strong>Casas al Día</strong></span>                            <span class="fw-bold">{{ estadisticas.casasAlDia }} de 13</span>                        </div>                        <div class="progress" style="height: 30px;">                            <div class="progress-bar bg-info"                                  [style.width.%]="(estadisticas.casasAlDia / 13) * 100">                                {{ estadisticas.casasAlDia }} casas                            </div>                        </div>                    </div>                    <!-- RESIDENTES ACTIVOS -->                    <div>                        <div class="d-flex justify-content-between mb-2">                            <span><strong>Residentes Activos</strong></span>                            <span class="fw-bold">{{ estadisticas.totalResidentes }}</span>                        </div>                        <small class="text-muted">                            Promedio: {{ (estadisticas.totalResidentes / 13).toFixed(1) }} residentes por casa                        </small>                    </div>                </div>            </div>        </div>    </div>    <!-- ÁREA DE VISTA PREVIA -->    <div class="row mt-4">        <div class="col-12">            <div class="card shadow-sm">                <div class="card-header bg-white d-flex justify-content-between align-items-center">                    <h5 class="mb-0"><i class="bi bi-eye"></i> Vista Previa del Reporte</h5>                    <button class="btn btn-primary"                             *ngIf="reporteActual"                            (click)="imprimirReporte()">                        <i class="bi bi-printer"></i> Imprimir                    </button>                </div>                <div class="card-body">                    <div *ngIf="!reporteActual" class="text-center text-muted py-5">                        <i class="bi bi-file-earmark-text fs-1"></i>                        <p class="mt-3">Selecciona un reporte para ver la vista previa</p>                    </div>                    <!-- REPORTE DE GASTOS -->                    <div *ngIf="reporteActual === \'gastos\'" id="reporte-gastos">                        <h3 class="mb-4">Reporte de Gastos - {{ mesActual }}</h3>                        <table class="table table-striped table-hover">                            <thead class="table-dark">                                <tr>                                    <th>Descripción</th>                                    <th>Categoría</th>                                    <th>Fecha</th>                                    <th class="text-end">Monto</th>                                </tr>                            </thead>                            <tbody>                                <tr *ngFor="let gasto of gastosMesActual">                                    <td>{{ gasto.descripcion }}</td>                                    <td><span class="badge bg-primary">{{ gasto.categoria }}</span></td>                                    <td>{{ gasto.fecha | date:\'dd/MM/yyyy\' }}</td>                                    <td class="text-end fw-bold">{{ gasto.monto | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</td>                                </tr>                                <tr class="table-warning">                                    <td colspan="3" class="fw-bold">TOTAL</td>                                    <td class="text-end fw-bold">{{ resumen.totalGastos | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</td>                                </tr>                            </tbody>                        </table>                    </div>                    <!-- REPORTE DE PAGOS -->                    <div *ngIf="reporteActual === \'pagos\'" id="reporte-pagos">                        <h3 class="mb-4">Reporte de Pagos - {{ mesActual }}</h3>                        <table class="table table-striped table-hover">                            <thead class="table-dark">                                <tr>                                    <th>Residente</th>                                    <th>Casa</th>                                    <th>Fecha Pago</th>                                    <th>Método</th>                                    <th class="text-end">Monto</th>                                </tr>                            </thead>                            <tbody>                                <tr *ngFor="let pago of pagosMesActual">                                    <td>{{ pago.residenteNombre }}</td>                                    <td><span class="badge bg-secondary">{{ pago.casa }}</span></td>                                    <td>{{ pago.fechaPago | date:\'dd/MM/yyyy\' }}</td>                                    <td><span class="badge bg-info">{{ pago.metodoPago }}</span></td>                                    <td class="text-end fw-bold">{{ pago.monto | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</td>                                </tr>                                <tr class="table-success">                                    <td colspan="4" class="fw-bold">TOTAL RECAUDADO</td>                                    <td class="text-end fw-bold">{{ resumen.totalRecaudado | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</td>                                </tr>                            </tbody>                        </table>                    </div>                    <!-- LISTA DE RESIDENTES -->                    <div *ngIf="reporteActual === \'residentes\'" id="reporte-residentes">                        <h3 class="mb-4">Lista de Residentes</h3>                        <table class="table table-striped table-hover">                            <thead class="table-dark">                                <tr>                                    <th>Nombre</th>                                    <th>RUT</th>                                    <th>Casa</th>                                    <th>Email</th>                                    <th>Teléfono</th>                                </tr>                            </thead>                            <tbody>                                <tr *ngFor="let residente of residentes">                                    <td>{{ residente.nombre }}</td>                                    <td>{{ residente.rut }}</td>                                    <td><span class="badge bg-secondary">{{ residente.pasaje }}-{{ residente.casa }}</span></td>                                    <td>{{ residente.email }}</td>                                    <td>+56 {{ residente.telefono }}</td>                                </tr>                            </tbody>                        </table>                    </div>                    <!-- REPORTE GENERAL -->                    <div *ngIf="reporteActual === \'general\'" id="reporte-general">                        <h3 class="mb-4">Reporte General - {{ mesActual }}</h3>                                                <div class="row mb-4">                            <div class="col-md-6">                                <h5 class="text-primary">Resumen Financiero</h5>                                <ul class="list-group">                                    <li class="list-group-item d-flex justify-content-between">                                        <span>Total Gastos:</span>                                        <strong class="text-danger">{{ resumen.totalGastos | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</strong>                                    </li>                                    <li class="list-group-item d-flex justify-content-between">                                        <span>Total Recaudado:</span>                                        <strong class="text-success">{{ resumen.totalRecaudado | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</strong>                                    </li>                                    <li class="list-group-item d-flex justify-content-between">                                        <span>Pendiente:</span>                                        <strong class="text-warning">{{ resumen.pendiente | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</strong>                                    </li>                                    <li class="list-group-item d-flex justify-content-between">                                        <span>Balance:</span>                                        <strong [class.text-success]="resumen.balance >= 0" [class.text-danger]="resumen.balance < 0">                                            {{ resumen.balance | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}                                        </strong>                                    </li>                                </ul>                            </div>                            <div class="col-md-6">                                <h5 class="text-primary">Estadísticas</h5>                                <ul class="list-group">                                    <li class="list-group-item d-flex justify-content-between">                                        <span>Total Residentes:</span>                                        <strong>{{ estadisticas.totalResidentes }}</strong>                                    </li>                                    <li class="list-group-item d-flex justify-content-between">                                        <span>Casas al Día:</span>                                        <strong>{{ estadisticas.casasAlDia }} de 13</strong>                                    </li>                                    <li class="list-group-item d-flex justify-content-between">                                        <span>Tasa de Pago:</span>                                        <strong class="text-success">{{ estadisticas.tasaPago }}%</strong>                                    </li>                                </ul>                            </div>                        </div>                        <h5 class="text-primary mt-4">Top 5 Gastos del Mes</h5>                        <table class="table table-sm">                            <tbody>                                <tr *ngFor="let gasto of top5Gastos">                                    <td>{{ gasto.descripcion }}</td>                                    <td class="text-end fw-bold">{{ gasto.monto | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</td>                                </tr>                            </tbody>                        </table>                    </div>                </div>            </div>        </div>    </div></main></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfiguracionComponent', 'selector': 'app-configuracion'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetalleGastoComponent', 'selector': 'app-detalle-gasto'},{'name': 'GestionarGastosComponent', 'selector': 'app-gestionar-gastos'},{'name': 'GestionarResidentesComponent', 'selector': 'app-gestionar-residentes'},{'name': 'HistorialPagosComponent', 'selector': 'app-historial-pagos'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MisGastosComponent', 'selector': 'app-mis-gastos'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RealizarPagoComponent', 'selector': 'app-realizar-pago'},{'name': 'RecuperarComponent', 'selector': 'app-recuperar'},{'name': 'RegistrarPagosComponent', 'selector': 'app-registrar-pagos'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'ReportesComponent', 'selector': 'app-reportes'},{'name': 'SolicitudesComponent', 'selector': 'app-solicitudes'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ReportesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ReportesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

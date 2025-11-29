@@ -1,0 +1,1269 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>comunes-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">comunes-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ConfiguracionComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/admin/configuracion/configuracion.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-configuracion</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>FormsModule</code>
+                                <code><a href="../components/NavbarComponent.html" target="_self" >NavbarComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./configuracion.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./configuracion.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#config" >config</a>
+                            </li>
+                            <li>
+                                <a href="#configGeneral" >configGeneral</a>
+                            </li>
+                            <li>
+                                <a href="#estadisticasProp" >estadisticasProp</a>
+                            </li>
+                            <li>
+                                <a href="#propietarios" >propietarios</a>
+                            </li>
+                            <li>
+                                <a href="#tabActivo" >tabActivo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cambiarTab" >cambiarTab</a>
+                            </li>
+                            <li>
+                                <a href="#cargarConfig" >cargarConfig</a>
+                            </li>
+                            <li>
+                                <a href="#cargarPropietarios" >cargarPropietarios</a>
+                            </li>
+                            <li>
+                                <a href="#guardarConfigGastos" >guardarConfigGastos</a>
+                            </li>
+                            <li>
+                                <a href="#guardarConfigGeneral" >guardarConfigGeneral</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerUsuarios" >obtenerUsuarios</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cambiarTab"></a>
+                    <span class="name">
+                        <span ><b>cambiarTab</b></span>
+                        <a href="#cambiarTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cambiarTab(tab: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tab</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarConfig"></a>
+                    <span class="name">
+                        <span ><b>cargarConfig</b></span>
+                        <a href="#cargarConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarConfig()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarPropietarios"></a>
+                    <span class="name">
+                        <span ><b>cargarPropietarios</b></span>
+                        <a href="#cargarPropietarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarPropietarios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarConfigGastos"></a>
+                    <span class="name">
+                        <span ><b>guardarConfigGastos</b></span>
+                        <a href="#guardarConfigGastos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarConfigGastos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarConfigGeneral"></a>
+                    <span class="name">
+                        <span ><b>guardarConfigGeneral</b></span>
+                        <a href="#guardarConfigGeneral"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarConfigGeneral()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerUsuarios"></a>
+                    <span class="name">
+                        <span ><b>obtenerUsuarios</b></span>
+                        <a href="#obtenerUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerUsuarios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>any[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Configuracion.html" target="_self" >Configuracion</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    montoMensual: 50000,
+    diaVencimiento: 15,
+    diaEmision: 1
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configGeneral"></a>
+                    <span class="name">
+                        <span ><b>configGeneral</b></span>
+                        <a href="#configGeneral"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ConfigGeneral.html" target="_self" >ConfigGeneral</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    nombreComunidad: &#x27;Pasajes 8651 y 8707&#x27;,
+    direccion: &#x27;&#x27;,
+    emailContacto: &#x27;&#x27;
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estadisticasProp"></a>
+                    <span class="name">
+                        <span ><b>estadisticasProp</b></span>
+                        <a href="#estadisticasProp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    total: 0,
+    ocupadas: 0,
+    disponibles: 13
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="propietarios"></a>
+                    <span class="name">
+                        <span ><b>propietarios</b></span>
+                        <a href="#propietarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabActivo"></a>
+                    <span class="name">
+                        <span ><b>tabActivo</b></span>
+                        <a href="#tabActivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;gastos&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/features/admin/configuracion/configuracion.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { NavbarComponent } from &#x27;../../../shared/components/navbar/navbar.component&#x27;;
+
+interface Configuracion {
+  montoMensual: number;
+  diaVencimiento: number;
+  diaEmision: number;
+}
+
+interface ConfigGeneral {
+  nombreComunidad: string;
+  direccion: string;
+  emailContacto: string;
+}
+
+@Component({
+  selector: &#x27;app-configuracion&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, NavbarComponent],
+  templateUrl: &#x27;./configuracion.component.html&#x27;,
+  styleUrls: [&#x27;./configuracion.component.scss&#x27;]
+})
+export class ConfiguracionComponent implements OnInit {
+  tabActivo: string &#x3D; &#x27;gastos&#x27;;
+  
+  config: Configuracion &#x3D; {
+    montoMensual: 50000,
+    diaVencimiento: 15,
+    diaEmision: 1
+  };
+  
+  configGeneral: ConfigGeneral &#x3D; {
+    nombreComunidad: &#x27;Pasajes 8651 y 8707&#x27;,
+    direccion: &#x27;&#x27;,
+    emailContacto: &#x27;&#x27;
+  };
+  
+  propietarios: any[] &#x3D; [];
+  
+  estadisticasProp &#x3D; {
+    total: 0,
+    ocupadas: 0,
+    disponibles: 13
+  };
+
+  ngOnInit(): void {
+    this.cargarConfig();
+    this.cargarPropietarios();
+  }
+
+  cambiarTab(tab: string): void {
+    this.tabActivo &#x3D; tab;
+  }
+
+  cargarConfig(): void {
+    const configGuardada &#x3D; localStorage.getItem(&#x27;configuracion&#x27;);
+    if (configGuardada) {
+      this.config &#x3D; JSON.parse(configGuardada);
+    }
+    
+    const configGeneralGuardada &#x3D; localStorage.getItem(&#x27;configuracionGeneral&#x27;);
+    if (configGeneralGuardada) {
+      this.configGeneral &#x3D; JSON.parse(configGeneralGuardada);
+    }
+  }
+
+  cargarPropietarios(): void {
+    const usuarios &#x3D; this.obtenerUsuarios();
+    this.propietarios &#x3D; usuarios.filter(u &#x3D;&gt; u.casa &amp;&amp; u.pasaje);
+    
+    // Calcular estadísticas
+    this.estadisticasProp.total &#x3D; this.propietarios.length;
+    
+    const casasUnicas &#x3D; new Set(this.propietarios.map(p &#x3D;&gt; &#x60;${p.pasaje}-${p.casa}&#x60;));
+    this.estadisticasProp.ocupadas &#x3D; casasUnicas.size;
+    this.estadisticasProp.disponibles &#x3D; 13 - this.estadisticasProp.ocupadas;
+  }
+
+  guardarConfigGastos(): void {
+    localStorage.setItem(&#x27;configuracion&#x27;, JSON.stringify(this.config));
+    alert(&#x27;✅ Configuración de gastos guardada correctamente&#x27;);
+  }
+
+  guardarConfigGeneral(): void {
+    localStorage.setItem(&#x27;configuracionGeneral&#x27;, JSON.stringify(this.configGeneral));
+    alert(&#x27;✅ Configuración general guardada correctamente&#x27;);
+  }
+
+  obtenerUsuarios(): any[] {
+    const usuarios &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
+    return usuarios ? JSON.parse(usuarios) : [];
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-navbar&gt;&lt;/app-navbar&gt;
+
+&lt;main class&#x3D;&quot;container my-4&quot;&gt;
+    &lt;div class&#x3D;&quot;row mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;col-12&quot;&gt;
+            &lt;h1 class&#x3D;&quot;fw-bold mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-gear&quot;&gt;&lt;/i&gt; Configuración&lt;/h1&gt;
+            &lt;p class&#x3D;&quot;text-muted mb-0&quot;&gt;Configura los parámetros del sistema de gastos comunes&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- TABS --&gt;
+    &lt;ul class&#x3D;&quot;nav nav-tabs mb-4&quot;&gt;
+        &lt;li class&#x3D;&quot;nav-item&quot;&gt;
+            &lt;button class&#x3D;&quot;nav-link&quot; 
+                    [class.active]&#x3D;&quot;tabActivo &#x3D;&#x3D;&#x3D; &#x27;gastos&#x27;&quot;
+                    (click)&#x3D;&quot;cambiarTab(&#x27;gastos&#x27;)&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-cash-coin&quot;&gt;&lt;/i&gt; Gastos Comunes
+            &lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class&#x3D;&quot;nav-item&quot;&gt;
+            &lt;button class&#x3D;&quot;nav-link&quot; 
+                    [class.active]&#x3D;&quot;tabActivo &#x3D;&#x3D;&#x3D; &#x27;propietarios&#x27;&quot;
+                    (click)&#x3D;&quot;cambiarTab(&#x27;propietarios&#x27;)&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-building&quot;&gt;&lt;/i&gt; Datos de Propietarios
+            &lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class&#x3D;&quot;nav-item&quot;&gt;
+            &lt;button class&#x3D;&quot;nav-link&quot; 
+                    [class.active]&#x3D;&quot;tabActivo &#x3D;&#x3D;&#x3D; &#x27;general&#x27;&quot;
+                    (click)&#x3D;&quot;cambiarTab(&#x27;general&#x27;)&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-sliders&quot;&gt;&lt;/i&gt; General
+            &lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!-- TAB: GASTOS COMUNES --&gt;
+    &lt;div *ngIf&#x3D;&quot;tabActivo &#x3D;&#x3D;&#x3D; &#x27;gastos&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;card shadow-sm&quot;&gt;
+            &lt;div class&#x3D;&quot;card-header bg-primary text-white&quot;&gt;
+                &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-cash-coin&quot;&gt;&lt;/i&gt; Configuración de Gastos Comunes&lt;/h5&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                &lt;form (ngSubmit)&#x3D;&quot;guardarConfigGastos()&quot; #formGastos&#x3D;&quot;ngForm&quot;&gt;
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                        &lt;div class&#x3D;&quot;col-md-6 mb-4&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-currency-dollar&quot;&gt;&lt;/i&gt; Monto Mensual por Casa
+                            &lt;/label&gt;
+                            &lt;div class&#x3D;&quot;input-group input-group-lg&quot;&gt;
+                                &lt;span class&#x3D;&quot;input-group-text&quot;&gt;$&lt;/span&gt;
+                                &lt;input type&#x3D;&quot;number&quot; 
+                                       class&#x3D;&quot;form-control&quot; 
+                                       [(ngModel)]&#x3D;&quot;config.montoMensual&quot;
+                                       name&#x3D;&quot;montoMensual&quot;
+                                       min&#x3D;&quot;0&quot; 
+                                       step&#x3D;&quot;1000&quot;&gt;
+                            &lt;/div&gt;
+                            &lt;small class&#x3D;&quot;text-muted&quot;&gt;Monto base de gastos comunes mensuales por casa&lt;/small&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;col-md-6 mb-4&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-calendar-event&quot;&gt;&lt;/i&gt; Día de Vencimiento
+                            &lt;/label&gt;
+                            &lt;select class&#x3D;&quot;form-select form-select-lg&quot; 
+                                    [(ngModel)]&#x3D;&quot;config.diaVencimiento&quot;
+                                    name&#x3D;&quot;diaVencimiento&quot;&gt;
+                                &lt;option value&#x3D;&quot;5&quot;&gt;Día 5 de cada mes&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;10&quot;&gt;Día 10 de cada mes&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;15&quot;&gt;Día 15 de cada mes&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;20&quot;&gt;Día 20 de cada mes&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;25&quot;&gt;Día 25 de cada mes&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;30&quot;&gt;Día 30 de cada mes&lt;/option&gt;
+                            &lt;/select&gt;
+                            &lt;small class&#x3D;&quot;text-muted&quot;&gt;Fecha límite para el pago de gastos comunes&lt;/small&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;col-md-6 mb-4&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-calendar-check&quot;&gt;&lt;/i&gt; Día de Emisión
+                            &lt;/label&gt;
+                            &lt;select class&#x3D;&quot;form-select form-select-lg&quot; 
+                                    [(ngModel)]&#x3D;&quot;config.diaEmision&quot;
+                                    name&#x3D;&quot;diaEmision&quot;&gt;
+                                &lt;option value&#x3D;&quot;1&quot;&gt;Día 1 de cada mes&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;2&quot;&gt;Día 2 de cada mes&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;3&quot;&gt;Día 3 de cada mes&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;5&quot;&gt;Día 5 de cada mes&lt;/option&gt;
+                            &lt;/select&gt;
+                            &lt;small class&#x3D;&quot;text-muted&quot;&gt;Fecha en que se emiten los gastos comunes&lt;/small&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;col-md-6 mb-4&quot;&gt;
+                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-houses&quot;&gt;&lt;/i&gt; Total de Casas
+                            &lt;/label&gt;
+                            &lt;input type&#x3D;&quot;number&quot; 
+                                   class&#x3D;&quot;form-control form-control-lg&quot; 
+                                   value&#x3D;&quot;13&quot; 
+                                   readonly&gt;
+                            &lt;small class&#x3D;&quot;text-muted&quot;&gt;Cantidad total de casas en la comunidad&lt;/small&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;col-12&quot;&gt;
+                            &lt;div class&#x3D;&quot;alert alert-info&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-info-circle&quot;&gt;&lt;/i&gt; &lt;strong&gt;Información:&lt;/strong&gt;
+                                &lt;p class&#x3D;&quot;mb-0 mt-2&quot;&gt;El monto mensual configurado se aplicará como referencia para nuevos cálculos. Los gastos reales se calculan sumando todos los gastos registrados del mes y dividiéndolos entre las 13 casas.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class&#x3D;&quot;d-grid gap-2 d-md-flex justify-content-md-end&quot;&gt;
+                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary btn-lg&quot; (click)&#x3D;&quot;cargarConfig()&quot;&gt;
+                            &lt;i class&#x3D;&quot;bi bi-arrow-clockwise&quot;&gt;&lt;/i&gt; Restaurar
+                        &lt;/button&gt;
+                        &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary btn-lg&quot;&gt;
+                            &lt;i class&#x3D;&quot;bi bi-save&quot;&gt;&lt;/i&gt; Guardar Configuración
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- RESUMEN ACTUAL --&gt;
+        &lt;div class&#x3D;&quot;card shadow-sm mt-4&quot;&gt;
+            &lt;div class&#x3D;&quot;card-header bg-white&quot;&gt;
+                &lt;h6 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-clipboard-data&quot;&gt;&lt;/i&gt; Resumen Actual&lt;/h6&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                &lt;div class&#x3D;&quot;row text-center&quot;&gt;
+                    &lt;div class&#x3D;&quot;col-md-3&quot;&gt;
+                        &lt;h6 class&#x3D;&quot;text-muted&quot;&gt;Monto Configurado&lt;/h6&gt;
+                        &lt;h4 class&#x3D;&quot;text-primary&quot;&gt;{{ config.montoMensual | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/h4&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-3&quot;&gt;
+                        &lt;h6 class&#x3D;&quot;text-muted&quot;&gt;Vencimiento&lt;/h6&gt;
+                        &lt;h4 class&#x3D;&quot;text-primary&quot;&gt;Día {{ config.diaVencimiento }}&lt;/h4&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-3&quot;&gt;
+                        &lt;h6 class&#x3D;&quot;text-muted&quot;&gt;Emisión&lt;/h6&gt;
+                        &lt;h4 class&#x3D;&quot;text-primary&quot;&gt;Día {{ config.diaEmision }}&lt;/h4&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-3&quot;&gt;
+                        &lt;h6 class&#x3D;&quot;text-muted&quot;&gt;Total Casas&lt;/h6&gt;
+                        &lt;h4 class&#x3D;&quot;text-primary&quot;&gt;13&lt;/h4&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- TAB: PROPIETARIOS --&gt;
+    &lt;div *ngIf&#x3D;&quot;tabActivo &#x3D;&#x3D;&#x3D; &#x27;propietarios&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;card shadow-sm&quot;&gt;
+            &lt;div class&#x3D;&quot;card-header bg-success text-white&quot;&gt;
+                &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-building&quot;&gt;&lt;/i&gt; Información de Propietarios&lt;/h5&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                    &lt;table class&#x3D;&quot;table table-hover&quot;&gt;
+                        &lt;thead class&#x3D;&quot;table-light&quot;&gt;
+                            &lt;tr&gt;
+                                &lt;th&gt;Nombre&lt;/th&gt;
+                                &lt;th&gt;RUT&lt;/th&gt;
+                                &lt;th&gt;Vivienda&lt;/th&gt;
+                                &lt;th&gt;Email&lt;/th&gt;
+                                &lt;th&gt;Teléfono&lt;/th&gt;
+                                &lt;th&gt;Titular&lt;/th&gt;
+                            &lt;/tr&gt;
+                        &lt;/thead&gt;
+                        &lt;tbody&gt;
+                            &lt;tr *ngIf&#x3D;&quot;propietarios.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+                                &lt;td colspan&#x3D;&quot;6&quot; class&#x3D;&quot;text-center text-muted py-4&quot;&gt;
+                                    &lt;i class&#x3D;&quot;bi bi-inbox fs-1 d-block mb-2&quot;&gt;&lt;/i&gt;
+                                    No hay propietarios registrados
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr *ngFor&#x3D;&quot;let propietario of propietarios&quot;&gt;
+                                &lt;td&gt;{{ propietario.nombre }}&lt;/td&gt;
+                                &lt;td&gt;{{ propietario.rut }}&lt;/td&gt;
+                                &lt;td&gt;&lt;span class&#x3D;&quot;badge bg-secondary&quot;&gt;{{ propietario.pasaje }}-{{ propietario.casa }}&lt;/span&gt;&lt;/td&gt;
+                                &lt;td&gt;{{ propietario.email }}&lt;/td&gt;
+                                &lt;td&gt;+56 {{ propietario.telefono }}&lt;/td&gt;
+                                &lt;td&gt;
+                                    &lt;span *ngIf&#x3D;&quot;propietario.esTitular&quot; class&#x3D;&quot;badge bg-warning&quot;&gt;
+                                        &lt;i class&#x3D;&quot;bi bi-star-fill&quot;&gt;&lt;/i&gt; Titular
+                                    &lt;/span&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/tbody&gt;
+                    &lt;/table&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- ESTADÍSTICAS --&gt;
+        &lt;div class&#x3D;&quot;row g-4 mt-2&quot;&gt;
+            &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+                &lt;div class&#x3D;&quot;card border-success&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-people-fill fs-2 text-success&quot;&gt;&lt;/i&gt;
+                        &lt;h6 class&#x3D;&quot;text-muted mt-2&quot;&gt;Total Propietarios&lt;/h6&gt;
+                        &lt;h3 class&#x3D;&quot;text-success mb-0&quot;&gt;{{ estadisticasProp.total }}&lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+                &lt;div class&#x3D;&quot;card border-primary&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-house-check fs-2 text-primary&quot;&gt;&lt;/i&gt;
+                        &lt;h6 class&#x3D;&quot;text-muted mt-2&quot;&gt;Casas Ocupadas&lt;/h6&gt;
+                        &lt;h3 class&#x3D;&quot;text-primary mb-0&quot;&gt;{{ estadisticasProp.ocupadas }}&lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+                &lt;div class&#x3D;&quot;card border-warning&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-house-dash fs-2 text-warning&quot;&gt;&lt;/i&gt;
+                        &lt;h6 class&#x3D;&quot;text-muted mt-2&quot;&gt;Casas Disponibles&lt;/h6&gt;
+                        &lt;h3 class&#x3D;&quot;text-warning mb-0&quot;&gt;{{ estadisticasProp.disponibles }}&lt;/h3&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- TAB: GENERAL --&gt;
+    &lt;div *ngIf&#x3D;&quot;tabActivo &#x3D;&#x3D;&#x3D; &#x27;general&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;card shadow-sm&quot;&gt;
+            &lt;div class&#x3D;&quot;card-header bg-secondary text-white&quot;&gt;
+                &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-sliders&quot;&gt;&lt;/i&gt; Configuración General&lt;/h5&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                &lt;form (ngSubmit)&#x3D;&quot;guardarConfigGeneral()&quot; #formGeneral&#x3D;&quot;ngForm&quot;&gt;
+                    &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+                        &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                            &lt;i class&#x3D;&quot;bi bi-building&quot;&gt;&lt;/i&gt; Nombre de la Comunidad
+                        &lt;/label&gt;
+                        &lt;input type&#x3D;&quot;text&quot; 
+                               class&#x3D;&quot;form-control form-control-lg&quot; 
+                               [(ngModel)]&#x3D;&quot;configGeneral.nombreComunidad&quot;
+                               name&#x3D;&quot;nombreComunidad&quot;
+                               required&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+                        &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                            &lt;i class&#x3D;&quot;bi bi-geo-alt&quot;&gt;&lt;/i&gt; Dirección
+                        &lt;/label&gt;
+                        &lt;input type&#x3D;&quot;text&quot; 
+                               class&#x3D;&quot;form-control form-control-lg&quot; 
+                               [(ngModel)]&#x3D;&quot;configGeneral.direccion&quot;
+                               name&#x3D;&quot;direccion&quot;
+                               placeholder&#x3D;&quot;Dirección completa&quot;&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+                        &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                            &lt;i class&#x3D;&quot;bi bi-envelope&quot;&gt;&lt;/i&gt; Email de Contacto
+                        &lt;/label&gt;
+                        &lt;input type&#x3D;&quot;email&quot; 
+                               class&#x3D;&quot;form-control form-control-lg&quot; 
+                               [(ngModel)]&#x3D;&quot;configGeneral.emailContacto&quot;
+                               name&#x3D;&quot;emailContacto&quot;
+                               placeholder&#x3D;&quot;contacto@comunidad.cl&quot;&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class&#x3D;&quot;d-grid gap-2 d-md-flex justify-content-md-end&quot;&gt;
+                        &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-secondary btn-lg&quot;&gt;
+                            &lt;i class&#x3D;&quot;bi bi-save&quot;&gt;&lt;/i&gt; Guardar
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./configuracion.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">// Estilos para configuracion
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-navbar></app-navbar><main class="container my-4">    <div class="row mb-4">        <div class="col-12">            <h1 class="fw-bold mb-0"><i class="bi bi-gear"></i> Configuración</h1>            <p class="text-muted mb-0">Configura los parámetros del sistema de gastos comunes</p>        </div>    </div>    <!-- TABS -->    <ul class="nav nav-tabs mb-4">        <li class="nav-item">            <button class="nav-link"                     [class.active]="tabActivo === \'gastos\'"                    (click)="cambiarTab(\'gastos\')">                <i class="bi bi-cash-coin"></i> Gastos Comunes            </button>        </li>        <li class="nav-item">            <button class="nav-link"                     [class.active]="tabActivo === \'propietarios\'"                    (click)="cambiarTab(\'propietarios\')">                <i class="bi bi-building"></i> Datos de Propietarios            </button>        </li>        <li class="nav-item">            <button class="nav-link"                     [class.active]="tabActivo === \'general\'"                    (click)="cambiarTab(\'general\')">                <i class="bi bi-sliders"></i> General            </button>        </li>    </ul>    <!-- TAB: GASTOS COMUNES -->    <div *ngIf="tabActivo === \'gastos\'">        <div class="card shadow-sm">            <div class="card-header bg-primary text-white">                <h5 class="mb-0"><i class="bi bi-cash-coin"></i> Configuración de Gastos Comunes</h5>            </div>            <div class="card-body">                <form (ngSubmit)="guardarConfigGastos()" #formGastos="ngForm">                    <div class="row">                        <div class="col-md-6 mb-4">                            <label class="form-label fw-bold">                                <i class="bi bi-currency-dollar"></i> Monto Mensual por Casa                            </label>                            <div class="input-group input-group-lg">                                <span class="input-group-text">$</span>                                <input type="number"                                        class="form-control"                                        [(ngModel)]="config.montoMensual"                                       name="montoMensual"                                       min="0"                                        step="1000">                            </div>                            <small class="text-muted">Monto base de gastos comunes mensuales por casa</small>                        </div>                        <div class="col-md-6 mb-4">                            <label class="form-label fw-bold">                                <i class="bi bi-calendar-event"></i> Día de Vencimiento                            </label>                            <select class="form-select form-select-lg"                                     [(ngModel)]="config.diaVencimiento"                                    name="diaVencimiento">                                <option value="5">Día 5 de cada mes</option>                                <option value="10">Día 10 de cada mes</option>                                <option value="15">Día 15 de cada mes</option>                                <option value="20">Día 20 de cada mes</option>                                <option value="25">Día 25 de cada mes</option>                                <option value="30">Día 30 de cada mes</option>                            </select>                            <small class="text-muted">Fecha límite para el pago de gastos comunes</small>                        </div>                        <div class="col-md-6 mb-4">                            <label class="form-label fw-bold">                                <i class="bi bi-calendar-check"></i> Día de Emisión                            </label>                            <select class="form-select form-select-lg"                                     [(ngModel)]="config.diaEmision"                                    name="diaEmision">                                <option value="1">Día 1 de cada mes</option>                                <option value="2">Día 2 de cada mes</option>                                <option value="3">Día 3 de cada mes</option>                                <option value="5">Día 5 de cada mes</option>                            </select>                            <small class="text-muted">Fecha en que se emiten los gastos comunes</small>                        </div>                        <div class="col-md-6 mb-4">                            <label class="form-label fw-bold">                                <i class="bi bi-houses"></i> Total de Casas                            </label>                            <input type="number"                                    class="form-control form-control-lg"                                    value="13"                                    readonly>                            <small class="text-muted">Cantidad total de casas en la comunidad</small>                        </div>                        <div class="col-12">                            <div class="alert alert-info">                                <i class="bi bi-info-circle"></i> <strong>Información:</strong>                                <p class="mb-0 mt-2">El monto mensual configurado se aplicará como referencia para nuevos cálculos. Los gastos reales se calculan sumando todos los gastos registrados del mes y dividiéndolos entre las 13 casas.</p>                            </div>                        </div>                    </div>                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">                        <button type="button" class="btn btn-secondary btn-lg" (click)="cargarConfig()">                            <i class="bi bi-arrow-clockwise"></i> Restaurar                        </button>                        <button type="submit" class="btn btn-primary btn-lg">                            <i class="bi bi-save"></i> Guardar Configuración                        </button>                    </div>                </form>            </div>        </div>        <!-- RESUMEN ACTUAL -->        <div class="card shadow-sm mt-4">            <div class="card-header bg-white">                <h6 class="mb-0"><i class="bi bi-clipboard-data"></i> Resumen Actual</h6>            </div>            <div class="card-body">                <div class="row text-center">                    <div class="col-md-3">                        <h6 class="text-muted">Monto Configurado</h6>                        <h4 class="text-primary">{{ config.montoMensual | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</h4>                    </div>                    <div class="col-md-3">                        <h6 class="text-muted">Vencimiento</h6>                        <h4 class="text-primary">Día {{ config.diaVencimiento }}</h4>                    </div>                    <div class="col-md-3">                        <h6 class="text-muted">Emisión</h6>                        <h4 class="text-primary">Día {{ config.diaEmision }}</h4>                    </div>                    <div class="col-md-3">                        <h6 class="text-muted">Total Casas</h6>                        <h4 class="text-primary">13</h4>                    </div>                </div>            </div>        </div>    </div>    <!-- TAB: PROPIETARIOS -->    <div *ngIf="tabActivo === \'propietarios\'">        <div class="card shadow-sm">            <div class="card-header bg-success text-white">                <h5 class="mb-0"><i class="bi bi-building"></i> Información de Propietarios</h5>            </div>            <div class="card-body">                <div class="table-responsive">                    <table class="table table-hover">                        <thead class="table-light">                            <tr>                                <th>Nombre</th>                                <th>RUT</th>                                <th>Vivienda</th>                                <th>Email</th>                                <th>Teléfono</th>                                <th>Titular</th>                            </tr>                        </thead>                        <tbody>                            <tr *ngIf="propietarios.length === 0">                                <td colspan="6" class="text-center text-muted py-4">                                    <i class="bi bi-inbox fs-1 d-block mb-2"></i>                                    No hay propietarios registrados                                </td>                            </tr>                            <tr *ngFor="let propietario of propietarios">                                <td>{{ propietario.nombre }}</td>                                <td>{{ propietario.rut }}</td>                                <td><span class="badge bg-secondary">{{ propietario.pasaje }}-{{ propietario.casa }}</span></td>                                <td>{{ propietario.email }}</td>                                <td>+56 {{ propietario.telefono }}</td>                                <td>                                    <span *ngIf="propietario.esTitular" class="badge bg-warning">                                        <i class="bi bi-star-fill"></i> Titular                                    </span>                                </td>                            </tr>                        </tbody>                    </table>                </div>            </div>        </div>        <!-- ESTADÍSTICAS -->        <div class="row g-4 mt-2">            <div class="col-md-4">                <div class="card border-success">                    <div class="card-body text-center">                        <i class="bi bi-people-fill fs-2 text-success"></i>                        <h6 class="text-muted mt-2">Total Propietarios</h6>                        <h3 class="text-success mb-0">{{ estadisticasProp.total }}</h3>                    </div>                </div>            </div>            <div class="col-md-4">                <div class="card border-primary">                    <div class="card-body text-center">                        <i class="bi bi-house-check fs-2 text-primary"></i>                        <h6 class="text-muted mt-2">Casas Ocupadas</h6>                        <h3 class="text-primary mb-0">{{ estadisticasProp.ocupadas }}</h3>                    </div>                </div>            </div>            <div class="col-md-4">                <div class="card border-warning">                    <div class="card-body text-center">                        <i class="bi bi-house-dash fs-2 text-warning"></i>                        <h6 class="text-muted mt-2">Casas Disponibles</h6>                        <h3 class="text-warning mb-0">{{ estadisticasProp.disponibles }}</h3>                    </div>                </div>            </div>        </div>    </div>    <!-- TAB: GENERAL -->    <div *ngIf="tabActivo === \'general\'">        <div class="card shadow-sm">            <div class="card-header bg-secondary text-white">                <h5 class="mb-0"><i class="bi bi-sliders"></i> Configuración General</h5>            </div>            <div class="card-body">                <form (ngSubmit)="guardarConfigGeneral()" #formGeneral="ngForm">                    <div class="mb-4">                        <label class="form-label fw-bold">                            <i class="bi bi-building"></i> Nombre de la Comunidad                        </label>                        <input type="text"                                class="form-control form-control-lg"                                [(ngModel)]="configGeneral.nombreComunidad"                               name="nombreComunidad"                               required>                    </div>                    <div class="mb-4">                        <label class="form-label fw-bold">                            <i class="bi bi-geo-alt"></i> Dirección                        </label>                        <input type="text"                                class="form-control form-control-lg"                                [(ngModel)]="configGeneral.direccion"                               name="direccion"                               placeholder="Dirección completa">                    </div>                    <div class="mb-4">                        <label class="form-label fw-bold">                            <i class="bi bi-envelope"></i> Email de Contacto                        </label>                        <input type="email"                                class="form-control form-control-lg"                                [(ngModel)]="configGeneral.emailContacto"                               name="emailContacto"                               placeholder="contacto@comunidad.cl">                    </div>                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">                        <button type="submit" class="btn btn-secondary btn-lg">                            <i class="bi bi-save"></i> Guardar                        </button>                    </div>                </form>            </div>        </div>    </div></main></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfiguracionComponent', 'selector': 'app-configuracion'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetalleGastoComponent', 'selector': 'app-detalle-gasto'},{'name': 'GestionarGastosComponent', 'selector': 'app-gestionar-gastos'},{'name': 'GestionarResidentesComponent', 'selector': 'app-gestionar-residentes'},{'name': 'HistorialPagosComponent', 'selector': 'app-historial-pagos'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MisGastosComponent', 'selector': 'app-mis-gastos'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RealizarPagoComponent', 'selector': 'app-realizar-pago'},{'name': 'RecuperarComponent', 'selector': 'app-recuperar'},{'name': 'RegistrarPagosComponent', 'selector': 'app-registrar-pagos'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'ReportesComponent', 'selector': 'app-reportes'},{'name': 'SolicitudesComponent', 'selector': 'app-solicitudes'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ConfiguracionComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ConfiguracionComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

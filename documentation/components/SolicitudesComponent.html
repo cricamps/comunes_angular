@@ -1,0 +1,1865 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>comunes-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">comunes-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SolicitudesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/admin/solicitudes/solicitudes.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-solicitudes</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>FormsModule</code>
+                                <code><a href="../components/NavbarComponent.html" target="_self" >NavbarComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./solicitudes.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./solicitudes.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#busqueda" >busqueda</a>
+                            </li>
+                            <li>
+                                <a href="#estadisticas" >estadisticas</a>
+                            </li>
+                            <li>
+                                <a href="#filtroEstado" >filtroEstado</a>
+                            </li>
+                            <li>
+                                <a href="#mostrarModal" >mostrarModal</a>
+                            </li>
+                            <li>
+                                <a href="#solicitudDetalle" >solicitudDetalle</a>
+                            </li>
+                            <li>
+                                <a href="#solicitudes" >solicitudes</a>
+                            </li>
+                            <li>
+                                <a href="#solicitudesFiltradas" >solicitudesFiltradas</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#aplicarFiltros" >aplicarFiltros</a>
+                            </li>
+                            <li>
+                                <a href="#aprobarSolicitud" >aprobarSolicitud</a>
+                            </li>
+                            <li>
+                                <a href="#calcularEstadisticas" >calcularEstadisticas</a>
+                            </li>
+                            <li>
+                                <a href="#cargarSolicitudes" >cargarSolicitudes</a>
+                            </li>
+                            <li>
+                                <a href="#cerrarModal" >cerrarModal</a>
+                            </li>
+                            <li>
+                                <a href="#crearUsuario" >crearUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#eliminarSolicitud" >eliminarSolicitud</a>
+                            </li>
+                            <li>
+                                <a href="#guardarSolicitudes" >guardarSolicitudes</a>
+                            </li>
+                            <li>
+                                <a href="#guardarUsuarios" >guardarUsuarios</a>
+                            </li>
+                            <li>
+                                <a href="#limpiarFiltros" >limpiarFiltros</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerUsuarios" >obtenerUsuarios</a>
+                            </li>
+                            <li>
+                                <a href="#rechazarSolicitud" >rechazarSolicitud</a>
+                            </li>
+                            <li>
+                                <a href="#verDetalle" >verDetalle</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aplicarFiltros"></a>
+                    <span class="name">
+                        <span ><b>aplicarFiltros</b></span>
+                        <a href="#aplicarFiltros"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>aplicarFiltros()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aprobarSolicitud"></a>
+                    <span class="name">
+                        <span ><b>aprobarSolicitud</b></span>
+                        <a href="#aprobarSolicitud"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>aprobarSolicitud(solicitud: <a href="../interfaces/Solicitud.html" target="_self">Solicitud</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>solicitud</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Solicitud.html" target="_self" >Solicitud</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcularEstadisticas"></a>
+                    <span class="name">
+                        <span ><b>calcularEstadisticas</b></span>
+                        <a href="#calcularEstadisticas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcularEstadisticas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarSolicitudes"></a>
+                    <span class="name">
+                        <span ><b>cargarSolicitudes</b></span>
+                        <a href="#cargarSolicitudes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarSolicitudes()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cerrarModal"></a>
+                    <span class="name">
+                        <span ><b>cerrarModal</b></span>
+                        <a href="#cerrarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cerrarModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="crearUsuario"></a>
+                    <span class="name">
+                        <span ><b>crearUsuario</b></span>
+                        <a href="#crearUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>crearUsuario(solicitud: <a href="../interfaces/Solicitud.html" target="_self">Solicitud</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>solicitud</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Solicitud.html" target="_self" >Solicitud</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarSolicitud"></a>
+                    <span class="name">
+                        <span ><b>eliminarSolicitud</b></span>
+                        <a href="#eliminarSolicitud"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarSolicitud(solicitud: <a href="../interfaces/Solicitud.html" target="_self">Solicitud</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="148"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:148</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>solicitud</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Solicitud.html" target="_self" >Solicitud</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarSolicitudes"></a>
+                    <span class="name">
+                        <span ><b>guardarSolicitudes</b></span>
+                        <a href="#guardarSolicitudes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarSolicitudes()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarUsuarios"></a>
+                    <span class="name">
+                        <span ><b>guardarUsuarios</b></span>
+                        <a href="#guardarUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarUsuarios(usuarios: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="193"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuarios</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="limpiarFiltros"></a>
+                    <span class="name">
+                        <span ><b>limpiarFiltros</b></span>
+                        <a href="#limpiarFiltros"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>limpiarFiltros()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerUsuarios"></a>
+                    <span class="name">
+                        <span ><b>obtenerUsuarios</b></span>
+                        <a href="#obtenerUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerUsuarios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:188</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>any[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rechazarSolicitud"></a>
+                    <span class="name">
+                        <span ><b>rechazarSolicitud</b></span>
+                        <a href="#rechazarSolicitud"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rechazarSolicitud(solicitud: <a href="../interfaces/Solicitud.html" target="_self">Solicitud</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>solicitud</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Solicitud.html" target="_self" >Solicitud</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verDetalle"></a>
+                    <span class="name">
+                        <span ><b>verDetalle</b></span>
+                        <a href="#verDetalle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>verDetalle(solicitud: <a href="../interfaces/Solicitud.html" target="_self">Solicitud</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>solicitud</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Solicitud.html" target="_self" >Solicitud</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="busqueda"></a>
+                    <span class="name">
+                        <span ><b>busqueda</b></span>
+                        <a href="#busqueda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estadisticas"></a>
+                    <span class="name">
+                        <span ><b>estadisticas</b></span>
+                        <a href="#estadisticas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Estadisticas.html" target="_self" >Estadisticas</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    pendientes: 0,
+    aprobadas: 0,
+    rechazadas: 0
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filtroEstado"></a>
+                    <span class="name">
+                        <span ><b>filtroEstado</b></span>
+                        <a href="#filtroEstado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;pendiente&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mostrarModal"></a>
+                    <span class="name">
+                        <span ><b>mostrarModal</b></span>
+                        <a href="#mostrarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="solicitudDetalle"></a>
+                    <span class="name">
+                        <span ><b>solicitudDetalle</b></span>
+                        <a href="#solicitudDetalle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Solicitud | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="solicitudes"></a>
+                    <span class="name">
+                        <span ><b>solicitudes</b></span>
+                        <a href="#solicitudes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Solicitud[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="solicitudesFiltradas"></a>
+                    <span class="name">
+                        <span ><b>solicitudesFiltradas</b></span>
+                        <a href="#solicitudesFiltradas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Solicitud[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/features/admin/solicitudes/solicitudes.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { NavbarComponent } from &#x27;../../../shared/components/navbar/navbar.component&#x27;;
+import { AuthService } from &#x27;../../../core/services/auth.service&#x27;;
+
+interface Solicitud {
+  id: string;
+  nombre: string;
+  rut: string;
+  email: string;
+  telefono: string;
+  pasaje: string;
+  casa: string;
+  mensaje?: string;
+  fecha: string;
+  estado: &#x27;pendiente&#x27; | &#x27;aprobada&#x27; | &#x27;rechazada&#x27;;
+}
+
+interface Estadisticas {
+  pendientes: number;
+  aprobadas: number;
+  rechazadas: number;
+}
+
+@Component({
+  selector: &#x27;app-solicitudes&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, NavbarComponent],
+  templateUrl: &#x27;./solicitudes.component.html&#x27;,
+  styleUrls: [&#x27;./solicitudes.component.scss&#x27;]
+})
+export class SolicitudesComponent implements OnInit {
+  solicitudes: Solicitud[] &#x3D; [];
+  solicitudesFiltradas: Solicitud[] &#x3D; [];
+  
+  // Filtros
+  filtroEstado: string &#x3D; &#x27;pendiente&#x27;;
+  busqueda: string &#x3D; &#x27;&#x27;;
+  
+  // Estadísticas
+  estadisticas: Estadisticas &#x3D; {
+    pendientes: 0,
+    aprobadas: 0,
+    rechazadas: 0
+  };
+  
+  // Modal
+  mostrarModal: boolean &#x3D; false;
+  solicitudDetalle: Solicitud | null &#x3D; null;
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.cargarSolicitudes();
+    this.calcularEstadisticas();
+    this.aplicarFiltros();
+  }
+
+  cargarSolicitudes(): void {
+    const solicitudesGuardadas &#x3D; localStorage.getItem(&#x27;solicitudes&#x27;);
+    this.solicitudes &#x3D; solicitudesGuardadas ? JSON.parse(solicitudesGuardadas) : [];
+    
+    // Ordenar por fecha (más recientes primero)
+    this.solicitudes.sort((a, b) &#x3D;&gt; new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
+  }
+
+  calcularEstadisticas(): void {
+    this.estadisticas &#x3D; {
+      pendientes: this.solicitudes.filter(s &#x3D;&gt; s.estado &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27;).length,
+      aprobadas: this.solicitudes.filter(s &#x3D;&gt; s.estado &#x3D;&#x3D;&#x3D; &#x27;aprobada&#x27;).length,
+      rechazadas: this.solicitudes.filter(s &#x3D;&gt; s.estado &#x3D;&#x3D;&#x3D; &#x27;rechazada&#x27;).length
+    };
+  }
+
+  aplicarFiltros(): void {
+    this.solicitudesFiltradas &#x3D; this.solicitudes.filter(s &#x3D;&gt; {
+      const cumpleEstado &#x3D; !this.filtroEstado || s.estado &#x3D;&#x3D;&#x3D; this.filtroEstado;
+      
+      const busquedaLower &#x3D; this.busqueda.toLowerCase();
+      const cumpleBusqueda &#x3D; !this.busqueda || 
+        s.nombre.toLowerCase().includes(busquedaLower) ||
+        s.email.toLowerCase().includes(busquedaLower) ||
+        s.rut.includes(busquedaLower);
+      
+      return cumpleEstado &amp;&amp; cumpleBusqueda;
+    });
+  }
+
+  limpiarFiltros(): void {
+    this.filtroEstado &#x3D; &#x27;&#x27;;
+    this.busqueda &#x3D; &#x27;&#x27;;
+    this.aplicarFiltros();
+  }
+
+  verDetalle(solicitud: Solicitud): void {
+    this.solicitudDetalle &#x3D; solicitud;
+    this.mostrarModal &#x3D; true;
+  }
+
+  cerrarModal(): void {
+    this.mostrarModal &#x3D; false;
+    this.solicitudDetalle &#x3D; null;
+  }
+
+  aprobarSolicitud(solicitud: Solicitud): void {
+    const confirmacion &#x3D; confirm(
+      &#x60;¿Aprobar solicitud de ${solicitud.nombre}?\n\n&#x60; +
+      &#x60;Se creará una cuenta de usuario y se le enviará un email de confirmación.&#x60;
+    );
+
+    if (!confirmacion) return;
+
+    // Actualizar estado
+    solicitud.estado &#x3D; &#x27;aprobada&#x27;;
+    this.guardarSolicitudes();
+    
+    // Crear usuario
+    this.crearUsuario(solicitud);
+    
+    this.calcularEstadisticas();
+    this.aplicarFiltros();
+    this.cerrarModal();
+    
+    alert(&#x60;✅ Solicitud aprobada\n\n&#x60; +
+          &#x60;Se ha creado la cuenta para ${solicitud.nombre}\n&#x60; +
+          &#x60;Email: ${solicitud.email}\n&#x60; +
+          &#x60;Contraseña temporal: User123!&#x60;);
+  }
+
+  rechazarSolicitud(solicitud: Solicitud): void {
+    const motivo &#x3D; prompt(&#x27;Motivo del rechazo (opcional):&#x27;);
+    
+    if (motivo &#x3D;&#x3D;&#x3D; null) return; // Usuario canceló
+
+    solicitud.estado &#x3D; &#x27;rechazada&#x27;;
+    this.guardarSolicitudes();
+    
+    this.calcularEstadisticas();
+    this.aplicarFiltros();
+    this.cerrarModal();
+    
+    alert(&#x60;❌ Solicitud rechazada\n\n&#x60; +
+          &#x60;Residente: ${solicitud.nombre}\n&#x60; +
+          &#x60;${motivo ? &#x27;Motivo: &#x27; + motivo : &#x27;&#x27;}&#x60;);
+  }
+
+  eliminarSolicitud(solicitud: Solicitud): void {
+    if (!confirm(&#x60;¿Eliminar la solicitud de ${solicitud.nombre}?&#x60;)) return;
+
+    this.solicitudes &#x3D; this.solicitudes.filter(s &#x3D;&gt; s.id !&#x3D;&#x3D; solicitud.id);
+    this.guardarSolicitudes();
+    
+    this.calcularEstadisticas();
+    this.aplicarFiltros();
+    
+    alert(&#x27;✅ Solicitud eliminada&#x27;);
+  }
+
+  crearUsuario(solicitud: Solicitud): void {
+    const usuarios &#x3D; this.obtenerUsuarios();
+    
+    // Verificar si el email ya existe
+    const emailExiste &#x3D; usuarios.some((u: any) &#x3D;&gt; u.email &#x3D;&#x3D;&#x3D; solicitud.email);
+    if (emailExiste) {
+      alert(&#x27;⚠️ El email ya está registrado&#x27;);
+      return;
+    }
+
+    const nuevoUsuario &#x3D; {
+      nombre: solicitud.nombre,
+      rut: solicitud.rut,
+      email: solicitud.email,
+      telefono: solicitud.telefono,
+      pasaje: solicitud.pasaje,
+      casa: solicitud.casa,
+      password: &#x27;User123!&#x27;,
+      rol: &#x27;residente&#x27;,
+      tipo: &#x27;residente&#x27;,
+      fechaRegistro: new Date().toISOString()
+    };
+
+    usuarios.push(nuevoUsuario);
+    this.guardarUsuarios(usuarios);
+  }
+
+  // Utilidades
+  obtenerUsuarios(): any[] {
+    const usuarios &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
+    return usuarios ? JSON.parse(usuarios) : [];
+  }
+
+  guardarUsuarios(usuarios: any[]): void {
+    localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(usuarios));
+  }
+
+  guardarSolicitudes(): void {
+    localStorage.setItem(&#x27;solicitudes&#x27;, JSON.stringify(this.solicitudes));
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-navbar&gt;&lt;/app-navbar&gt;
+
+&lt;main class&#x3D;&quot;container my-4&quot;&gt;
+    &lt;div class&#x3D;&quot;row mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;col-12&quot;&gt;
+            &lt;h1 class&#x3D;&quot;fw-bold mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-envelope-check&quot;&gt;&lt;/i&gt; Solicitudes de Cuenta&lt;/h1&gt;
+            &lt;p class&#x3D;&quot;text-muted mb-0&quot;&gt;Revisa y aprueba las solicitudes de nuevos residentes&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- ESTADÍSTICAS --&gt;
+    &lt;div class&#x3D;&quot;row g-4 mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;col-12 col-md-4&quot;&gt;
+            &lt;div class&#x3D;&quot;card border-warning shadow-sm&quot;&gt;
+                &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-hourglass-split fs-1 text-warning mb-2&quot;&gt;&lt;/i&gt;
+                    &lt;h6 class&#x3D;&quot;text-muted&quot;&gt;Pendientes&lt;/h6&gt;
+                    &lt;h2 class&#x3D;&quot;fw-bold text-warning&quot;&gt;{{ estadisticas.pendientes }}&lt;/h2&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-12 col-md-4&quot;&gt;
+            &lt;div class&#x3D;&quot;card border-success shadow-sm&quot;&gt;
+                &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-check-circle fs-1 text-success mb-2&quot;&gt;&lt;/i&gt;
+                    &lt;h6 class&#x3D;&quot;text-muted&quot;&gt;Aprobadas&lt;/h6&gt;
+                    &lt;h2 class&#x3D;&quot;fw-bold text-success&quot;&gt;{{ estadisticas.aprobadas }}&lt;/h2&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-12 col-md-4&quot;&gt;
+            &lt;div class&#x3D;&quot;card border-danger shadow-sm&quot;&gt;
+                &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-x-circle fs-1 text-danger mb-2&quot;&gt;&lt;/i&gt;
+                    &lt;h6 class&#x3D;&quot;text-muted&quot;&gt;Rechazadas&lt;/h6&gt;
+                    &lt;h2 class&#x3D;&quot;fw-bold text-danger&quot;&gt;{{ estadisticas.rechazadas }}&lt;/h2&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- FILTROS --&gt;
+    &lt;div class&#x3D;&quot;card shadow-sm mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;card-body&quot;&gt;
+            &lt;div class&#x3D;&quot;row g-3&quot;&gt;
+                &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-funnel&quot;&gt;&lt;/i&gt; Filtrar por Estado
+                    &lt;/label&gt;
+                    &lt;select class&#x3D;&quot;form-select&quot; [(ngModel)]&#x3D;&quot;filtroEstado&quot; (ngModelChange)&#x3D;&quot;aplicarFiltros()&quot;&gt;
+                        &lt;option value&#x3D;&quot;&quot;&gt;Todas las solicitudes&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;pendiente&quot;&gt;Pendientes&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;aprobada&quot;&gt;Aprobadas&lt;/option&gt;
+                        &lt;option value&#x3D;&quot;rechazada&quot;&gt;Rechazadas&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-search&quot;&gt;&lt;/i&gt; Buscar
+                    &lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; 
+                           class&#x3D;&quot;form-control&quot; 
+                           [(ngModel)]&#x3D;&quot;busqueda&quot;
+                           (ngModelChange)&#x3D;&quot;aplicarFiltros()&quot;
+                           placeholder&#x3D;&quot;Nombre, email, RUT...&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-md-4&quot;&gt;
+                    &lt;label class&#x3D;&quot;form-label fw-bold d-block&quot;&gt;&amp;nbsp;&lt;/label&gt;
+                    &lt;button class&#x3D;&quot;btn btn-secondary w-100&quot; (click)&#x3D;&quot;limpiarFiltros()&quot;&gt;
+                        &lt;i class&#x3D;&quot;bi bi-x-circle&quot;&gt;&lt;/i&gt; Limpiar Filtros
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- TABLA DE SOLICITUDES --&gt;
+    &lt;div class&#x3D;&quot;card shadow-sm&quot;&gt;
+        &lt;div class&#x3D;&quot;card-header bg-primary text-white d-flex justify-content-between align-items-center&quot;&gt;
+            &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-list-ul&quot;&gt;&lt;/i&gt; Lista de Solicitudes&lt;/h5&gt;
+            &lt;span class&#x3D;&quot;badge bg-light text-dark&quot;&gt;{{ solicitudesFiltradas.length }}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card-body p-0&quot;&gt;
+            &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                &lt;table class&#x3D;&quot;table table-hover mb-0&quot;&gt;
+                    &lt;thead class&#x3D;&quot;table-light&quot;&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;Fecha&lt;/th&gt;
+                            &lt;th&gt;Nombre&lt;/th&gt;
+                            &lt;th&gt;RUT&lt;/th&gt;
+                            &lt;th&gt;Email&lt;/th&gt;
+                            &lt;th&gt;Teléfono&lt;/th&gt;
+                            &lt;th&gt;Casa&lt;/th&gt;
+                            &lt;th&gt;Estado&lt;/th&gt;
+                            &lt;th&gt;Acciones&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr *ngIf&#x3D;&quot;solicitudesFiltradas.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+                            &lt;td colspan&#x3D;&quot;8&quot; class&#x3D;&quot;text-center text-muted py-5&quot;&gt;
+                                &lt;i class&#x3D;&quot;bi bi-inbox fs-1 d-block mb-2&quot;&gt;&lt;/i&gt;
+                                No hay solicitudes
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr *ngFor&#x3D;&quot;let solicitud of solicitudesFiltradas&quot;&gt;
+                            &lt;td&gt;{{ solicitud.fecha | date:&#x27;dd/MM/yyyy HH:mm&#x27; }}&lt;/td&gt;
+                            &lt;td&gt;{{ solicitud.nombre }}&lt;/td&gt;
+                            &lt;td&gt;{{ solicitud.rut }}&lt;/td&gt;
+                            &lt;td&gt;{{ solicitud.email }}&lt;/td&gt;
+                            &lt;td&gt;+56 {{ solicitud.telefono }}&lt;/td&gt;
+                            &lt;td&gt;&lt;span class&#x3D;&quot;badge bg-secondary&quot;&gt;{{ solicitud.pasaje }}-{{ solicitud.casa }}&lt;/span&gt;&lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;span class&#x3D;&quot;badge&quot; 
+                                      [ngClass]&#x3D;&quot;{
+                                        &#x27;bg-warning&#x27;: solicitud.estado &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27;,
+                                        &#x27;bg-success&#x27;: solicitud.estado &#x3D;&#x3D;&#x3D; &#x27;aprobada&#x27;,
+                                        &#x27;bg-danger&#x27;: solicitud.estado &#x3D;&#x3D;&#x3D; &#x27;rechazada&#x27;
+                                      }&quot;&gt;
+                                    {{ solicitud.estado | uppercase }}
+                                &lt;/span&gt;
+                            &lt;/td&gt;
+                            &lt;td class&#x3D;&quot;text-nowrap&quot;&gt;
+                                &lt;button class&#x3D;&quot;btn btn-sm btn-info&quot; 
+                                        (click)&#x3D;&quot;verDetalle(solicitud)&quot;
+                                        title&#x3D;&quot;Ver detalles&quot;&gt;
+                                    &lt;i class&#x3D;&quot;bi bi-eye&quot;&gt;&lt;/i&gt;
+                                &lt;/button&gt;
+                                &lt;button *ngIf&#x3D;&quot;solicitud.estado &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27;&quot; 
+                                        class&#x3D;&quot;btn btn-sm btn-success&quot; 
+                                        (click)&#x3D;&quot;aprobarSolicitud(solicitud)&quot;
+                                        title&#x3D;&quot;Aprobar&quot;&gt;
+                                    &lt;i class&#x3D;&quot;bi bi-check-circle&quot;&gt;&lt;/i&gt;
+                                &lt;/button&gt;
+                                &lt;button *ngIf&#x3D;&quot;solicitud.estado &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27;&quot; 
+                                        class&#x3D;&quot;btn btn-sm btn-danger&quot; 
+                                        (click)&#x3D;&quot;rechazarSolicitud(solicitud)&quot;
+                                        title&#x3D;&quot;Rechazar&quot;&gt;
+                                    &lt;i class&#x3D;&quot;bi bi-x-circle&quot;&gt;&lt;/i&gt;
+                                &lt;/button&gt;
+                                &lt;button class&#x3D;&quot;btn btn-sm btn-secondary&quot; 
+                                        (click)&#x3D;&quot;eliminarSolicitud(solicitud)&quot;
+                                        title&#x3D;&quot;Eliminar&quot;&gt;
+                                    &lt;i class&#x3D;&quot;bi bi-trash&quot;&gt;&lt;/i&gt;
+                                &lt;/button&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;!-- MODAL VER DETALLE --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; [class.show]&#x3D;&quot;mostrarModal&quot; [style.display]&#x3D;&quot;mostrarModal ? &#x27;block&#x27; : &#x27;none&#x27;&quot; tabindex&#x3D;&quot;-1&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-dialog modal-lg&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-content&quot; *ngIf&#x3D;&quot;solicitudDetalle&quot;&gt;
+            &lt;div class&#x3D;&quot;modal-header bg-info text-white&quot;&gt;
+                &lt;h5 class&#x3D;&quot;modal-title&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-eye&quot;&gt;&lt;/i&gt; Detalle de Solicitud
+                &lt;/h5&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-close btn-close-white&quot; (click)&#x3D;&quot;cerrarModal()&quot;&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+                &lt;div class&#x3D;&quot;row&quot;&gt;
+                    &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;strong&gt;&lt;i class&#x3D;&quot;bi bi-person&quot;&gt;&lt;/i&gt; Nombre Completo:&lt;/strong&gt;&lt;br&gt;
+                        {{ solicitudDetalle.nombre }}
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;strong&gt;&lt;i class&#x3D;&quot;bi bi-card-text&quot;&gt;&lt;/i&gt; RUT:&lt;/strong&gt;&lt;br&gt;
+                        {{ solicitudDetalle.rut }}
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;strong&gt;&lt;i class&#x3D;&quot;bi bi-envelope&quot;&gt;&lt;/i&gt; Email:&lt;/strong&gt;&lt;br&gt;
+                        {{ solicitudDetalle.email }}
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;strong&gt;&lt;i class&#x3D;&quot;bi bi-phone&quot;&gt;&lt;/i&gt; Teléfono:&lt;/strong&gt;&lt;br&gt;
+                        +56 {{ solicitudDetalle.telefono }}
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;strong&gt;&lt;i class&#x3D;&quot;bi bi-geo-alt&quot;&gt;&lt;/i&gt; Pasaje:&lt;/strong&gt;&lt;br&gt;
+                        Pasaje {{ solicitudDetalle.pasaje }}
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;strong&gt;&lt;i class&#x3D;&quot;bi bi-house-door&quot;&gt;&lt;/i&gt; Casa:&lt;/strong&gt;&lt;br&gt;
+                        Casa {{ solicitudDetalle.casa }}
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-12 mb-3&quot; *ngIf&#x3D;&quot;solicitudDetalle.mensaje&quot;&gt;
+                        &lt;strong&gt;&lt;i class&#x3D;&quot;bi bi-chat-text&quot;&gt;&lt;/i&gt; Mensaje:&lt;/strong&gt;&lt;br&gt;
+                        {{ solicitudDetalle.mensaje }}
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;strong&gt;&lt;i class&#x3D;&quot;bi bi-calendar&quot;&gt;&lt;/i&gt; Fecha de Solicitud:&lt;/strong&gt;&lt;br&gt;
+                        {{ solicitudDetalle.fecha | date:&#x27;dd/MM/yyyy HH:mm&#x27; }}
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;strong&gt;&lt;i class&#x3D;&quot;bi bi-flag&quot;&gt;&lt;/i&gt; Estado:&lt;/strong&gt;&lt;br&gt;
+                        &lt;span class&#x3D;&quot;badge&quot; 
+                              [ngClass]&#x3D;&quot;{
+                                &#x27;bg-warning&#x27;: solicitudDetalle.estado &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27;,
+                                &#x27;bg-success&#x27;: solicitudDetalle.estado &#x3D;&#x3D;&#x3D; &#x27;aprobada&#x27;,
+                                &#x27;bg-danger&#x27;: solicitudDetalle.estado &#x3D;&#x3D;&#x3D; &#x27;rechazada&#x27;
+                              }&quot;&gt;
+                            {{ solicitudDetalle.estado | uppercase }}
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;cerrarModal()&quot;&gt;Cerrar&lt;/button&gt;
+                &lt;button *ngIf&#x3D;&quot;solicitudDetalle.estado &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27;&quot; 
+                        type&#x3D;&quot;button&quot; 
+                        class&#x3D;&quot;btn btn-success&quot; 
+                        (click)&#x3D;&quot;aprobarSolicitud(solicitudDetalle)&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-check-circle&quot;&gt;&lt;/i&gt; Aprobar
+                &lt;/button&gt;
+                &lt;button *ngIf&#x3D;&quot;solicitudDetalle.estado &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27;&quot; 
+                        type&#x3D;&quot;button&quot; 
+                        class&#x3D;&quot;btn btn-danger&quot; 
+                        (click)&#x3D;&quot;rechazarSolicitud(solicitudDetalle)&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-x-circle&quot;&gt;&lt;/i&gt; Rechazar
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- BACKDROP MODAL --&gt;
+&lt;div class&#x3D;&quot;modal-backdrop fade show&quot; *ngIf&#x3D;&quot;mostrarModal&quot;&gt;&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./solicitudes.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">// Estilos para solicitudes
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-navbar></app-navbar><main class="container my-4">    <div class="row mb-4">        <div class="col-12">            <h1 class="fw-bold mb-0"><i class="bi bi-envelope-check"></i> Solicitudes de Cuenta</h1>            <p class="text-muted mb-0">Revisa y aprueba las solicitudes de nuevos residentes</p>        </div>    </div>    <!-- ESTADÍSTICAS -->    <div class="row g-4 mb-4">        <div class="col-12 col-md-4">            <div class="card border-warning shadow-sm">                <div class="card-body text-center">                    <i class="bi bi-hourglass-split fs-1 text-warning mb-2"></i>                    <h6 class="text-muted">Pendientes</h6>                    <h2 class="fw-bold text-warning">{{ estadisticas.pendientes }}</h2>                </div>            </div>        </div>        <div class="col-12 col-md-4">            <div class="card border-success shadow-sm">                <div class="card-body text-center">                    <i class="bi bi-check-circle fs-1 text-success mb-2"></i>                    <h6 class="text-muted">Aprobadas</h6>                    <h2 class="fw-bold text-success">{{ estadisticas.aprobadas }}</h2>                </div>            </div>        </div>        <div class="col-12 col-md-4">            <div class="card border-danger shadow-sm">                <div class="card-body text-center">                    <i class="bi bi-x-circle fs-1 text-danger mb-2"></i>                    <h6 class="text-muted">Rechazadas</h6>                    <h2 class="fw-bold text-danger">{{ estadisticas.rechazadas }}</h2>                </div>            </div>        </div>    </div>    <!-- FILTROS -->    <div class="card shadow-sm mb-4">        <div class="card-body">            <div class="row g-3">                <div class="col-md-4">                    <label class="form-label fw-bold">                        <i class="bi bi-funnel"></i> Filtrar por Estado                    </label>                    <select class="form-select" [(ngModel)]="filtroEstado" (ngModelChange)="aplicarFiltros()">                        <option value="">Todas las solicitudes</option>                        <option value="pendiente">Pendientes</option>                        <option value="aprobada">Aprobadas</option>                        <option value="rechazada">Rechazadas</option>                    </select>                </div>                <div class="col-md-4">                    <label class="form-label fw-bold">                        <i class="bi bi-search"></i> Buscar                    </label>                    <input type="text"                            class="form-control"                            [(ngModel)]="busqueda"                           (ngModelChange)="aplicarFiltros()"                           placeholder="Nombre, email, RUT...">                </div>                <div class="col-md-4">                    <label class="form-label fw-bold d-block">&nbsp;</label>                    <button class="btn btn-secondary w-100" (click)="limpiarFiltros()">                        <i class="bi bi-x-circle"></i> Limpiar Filtros                    </button>                </div>            </div>        </div>    </div>    <!-- TABLA DE SOLICITUDES -->    <div class="card shadow-sm">        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">            <h5 class="mb-0"><i class="bi bi-list-ul"></i> Lista de Solicitudes</h5>            <span class="badge bg-light text-dark">{{ solicitudesFiltradas.length }}</span>        </div>        <div class="card-body p-0">            <div class="table-responsive">                <table class="table table-hover mb-0">                    <thead class="table-light">                        <tr>                            <th>Fecha</th>                            <th>Nombre</th>                            <th>RUT</th>                            <th>Email</th>                            <th>Teléfono</th>                            <th>Casa</th>                            <th>Estado</th>                            <th>Acciones</th>                        </tr>                    </thead>                    <tbody>                        <tr *ngIf="solicitudesFiltradas.length === 0">                            <td colspan="8" class="text-center text-muted py-5">                                <i class="bi bi-inbox fs-1 d-block mb-2"></i>                                No hay solicitudes                            </td>                        </tr>                        <tr *ngFor="let solicitud of solicitudesFiltradas">                            <td>{{ solicitud.fecha | date:\'dd/MM/yyyy HH:mm\' }}</td>                            <td>{{ solicitud.nombre }}</td>                            <td>{{ solicitud.rut }}</td>                            <td>{{ solicitud.email }}</td>                            <td>+56 {{ solicitud.telefono }}</td>                            <td><span class="badge bg-secondary">{{ solicitud.pasaje }}-{{ solicitud.casa }}</span></td>                            <td>                                <span class="badge"                                       [ngClass]="{                                        \'bg-warning\': solicitud.estado === \'pendiente\',                                        \'bg-success\': solicitud.estado === \'aprobada\',                                        \'bg-danger\': solicitud.estado === \'rechazada\'                                      }">                                    {{ solicitud.estado | uppercase }}                                </span>                            </td>                            <td class="text-nowrap">                                <button class="btn btn-sm btn-info"                                         (click)="verDetalle(solicitud)"                                        title="Ver detalles">                                    <i class="bi bi-eye"></i>                                </button>                                <button *ngIf="solicitud.estado === \'pendiente\'"                                         class="btn btn-sm btn-success"                                         (click)="aprobarSolicitud(solicitud)"                                        title="Aprobar">                                    <i class="bi bi-check-circle"></i>                                </button>                                <button *ngIf="solicitud.estado === \'pendiente\'"                                         class="btn btn-sm btn-danger"                                         (click)="rechazarSolicitud(solicitud)"                                        title="Rechazar">                                    <i class="bi bi-x-circle"></i>                                </button>                                <button class="btn btn-sm btn-secondary"                                         (click)="eliminarSolicitud(solicitud)"                                        title="Eliminar">                                    <i class="bi bi-trash"></i>                                </button>                            </td>                        </tr>                    </tbody>                </table>            </div>        </div>    </div></main><!-- MODAL VER DETALLE --><div class="modal fade" [class.show]="mostrarModal" [style.display]="mostrarModal ? \'block\' : \'none\'" tabindex="-1">    <div class="modal-dialog modal-lg">        <div class="modal-content" *ngIf="solicitudDetalle">            <div class="modal-header bg-info text-white">                <h5 class="modal-title">                    <i class="bi bi-eye"></i> Detalle de Solicitud                </h5>                <button type="button" class="btn-close btn-close-white" (click)="cerrarModal()"></button>            </div>            <div class="modal-body">                <div class="row">                    <div class="col-md-6 mb-3">                        <strong><i class="bi bi-person"></i> Nombre Completo:</strong><br>                        {{ solicitudDetalle.nombre }}                    </div>                    <div class="col-md-6 mb-3">                        <strong><i class="bi bi-card-text"></i> RUT:</strong><br>                        {{ solicitudDetalle.rut }}                    </div>                    <div class="col-md-6 mb-3">                        <strong><i class="bi bi-envelope"></i> Email:</strong><br>                        {{ solicitudDetalle.email }}                    </div>                    <div class="col-md-6 mb-3">                        <strong><i class="bi bi-phone"></i> Teléfono:</strong><br>                        +56 {{ solicitudDetalle.telefono }}                    </div>                    <div class="col-md-6 mb-3">                        <strong><i class="bi bi-geo-alt"></i> Pasaje:</strong><br>                        Pasaje {{ solicitudDetalle.pasaje }}                    </div>                    <div class="col-md-6 mb-3">                        <strong><i class="bi bi-house-door"></i> Casa:</strong><br>                        Casa {{ solicitudDetalle.casa }}                    </div>                    <div class="col-12 mb-3" *ngIf="solicitudDetalle.mensaje">                        <strong><i class="bi bi-chat-text"></i> Mensaje:</strong><br>                        {{ solicitudDetalle.mensaje }}                    </div>                    <div class="col-md-6 mb-3">                        <strong><i class="bi bi-calendar"></i> Fecha de Solicitud:</strong><br>                        {{ solicitudDetalle.fecha | date:\'dd/MM/yyyy HH:mm\' }}                    </div>                    <div class="col-md-6 mb-3">                        <strong><i class="bi bi-flag"></i> Estado:</strong><br>                        <span class="badge"                               [ngClass]="{                                \'bg-warning\': solicitudDetalle.estado === \'pendiente\',                                \'bg-success\': solicitudDetalle.estado === \'aprobada\',                                \'bg-danger\': solicitudDetalle.estado === \'rechazada\'                              }">                            {{ solicitudDetalle.estado | uppercase }}                        </span>                    </div>                </div>            </div>            <div class="modal-footer">                <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>                <button *ngIf="solicitudDetalle.estado === \'pendiente\'"                         type="button"                         class="btn btn-success"                         (click)="aprobarSolicitud(solicitudDetalle)">                    <i class="bi bi-check-circle"></i> Aprobar                </button>                <button *ngIf="solicitudDetalle.estado === \'pendiente\'"                         type="button"                         class="btn btn-danger"                         (click)="rechazarSolicitud(solicitudDetalle)">                    <i class="bi bi-x-circle"></i> Rechazar                </button>            </div>        </div>    </div></div><!-- BACKDROP MODAL --><div class="modal-backdrop fade show" *ngIf="mostrarModal"></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfiguracionComponent', 'selector': 'app-configuracion'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetalleGastoComponent', 'selector': 'app-detalle-gasto'},{'name': 'GestionarGastosComponent', 'selector': 'app-gestionar-gastos'},{'name': 'GestionarResidentesComponent', 'selector': 'app-gestionar-residentes'},{'name': 'HistorialPagosComponent', 'selector': 'app-historial-pagos'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MisGastosComponent', 'selector': 'app-mis-gastos'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RealizarPagoComponent', 'selector': 'app-realizar-pago'},{'name': 'RecuperarComponent', 'selector': 'app-recuperar'},{'name': 'RegistrarPagosComponent', 'selector': 'app-registrar-pagos'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'ReportesComponent', 'selector': 'app-reportes'},{'name': 'SolicitudesComponent', 'selector': 'app-solicitudes'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SolicitudesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SolicitudesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
