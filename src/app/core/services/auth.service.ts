@@ -246,4 +246,74 @@ export class AuthService {
     }
     return '';
   }
+
+  /**
+   * Registrar un nuevo usuario en el sistema
+   * 
+   * Este método valida que no exista un correo duplicado antes de agregar el usuario.
+   * La validación es crítica para mantener la integridad de la base de datos.
+   * 
+   * @param {Usuario} usuario - Objeto que contiene los datos del nuevo usuario:
+   * nombre, email, password, rut, telefono, pasaje, casa, rol, tipo y fechaRegistro
+   * 
+   * @returns {boolean} Retorna true si el registro fue exitoso,
+   * y retorna false si el correo ya existe en la base de datos
+   * 
+   * @example
+   * ```typescript
+   * const resultado = authService.addUser({
+   *   nombre: 'Juan',
+   *   email: 'juan@correo.com',
+   *   password: 'Contra123',
+   *   rut: '12345678-9',
+   *   telefono: '912345678',
+   *   pasaje: '8651',
+   *   casa: 'D',
+   *   rol: 'residente',
+   *   tipo: 'residente',
+   *   fechaRegistro: new Date()
+   * });
+   * ```
+   * 
+   * @usageNotes
+   * Este método almacena los usuarios en localStorage.
+   * Es necesario asegurarse de que localStorage tenga el formato correcto.
+   * Este método es usado por RegisterComponent y AdminComponent.
+   */
+  addUser(usuario: Usuario): boolean {
+    // Validar que no exista el correo
+    const usuarios = this.obtenerTodosLosUsuarios();
+    const emailExiste = usuarios.some(u => u.email === usuario.email);
+    
+    if (emailExiste) {
+      console.log('Error: El correo ya está registrado:', usuario.email);
+      return false;
+    }
+    
+    // Agregar usuario al array
+    usuarios.push(usuario);
+    
+    // Guardar en localStorage
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    console.log('Usuario registrado exitosamente:', usuario.email);
+    
+    return true;
+  }
+
+  /**
+   * Obtener todos los usuarios del sistema
+   * 
+   * Lee los usuarios desde localStorage o retorna los usuarios mock
+   * si no hay datos guardados.
+   * 
+   * @private
+   * @returns {Usuario[]} Array con todos los usuarios registrados
+   */
+  private obtenerTodosLosUsuarios(): Usuario[] {
+    const usuariosStorage = localStorage.getItem('usuarios');
+    if (usuariosStorage) {
+      return JSON.parse(usuariosStorage);
+    }
+    return [...USUARIOS_MOCK];
+  }
 }

@@ -199,7 +199,7 @@ ng test --watch=false --browsers=ChromeHeadless
 
 ## 📝 Validaciones Personalizadas
 
-### RUT Chileno
+### RUT
 Formato: 12.345.678-9
 
 ### Contraseña Fuerte
@@ -211,7 +211,7 @@ Formato: 12.345.678-9
 - Mayores de 18 años para residentes
 - Mayores de 13 años para solicitudes
 
-### Teléfono Chileno
+### Teléfono
 - 9 dígitos exactos
 - Formato: +56 9 1234 5678
 
@@ -239,9 +239,6 @@ DSY2202 - Desarrollo Full Stack II
 ### Institución
 Duoc UC
 
-## 📄 Licencia
-
-Este proyecto es parte de una actividad académica.
 
 ---
 
