@@ -9,7 +9,7 @@ describe('CarritoService - Cálculo correcto del total', () => {
   const cuota1: Cuota = {
     id: 1,
     mes: 'Enero',
-    año: 2024,
+    anio: 2024,
     monto: 5000,
     estado: 'pendiente',
     fechaVencimiento: new Date('2024-01-31'),
@@ -20,7 +20,7 @@ describe('CarritoService - Cálculo correcto del total', () => {
   const cuota2: Cuota = {
     id: 2,
     mes: 'Febrero',
-    año: 2024,
+    anio: 2024,
     monto: 5000,
     estado: 'pendiente',
     fechaVencimiento: new Date('2024-02-29'),
@@ -31,7 +31,7 @@ describe('CarritoService - Cálculo correcto del total', () => {
   const cuota3: Cuota = {
     id: 3,
     mes: 'Marzo',
-    año: 2024,
+    anio: 2024,
     monto: 5000,
     estado: 'pendiente',
     fechaVencimiento: new Date('2024-03-31'),
@@ -198,7 +198,7 @@ describe('CarritoService - Cálculo correcto del total', () => {
     const cuotaEspecial: Cuota = {
       id: 4,
       mes: 'Abril',
-      año: 2024,
+      anio: 2024,
       monto: 7500, // Monto diferente
       estado: 'pendiente',
       fechaVencimiento: new Date('2024-04-30'),

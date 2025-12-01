@@ -8,7 +8,7 @@
  * const cuota: Cuota = {
  *   id: 1,
  *   mes: 'Enero',
- *   año: 2024,
+ *   anio: 2024,
  *   monto: 5000,
  *   estado: 'pendiente',
  *   fechaVencimiento: new Date('2024-01-31'),
@@ -25,7 +25,7 @@ export interface Cuota {
   mes: string;
   
   /** Año de la cuota */
-  año: number;
+  anio: number;
   
   /** Monto a pagar por la cuota */
   monto: number;

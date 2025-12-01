@@ -195,7 +195,7 @@ cd comunes-angular</code></pre></div><ol start="2">
 │   │   └── realizar-pago/
 │   └── shared/               # Componentes compartidos
 │       ├── perfil/
-│       └── detalle-gasto/    # NUEVO - Ejemplo de paso de datos
+│       └── detalle-gasto/    # Ejemplo de paso de datos
 ├── models/                    # Interfaces y modelos
 │   ├── usuario.model.ts
 │   ├── gasto.model.ts
@@ -256,10 +256,12 @@ cd comunes-angular</code></pre></div><ol start="2">
     this.gasto = navigation.extras.state[&#39;gasto&#39;];
   }
 }</code></pre></div><h2>🧪 Testing</h2>
-<p>Ejecutar pruebas unitarias:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">ng test</code></pre></div><p>Ejecutar en modo headless:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">ng test --watch=false --browsers=ChromeHeadless</code></pre></div><h2>📝 Validaciones Personalizadas</h2>
-<h3>RUT Chileno</h3>
+<p>Ejecutar pruebas unitarias:
+ng test</p>
+<p>Ejecutar en modo headless:
+ng test --watch=false --browsers=ChromeHeadless</p>
+<h2>📝 Validaciones Personalizadas</h2>
+<h3>RUT</h3>
 <p>Formato: 12.345.678-9</p>
 <h3>Contraseña Fuerte</h3>
 <ul>
@@ -272,7 +274,7 @@ cd comunes-angular</code></pre></div><ol start="2">
 <li>Mayores de 18 años para residentes</li>
 <li>Mayores de 13 años para solicitudes</li>
 </ul>
-<h3>Teléfono Chileno</h3>
+<h3>Teléfono</h3>
 <ul>
 <li>9 dígitos exactos</li>
 <li>Formato: +56 9 1234 5678</li>
@@ -283,42 +285,15 @@ ng serve                    # Ejecutar en desarrollo
 ng build                    # Compilar para producción
 ng test                     # Ejecutar tests
 
-# Generación de componentes
-ng generate component nombre
-ng generate service nombre
-ng generate guard nombre
-
 # Instalación de dependencias
 npm install                 # Instalar todas las dependencias
-npm install bootstrap       # Instalar Bootstrap</code></pre></div><h2>📚 Documentación Adicional</h2>
-<ul>
-<li><strong>CHECKLIST_SEMANA4.md</strong>: Checklist completo para la entrega</li>
-<li><strong>INSTRUCCIONES_PASO_DATOS.md</strong>: Guía detallada del paso de datos</li>
-<li><strong>EJEMPLOS_SEMANA4.md</strong>: Ejemplos de código para implementar</li>
-</ul>
-<h2>🐛 Solución de Problemas Comunes</h2>
-<h3>Error: &quot;ng serve&quot; no funciona</h3>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install
-ng serve</code></pre></div><h3>Error: Bootstrap no se visualiza</h3>
-<p>Verificar en <code>angular.json</code>:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-json">&quot;styles&quot;: [
-  &quot;node_modules/bootstrap/dist/css/bootstrap.min.css&quot;,
-  &quot;src/styles.scss&quot;
-]</code></pre></div><h3>Error: Datos no se pasan entre componentes</h3>
-<ol>
-<li>Verificar que Router esté inyectado</li>
-<li>Verificar NavigationExtras</li>
-<li>Verificar que la ruta exista en app.routes.ts</li>
-</ol>
-<h2>👨‍💻 Desarrollo</h2>
+npm install bootstrap       # Instalar Bootstrap</code></pre></div><h2>👨‍💻 Desarrollo</h2>
 <h3>Autor</h3>
-<p>Cristobal - Estudiante de Ingeniería en Desarrollo de Software</p>
+<p>Cristobal Camps</p>
 <h3>Curso</h3>
 <p>DSY2202 - Desarrollo Full Stack II</p>
 <h3>Institución</h3>
 <p>Duoc UC</p>
-<h2>📄 Licencia</h2>
-<p>Este proyecto es parte de una actividad académica.</p>
 <hr>
 <h2>🔬 Pruebas Unitarias</h2>
 <h3>Ejecutar pruebas</h3>
@@ -352,9 +327,9 @@ ng serve</code></pre></div><h3>Error: Bootstrap no se visualiza</h3>
 <li><strong>Validaciones totales</strong>: 21 (18 built-in + 3 custom)</li>
 </ul>
 <hr>
-<p><strong>Última actualización</strong>: Noviembre 2024
+<p><strong>Última actualización</strong>: Noviembre 2025
 <strong>Versión</strong>: 2.0.0
-<strong>Estado</strong>: Semana 6 - Evaluación Sumativa Final</p>
+<strong>Estado</strong>: Semana 6 - Evaluación Sumativa 2</p>
 
 
 

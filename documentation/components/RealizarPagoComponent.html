@@ -124,10 +124,6 @@
                 role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
         </li>
         <li class="nav-item">
-            <a href="#styleData" class="nav-link"
-                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li class="nav-item">
             <a href="#tree" class="nav-link"
                 role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
@@ -142,6 +138,21 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de Realizar Pago / Carrito de Cuotas</p>
+<p>Permite al residente:</p>
+<ul>
+<li>Ver todas sus cuotas pendientes</li>
+<li>Seleccionar cuáles desea pagar</li>
+<li>Agregar cuotas al carrito</li>
+<li>Ver el total a pagar</li>
+<li>Procesar el pago de las cuotas seleccionadas</li>
+</ul>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;app-realizar-pago&gt;&lt;/app-realizar-pago&gt;</code></pre></div>
+    </p>
 
 
     <p class="comment">
@@ -182,15 +193,10 @@
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
                             <code>CommonModule</code>
-                            <code>FormsModule</code>
                                 <code><a href="../components/NavbarComponent.html" target="_self" >NavbarComponent</a></code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./realizar-pago.component.scss</code></td>
-            </tr>
 
 
 
@@ -201,6 +207,10 @@
 
 
 
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./realizar-pago.component.scss</code></td>
+            </tr>
 
 
 
@@ -223,28 +233,28 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#fechaActual" >fechaActual</a>
+                                <a href="#cantidadSeleccionados" >cantidadSeleccionados</a>
                             </li>
                             <li>
-                                <a href="#fechaUltimoPago" >fechaUltimoPago</a>
+                                <a href="#casa" >casa</a>
                             </li>
                             <li>
-                                <a href="#montoPagar" >montoPagar</a>
+                                <a href="#cuotasDisponibles" >cuotasDisponibles</a>
                             </li>
                             <li>
-                                <a href="#mostrarInfoBancaria" >mostrarInfoBancaria</a>
+                                <a href="#items" >items</a>
                             </li>
                             <li>
-                                <a href="#pago" >pago</a>
+                                <a href="#nombreUsuario" >nombreUsuario</a>
                             </li>
                             <li>
-                                <a href="#periodoActual" >periodoActual</a>
+                                <a href="#pasaje" >pasaje</a>
                             </li>
                             <li>
-                                <a href="#usuario" >usuario</a>
+                                <a href="#procesandoPago" >procesandoPago</a>
                             </li>
                             <li>
-                                <a href="#yaPago" >yaPago</a>
+                                <a href="#total" >total</a>
                             </li>
                         </ul>
                     </td>
@@ -259,43 +269,48 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#calcularMonto" >calcularMonto</a>
+                                <a href="#actualizarCarrito" >actualizarCarrito</a>
                             </li>
                             <li>
-                                <a href="#cancelar" >cancelar</a>
+                                <a href="#agregarAlCarrito" >agregarAlCarrito</a>
                             </li>
                             <li>
-                                <a href="#cargarUsuario" >cargarUsuario</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#cargarCuotasDisponibles" >cargarCuotasDisponibles</a>
                             </li>
                             <li>
-                                <a href="#establecerPeriodo" >establecerPeriodo</a>
+                                <a href="#deseleccionarTodas" >deseleccionarTodas</a>
                             </li>
                             <li>
-                                <a href="#getMetodoNombre" >getMetodoNombre</a>
+                                <a href="#eliminarDelCarrito" >eliminarDelCarrito</a>
                             </li>
                             <li>
-                                <a href="#guardarPagos" >guardarPagos</a>
+                                <a href="#estaEnCarrito" >estaEnCarrito</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#guardarPagoEnHistorial" >guardarPagoEnHistorial</a>
                             </li>
                             <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
-                                <a href="#obtenerGastos" >obtenerGastos</a>
+                                <a href="#obtenerClaseEstado" >obtenerClaseEstado</a>
                             </li>
                             <li>
-                                <a href="#obtenerPagos" >obtenerPagos</a>
+                                <a href="#procesarPago" >procesarPago</a>
                             </li>
                             <li>
-                                <a href="#onMetodoChange" >onMetodoChange</a>
+                                <a href="#seleccionarTodas" >seleccionarTodas</a>
                             </li>
                             <li>
-                                <a href="#realizarPago" >realizarPago</a>
+                                <a href="#toggleSeleccion" >toggleSeleccion</a>
                             </li>
                             <li>
-                                <a href="#validarPago" >validarPago</a>
+                                <a href="#vaciarCarrito" >vaciarCarrito</a>
                             </li>
                             <li>
-                                <a href="#verificarPagoMesActual" >verificarPagoMesActual</a>
+                                <a href="#volver" >volver</a>
                             </li>
                         </ul>
                     </td>
@@ -315,12 +330,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router)</code>
+<code>constructor(carritoService: <a href="../injectables/CarritoService.html" target="_self">CarritoService</a>, authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:52</a></div>
                             </td>
                         </tr>
 
@@ -337,6 +352,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                                <tr>
+                                                        <td>carritoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CarritoService.html" target="_self" >CarritoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                                 <tr>
                                                         <td>authService</td>
                                                   
@@ -383,30 +410,34 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="calcularMonto"></a>
+                    <a name="actualizarCarrito"></a>
                     <span class="name">
-                        <span ><b>calcularMonto</b></span>
-                        <a href="#calcularMonto"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>actualizarCarrito</b></span>
+                        <a href="#actualizarCarrito"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>calcularMonto()</code>
+<code>actualizarCarrito()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="51"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:51</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:100</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Actualizar datos del carrito</p>
+<p>Recalcula el total y la cantidad de items seleccionados.
+Este método se llama cada vez que hay un cambio en el carrito.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -420,178 +451,34 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="cancelar"></a>
+                    <a name="agregarAlCarrito"></a>
                     <span class="name">
-                        <span ><b>cancelar</b></span>
-                        <a href="#cancelar"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>agregarAlCarrito</b></span>
+                        <a href="#agregarAlCarrito"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>cancelar()</code>
+<code>agregarAlCarrito(cuota: <a href="../interfaces/Cuota.html" target="_self">Cuota</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="151"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:151</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:120</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="cargarUsuario"></a>
-                    <span class="name">
-                        <span ><b>cargarUsuario</b></span>
-                        <a href="#cargarUsuario"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>cargarUsuario()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="42"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:42</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="establecerPeriodo"></a>
-                    <span class="name">
-                        <span ><b>establecerPeriodo</b></span>
-                        <a href="#establecerPeriodo"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>establecerPeriodo()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="63"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:63</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getMetodoNombre"></a>
-                    <span class="name">
-                        <span ><b>getMetodoNombre</b></span>
-                        <a href="#getMetodoNombre"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getMetodoNombre()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="141"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:141</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="guardarPagos"></a>
-                    <span class="name">
-                        <span ><b>guardarPagos</b></span>
-                        <a href="#guardarPagos"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>guardarPagos(pagos: any[])</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="168"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:168</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
+                        <div class="io-description"><p>Agregar cuota al carrito</p>
+<p>Agrega una cuota al carrito de pagos.
+La cuota se marca como seleccionada por defecto.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -602,13 +489,14 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>pagos</td>
+                                                <td>cuota</td>
                                             <td>
-                                                        <code>any[]</code>
+                                                            <code><a href="../interfaces/Cuota.html" target="_self" >Cuota</a></code>
                                             </td>
 
                                             <td>
@@ -616,6 +504,347 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Cuota a agregar</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarCuotasDisponibles"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>cargarCuotasDisponibles</b></span>
+                        <a href="#cargarCuotasDisponibles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>cargarCuotasDisponibles()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cargar cuotas pendientes del residente</p>
+<p>Obtiene las cuotas pendientes y vencidas que puede pagar el residente.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deseleccionarTodas"></a>
+                    <span class="name">
+                        <span ><b>deseleccionarTodas</b></span>
+                        <a href="#deseleccionarTodas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deseleccionarTodas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="172"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Deseleccionar todas las cuotas del carrito</p>
+<p>Desmarca todas las cuotas (el total quedará en $0).</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarDelCarrito"></a>
+                    <span class="name">
+                        <span ><b>eliminarDelCarrito</b></span>
+                        <a href="#eliminarDelCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarDelCarrito(cuotaId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Eliminar cuota del carrito</p>
+<p>Remueve una cuota del carrito de pagos.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cuotaId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ID de la cuota a eliminar</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estaEnCarrito"></a>
+                    <span class="name">
+                        <span ><b>estaEnCarrito</b></span>
+                        <a href="#estaEnCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>estaEnCarrito(cuotaId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="279"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:279</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verificar si una cuota está en el carrito</p>
+<p>Usado para mostrar el botón correcto (Agregar vs Quitar)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cuotaId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ID de la cuota</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>True si la cuota está en el carrito</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarPagoEnHistorial"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>guardarPagoEnHistorial</b></span>
+                        <a href="#guardarPagoEnHistorial"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>guardarPagoEnHistorial(cuotasPagadas: <a href="../interfaces/Cuota.html" target="_self">Cuota[]</a>, totalPagado: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="239"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:239</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Guardar pago en el historial de pagos</p>
+<p>Registra el pago realizado en localStorage para que aparezca
+en el historial de pagos del usuario.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cuotasPagadas</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Cuota.html" target="_self" >Cuota[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Array de cuotas que se pagaron</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>totalPagado</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Monto total pagado</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -651,14 +880,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="35"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:35</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:65</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Inicialización del componente</p>
+<p>Carga los datos del usuario, las cuotas pendientes y el estado del carrito.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -672,35 +904,76 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="obtenerGastos"></a>
+                    <a name="obtenerClaseEstado"></a>
                     <span class="name">
-                        <span ><b>obtenerGastos</b></span>
-                        <a href="#obtenerGastos"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>obtenerClaseEstado</b></span>
+                        <a href="#obtenerClaseEstado"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>obtenerGastos()</code>
+<code>obtenerClaseEstado(cuota: <a href="../interfaces/Cuota.html" target="_self">Cuota</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="158"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:158</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="291"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:291</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Obtener clase CSS según estado de la cuota</p>
+<p>Retorna la clase de Bootstrap para mostrar el badge del estado.</p>
+</div>
 
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cuota</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Cuota.html" target="_self" >Cuota</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Cuota</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>any[]</code>
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Nombre de clase CSS de Bootstrap</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -709,104 +982,35 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="obtenerPagos"></a>
+                    <a name="procesarPago"></a>
                     <span class="name">
-                        <span ><b>obtenerPagos</b></span>
-                        <a href="#obtenerPagos"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>procesarPago</b></span>
+                        <a href="#procesarPago"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>obtenerPagos()</code>
+<code>procesarPago()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="163"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:163</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:186</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>any[]</code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="onMetodoChange"></a>
-                    <span class="name">
-                        <span ><b>onMetodoChange</b></span>
-                        <a href="#onMetodoChange"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>onMetodoChange()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="87"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:87</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="realizarPago"></a>
-                    <span class="name">
-                        <span ><b>realizarPago</b></span>
-                        <a href="#realizarPago"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>realizarPago()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="91"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:91</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
+                        <div class="io-description"><p>Procesar pago de cuotas seleccionadas</p>
+<p>Simula el proceso de pago de las cuotas marcadas.
+En una implementación real, aquí se integraría con WebPay u otra pasarela.</p>
+<p>Las cuotas pagadas se marcan como &#39;pagada&#39; y se eliminan del carrito.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -820,33 +1024,36 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="validarPago"></a>
+                    <a name="seleccionarTodas"></a>
                     <span class="name">
-                        <span ><b>validarPago</b></span>
-                        <a href="#validarPago"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>seleccionarTodas</b></span>
+                        <a href="#seleccionarTodas"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>validarPago()</code>
+<code>seleccionarTodas()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="127"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:127</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="161"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:161</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Seleccionar todas las cuotas del carrito</p>
+<p>Marca todas las cuotas como seleccionadas para pago.</p>
+</div>
 
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
                 </td>
@@ -857,30 +1064,151 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="verificarPagoMesActual"></a>
+                    <a name="toggleSeleccion"></a>
                     <span class="name">
-                        <span ><b>verificarPagoMesActual</b></span>
-                        <a href="#verificarPagoMesActual"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>toggleSeleccion</b></span>
+                        <a href="#toggleSeleccion"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>verificarPagoMesActual()</code>
+<code>toggleSeleccion(cuotaId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="72"
-                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:72</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:150</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Alternar selección de cuota</p>
+<p>Cambia el estado de selección de una cuota.
+Solo las cuotas seleccionadas se incluyen en el total a pagar.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cuotaId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ID de la cuota</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vaciarCarrito"></a>
+                    <span class="name">
+                        <span ><b>vaciarCarrito</b></span>
+                        <a href="#vaciarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>vaciarCarrito()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="309"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:309</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vaciar el carrito completo</p>
+<p>Elimina todas las cuotas del carrito después de confirmar.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="volver"></a>
+                    <span class="name">
+                        <span ><b>volver</b></span>
+                        <a href="#volver"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>volver()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="327"
+                                    class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:327</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Volver al dashboard</p>
+<p>Navega de regreso al dashboard del residente.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -900,72 +1228,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="fechaActual"></a>
+                    <a name="cantidadSeleccionados"></a>
                     <span class="name">
-                        <span ><b>fechaActual</b></span>
-                        <a href="#fechaActual"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new Date()</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:19</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="fechaUltimoPago"></a>
-                    <span class="name">
-                        <span ><b>fechaUltimoPago</b></span>
-                        <a href="#fechaUltimoPago"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;&#x27;</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:21</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="montoPagar"></a>
-                    <span class="name">
-                        <span ><b>montoPagar</b></span>
-                        <a href="#montoPagar"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>cantidadSeleccionados</b></span>
+                        <a href="#cantidadSeleccionados"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -982,41 +1248,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:44</a></div>
                         </td>
                     </tr>
 
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mostrarInfoBancaria"></a>
-                    <span class="name">
-                        <span ><b>mostrarInfoBancaria</b></span>
-                        <a href="#mostrarInfoBancaria"><span class="icon ion-ios-link"></span></a>
-                    </span>
+                    <div class="io-description"><p>Cantidad de items seleccionados</p>
+</div>
                 </td>
             </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>false</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:22</a></div>
-                        </td>
-                    </tr>
-
 
         </tbody>
     </table>
@@ -1024,45 +1265,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="pago"></a>
+                    <a name="casa"></a>
                     <span class="name">
-                        <span ><b>pago</b></span>
-                        <a href="#pago"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>{
-    metodoPago: &#x27;&#x27;,
-    numeroReferencia: &#x27;&#x27;,
-    confirmacion: false
-  }</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:24</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="periodoActual"></a>
-                    <span class="name">
-                        <span ><b>periodoActual</b></span>
-                        <a href="#periodoActual"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>casa</b></span>
+                        <a href="#casa"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -1079,7 +1285,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -1090,27 +1296,101 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="usuario"></a>
+                    <a name="cuotasDisponibles"></a>
                     <span class="name">
-                        <span ><b>usuario</b></span>
-                        <a href="#usuario"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>cuotasDisponibles</b></span>
+                        <a href="#cuotasDisponibles"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/Cuota.html" target="_self" >Cuota[]</a></code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>{}</code>
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cuotas pendientes disponibles para agregar</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="items"></a>
+                    <span class="name">
+                        <span ><b>items</b></span>
+                        <a href="#items"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ItemCarrito.html" target="_self" >ItemCarrito[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Items del carrito</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nombreUsuario"></a>
+                    <span class="name">
+                        <span ><b>nombreUsuario</b></span>
+                        <a href="#nombreUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -1121,10 +1401,47 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="yaPago"></a>
+                    <a name="pasaje"></a>
                     <span class="name">
-                        <span ><b>yaPago</b></span>
-                        <a href="#yaPago"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>pasaje</b></span>
+                        <a href="#pasaje"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Datos del usuario actual</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="procesandoPago"></a>
+                    <span class="name">
+                        <span ><b>procesandoPago</b></span>
+                        <a href="#procesandoPago"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -1141,10 +1458,53 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:52</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Estado de procesamiento de pago</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="total"></a>
+                    <span class="name">
+                        <span ><b>total</b></span>
+                        <a href="#total"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/features/usuario/realizar-pago/realizar-pago.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Total a pagar</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1156,351 +1516,546 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
-import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
-import { NavbarComponent } from &#x27;../../../shared/components/navbar/navbar.component&#x27;;
+import { CarritoService } from &#x27;../../../core/services/carrito.service&#x27;;
 import { AuthService } from &#x27;../../../core/services/auth.service&#x27;;
+import { ItemCarrito, Cuota } from &#x27;../../../models/cuota.model&#x27;;
+import { obtenerCuotasPendientes } from &#x27;../../../data/cuotas-mock&#x27;;
+import { NavbarComponent } from &#x27;../../../shared/components/navbar/navbar.component&#x27;;
 
+/**
+ * Componente de Realizar Pago / Carrito de Cuotas
+ * 
+ * Permite al residente:
+ * - Ver todas sus cuotas pendientes
+ * - Seleccionar cuáles desea pagar
+ * - Agregar cuotas al carrito
+ * - Ver el total a pagar
+ * - Procesar el pago de las cuotas seleccionadas
+ * 
+ * @example
+ * &#x60;&#x60;&#x60;html
+ * &lt;app-realizar-pago&gt;&lt;/app-realizar-pago&gt;
+ * &#x60;&#x60;&#x60;
+ */
 @Component({
   selector: &#x27;app-realizar-pago&#x27;,
   standalone: true,
-  imports: [CommonModule, FormsModule, NavbarComponent],
+  imports: [CommonModule, NavbarComponent],
   templateUrl: &#x27;./realizar-pago.component.html&#x27;,
-  styleUrls: [&#x27;./realizar-pago.component.scss&#x27;]
+  styleUrl: &#x27;./realizar-pago.component.scss&#x27;
 })
 export class RealizarPagoComponent implements OnInit {
-  usuario: any &#x3D; {};
-  montoPagar: number &#x3D; 0;
-  periodoActual: string &#x3D; &#x27;&#x27;;
-  fechaActual: Date &#x3D; new Date();
-  yaPago: boolean &#x3D; false;
-  fechaUltimoPago: string &#x3D; &#x27;&#x27;;
-  mostrarInfoBancaria: boolean &#x3D; false;
+  
+  /** Items del carrito */
+  items: ItemCarrito[] &#x3D; [];
+  
+  /** Cuotas pendientes disponibles para agregar */
+  cuotasDisponibles: Cuota[] &#x3D; [];
+  
+  /** Total a pagar */
+  total: number &#x3D; 0;
+  
+  /** Cantidad de items seleccionados */
+  cantidadSeleccionados: number &#x3D; 0;
+  
+  /** Datos del usuario actual */
+  pasaje: string &#x3D; &#x27;&#x27;;
+  casa: string &#x3D; &#x27;&#x27;;
+  nombreUsuario: string &#x3D; &#x27;&#x27;;
 
-  pago &#x3D; {
-    metodoPago: &#x27;&#x27;,
-    numeroReferencia: &#x27;&#x27;,
-    confirmacion: false
-  };
+  /** Estado de procesamiento de pago */
+  procesandoPago: boolean &#x3D; false;
 
   constructor(
+    private carritoService: CarritoService,
     private authService: AuthService,
     private router: Router
   ) {}
 
+  /**
+   * Inicialización del componente
+   * 
+   * Carga los datos del usuario, las cuotas pendientes y el estado del carrito.
+   */
   ngOnInit(): void {
-    this.cargarUsuario();
-    this.calcularMonto();
-    this.establecerPeriodo();
-    this.verificarPagoMesActual();
-  }
+    // Obtener datos del usuario
+    this.pasaje &#x3D; this.authService.getPasaje();
+    this.casa &#x3D; this.authService.getCasa();
+    this.nombreUsuario &#x3D; this.authService.getNombreUsuario();
 
-  cargarUsuario(): void {
-    const usuarioActual &#x3D; this.authService.getCurrentUser();
-    if (usuarioActual) {
-      this.usuario &#x3D; usuarioActual;
-    } else {
+    // Si no hay sesión, redirigir a login
+    if (!this.pasaje || !this.casa) {
       this.router.navigate([&#x27;/login&#x27;]);
-    }
-  }
-
-  calcularMonto(): void {
-    // Obtener gastos del mes actual
-    const gastos &#x3D; this.obtenerGastos();
-    const mesActual &#x3D; new Date().toISOString().substring(0, 7);
-    
-    const gastosMes &#x3D; gastos.filter((g: any) &#x3D;&gt; g.mes &#x3D;&#x3D;&#x3D; mesActual);
-    const totalGastos &#x3D; gastosMes.reduce((sum: number, g: any) &#x3D;&gt; sum + g.monto, 0);
-    
-    // Dividir entre 13 casas
-    this.montoPagar &#x3D; Math.ceil(totalGastos / 13);
-  }
-
-  establecerPeriodo(): void {
-    const fecha &#x3D; new Date();
-    const meses &#x3D; [
-      &#x27;Enero&#x27;, &#x27;Febrero&#x27;, &#x27;Marzo&#x27;, &#x27;Abril&#x27;, &#x27;Mayo&#x27;, &#x27;Junio&#x27;,
-      &#x27;Julio&#x27;, &#x27;Agosto&#x27;, &#x27;Septiembre&#x27;, &#x27;Octubre&#x27;, &#x27;Noviembre&#x27;, &#x27;Diciembre&#x27;
-    ];
-    this.periodoActual &#x3D; &#x60;${meses[fecha.getMonth()]} ${fecha.getFullYear()}&#x60;;
-  }
-
-  verificarPagoMesActual(): void {
-    const pagos &#x3D; this.obtenerPagos();
-    const mesActual &#x3D; new Date().toISOString().substring(0, 7);
-    const casa &#x3D; &#x60;${this.usuario.pasaje}-${this.usuario.casa}&#x60;;
-    
-    const pagoMes &#x3D; pagos.find((p: any) &#x3D;&gt; 
-      p.casa &#x3D;&#x3D;&#x3D; casa &amp;&amp; p.mes &#x3D;&#x3D;&#x3D; mesActual
-    );
-    
-    if (pagoMes) {
-      this.yaPago &#x3D; true;
-      this.fechaUltimoPago &#x3D; pagoMes.fechaPago;
-    }
-  }
-
-  onMetodoChange(): void {
-    this.mostrarInfoBancaria &#x3D; this.pago.metodoPago &#x3D;&#x3D;&#x3D; &#x27;transferencia&#x27;;
-  }
-
-  realizarPago(): void {
-    if (!this.validarPago()) {
       return;
     }
 
-    // Crear registro de pago
-    const pagos &#x3D; this.obtenerPagos();
-    const mesActual &#x3D; new Date().toISOString().substring(0, 7);
+    // Cargar cuotas disponibles
+    this.cargarCuotasDisponibles();
     
-    const nuevoPago &#x3D; {
-      id: &#x27;pago_&#x27; + Date.now(),
-      residenteEmail: this.usuario.email,
-      residenteNombre: this.usuario.nombre,
-      casa: &#x60;${this.usuario.pasaje}-${this.usuario.casa}&#x60;,
-      mes: mesActual,
-      monto: this.montoPagar,
-      fechaPago: new Date().toISOString(),
-      metodoPago: this.pago.metodoPago,
-      comprobante: this.pago.numeroReferencia,
-      registradoPor: this.usuario.nombre,
-      fechaRegistro: new Date().toISOString()
-    };
-
-    pagos.push(nuevoPago);
-    this.guardarPagos(pagos);
-
-    alert(&#x60;✅ ¡Pago registrado correctamente!\n\n&#x60; +
-          &#x60;Monto: $${this.montoPagar.toLocaleString(&#x27;es-CL&#x27;)}\n&#x60; +
-          &#x60;Método: ${this.getMetodoNombre()}\n&#x60; +
-          &#x60;Período: ${this.periodoActual}\n\n&#x60; +
-          &#x60;Recibirás una confirmación por correo electrónico.&#x60;);
-
-    // Recargar para mostrar que ya pagó
-    this.verificarPagoMesActual();
+    // Cargar items del carrito
+    this.actualizarCarrito();
   }
 
-  validarPago(): boolean {
-    if (!this.pago.metodoPago) {
-      alert(&#x27;❌ Debes seleccionar un método de pago&#x27;);
-      return false;
-    }
-
-    if (!this.pago.confirmacion) {
-      alert(&#x27;❌ Debes confirmar que realizaste el pago&#x27;);
-      return false;
-    }
-
-    return true;
+  /**
+   * Cargar cuotas pendientes del residente
+   * 
+   * Obtiene las cuotas pendientes y vencidas que puede pagar el residente.
+   */
+  private cargarCuotasDisponibles(): void {
+    this.cuotasDisponibles &#x3D; obtenerCuotasPendientes(this.pasaje, this.casa);
+    console.log(&#x27;Cuotas disponibles:&#x27;, this.cuotasDisponibles.length);
   }
 
-  getMetodoNombre(): string {
-    const metodos: any &#x3D; {
-      &#x27;transferencia&#x27;: &#x27;Transferencia Bancaria&#x27;,
-      &#x27;debito&#x27;: &#x27;Tarjeta de Débito&#x27;,
-      &#x27;credito&#x27;: &#x27;Tarjeta de Crédito&#x27;,
-      &#x27;efectivo&#x27;: &#x27;Efectivo&#x27;
-    };
-    return metodos[this.pago.metodoPago] || this.pago.metodoPago;
+  /**
+   * Actualizar datos del carrito
+   * 
+   * Recalcula el total y la cantidad de items seleccionados.
+   * Este método se llama cada vez que hay un cambio en el carrito.
+   */
+  actualizarCarrito(): void {
+    this.items &#x3D; this.carritoService.obtenerItems();
+    this.total &#x3D; this.carritoService.calcularTotal();
+    this.cantidadSeleccionados &#x3D; this.carritoService.obtenerCantidadSeleccionados();
+    
+    console.log(&#x27;Carrito actualizado:&#x27;, {
+      items: this.items.length,
+      seleccionados: this.cantidadSeleccionados,
+      total: this.total
+    });
   }
 
-  cancelar(): void {
-    if (confirm(&#x27;¿Estás seguro de cancelar el pago?&#x27;)) {
-      this.router.navigate([&#x27;/usuario/dashboard&#x27;]);
+  /**
+   * Agregar cuota al carrito
+   * 
+   * Agrega una cuota al carrito de pagos.
+   * La cuota se marca como seleccionada por defecto.
+   * 
+   * @param {Cuota} cuota - Cuota a agregar
+   */
+  agregarAlCarrito(cuota: Cuota): void {
+    const agregado &#x3D; this.carritoService.agregarCuota(cuota);
+    
+    if (agregado) {
+      this.actualizarCarrito();
+      // Sin mensaje - solo se actualiza el carrito visualmente
     }
   }
 
-  // Utilidades
-  obtenerGastos(): any[] {
-    const gastos &#x3D; localStorage.getItem(&#x27;gastos&#x27;);
-    return gastos ? JSON.parse(gastos) : [];
+  /**
+   * Eliminar cuota del carrito
+   * 
+   * Remueve una cuota del carrito de pagos.
+   * 
+   * @param {number} cuotaId - ID de la cuota a eliminar
+   */
+  eliminarDelCarrito(cuotaId: number): void {
+    this.carritoService.eliminarCuota(cuotaId);
+    this.actualizarCarrito();
+    // Sin mensaje - solo se actualiza el carrito visualmente
   }
 
-  obtenerPagos(): any[] {
-    const pagos &#x3D; localStorage.getItem(&#x27;pagos&#x27;);
-    return pagos ? JSON.parse(pagos) : [];
+  /**
+   * Alternar selección de cuota
+   * 
+   * Cambia el estado de selección de una cuota.
+   * Solo las cuotas seleccionadas se incluyen en el total a pagar.
+   * 
+   * @param {number} cuotaId - ID de la cuota
+   */
+  toggleSeleccion(cuotaId: number): void {
+    this.carritoService.toggleSeleccion(cuotaId);
+    this.actualizarCarrito();
+    // Sin mensaje - el checkbox muestra el cambio
   }
 
-  guardarPagos(pagos: any[]): void {
+  /**
+   * Seleccionar todas las cuotas del carrito
+   * 
+   * Marca todas las cuotas como seleccionadas para pago.
+   */
+  seleccionarTodas(): void {
+    this.carritoService.seleccionarTodas();
+    this.actualizarCarrito();
+    // Sin mensaje - los checkboxes muestran el cambio
+  }
+
+  /**
+   * Deseleccionar todas las cuotas del carrito
+   * 
+   * Desmarca todas las cuotas (el total quedará en $0).
+   */
+  deseleccionarTodas(): void {
+    this.carritoService.deseleccionarTodas();
+    this.actualizarCarrito();
+    // Sin mensaje - los checkboxes muestran el cambio
+  }
+
+  /**
+   * Procesar pago de cuotas seleccionadas
+   * 
+   * Simula el proceso de pago de las cuotas marcadas.
+   * En una implementación real, aquí se integraría con WebPay u otra pasarela.
+   * 
+   * Las cuotas pagadas se marcan como &#x27;pagada&#x27; y se eliminan del carrito.
+   */
+  procesarPago(): void {
+    if (this.cantidadSeleccionados &#x3D;&#x3D;&#x3D; 0) {
+      alert(&#x27;⚠️ Debes seleccionar al menos una cuota para pagar&#x27;);
+      return;
+    }
+
+    // IMPORTANTE: Guardar valores ANTES de procesar el pago
+    const totalAPagar &#x3D; this.total;
+    const cantidadCuotas &#x3D; this.cantidadSeleccionados;
+
+    // Confirmar pago
+    const confirmar &#x3D; confirm(
+      &#x60;¿Confirmar pago de ${cantidadCuotas} cuota(s) por $${totalAPagar.toLocaleString()}?\n\n&#x60; +
+      &#x60;Este pago será procesado mediante transferencia bancaria.&#x60;
+    );
+
+    if (!confirmar) {
+      return;
+    }
+
+    this.procesandoPago &#x3D; true;
+
+    // Simular procesamiento de pago (en producción sería llamada a API/WebPay)
+    setTimeout(() &#x3D;&gt; {
+      const cuotasPagadas &#x3D; this.carritoService.procesarPago(&#x27;Transferencia&#x27;);
+      
+      // Guardar el pago en el historial
+      this.guardarPagoEnHistorial(cuotasPagadas, totalAPagar);
+      
+      this.procesandoPago &#x3D; false;
+      this.actualizarCarrito();
+      this.cargarCuotasDisponibles(); // Actualizar cuotas disponibles
+      
+      // ÚNICO MENSAJE: Pago exitoso
+      alert(
+        &#x60;✅ Pago exitoso de ${cantidadCuotas} cuota(s).\n\n&#x60; +
+        &#x60;Total pagado: $${totalAPagar.toLocaleString()}\n\n&#x60; +
+        &#x60;Las cuotas pagadas ya no aparecerán en tu lista de pendientes.&#x60;
+      );
+      
+      console.log(&#x27;Cuotas pagadas:&#x27;, cuotasPagadas);
+    }, 1500);
+  }
+
+  /**
+   * Guardar pago en el historial de pagos
+   * 
+   * Registra el pago realizado en localStorage para que aparezca
+   * en el historial de pagos del usuario.
+   * 
+   * @param {Cuota[]} cuotasPagadas - Array de cuotas que se pagaron
+   * @param {number} totalPagado - Monto total pagado
+   */
+  private guardarPagoEnHistorial(cuotasPagadas: Cuota[], totalPagado: number): void {
+    const usuario &#x3D; this.authService.getCurrentUser();
+    if (!usuario) return;
+
+    // Obtener historial actual
+    const pagosStr &#x3D; localStorage.getItem(&#x27;pagos&#x27;);
+    const pagos &#x3D; pagosStr ? JSON.parse(pagosStr) : [];
+
+    // Crear registro de pago por cada cuota
+    cuotasPagadas.forEach(cuota &#x3D;&gt; {
+      const pago &#x3D; {
+        id: Date.now() + Math.random(), // ID único
+        cuotaId: cuota.id, // ID de la cuota para filtrarla después
+        fecha: new Date().toISOString(),
+        monto: cuota.monto,
+        mes: cuota.mes,
+        anio: cuota.anio,
+        pasaje: usuario.pasaje,
+        casa: usuario.casa,
+        email: usuario.email,
+        metodoPago: &#x27;Transferencia&#x27;,
+        estado: &#x27;pagado&#x27;
+      };
+      
+      pagos.push(pago);
+    });
+
+    // Guardar en localStorage
     localStorage.setItem(&#x27;pagos&#x27;, JSON.stringify(pagos));
+    console.log(&#x27;Pagos guardados en historial:&#x27;, cuotasPagadas.length);
+  }
+
+  /**
+   * Verificar si una cuota está en el carrito
+   * 
+   * Usado para mostrar el botón correcto (Agregar vs Quitar)
+   * 
+   * @param {number} cuotaId - ID de la cuota
+   * @returns {boolean} True si la cuota está en el carrito
+   */
+  estaEnCarrito(cuotaId: number): boolean {
+    return this.carritoService.estaEnCarrito(cuotaId);
+  }
+
+  /**
+   * Obtener clase CSS según estado de la cuota
+   * 
+   * Retorna la clase de Bootstrap para mostrar el badge del estado.
+   * 
+   * @param {Cuota} cuota - Cuota
+   * @returns {string} Nombre de clase CSS de Bootstrap
+   */
+  obtenerClaseEstado(cuota: Cuota): string {
+    switch (cuota.estado) {
+      case &#x27;pagada&#x27;:
+        return &#x27;badge bg-success&#x27;;
+      case &#x27;pendiente&#x27;:
+        return &#x27;badge bg-warning text-dark&#x27;;
+      case &#x27;vencida&#x27;:
+        return &#x27;badge bg-danger&#x27;;
+      default:
+        return &#x27;badge bg-secondary&#x27;;
+    }
+  }
+
+  /**
+   * Vaciar el carrito completo
+   * 
+   * Elimina todas las cuotas del carrito después de confirmar.
+   */
+  vaciarCarrito(): void {
+    const confirmar &#x3D; confirm(
+      &#x27;¿Estás seguro de vaciar el carrito?\n\n&#x27; +
+      &#x27;Se eliminarán todas las cuotas agregadas.&#x27;
+    );
+    
+    if (confirmar) {
+      this.carritoService.vaciarCarrito();
+      this.actualizarCarrito();
+      // Sin mensaje - el carrito se vacía visualmente
+    }
+  }
+
+  /**
+   * Volver al dashboard
+   * 
+   * Navega de regreso al dashboard del residente.
+   */
+  volver(): void {
+    this.router.navigate([&#x27;/usuario/dashboard&#x27;]);
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-navbar&gt;&lt;/app-navbar&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!-- NAVEGACIÓN --&gt;
+&lt;app-navbar&gt;&lt;/app-navbar&gt;
 
-&lt;main class&#x3D;&quot;container my-4&quot;&gt;
-    &lt;div class&#x3D;&quot;row mb-4&quot;&gt;
-        &lt;div class&#x3D;&quot;col-12&quot;&gt;
-            &lt;h1 class&#x3D;&quot;fw-bold mb-0&quot;&gt;Realizar Pago&lt;/h1&gt;
-            &lt;p class&#x3D;&quot;text-muted mb-0&quot;&gt;Paga tus gastos comunes de forma segura&lt;/p&gt;
-        &lt;/div&gt;
+&lt;!-- CONTENIDO PRINCIPAL --&gt;
+&lt;div class&#x3D;&quot;container mt-4&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center mb-4&quot;&gt;
+        &lt;h2&gt;&lt;i class&#x3D;&quot;bi bi-cart3&quot;&gt;&lt;/i&gt; Pagar Cuotas Pendientes&lt;/h2&gt;
+        &lt;button class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;volver()&quot;&gt;
+          &lt;i class&#x3D;&quot;bi bi-arrow-left&quot;&gt;&lt;/i&gt; Volver
+        &lt;/button&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
+  &lt;/div&gt;
 
-    &lt;div class&#x3D;&quot;row justify-content-center&quot;&gt;
-        &lt;div class&#x3D;&quot;col-12 col-lg-8&quot;&gt;
-            &lt;!-- RESUMEN DEL PAGO --&gt;
-            &lt;div class&#x3D;&quot;card shadow-lg mb-4&quot;&gt;
-                &lt;div class&#x3D;&quot;card-header bg-success text-white&quot;&gt;
-                    &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-receipt&quot;&gt;&lt;/i&gt; Resumen del Pago&lt;/h5&gt;
-                &lt;/div&gt;
-                &lt;div class&#x3D;&quot;card-body&quot;&gt;
-                    &lt;div class&#x3D;&quot;row mb-3&quot;&gt;
-                        &lt;div class&#x3D;&quot;col-6&quot;&gt;
-                            &lt;p class&#x3D;&quot;text-muted mb-1&quot;&gt;Residente:&lt;/p&gt;
-                            &lt;strong&gt;{{ usuario.nombre }}&lt;/strong&gt;
-                        &lt;/div&gt;
-                        &lt;div class&#x3D;&quot;col-6 text-end&quot;&gt;
-                            &lt;p class&#x3D;&quot;text-muted mb-1&quot;&gt;Vivienda:&lt;/p&gt;
-                            &lt;strong&gt;Pasaje {{ usuario.pasaje }}, Casa {{ usuario.casa }}&lt;/strong&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-                    &lt;hr&gt;
-                    &lt;div class&#x3D;&quot;row mb-3&quot;&gt;
-                        &lt;div class&#x3D;&quot;col-6&quot;&gt;
-                            &lt;p class&#x3D;&quot;text-muted mb-1&quot;&gt;Período:&lt;/p&gt;
-                            &lt;strong&gt;{{ periodoActual }}&lt;/strong&gt;
-                        &lt;/div&gt;
-                        &lt;div class&#x3D;&quot;col-6 text-end&quot;&gt;
-                            &lt;p class&#x3D;&quot;text-muted mb-1&quot;&gt;Fecha:&lt;/p&gt;
-                            &lt;strong&gt;{{ fechaActual | date:&#x27;dd/MM/yyyy&#x27; }}&lt;/strong&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-                    &lt;hr&gt;
-                    &lt;div class&#x3D;&quot;row&quot;&gt;
-                        &lt;div class&#x3D;&quot;col-6&quot;&gt;
-                            &lt;h5&gt;Total a Pagar:&lt;/h5&gt;
-                        &lt;/div&gt;
-                        &lt;div class&#x3D;&quot;col-6 text-end&quot;&gt;
-                            &lt;h2 class&#x3D;&quot;text-success fw-bold mb-0&quot;&gt;{{ montoPagar | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}&lt;/h2&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-
-                    &lt;!-- ESTADO DE PAGO --&gt;
-                    &lt;div class&#x3D;&quot;mt-4&quot; *ngIf&#x3D;&quot;yaPago&quot;&gt;
-                        &lt;div class&#x3D;&quot;alert alert-success&quot;&gt;
-                            &lt;i class&#x3D;&quot;bi bi-check-circle-fill&quot;&gt;&lt;/i&gt; 
-                            &lt;strong&gt;¡Ya realizaste el pago de este mes!&lt;/strong&gt;&lt;br&gt;
-                            &lt;small&gt;Fecha de pago: {{ fechaUltimoPago | date:&#x27;dd/MM/yyyy HH:mm&#x27; }}&lt;/small&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;!-- FORMULARIO DE PAGO --&gt;
-            &lt;div class&#x3D;&quot;card shadow-lg&quot; *ngIf&#x3D;&quot;!yaPago&quot;&gt;
-                &lt;div class&#x3D;&quot;card-header bg-primary text-white&quot;&gt;
-                    &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-credit-card&quot;&gt;&lt;/i&gt; Datos de Pago&lt;/h5&gt;
-                &lt;/div&gt;
-                &lt;div class&#x3D;&quot;card-body p-4&quot;&gt;
-                    &lt;form (ngSubmit)&#x3D;&quot;realizarPago()&quot; #formPago&#x3D;&quot;ngForm&quot;&gt;
-                        &lt;div class&#x3D;&quot;mb-3&quot;&gt;
-                            &lt;label class&#x3D;&quot;form-label fw-bold&quot;&gt;
-                                &lt;i class&#x3D;&quot;bi bi-cash-coin&quot;&gt;&lt;/i&gt; Método de Pago *
-                            &lt;/label&gt;
-                            &lt;select class&#x3D;&quot;form-select form-select-lg&quot; 
-                                    [(ngModel)]&#x3D;&quot;pago.metodoPago&quot;
-                                    name&#x3D;&quot;metodoPago&quot;
-                                    (change)&#x3D;&quot;onMetodoChange()&quot;
-                                    required&gt;
-                                &lt;option value&#x3D;&quot;&quot;&gt;Seleccionar método...&lt;/option&gt;
-                                &lt;option value&#x3D;&quot;transferencia&quot;&gt;Transferencia Bancaria&lt;/option&gt;
-                                &lt;option value&#x3D;&quot;debito&quot;&gt;Tarjeta de Débito&lt;/option&gt;
-                                &lt;option value&#x3D;&quot;credito&quot;&gt;Tarjeta de Crédito&lt;/option&gt;
-                                &lt;option value&#x3D;&quot;efectivo&quot;&gt;Efectivo&lt;/option&gt;
-                            &lt;/select&gt;
-                        &lt;/div&gt;
-
-                        &lt;!-- INFORMACIÓN BANCARIA (para transferencia) --&gt;
-                        &lt;div *ngIf&#x3D;&quot;mostrarInfoBancaria&quot; class&#x3D;&quot;alert alert-info&quot;&gt;
-                            &lt;h6 class&#x3D;&quot;fw-bold&quot;&gt;&lt;i class&#x3D;&quot;bi bi-bank&quot;&gt;&lt;/i&gt; Datos para Transferencia&lt;/h6&gt;
-                            &lt;p class&#x3D;&quot;mb-1&quot;&gt;&lt;strong&gt;Banco:&lt;/strong&gt; Banco Estado&lt;/p&gt;
-                            &lt;p class&#x3D;&quot;mb-1&quot;&gt;&lt;strong&gt;Cuenta Corriente:&lt;/strong&gt; 123456789&lt;/p&gt;
-                            &lt;p class&#x3D;&quot;mb-1&quot;&gt;&lt;strong&gt;RUT:&lt;/strong&gt; 76.123.456-7&lt;/p&gt;
-                            &lt;p class&#x3D;&quot;mb-0&quot;&gt;&lt;strong&gt;Nombre:&lt;/strong&gt; Comunidad Pasajes 8651 y 8707&lt;/p&gt;
-                        &lt;/div&gt;
-
-                        &lt;!-- NÚMERO DE REFERENCIA --&gt;
-                        &lt;div class&#x3D;&quot;mb-3&quot;&gt;
-                            &lt;label for&#x3D;&quot;numeroReferencia&quot; class&#x3D;&quot;form-label fw-bold&quot;&gt;
-                                &lt;i class&#x3D;&quot;bi bi-hash&quot;&gt;&lt;/i&gt; Número de Referencia
-                            &lt;/label&gt;
-                            &lt;input type&#x3D;&quot;text&quot; 
-                                   class&#x3D;&quot;form-control form-control-lg&quot; 
-                                   [(ngModel)]&#x3D;&quot;pago.numeroReferencia&quot;
-                                   name&#x3D;&quot;numeroReferencia&quot;
-                                   placeholder&#x3D;&quot;Ej: 123456789&quot;&gt;
-                            &lt;small class&#x3D;&quot;text-muted&quot;&gt;Número de transferencia o comprobante&lt;/small&gt;
-                        &lt;/div&gt;
-
-                        &lt;!-- CONFIRMACIÓN --&gt;
-                        &lt;div class&#x3D;&quot;mb-4&quot;&gt;
-                            &lt;div class&#x3D;&quot;form-check&quot;&gt;
-                                &lt;input class&#x3D;&quot;form-check-input&quot; 
-                                       type&#x3D;&quot;checkbox&quot; 
-                                       [(ngModel)]&#x3D;&quot;pago.confirmacion&quot;
-                                       name&#x3D;&quot;confirmacion&quot;
-                                       id&#x3D;&quot;confirmar&quot; 
-                                       required&gt;
-                                &lt;label class&#x3D;&quot;form-check-label&quot; for&#x3D;&quot;confirmar&quot;&gt;
-                                    Confirmo que he realizado el pago por el monto indicado
-                                &lt;/label&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-
-                        &lt;!-- BOTONES --&gt;
-                        &lt;div class&#x3D;&quot;d-grid gap-2&quot;&gt;
-                            &lt;button type&#x3D;&quot;submit&quot; 
-                                    class&#x3D;&quot;btn btn-success btn-lg&quot;
-                                    [disabled]&#x3D;&quot;!formPago.valid&quot;&gt;
-                                &lt;i class&#x3D;&quot;bi bi-check-circle&quot;&gt;&lt;/i&gt; Confirmar Pago
-                            &lt;/button&gt;
-                            &lt;button type&#x3D;&quot;button&quot; 
-                                    class&#x3D;&quot;btn btn-outline-secondary&quot;
-                                    (click)&#x3D;&quot;cancelar()&quot;&gt;
-                                &lt;i class&#x3D;&quot;bi bi-x-circle&quot;&gt;&lt;/i&gt; Cancelar
-                            &lt;/button&gt;
-                        &lt;/div&gt;
-                    &lt;/form&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;!-- SIDEBAR --&gt;
-        &lt;div class&#x3D;&quot;col-12 col-lg-4&quot;&gt;
-            &lt;div class&#x3D;&quot;card shadow-sm mb-4&quot;&gt;
-                &lt;div class&#x3D;&quot;card-header bg-white&quot;&gt;
-                    &lt;h6 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-info-circle&quot;&gt;&lt;/i&gt; Información&lt;/h6&gt;
-                &lt;/div&gt;
-                &lt;div class&#x3D;&quot;card-body&quot;&gt;
-                    &lt;p class&#x3D;&quot;small&quot;&gt;&lt;i class&#x3D;&quot;bi bi-shield-check text-success&quot;&gt;&lt;/i&gt; Pago seguro y protegido&lt;/p&gt;
-                    &lt;p class&#x3D;&quot;small&quot;&gt;&lt;i class&#x3D;&quot;bi bi-clock text-info&quot;&gt;&lt;/i&gt; Procesamiento inmediato&lt;/p&gt;
-                    &lt;p class&#x3D;&quot;small mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-envelope text-primary&quot;&gt;&lt;/i&gt; Recibirás confirmación por email&lt;/p&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class&#x3D;&quot;card shadow-sm border-0 bg-light&quot;&gt;
-                &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
-                    &lt;i class&#x3D;&quot;bi bi-question-circle fs-2 text-success mb-2&quot;&gt;&lt;/i&gt;
-                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;&lt;strong&gt;¿Problemas con el pago?&lt;/strong&gt;&lt;/p&gt;
-                    &lt;small class&#x3D;&quot;text-muted&quot;&gt;Contacta al administrador&lt;/small&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
+  &lt;!-- Información del usuario --&gt;
+  &lt;div class&#x3D;&quot;row mb-4&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;div class&#x3D;&quot;alert alert-info&quot;&gt;
+        &lt;strong&gt;{{ nombreUsuario }}&lt;/strong&gt; - Casa {{ pasaje }}-{{ casa }}
+      &lt;/div&gt;
     &lt;/div&gt;
-&lt;/main&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Cuotas Disponibles --&gt;
+  &lt;div class&#x3D;&quot;row mb-4&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;div class&#x3D;&quot;card&quot;&gt;
+        &lt;div class&#x3D;&quot;card-header bg-primary text-white&quot;&gt;
+          &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;i class&#x3D;&quot;bi bi-calendar-check&quot;&gt;&lt;/i&gt; Cuotas Pendientes de Pago&lt;/h5&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card-body&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;cuotasDisponibles.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;alert alert-success&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-check-circle&quot;&gt;&lt;/i&gt; ¡No tienes cuotas pendientes! Estás al día.
+          &lt;/div&gt;
+
+          &lt;div *ngIf&#x3D;&quot;cuotasDisponibles.length &gt; 0&quot; class&#x3D;&quot;table-responsive&quot;&gt;
+            &lt;table class&#x3D;&quot;table table-hover&quot;&gt;
+              &lt;thead&gt;
+                &lt;tr&gt;
+                  &lt;th&gt;Mes&lt;/th&gt;
+                  &lt;th&gt;Año&lt;/th&gt;
+                  &lt;th&gt;Monto&lt;/th&gt;
+                  &lt;th&gt;Vencimiento&lt;/th&gt;
+                  &lt;th&gt;Estado&lt;/th&gt;
+                  &lt;th class&#x3D;&quot;text-center&quot;&gt;Acción&lt;/th&gt;
+                &lt;/tr&gt;
+              &lt;/thead&gt;
+              &lt;tbody&gt;
+                &lt;tr *ngFor&#x3D;&quot;let cuota of cuotasDisponibles&quot;&gt;
+                  &lt;td&gt;&lt;strong&gt;{{ cuota.mes }}&lt;/strong&gt;&lt;/td&gt;
+                  &lt;td&gt;{{ cuota.anio }}&lt;/td&gt;
+                  &lt;td class&#x3D;&quot;text-success&quot;&gt;&lt;strong&gt;${{ cuota.monto.toLocaleString() }}&lt;/strong&gt;&lt;/td&gt;
+                  &lt;td&gt;{{ cuota.fechaVencimiento | date:&#x27;dd/MM/yyyy&#x27; }}&lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;span [class]&#x3D;&quot;obtenerClaseEstado(cuota)&quot;&gt;
+                      {{ cuota.estado &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27; ? &#x27;Pendiente&#x27; : &#x27;Vencida&#x27; }}
+                    &lt;/span&gt;
+                  &lt;/td&gt;
+                  &lt;td class&#x3D;&quot;text-center&quot;&gt;
+                    &lt;button 
+                      *ngIf&#x3D;&quot;!estaEnCarrito(cuota.id)&quot;
+                      class&#x3D;&quot;btn btn-sm btn-success&quot;
+                      (click)&#x3D;&quot;agregarAlCarrito(cuota)&quot;&gt;
+                      &lt;i class&#x3D;&quot;bi bi-cart-plus&quot;&gt;&lt;/i&gt; Agregar
+                    &lt;/button&gt;
+                    &lt;button 
+                      *ngIf&#x3D;&quot;estaEnCarrito(cuota.id)&quot;
+                      class&#x3D;&quot;btn btn-sm btn-danger&quot;
+                      (click)&#x3D;&quot;eliminarDelCarrito(cuota.id)&quot;&gt;
+                      &lt;i class&#x3D;&quot;bi bi-cart-dash&quot;&gt;&lt;/i&gt; Quitar
+                    &lt;/button&gt;
+                  &lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/tbody&gt;
+            &lt;/table&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Carrito de Pago --&gt;
+  &lt;div class&#x3D;&quot;row&quot; *ngIf&#x3D;&quot;items.length &gt; 0&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;div class&#x3D;&quot;card border-success&quot;&gt;
+        &lt;div class&#x3D;&quot;card-header bg-success text-white&quot;&gt;
+          &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;
+            &lt;i class&#x3D;&quot;bi bi-cart-check&quot;&gt;&lt;/i&gt; 
+            Carrito de Pago ({{ items.length }} cuota&lt;span *ngIf&#x3D;&quot;items.length &gt; 1&quot;&gt;s&lt;/span&gt;)
+          &lt;/h5&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card-body&quot;&gt;
+          &lt;!-- Botones de selección masiva --&gt;
+          &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+            &lt;button class&#x3D;&quot;btn btn-sm btn-outline-primary me-2&quot; (click)&#x3D;&quot;seleccionarTodas()&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-check-all&quot;&gt;&lt;/i&gt; Seleccionar Todas
+            &lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-sm btn-outline-secondary me-2&quot; (click)&#x3D;&quot;deseleccionarTodas()&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-x-square&quot;&gt;&lt;/i&gt; Deseleccionar Todas
+            &lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-sm btn-outline-danger&quot; (click)&#x3D;&quot;vaciarCarrito()&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-trash&quot;&gt;&lt;/i&gt; Vaciar Carrito
+            &lt;/button&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Tabla del carrito --&gt;
+          &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+            &lt;table class&#x3D;&quot;table table-striped&quot;&gt;
+              &lt;thead&gt;
+                &lt;tr&gt;
+                  &lt;th width&#x3D;&quot;50px&quot;&gt;
+                    &lt;input 
+                      type&#x3D;&quot;checkbox&quot; 
+                      class&#x3D;&quot;form-check-input&quot;
+                      [checked]&#x3D;&quot;cantidadSeleccionados &#x3D;&#x3D;&#x3D; items.length &amp;&amp; items.length &gt; 0&quot;
+                      (change)&#x3D;&quot;cantidadSeleccionados &#x3D;&#x3D;&#x3D; items.length ? deseleccionarTodas() : seleccionarTodas()&quot;&gt;
+                  &lt;/th&gt;
+                  &lt;th&gt;Mes&lt;/th&gt;
+                  &lt;th&gt;Año&lt;/th&gt;
+                  &lt;th&gt;Monto&lt;/th&gt;
+                  &lt;th&gt;Estado&lt;/th&gt;
+                  &lt;th class&#x3D;&quot;text-center&quot;&gt;Acciones&lt;/th&gt;
+                &lt;/tr&gt;
+              &lt;/thead&gt;
+              &lt;tbody&gt;
+                &lt;tr *ngFor&#x3D;&quot;let item of items&quot; [class.table-active]&#x3D;&quot;item.seleccionada&quot;&gt;
+                  &lt;td&gt;
+                    &lt;input 
+                      type&#x3D;&quot;checkbox&quot; 
+                      class&#x3D;&quot;form-check-input&quot;
+                      [checked]&#x3D;&quot;item.seleccionada&quot;
+                      (change)&#x3D;&quot;toggleSeleccion(item.cuota.id)&quot;&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;strong&gt;{{ item.cuota.mes }}&lt;/strong&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;{{ item.cuota.anio }}&lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;span class&#x3D;&quot;text-success fw-bold&quot;&gt;
+                      ${{ item.cuota.monto.toLocaleString() }}
+                    &lt;/span&gt;
+                  &lt;/td&gt;
+                  &lt;td&gt;
+                    &lt;span [class]&#x3D;&quot;obtenerClaseEstado(item.cuota)&quot;&gt;
+                      {{ item.cuota.estado &#x3D;&#x3D;&#x3D; &#x27;pendiente&#x27; ? &#x27;Pendiente&#x27; : &#x27;Vencida&#x27; }}
+                    &lt;/span&gt;
+                  &lt;/td&gt;
+                  &lt;td class&#x3D;&quot;text-center&quot;&gt;
+                    &lt;button 
+                      class&#x3D;&quot;btn btn-sm btn-danger&quot;
+                      (click)&#x3D;&quot;eliminarDelCarrito(item.cuota.id)&quot;
+                      title&#x3D;&quot;Eliminar del carrito&quot;&gt;
+                      &lt;i class&#x3D;&quot;bi bi-trash&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                  &lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/tbody&gt;
+              &lt;tfoot&gt;
+                &lt;tr class&#x3D;&quot;table-info&quot;&gt;
+                  &lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;text-end&quot;&gt;&lt;strong&gt;Cuotas Seleccionadas:&lt;/strong&gt;&lt;/td&gt;
+                  &lt;td colspan&#x3D;&quot;3&quot;&gt;&lt;strong&gt;{{ cantidadSeleccionados }}&lt;/strong&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr class&#x3D;&quot;table-success&quot;&gt;
+                  &lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;text-end&quot;&gt;&lt;h5 class&#x3D;&quot;mb-0&quot;&gt;&lt;strong&gt;TOTAL A PAGAR:&lt;/strong&gt;&lt;/h5&gt;&lt;/td&gt;
+                  &lt;td colspan&#x3D;&quot;3&quot;&gt;&lt;h4 class&#x3D;&quot;mb-0 text-success&quot;&gt;&lt;strong&gt;${{ total.toLocaleString() }}&lt;/strong&gt;&lt;/h4&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/tfoot&gt;
+            &lt;/table&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Botón de pago --&gt;
+          &lt;div class&#x3D;&quot;mt-4 text-end&quot;&gt;
+            &lt;button 
+              class&#x3D;&quot;btn btn-lg btn-success&quot;
+              [disabled]&#x3D;&quot;cantidadSeleccionados &#x3D;&#x3D;&#x3D; 0 || procesandoPago&quot;
+              (click)&#x3D;&quot;procesarPago()&quot;&gt;
+              &lt;i class&#x3D;&quot;bi bi-credit-card&quot;&gt;&lt;/i&gt;
+              &lt;span *ngIf&#x3D;&quot;!procesandoPago&quot;&gt;
+                Pagar {{ cantidadSeleccionados }} Cuota&lt;span *ngIf&#x3D;&quot;cantidadSeleccionados &gt; 1&quot;&gt;s&lt;/span&gt;
+                (${{ total.toLocaleString() }})
+              &lt;/span&gt;
+              &lt;span *ngIf&#x3D;&quot;procesandoPago&quot;&gt;
+                &lt;span class&#x3D;&quot;spinner-border spinner-border-sm me-2&quot;&gt;&lt;/span&gt;
+                Procesando pago...
+              &lt;/span&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Mensaje cuando el carrito está vacío --&gt;
+  &lt;div class&#x3D;&quot;row&quot; *ngIf&#x3D;&quot;items.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; cuotasDisponibles.length &gt; 0&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;div class&#x3D;&quot;alert alert-warning&quot;&gt;
+        &lt;i class&#x3D;&quot;bi bi-cart-x&quot;&gt;&lt;/i&gt; 
+        &lt;strong&gt;Tu carrito está vacío.&lt;/strong&gt; 
+        Agrega las cuotas que deseas pagar usando el botón &quot;Agregar&quot; en la tabla de arriba.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="styleData">
-                <p class="comment">
-                    <code>./realizar-pago.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">// Estilos para realizar-pago
-</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="tree">
         <div id="tree-container"></div>
@@ -1527,7 +2082,7 @@ export class RealizarPagoComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-navbar></app-navbar><main class="container my-4">    <div class="row mb-4">        <div class="col-12">            <h1 class="fw-bold mb-0">Realizar Pago</h1>            <p class="text-muted mb-0">Paga tus gastos comunes de forma segura</p>        </div>    </div>    <div class="row justify-content-center">        <div class="col-12 col-lg-8">            <!-- RESUMEN DEL PAGO -->            <div class="card shadow-lg mb-4">                <div class="card-header bg-success text-white">                    <h5 class="mb-0"><i class="bi bi-receipt"></i> Resumen del Pago</h5>                </div>                <div class="card-body">                    <div class="row mb-3">                        <div class="col-6">                            <p class="text-muted mb-1">Residente:</p>                            <strong>{{ usuario.nombre }}</strong>                        </div>                        <div class="col-6 text-end">                            <p class="text-muted mb-1">Vivienda:</p>                            <strong>Pasaje {{ usuario.pasaje }}, Casa {{ usuario.casa }}</strong>                        </div>                    </div>                    <hr>                    <div class="row mb-3">                        <div class="col-6">                            <p class="text-muted mb-1">Período:</p>                            <strong>{{ periodoActual }}</strong>                        </div>                        <div class="col-6 text-end">                            <p class="text-muted mb-1">Fecha:</p>                            <strong>{{ fechaActual | date:\'dd/MM/yyyy\' }}</strong>                        </div>                    </div>                    <hr>                    <div class="row">                        <div class="col-6">                            <h5>Total a Pagar:</h5>                        </div>                        <div class="col-6 text-end">                            <h2 class="text-success fw-bold mb-0">{{ montoPagar | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}</h2>                        </div>                    </div>                    <!-- ESTADO DE PAGO -->                    <div class="mt-4" *ngIf="yaPago">                        <div class="alert alert-success">                            <i class="bi bi-check-circle-fill"></i>                             <strong>¡Ya realizaste el pago de este mes!</strong><br>                            <small>Fecha de pago: {{ fechaUltimoPago | date:\'dd/MM/yyyy HH:mm\' }}</small>                        </div>                    </div>                </div>            </div>            <!-- FORMULARIO DE PAGO -->            <div class="card shadow-lg" *ngIf="!yaPago">                <div class="card-header bg-primary text-white">                    <h5 class="mb-0"><i class="bi bi-credit-card"></i> Datos de Pago</h5>                </div>                <div class="card-body p-4">                    <form (ngSubmit)="realizarPago()" #formPago="ngForm">                        <div class="mb-3">                            <label class="form-label fw-bold">                                <i class="bi bi-cash-coin"></i> Método de Pago *                            </label>                            <select class="form-select form-select-lg"                                     [(ngModel)]="pago.metodoPago"                                    name="metodoPago"                                    (change)="onMetodoChange()"                                    required>                                <option value="">Seleccionar método...</option>                                <option value="transferencia">Transferencia Bancaria</option>                                <option value="debito">Tarjeta de Débito</option>                                <option value="credito">Tarjeta de Crédito</option>                                <option value="efectivo">Efectivo</option>                            </select>                        </div>                        <!-- INFORMACIÓN BANCARIA (para transferencia) -->                        <div *ngIf="mostrarInfoBancaria" class="alert alert-info">                            <h6 class="fw-bold"><i class="bi bi-bank"></i> Datos para Transferencia</h6>                            <p class="mb-1"><strong>Banco:</strong> Banco Estado</p>                            <p class="mb-1"><strong>Cuenta Corriente:</strong> 123456789</p>                            <p class="mb-1"><strong>RUT:</strong> 76.123.456-7</p>                            <p class="mb-0"><strong>Nombre:</strong> Comunidad Pasajes 8651 y 8707</p>                        </div>                        <!-- NÚMERO DE REFERENCIA -->                        <div class="mb-3">                            <label for="numeroReferencia" class="form-label fw-bold">                                <i class="bi bi-hash"></i> Número de Referencia                            </label>                            <input type="text"                                    class="form-control form-control-lg"                                    [(ngModel)]="pago.numeroReferencia"                                   name="numeroReferencia"                                   placeholder="Ej: 123456789">                            <small class="text-muted">Número de transferencia o comprobante</small>                        </div>                        <!-- CONFIRMACIÓN -->                        <div class="mb-4">                            <div class="form-check">                                <input class="form-check-input"                                        type="checkbox"                                        [(ngModel)]="pago.confirmacion"                                       name="confirmacion"                                       id="confirmar"                                        required>                                <label class="form-check-label" for="confirmar">                                    Confirmo que he realizado el pago por el monto indicado                                </label>                            </div>                        </div>                        <!-- BOTONES -->                        <div class="d-grid gap-2">                            <button type="submit"                                     class="btn btn-success btn-lg"                                    [disabled]="!formPago.valid">                                <i class="bi bi-check-circle"></i> Confirmar Pago                            </button>                            <button type="button"                                     class="btn btn-outline-secondary"                                    (click)="cancelar()">                                <i class="bi bi-x-circle"></i> Cancelar                            </button>                        </div>                    </form>                </div>            </div>        </div>        <!-- SIDEBAR -->        <div class="col-12 col-lg-4">            <div class="card shadow-sm mb-4">                <div class="card-header bg-white">                    <h6 class="mb-0"><i class="bi bi-info-circle"></i> Información</h6>                </div>                <div class="card-body">                    <p class="small"><i class="bi bi-shield-check text-success"></i> Pago seguro y protegido</p>                    <p class="small"><i class="bi bi-clock text-info"></i> Procesamiento inmediato</p>                    <p class="small mb-0"><i class="bi bi-envelope text-primary"></i> Recibirás confirmación por email</p>                </div>            </div>            <div class="card shadow-sm border-0 bg-light">                <div class="card-body text-center">                    <i class="bi bi-question-circle fs-2 text-success mb-2"></i>                    <p class="mb-0"><strong>¿Problemas con el pago?</strong></p>                    <small class="text-muted">Contacta al administrador</small>                </div>            </div>        </div>    </div></main></div>'
+        var COMPONENT_TEMPLATE = '<div><!-- NAVEGACIÓN --><app-navbar></app-navbar><!-- CONTENIDO PRINCIPAL --><div class="container mt-4">  <div class="row">    <div class="col-12">      <div class="d-flex justify-content-between align-items-center mb-4">        <h2><i class="bi bi-cart3"></i> Pagar Cuotas Pendientes</h2>        <button class="btn btn-secondary" (click)="volver()">          <i class="bi bi-arrow-left"></i> Volver        </button>      </div>    </div>  </div>  <!-- Información del usuario -->  <div class="row mb-4">    <div class="col-12">      <div class="alert alert-info">        <strong>{{ nombreUsuario }}</strong> - Casa {{ pasaje }}-{{ casa }}      </div>    </div>  </div>  <!-- Cuotas Disponibles -->  <div class="row mb-4">    <div class="col-12">      <div class="card">        <div class="card-header bg-primary text-white">          <h5 class="mb-0"><i class="bi bi-calendar-check"></i> Cuotas Pendientes de Pago</h5>        </div>        <div class="card-body">          <div *ngIf="cuotasDisponibles.length === 0" class="alert alert-success">            <i class="bi bi-check-circle"></i> ¡No tienes cuotas pendientes! Estás al día.          </div>          <div *ngIf="cuotasDisponibles.length > 0" class="table-responsive">            <table class="table table-hover">              <thead>                <tr>                  <th>Mes</th>                  <th>Año</th>                  <th>Monto</th>                  <th>Vencimiento</th>                  <th>Estado</th>                  <th class="text-center">Acción</th>                </tr>              </thead>              <tbody>                <tr *ngFor="let cuota of cuotasDisponibles">                  <td><strong>{{ cuota.mes }}</strong></td>                  <td>{{ cuota.anio }}</td>                  <td class="text-success"><strong>${{ cuota.monto.toLocaleString() }}</strong></td>                  <td>{{ cuota.fechaVencimiento | date:\'dd/MM/yyyy\' }}</td>                  <td>                    <span [class]="obtenerClaseEstado(cuota)">                      {{ cuota.estado === \'pendiente\' ? \'Pendiente\' : \'Vencida\' }}                    </span>                  </td>                  <td class="text-center">                    <button                       *ngIf="!estaEnCarrito(cuota.id)"                      class="btn btn-sm btn-success"                      (click)="agregarAlCarrito(cuota)">                      <i class="bi bi-cart-plus"></i> Agregar                    </button>                    <button                       *ngIf="estaEnCarrito(cuota.id)"                      class="btn btn-sm btn-danger"                      (click)="eliminarDelCarrito(cuota.id)">                      <i class="bi bi-cart-dash"></i> Quitar                    </button>                  </td>                </tr>              </tbody>            </table>          </div>        </div>      </div>    </div>  </div>  <!-- Carrito de Pago -->  <div class="row" *ngIf="items.length > 0">    <div class="col-12">      <div class="card border-success">        <div class="card-header bg-success text-white">          <h5 class="mb-0">            <i class="bi bi-cart-check"></i>             Carrito de Pago ({{ items.length }} cuota<span *ngIf="items.length > 1">s</span>)          </h5>        </div>        <div class="card-body">          <!-- Botones de selección masiva -->          <div class="mb-3">            <button class="btn btn-sm btn-outline-primary me-2" (click)="seleccionarTodas()">              <i class="bi bi-check-all"></i> Seleccionar Todas            </button>            <button class="btn btn-sm btn-outline-secondary me-2" (click)="deseleccionarTodas()">              <i class="bi bi-x-square"></i> Deseleccionar Todas            </button>            <button class="btn btn-sm btn-outline-danger" (click)="vaciarCarrito()">              <i class="bi bi-trash"></i> Vaciar Carrito            </button>          </div>          <!-- Tabla del carrito -->          <div class="table-responsive">            <table class="table table-striped">              <thead>                <tr>                  <th width="50px">                    <input                       type="checkbox"                       class="form-check-input"                      [checked]="cantidadSeleccionados === items.length && items.length > 0"                      (change)="cantidadSeleccionados === items.length ? deseleccionarTodas() : seleccionarTodas()">                  </th>                  <th>Mes</th>                  <th>Año</th>                  <th>Monto</th>                  <th>Estado</th>                  <th class="text-center">Acciones</th>                </tr>              </thead>              <tbody>                <tr *ngFor="let item of items" [class.table-active]="item.seleccionada">                  <td>                    <input                       type="checkbox"                       class="form-check-input"                      [checked]="item.seleccionada"                      (change)="toggleSeleccion(item.cuota.id)">                  </td>                  <td>                    <strong>{{ item.cuota.mes }}</strong>                  </td>                  <td>{{ item.cuota.anio }}</td>                  <td>                    <span class="text-success fw-bold">                      ${{ item.cuota.monto.toLocaleString() }}                    </span>                  </td>                  <td>                    <span [class]="obtenerClaseEstado(item.cuota)">                      {{ item.cuota.estado === \'pendiente\' ? \'Pendiente\' : \'Vencida\' }}                    </span>                  </td>                  <td class="text-center">                    <button                       class="btn btn-sm btn-danger"                      (click)="eliminarDelCarrito(item.cuota.id)"                      title="Eliminar del carrito">                      <i class="bi bi-trash"></i>                    </button>                  </td>                </tr>              </tbody>              <tfoot>                <tr class="table-info">                  <td colspan="3" class="text-end"><strong>Cuotas Seleccionadas:</strong></td>                  <td colspan="3"><strong>{{ cantidadSeleccionados }}</strong></td>                </tr>                <tr class="table-success">                  <td colspan="3" class="text-end"><h5 class="mb-0"><strong>TOTAL A PAGAR:</strong></h5></td>                  <td colspan="3"><h4 class="mb-0 text-success"><strong>${{ total.toLocaleString() }}</strong></h4></td>                </tr>              </tfoot>            </table>          </div>          <!-- Botón de pago -->          <div class="mt-4 text-end">            <button               class="btn btn-lg btn-success"              [disabled]="cantidadSeleccionados === 0 || procesandoPago"              (click)="procesarPago()">              <i class="bi bi-credit-card"></i>              <span *ngIf="!procesandoPago">                Pagar {{ cantidadSeleccionados }} Cuota<span *ngIf="cantidadSeleccionados > 1">s</span>                (${{ total.toLocaleString() }})              </span>              <span *ngIf="procesandoPago">                <span class="spinner-border spinner-border-sm me-2"></span>                Procesando pago...              </span>            </button>          </div>        </div>      </div>    </div>  </div>  <!-- Mensaje cuando el carrito está vacío -->  <div class="row" *ngIf="items.length === 0 && cuotasDisponibles.length > 0">    <div class="col-12">      <div class="alert alert-warning">        <i class="bi bi-cart-x"></i>         <strong>Tu carrito está vacío.</strong>         Agrega las cuotas que deseas pagar usando el botón "Agregar" en la tabla de arriba.      </div>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfiguracionComponent', 'selector': 'app-configuracion'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetalleGastoComponent', 'selector': 'app-detalle-gasto'},{'name': 'GestionarGastosComponent', 'selector': 'app-gestionar-gastos'},{'name': 'GestionarResidentesComponent', 'selector': 'app-gestionar-residentes'},{'name': 'HistorialPagosComponent', 'selector': 'app-historial-pagos'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MisGastosComponent', 'selector': 'app-mis-gastos'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RealizarPagoComponent', 'selector': 'app-realizar-pago'},{'name': 'RecuperarComponent', 'selector': 'app-recuperar'},{'name': 'RegistrarPagosComponent', 'selector': 'app-registrar-pagos'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'ReportesComponent', 'selector': 'app-reportes'},{'name': 'SolicitudesComponent', 'selector': 'app-solicitudes'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RealizarPagoComponent'};

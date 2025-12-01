@@ -136,6 +136,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <li class="link">
                                     <a href="injectables/AuthService.html" data-type="entity-link" >AuthService</a>
                                 </li>
+                                <li class="link">
+                                    <a href="injectables/CarritoService.html" data-type="entity-link" >CarritoService</a>
+                                </li>
                             </ul>
                         </li>
                     <li class="chapter">
@@ -153,6 +156,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/Configuracion.html" data-type="entity-link" >Configuracion</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/Cuota.html" data-type="entity-link" >Cuota</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/Estadisticas.html" data-type="entity-link" >Estadisticas</a>
                             </li>
                             <li class="link">
@@ -166,6 +172,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/Gasto-1.html" data-type="entity-link" >Gasto</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ItemCarrito.html" data-type="entity-link" >ItemCarrito</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/MenuItem.html" data-type="entity-link" >MenuItem</a>

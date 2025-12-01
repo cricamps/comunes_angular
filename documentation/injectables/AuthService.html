@@ -190,6 +190,9 @@ login() {
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#addUser" >addUser</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                 <a href="#cargarSesion" >cargarSesion</a>
                             </li>
@@ -222,6 +225,10 @@ login() {
                             </li>
                             <li>
                                 <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#obtenerTodosLosUsuarios" >obtenerTodosLosUsuarios</a>
                             </li>
                         </ul>
                     </td>
@@ -259,6 +266,103 @@ login() {
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addUser"></a>
+                    <span class="name">
+                        <span ><b>addUser</b></span>
+                        <a href="#addUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addUser(usuario: <a href="../interfaces/Usuario.html" target="_self">Usuario</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="283"
+                                    class="link-to-prism">src/app/core/services/auth.service.ts:283</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Registrar un nuevo usuario en el sistema</p>
+<p>Este método valida que no exista un correo duplicado antes de agregar el usuario.
+La validación es crítica para mantener la integridad de la base de datos.</p>
+<p>nombre, email, password, rut, telefono, pasaje, casa, rol, tipo y fechaRegistro</p>
+<p>y retorna false si el correo ya existe en la base de datos</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const resultado = authService.addUser({
+  nombre: &#39;Juan&#39;,
+  email: &#39;juan&#64;correo.com&#39;,
+  password: &#39;Contra123&#39;,
+  rut: &#39;12345678-9&#39;,
+  telefono: &#39;912345678&#39;,
+  pasaje: &#39;8651&#39;,
+  casa: &#39;D&#39;,
+  rol: &#39;residente&#39;,
+  tipo: &#39;residente&#39;,
+  fechaRegistro: new Date()
+});</code></pre></div><p>Este método almacena los usuarios en localStorage.
+Es necesario asegurarse de que localStorage tenga el formato correcto.
+Este método es usado por RegisterComponent y AdminComponent.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Usuario.html" target="_self" >Usuario</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Objeto que contiene los datos del nuevo usuario:
+nombre, email, password, rut, telefono, pasaje, casa, rol, tipo y fechaRegistro</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Retorna true si el registro fue exitoso,
+y retorna false si el correo ya existe en la base de datos</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -834,6 +938,53 @@ this.router.navigate([&#39;/login&#39;]);</code></pre></div></div>
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerTodosLosUsuarios"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>obtenerTodosLosUsuarios</b></span>
+                        <a href="#obtenerTodosLosUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>obtenerTodosLosUsuarios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="312"
+                                    class="link-to-prism">src/app/core/services/auth.service.ts:312</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtener todos los usuarios del sistema</p>
+<p>Lee los usuarios desde localStorage o retorna los usuarios mock
+si no hay datos guardados.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Usuario[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array con todos los usuarios registrados</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
             <section data-compodoc="block-properties">
     
@@ -1158,6 +1309,76 @@ export class AuthService {
       return &#x60;${this.currentUser.pasaje}-${this.currentUser.casa}&#x60;;
     }
     return &#x27;&#x27;;
+  }
+
+  /**
+   * Registrar un nuevo usuario en el sistema
+   * 
+   * Este método valida que no exista un correo duplicado antes de agregar el usuario.
+   * La validación es crítica para mantener la integridad de la base de datos.
+   * 
+   * @param {Usuario} usuario - Objeto que contiene los datos del nuevo usuario:
+   * nombre, email, password, rut, telefono, pasaje, casa, rol, tipo y fechaRegistro
+   * 
+   * @returns {boolean} Retorna true si el registro fue exitoso,
+   * y retorna false si el correo ya existe en la base de datos
+   * 
+   * @example
+   * &#x60;&#x60;&#x60;typescript
+   * const resultado &#x3D; authService.addUser({
+   *   nombre: &#x27;Juan&#x27;,
+   *   email: &#x27;juan@correo.com&#x27;,
+   *   password: &#x27;Contra123&#x27;,
+   *   rut: &#x27;12345678-9&#x27;,
+   *   telefono: &#x27;912345678&#x27;,
+   *   pasaje: &#x27;8651&#x27;,
+   *   casa: &#x27;D&#x27;,
+   *   rol: &#x27;residente&#x27;,
+   *   tipo: &#x27;residente&#x27;,
+   *   fechaRegistro: new Date()
+   * });
+   * &#x60;&#x60;&#x60;
+   * 
+   * @usageNotes
+   * Este método almacena los usuarios en localStorage.
+   * Es necesario asegurarse de que localStorage tenga el formato correcto.
+   * Este método es usado por RegisterComponent y AdminComponent.
+   */
+  addUser(usuario: Usuario): boolean {
+    // Validar que no exista el correo
+    const usuarios &#x3D; this.obtenerTodosLosUsuarios();
+    const emailExiste &#x3D; usuarios.some(u &#x3D;&gt; u.email &#x3D;&#x3D;&#x3D; usuario.email);
+    
+    if (emailExiste) {
+      console.log(&#x27;Error: El correo ya está registrado:&#x27;, usuario.email);
+      return false;
+    }
+    
+    // Agregar usuario al array
+    usuarios.push(usuario);
+    
+    // Guardar en localStorage
+    localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(usuarios));
+    console.log(&#x27;Usuario registrado exitosamente:&#x27;, usuario.email);
+    
+    return true;
+  }
+
+  /**
+   * Obtener todos los usuarios del sistema
+   * 
+   * Lee los usuarios desde localStorage o retorna los usuarios mock
+   * si no hay datos guardados.
+   * 
+   * @private
+   * @returns {Usuario[]} Array con todos los usuarios registrados
+   */
+  private obtenerTodosLosUsuarios(): Usuario[] {
+    const usuariosStorage &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
+    if (usuariosStorage) {
+      return JSON.parse(usuariosStorage);
+    }
+    return [...USUARIOS_MOCK];
   }
 }
 </code></pre>

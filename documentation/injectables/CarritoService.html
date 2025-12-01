@@ -1,0 +1,1581 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>comunes-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">comunes-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CarritoService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/core/services/carrito.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Servicio de Carrito de Pagos</p>
+<p>Gestiona el carrito de cuotas pendientes que el residente desea pagar.
+Permite agregar cuotas, eliminarlas, calcular totales y procesar pagos.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">constructor(private carritoService: CarritoService) {}
+
+
+agregarCuota() {
+  this.carritoService.agregarCuota(cuota);
+  const total = this.carritoService.calcularTotal();
+}</code></pre></div>
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#items" >items</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#STORAGE_KEY" >STORAGE_KEY</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#agregarCuota" >agregarCuota</a>
+                            </li>
+                            <li>
+                                <a href="#calcularTotal" >calcularTotal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#cargarCarrito" >cargarCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#deseleccionarTodas" >deseleccionarTodas</a>
+                            </li>
+                            <li>
+                                <a href="#eliminarCuota" >eliminarCuota</a>
+                            </li>
+                            <li>
+                                <a href="#estaEnCarrito" >estaEnCarrito</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#guardarCarrito" >guardarCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerCantidad" >obtenerCantidad</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerCantidadSeleccionados" >obtenerCantidadSeleccionados</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerItems" >obtenerItems</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerItemsSeleccionados" >obtenerItemsSeleccionados</a>
+                            </li>
+                            <li>
+                                <a href="#procesarPago" >procesarPago</a>
+                            </li>
+                            <li>
+                                <a href="#seleccionarTodas" >seleccionarTodas</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSeleccion" >toggleSeleccion</a>
+                            </li>
+                            <li>
+                                <a href="#vaciarCarrito" >vaciarCarrito</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/core/services/carrito.service.ts:26</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="agregarCuota"></a>
+                    <span class="name">
+                        <span ><b>agregarCuota</b></span>
+                        <a href="#agregarCuota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>agregarCuota(cuota: <a href="../interfaces/Cuota.html" target="_self">Cuota</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Agregar una cuota al carrito</p>
+<p>Agrega una cuota si no existe ya en el carrito.
+La cuota se agrega como seleccionada por defecto.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const agregado = this.carritoService.agregarCuota(cuota);
+if (agregado) {
+  this.mostrarMensaje(&#39;Cuota agregada al carrito&#39;);
+}</code></pre></div><ul>
+<li>Solo se pueden agregar cuotas pendientes</li>
+<li>No se permiten duplicados</li>
+<li>El carrito se guarda automáticamente en localStorage</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cuota</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Cuota.html" target="_self" >Cuota</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Cuota a agregar</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>True si se agregó, false si ya existía</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcularTotal"></a>
+                    <span class="name">
+                        <span ><b>calcularTotal</b></span>
+                        <a href="#calcularTotal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcularTotal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="195"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:195</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcular el total a pagar</p>
+<p>Suma los montos de todas las cuotas SELECCIONADAS.
+Este es el monto que el residente debe pagar.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const total = this.carritoService.calcularTotal();
+console.log(&#39;Total a pagar: $&#39; + total);</code></pre></div><ul>
+<li>Solo suma cuotas seleccionadas</li>
+<li>El total se actualiza automáticamente al cambiar selecciones</li>
+<li>Usado en CarritoComponent para mostrar el monto final</li>
+</ul>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Total a pagar</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarCarrito"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>cargarCarrito</b></span>
+                        <a href="#cargarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>cargarCarrito()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cargar carrito desde localStorage</p>
+<p>Intenta cargar el carrito guardado previamente.
+Si no existe, inicializa con array vacío.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deseleccionarTodas"></a>
+                    <span class="name">
+                        <span ><b>deseleccionarTodas</b></span>
+                        <a href="#deseleccionarTodas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deseleccionarTodas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="299"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:299</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Deseleccionar todas las cuotas</p>
+<p>Desmarca todas las cuotas del carrito.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarCuota"></a>
+                    <span class="name">
+                        <span ><b>eliminarCuota</b></span>
+                        <a href="#eliminarCuota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarCuota(cuotaId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Eliminar una cuota del carrito</p>
+<p>Remueve la cuota especificada del carrito.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">this.carritoService.eliminarCuota(1);</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cuotaId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ID de la cuota a eliminar</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estaEnCarrito"></a>
+                    <span class="name">
+                        <span ><b>estaEnCarrito</b></span>
+                        <a href="#estaEnCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>estaEnCarrito(cuotaId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="279"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:279</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verificar si una cuota está en el carrito</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cuotaId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ID de la cuota</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>True si la cuota está en el carrito</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarCarrito"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>guardarCarrito</b></span>
+                        <a href="#guardarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>guardarCarrito()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Guardar carrito en localStorage</p>
+<p>Persiste el estado actual del carrito.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerCantidad"></a>
+                    <span class="name">
+                        <span ><b>obtenerCantidad</b></span>
+                        <a href="#obtenerCantidad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerCantidad()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="208"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:208</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtener cantidad de items en el carrito</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Número total de cuotas en el carrito</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerCantidadSeleccionados"></a>
+                    <span class="name">
+                        <span ><b>obtenerCantidadSeleccionados</b></span>
+                        <a href="#obtenerCantidadSeleccionados"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerCantidadSeleccionados()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtener cantidad de items seleccionados</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Número de cuotas seleccionadas</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerItems"></a>
+                    <span class="name">
+                        <span ><b>obtenerItems</b></span>
+                        <a href="#obtenerItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerItems()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtener todos los items del carrito</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const items = this.carritoService.obtenerItems();
+console.log(&#39;Items en carrito:&#39;, items.length);</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/ItemCarrito.html" target="_self" >ItemCarrito[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array con todos los items</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerItemsSeleccionados"></a>
+                    <span class="name">
+                        <span ><b>obtenerItemsSeleccionados</b></span>
+                        <a href="#obtenerItemsSeleccionados"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerItemsSeleccionados()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="172"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtener items seleccionados</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/ItemCarrito.html" target="_self" >ItemCarrito[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Solo los items marcados como seleccionados</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="procesarPago"></a>
+                    <span class="name">
+                        <span ><b>procesarPago</b></span>
+                        <a href="#procesarPago"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>procesarPago(metodoPago: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="253"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:253</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Procesar pago de cuotas seleccionadas</p>
+<p>Marca las cuotas seleccionadas como pagadas y las elimina del carrito.
+En una implementación real, aquí se integraría con una pasarela de pago.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const cuotasPagadas = this.carritoService.procesarPago(&#39;Transferencia&#39;);
+console.log(&#39;Cuotas pagadas:&#39;, cuotasPagadas.length);</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>metodoPago</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Método de pago usado (ej: &#39;Transferencia&#39;, &#39;WebPay&#39;)</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Cuota.html" target="_self" >Cuota[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array con las cuotas que fueron pagadas</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="seleccionarTodas"></a>
+                    <span class="name">
+                        <span ><b>seleccionarTodas</b></span>
+                        <a href="#seleccionarTodas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>seleccionarTodas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="288"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:288</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Seleccionar todas las cuotas</p>
+<p>Marca todas las cuotas del carrito como seleccionadas.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSeleccion"></a>
+                    <span class="name">
+                        <span ><b>toggleSeleccion</b></span>
+                        <a href="#toggleSeleccion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSeleccion(cuotaId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="143"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:143</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Alternar selección de una cuota</p>
+<p>Cambia el estado de selección de una cuota.
+Solo las cuotas seleccionadas se incluyen en el total.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">this.carritoService.toggleSeleccion(1);
+const total = this.carritoService.calcularTotal(); // Solo cuotas seleccionadas</code></pre></div></div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cuotaId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ID de la cuota</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vaciarCarrito"></a>
+                    <span class="name">
+                        <span ><b>vaciarCarrito</b></span>
+                        <a href="#vaciarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>vaciarCarrito()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="232"
+                                    class="link-to-prism">src/app/core/services/carrito.service.ts:232</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vaciar el carrito completamente</p>
+<p>Elimina todos los items del carrito.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">// Después de procesar el pago
+this.carritoService.vaciarCarrito();</code></pre></div></div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="items"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>items</b></span>
+                        <a href="#items"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ItemCarrito.html" target="_self" >ItemCarrito[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/core/services/carrito.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="STORAGE_KEY"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>STORAGE_KEY</b></span>
+                        <a href="#STORAGE_KEY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;carritoGastosComunes&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/core/services/carrito.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Cuota, ItemCarrito } from &#x27;../../models/cuota.model&#x27;;
+
+/**
+ * Servicio de Carrito de Pagos
+ * 
+ * Gestiona el carrito de cuotas pendientes que el residente desea pagar.
+ * Permite agregar cuotas, eliminarlas, calcular totales y procesar pagos.
+ * 
+ * @example
+ * &#x60;&#x60;&#x60;typescript
+ * constructor(private carritoService: CarritoService) {}
+ * 
+ * agregarCuota() {
+ *   this.carritoService.agregarCuota(cuota);
+ *   const total &#x3D; this.carritoService.calcularTotal();
+ * }
+ * &#x60;&#x60;&#x60;
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class CarritoService {
+  
+  private items: ItemCarrito[] &#x3D; [];
+  private readonly STORAGE_KEY &#x3D; &#x27;carritoGastosComunes&#x27;;
+
+  constructor() {
+    this.cargarCarrito();
+  }
+
+  /**
+   * Cargar carrito desde localStorage
+   * 
+   * Intenta cargar el carrito guardado previamente.
+   * Si no existe, inicializa con array vacío.
+   * 
+   * @private
+   */
+  private cargarCarrito(): void {
+    const carritoStorage &#x3D; localStorage.getItem(this.STORAGE_KEY);
+    if (carritoStorage) {
+      try {
+        this.items &#x3D; JSON.parse(carritoStorage);
+        console.log(&#x27;Carrito cargado:&#x27;, this.items.length, &#x27;items&#x27;);
+      } catch (error) {
+        console.error(&#x27;Error al cargar carrito:&#x27;, error);
+        this.items &#x3D; [];
+      }
+    }
+  }
+
+  /**
+   * Guardar carrito en localStorage
+   * 
+   * Persiste el estado actual del carrito.
+   * 
+   * @private
+   */
+  private guardarCarrito(): void {
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.items));
+    console.log(&#x27;Carrito guardado&#x27;);
+  }
+
+  /**
+   * Agregar una cuota al carrito
+   * 
+   * Agrega una cuota si no existe ya en el carrito.
+   * La cuota se agrega como seleccionada por defecto.
+   * 
+   * @param {Cuota} cuota - Cuota a agregar
+   * @returns {boolean} True si se agregó, false si ya existía
+   * 
+   * @example
+   * &#x60;&#x60;&#x60;typescript
+   * const agregado &#x3D; this.carritoService.agregarCuota(cuota);
+   * if (agregado) {
+   *   this.mostrarMensaje(&#x27;Cuota agregada al carrito&#x27;);
+   * }
+   * &#x60;&#x60;&#x60;
+   * 
+   * @usageNotes
+   * - Solo se pueden agregar cuotas pendientes
+   * - No se permiten duplicados
+   * - El carrito se guarda automáticamente en localStorage
+   */
+  agregarCuota(cuota: Cuota): boolean {
+    // Verificar si ya existe
+    const existe &#x3D; this.items.some(item &#x3D;&gt; item.cuota.id &#x3D;&#x3D;&#x3D; cuota.id);
+    
+    if (existe) {
+      console.log(&#x27;La cuota ya está en el carrito&#x27;);
+      return false;
+    }
+
+    // Agregar al carrito
+    this.items.push({
+      cuota: cuota,
+      seleccionada: true
+    });
+
+    this.guardarCarrito();
+    console.log(&#x27;Cuota agregada al carrito:&#x27;, cuota.mes, cuota.anio);
+    return true;
+  }
+
+  /**
+   * Eliminar una cuota del carrito
+   * 
+   * Remueve la cuota especificada del carrito.
+   * 
+   * @param {number} cuotaId - ID de la cuota a eliminar
+   * 
+   * @example
+   * &#x60;&#x60;&#x60;typescript
+   * this.carritoService.eliminarCuota(1);
+   * &#x60;&#x60;&#x60;
+   */
+  eliminarCuota(cuotaId: number): void {
+    const indiceInicial &#x3D; this.items.length;
+    this.items &#x3D; this.items.filter(item &#x3D;&gt; item.cuota.id !&#x3D;&#x3D; cuotaId);
+    
+    if (this.items.length &lt; indiceInicial) {
+      this.guardarCarrito();
+      console.log(&#x27;Cuota eliminada del carrito:&#x27;, cuotaId);
+    }
+  }
+
+  /**
+   * Alternar selección de una cuota
+   * 
+   * Cambia el estado de selección de una cuota.
+   * Solo las cuotas seleccionadas se incluyen en el total.
+   * 
+   * @param {number} cuotaId - ID de la cuota
+   * 
+   * @example
+   * &#x60;&#x60;&#x60;typescript
+   * this.carritoService.toggleSeleccion(1);
+   * const total &#x3D; this.carritoService.calcularTotal(); // Solo cuotas seleccionadas
+   * &#x60;&#x60;&#x60;
+   */
+  toggleSeleccion(cuotaId: number): void {
+    const item &#x3D; this.items.find(i &#x3D;&gt; i.cuota.id &#x3D;&#x3D;&#x3D; cuotaId);
+    if (item) {
+      item.seleccionada &#x3D; !item.seleccionada;
+      this.guardarCarrito();
+      console.log(&#x27;Selección cambiada:&#x27;, cuotaId, &#x27;→&#x27;, item.seleccionada);
+    }
+  }
+
+  /**
+   * Obtener todos los items del carrito
+   * 
+   * @returns {ItemCarrito[]} Array con todos los items
+   * 
+   * @example
+   * &#x60;&#x60;&#x60;typescript
+   * const items &#x3D; this.carritoService.obtenerItems();
+   * console.log(&#x27;Items en carrito:&#x27;, items.length);
+   * &#x60;&#x60;&#x60;
+   */
+  obtenerItems(): ItemCarrito[] {
+    return [...this.items];
+  }
+
+  /**
+   * Obtener items seleccionados
+   * 
+   * @returns {ItemCarrito[]} Solo los items marcados como seleccionados
+   */
+  obtenerItemsSeleccionados(): ItemCarrito[] {
+    return this.items.filter(item &#x3D;&gt; item.seleccionada);
+  }
+
+  /**
+   * Calcular el total a pagar
+   * 
+   * Suma los montos de todas las cuotas SELECCIONADAS.
+   * Este es el monto que el residente debe pagar.
+   * 
+   * @returns {number} Total a pagar
+   * 
+   * @example
+   * &#x60;&#x60;&#x60;typescript
+   * const total &#x3D; this.carritoService.calcularTotal();
+   * console.log(&#x27;Total a pagar: $&#x27; + total);
+   * &#x60;&#x60;&#x60;
+   * 
+   * @usageNotes
+   * - Solo suma cuotas seleccionadas
+   * - El total se actualiza automáticamente al cambiar selecciones
+   * - Usado en CarritoComponent para mostrar el monto final
+   */
+  calcularTotal(): number {
+    const total &#x3D; this.items
+      .filter(item &#x3D;&gt; item.seleccionada)
+      .reduce((sum, item) &#x3D;&gt; sum + item.cuota.monto, 0);
+    
+    return Math.round(total * 100) / 100; // Redondear a 2 decimales
+  }
+
+  /**
+   * Obtener cantidad de items en el carrito
+   * 
+   * @returns {number} Número total de cuotas en el carrito
+   */
+  obtenerCantidad(): number {
+    return this.items.length;
+  }
+
+  /**
+   * Obtener cantidad de items seleccionados
+   * 
+   * @returns {number} Número de cuotas seleccionadas
+   */
+  obtenerCantidadSeleccionados(): number {
+    return this.items.filter(item &#x3D;&gt; item.seleccionada).length;
+  }
+
+  /**
+   * Vaciar el carrito completamente
+   * 
+   * Elimina todos los items del carrito.
+   * 
+   * @example
+   * &#x60;&#x60;&#x60;typescript
+   * // Después de procesar el pago
+   * this.carritoService.vaciarCarrito();
+   * &#x60;&#x60;&#x60;
+   */
+  vaciarCarrito(): void {
+    this.items &#x3D; [];
+    this.guardarCarrito();
+    console.log(&#x27;Carrito vaciado&#x27;);
+  }
+
+  /**
+   * Procesar pago de cuotas seleccionadas
+   * 
+   * Marca las cuotas seleccionadas como pagadas y las elimina del carrito.
+   * En una implementación real, aquí se integraría con una pasarela de pago.
+   * 
+   * @param {string} metodoPago - Método de pago usado (ej: &#x27;Transferencia&#x27;, &#x27;WebPay&#x27;)
+   * @returns {Cuota[]} Array con las cuotas que fueron pagadas
+   * 
+   * @example
+   * &#x60;&#x60;&#x60;typescript
+   * const cuotasPagadas &#x3D; this.carritoService.procesarPago(&#x27;Transferencia&#x27;);
+   * console.log(&#x27;Cuotas pagadas:&#x27;, cuotasPagadas.length);
+   * &#x60;&#x60;&#x60;
+   */
+  procesarPago(metodoPago: string): Cuota[] {
+    const cuotasPagadas: Cuota[] &#x3D; [];
+    const itemsSeleccionados &#x3D; this.obtenerItemsSeleccionados();
+
+    // Marcar como pagadas
+    itemsSeleccionados.forEach(item &#x3D;&gt; {
+      item.cuota.estado &#x3D; &#x27;pagada&#x27;;
+      item.cuota.fechaPago &#x3D; new Date();
+      item.cuota.metodoPago &#x3D; metodoPago;
+      cuotasPagadas.push(item.cuota);
+    });
+
+    // Eliminar del carrito
+    this.items &#x3D; this.items.filter(item &#x3D;&gt; !item.seleccionada);
+    this.guardarCarrito();
+
+    console.log(&#x27;Pago procesado:&#x27;, cuotasPagadas.length, &#x27;cuotas&#x27;);
+    return cuotasPagadas;
+  }
+
+  /**
+   * Verificar si una cuota está en el carrito
+   * 
+   * @param {number} cuotaId - ID de la cuota
+   * @returns {boolean} True si la cuota está en el carrito
+   */
+  estaEnCarrito(cuotaId: number): boolean {
+    return this.items.some(item &#x3D;&gt; item.cuota.id &#x3D;&#x3D;&#x3D; cuotaId);
+  }
+
+  /**
+   * Seleccionar todas las cuotas
+   * 
+   * Marca todas las cuotas del carrito como seleccionadas.
+   */
+  seleccionarTodas(): void {
+    this.items.forEach(item &#x3D;&gt; item.seleccionada &#x3D; true);
+    this.guardarCarrito();
+    console.log(&#x27;Todas las cuotas seleccionadas&#x27;);
+  }
+
+  /**
+   * Deseleccionar todas las cuotas
+   * 
+   * Desmarca todas las cuotas del carrito.
+   */
+  deseleccionarTodas(): void {
+    this.items.forEach(item &#x3D;&gt; item.seleccionada &#x3D; false);
+    this.guardarCarrito();
+    console.log(&#x27;Todas las cuotas deseleccionadas&#x27;);
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CarritoService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

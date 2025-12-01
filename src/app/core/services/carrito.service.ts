@@ -100,7 +100,7 @@ export class CarritoService {
     });
 
     this.guardarCarrito();
-    console.log('Cuota agregada al carrito:', cuota.mes, cuota.año);
+    console.log('Cuota agregada al carrito:', cuota.mes, cuota.anio);
     return true;
   }
 
