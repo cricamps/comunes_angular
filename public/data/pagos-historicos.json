@@ -1,0 +1,178 @@
+[
+  {
+    "id": 1,
+    "casaId": 1,
+    "numeroCasa": "8651-1",
+    "mes": "Enero",
+    "anio": 2024,
+    "fechaPago": "2024-01-15",
+    "montoTotal": 62000,
+    "metodoPago": "transferencia",
+    "estadoPago": "pagado",
+    "detalleGastos": [
+      { "concepto": "Agua", "monto": 8500 },
+      { "concepto": "Luz Común", "monto": 12000 },
+      { "concepto": "Recolección de Basura", "monto": 5000 },
+      { "concepto": "Mantenimiento de Áreas Verdes", "monto": 7500 },
+      { "concepto": "Limpieza de Pasajes", "monto": 6000 },
+      { "concepto": "Seguro Comunitario", "monto": 4500 },
+      { "concepto": "Fondo de Reserva", "monto": 10000 },
+      { "concepto": "Administración", "monto": 8000 },
+      { "concepto": "Mantención de Alcantarillado", "monto": 5500 }
+    ]
+  },
+  {
+    "id": 2,
+    "casaId": 1,
+    "numeroCasa": "8651-1",
+    "mes": "Febrero",
+    "anio": 2024,
+    "fechaPago": "2024-02-10",
+    "montoTotal": 62000,
+    "metodoPago": "efectivo",
+    "estadoPago": "pagado",
+    "detalleGastos": [
+      { "concepto": "Agua", "monto": 8500 },
+      { "concepto": "Luz Común", "monto": 12000 },
+      { "concepto": "Recolección de Basura", "monto": 5000 },
+      { "concepto": "Mantenimiento de Áreas Verdes", "monto": 7500 },
+      { "concepto": "Limpieza de Pasajes", "monto": 6000 },
+      { "concepto": "Seguro Comunitario", "monto": 4500 },
+      { "concepto": "Fondo de Reserva", "monto": 10000 },
+      { "concepto": "Administración", "monto": 8000 },
+      { "concepto": "Mantención de Alcantarillado", "monto": 5500 }
+    ]
+  },
+  {
+    "id": 3,
+    "casaId": 2,
+    "numeroCasa": "8651-2",
+    "mes": "Enero",
+    "anio": 2024,
+    "fechaPago": "2024-01-20",
+    "montoTotal": 62000,
+    "metodoPago": "transferencia",
+    "estadoPago": "pagado",
+    "detalleGastos": [
+      { "concepto": "Agua", "monto": 8500 },
+      { "concepto": "Luz Común", "monto": 12000 },
+      { "concepto": "Recolección de Basura", "monto": 5000 },
+      { "concepto": "Mantenimiento de Áreas Verdes", "monto": 7500 },
+      { "concepto": "Limpieza de Pasajes", "monto": 6000 },
+      { "concepto": "Seguro Comunitario", "monto": 4500 },
+      { "concepto": "Fondo de Reserva", "monto": 10000 },
+      { "concepto": "Administración", "monto": 8000 },
+      { "concepto": "Mantención de Alcantarillado", "monto": 5500 }
+    ]
+  },
+  {
+    "id": 4,
+    "casaId": 3,
+    "numeroCasa": "8651-3",
+    "mes": "Enero",
+    "anio": 2024,
+    "fechaPago": "2024-01-18",
+    "montoTotal": 62000,
+    "metodoPago": "transferencia",
+    "estadoPago": "pagado",
+    "detalleGastos": [
+      { "concepto": "Agua", "monto": 8500 },
+      { "concepto": "Luz Común", "monto": 12000 },
+      { "concepto": "Recolección de Basura", "monto": 5000 },
+      { "concepto": "Mantenimiento de Áreas Verdes", "monto": 7500 },
+      { "concepto": "Limpieza de Pasajes", "monto": 6000 },
+      { "concepto": "Seguro Comunitario", "monto": 4500 },
+      { "concepto": "Fondo de Reserva", "monto": 10000 },
+      { "concepto": "Administración", "monto": 8000 },
+      { "concepto": "Mantención de Alcantarillado", "monto": 5500 }
+    ]
+  },
+  {
+    "id": 5,
+    "casaId": 7,
+    "numeroCasa": "8707-1",
+    "mes": "Enero",
+    "anio": 2024,
+    "fechaPago": null,
+    "montoTotal": 62000,
+    "metodoPago": null,
+    "estadoPago": "pendiente",
+    "detalleGastos": [
+      { "concepto": "Agua", "monto": 8500 },
+      { "concepto": "Luz Común", "monto": 12000 },
+      { "concepto": "Recolección de Basura", "monto": 5000 },
+      { "concepto": "Mantenimiento de Áreas Verdes", "monto": 7500 },
+      { "concepto": "Limpieza de Pasajes", "monto": 6000 },
+      { "concepto": "Seguro Comunitario", "monto": 4500 },
+      { "concepto": "Fondo de Reserva", "monto": 10000 },
+      { "concepto": "Administración", "monto": 8000 },
+      { "concepto": "Mantención de Alcantarillado", "monto": 5500 }
+    ]
+  },
+  {
+    "id": 6,
+    "casaId": 7,
+    "numeroCasa": "8707-1",
+    "mes": "Febrero",
+    "anio": 2024,
+    "fechaPago": null,
+    "montoTotal": 62000,
+    "metodoPago": null,
+    "estadoPago": "pendiente",
+    "detalleGastos": [
+      { "concepto": "Agua", "monto": 8500 },
+      { "concepto": "Luz Común", "monto": 12000 },
+      { "concepto": "Recolección de Basura", "monto": 5000 },
+      { "concepto": "Mantenimiento de Áreas Verdes", "monto": 7500 },
+      { "concepto": "Limpieza de Pasajes", "monto": 6000 },
+      { "concepto": "Seguro Comunitario", "monto": 4500 },
+      { "concepto": "Fondo de Reserva", "monto": 10000 },
+      { "concepto": "Administración", "monto": 8000 },
+      { "concepto": "Mantención de Alcantarillado", "monto": 5500 }
+    ]
+  },
+  {
+    "id": 7,
+    "casaId": 10,
+    "numeroCasa": "8707-4",
+    "mes": "Enero",
+    "anio": 2024,
+    "fechaPago": "2024-01-25",
+    "montoTotal": 62000,
+    "metodoPago": "cheque",
+    "estadoPago": "pagado",
+    "detalleGastos": [
+      { "concepto": "Agua", "monto": 8500 },
+      { "concepto": "Luz Común", "monto": 12000 },
+      { "concepto": "Recolección de Basura", "monto": 5000 },
+      { "concepto": "Mantenimiento de Áreas Verdes", "monto": 7500 },
+      { "concepto": "Limpieza de Pasajes", "monto": 6000 },
+      { "concepto": "Seguro Comunitario", "monto": 4500 },
+      { "concepto": "Fondo de Reserva", "monto": 10000 },
+      { "concepto": "Administración", "monto": 8000 },
+      { "concepto": "Mantención de Alcantarillado", "monto": 5500 }
+    ]
+  },
+  {
+    "id": 8,
+    "casaId": 13,
+    "numeroCasa": "8707-7",
+    "mes": "Enero",
+    "anio": 2024,
+    "fechaPago": "2024-01-12",
+    "montoTotal": 62000,
+    "metodoPago": "transferencia",
+    "estadoPago": "pagado",
+    "detalleGastos": [
+      { "concepto": "Agua", "monto": 8500 },
+      { "concepto": "Luz Común", "monto": 12000 },
+      { "concepto": "Recolección de Basura", "monto": 5000 },
+      { "concepto": "Mantenimiento de Áreas Verdes", "monto": 7500 },
+      { "concepto": "Limpieza de Pasajes", "monto": 6000 },
+      { "concepto": "Seguro Comunitario", "monto": 4500 },
+      { "concepto": "Fondo de Reserva", "monto": 10000 },
+      { "concepto": "Administración", "monto": 8000 },
+      { "concepto": "Mantención de Alcantarillado", "monto": 5500 }
+    ]
+  }
+]

@@ -53,6 +53,14 @@ export const routes: Routes = [
       {
         path: 'configuracion',
         loadComponent: () => import('./features/admin/configuracion/configuracion.component').then(m => m.ConfiguracionComponent)
+      },
+      {
+        path: 'lista-casas',
+        loadComponent: () => import('./features/admin/lista-casas/lista-casas.component').then(m => m.ListaCasasComponent)
+      },
+      {
+        path: 'estadisticas-gastos',
+        loadComponent: () => import('./features/admin/estadisticas-gastos/estadisticas-gastos.component').then(m => m.EstadisticasGastosComponent)
       }
     ]
   },
@@ -91,6 +99,11 @@ export const routes: Routes = [
     path: 'detalle-gasto',
     canActivate: [authGuard],
     loadComponent: () => import('./features/shared/detalle-gasto/detalle-gasto.component').then(m => m.DetalleGastoComponent)
+  },
+  {
+    path: 'info-financiera',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/shared/info-financiera/info-financiera.component').then(m => m.InfoFinancieraComponent)
   },
 
   // Ruta 404

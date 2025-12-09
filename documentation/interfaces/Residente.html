@@ -140,10 +140,17 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/features/admin/registrar-pagos/registrar-pagos.component.ts</code>
+            <code>src/app/models/casa.interface.ts</code>
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interfaz que representa a un residente de una casa</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -159,12 +166,6 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#casa" 
->
-                                            casa
-                                        </a>
-                                </li>
-                                <li>
                                         <a href="#email" 
 >
                                             email
@@ -177,9 +178,15 @@
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#pasaje" 
+                                        <a href="#rut" 
 >
-                                            pasaje
+                                            rut
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#telefono" 
+>
+                                            telefono
                                         </a>
                                 </li>
                             </ul>
@@ -193,39 +200,6 @@
 
             <section data-compodoc="block-properties">
                 <h3 id="inputs">Properties</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="casa"></a>
-                                        <span class="name "><b>casa</b>
-                                            <a href="#casa">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>casa:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
@@ -296,9 +270,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="pasaje"></a>
-                                        <span class="name "><b>pasaje</b>
-                                            <a href="#pasaje">
+                                        <a name="rut"></a>
+                                        <span class="name "><b>rut</b>
+                                            <a href="#rut">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -306,7 +280,40 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>pasaje:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>rut:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="telefono"></a>
+                                        <span class="name "><b>telefono</b>
+                                            <a href="#telefono">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>telefono:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -330,258 +337,25 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { FormsModule } from &#x27;@angular/forms&#x27;;
-import { NavbarComponent } from &#x27;../../../shared/components/navbar/navbar.component&#x27;;
-import { AuthService } from &#x27;../../../core/services/auth.service&#x27;;
-
-interface Residente {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Residente {
   nombre: string;
+  rut: string;
   email: string;
+  telefono: string;
+}
+
+/**
+ * Interfaz que representa una casa de la comunidad
+ */
+export interface Casa {
+  id: number;
+  numeroCasa: string;
   pasaje: string;
-  casa: string;
-}
-
-interface Pago {
-  id: string;
-  residenteEmail: string;
-  residenteNombre: string;
-  casa: string;
-  mes: string;
-  monto: number;
-  fechaPago: string;
-  metodoPago: string;
-  comprobante?: string;
-  observaciones?: string;
-  registradoPor: string;
-  fechaRegistro: string;
-}
-
-interface PagoForm {
-  residenteEmail: string;
-  mes: string;
-  monto: number;
-  fechaPago: string;
-  metodoPago: string;
-  comprobante: string;
-  observaciones: string;
-}
-
-@Component({
-  selector: &#x27;app-registrar-pagos&#x27;,
-  standalone: true,
-  imports: [CommonModule, FormsModule, NavbarComponent],
-  templateUrl: &#x27;./registrar-pagos.component.html&#x27;,
-  styleUrls: [&#x27;./registrar-pagos.component.scss&#x27;]
-})
-export class RegistrarPagosComponent implements OnInit {
-  residentes: Residente[] &#x3D; [];
-  pagos: Pago[] &#x3D; [];
-  
-  pagoForm: PagoForm &#x3D; {
-    residenteEmail: &#x27;&#x27;,
-    mes: &#x27;&#x27;,
-    monto: 0,
-    fechaPago: &#x27;&#x27;,
-    metodoPago: &#x27;&#x27;,
-    comprobante: &#x27;&#x27;,
-    observaciones: &#x27;&#x27;
-  };
-
-  // Estadísticas
-  totalGastosMes: number &#x3D; 0;
-  montoPorCasa: number &#x3D; 0;
-  montoSugerido: number &#x3D; 0;
-  totalPagado: number &#x3D; 0;
-  pendientePorCobrar: number &#x3D; 0;
-
-  constructor(private authService: AuthService) {}
-
-  ngOnInit(): void {
-    this.cargarResidentes();
-    this.cargarPagos();
-    this.calcularEstadisticas();
-    this.establecerFechaActual();
-  }
-
-  cargarResidentes(): void {
-    const usuarios &#x3D; this.obtenerUsuarios();
-    this.residentes &#x3D; usuarios
-      .filter(u &#x3D;&gt; u.casa &amp;&amp; u.pasaje)
-      .map(u &#x3D;&gt; ({
-        nombre: u.nombre,
-        email: u.email,
-        pasaje: u.pasaje,
-        casa: u.casa
-      }));
-  }
-
-  cargarPagos(): void {
-    const pagosGuardados &#x3D; localStorage.getItem(&#x27;pagos&#x27;);
-    this.pagos &#x3D; pagosGuardados ? JSON.parse(pagosGuardados) : [];
-    
-    // Ordenar por fecha de registro (más recientes primero)
-    this.pagos.sort((a, b) &#x3D;&gt; new Date(b.fechaRegistro).getTime() - new Date(a.fechaRegistro).getTime());
-  }
-
-  calcularEstadisticas(): void {
-    // Obtener gastos del mes actual
-    const mesActual &#x3D; new Date().toISOString().substring(0, 7); // YYYY-MM
-    const gastos &#x3D; this.obtenerGastos();
-    
-    this.totalGastosMes &#x3D; gastos
-      .filter(g &#x3D;&gt; g.mes &#x3D;&#x3D;&#x3D; mesActual)
-      .reduce((sum, g) &#x3D;&gt; sum + g.monto, 0);
-    
-    this.montoPorCasa &#x3D; Math.ceil(this.totalGastosMes / 13);
-    this.montoSugerido &#x3D; this.montoPorCasa;
-    
-    // Calcular pagos del mes actual
-    this.totalPagado &#x3D; this.pagos
-      .filter(p &#x3D;&gt; p.mes &#x3D;&#x3D;&#x3D; mesActual)
-      .reduce((sum, p) &#x3D;&gt; sum + p.monto, 0);
-    
-    this.pendientePorCobrar &#x3D; (this.montoPorCasa * 13) - this.totalPagado;
-  }
-
-  onResidenteChange(): void {
-    // Aquí podrías cargar el monto sugerido específico para ese residente
-    this.montoSugerido &#x3D; this.montoPorCasa;
-    this.pagoForm.monto &#x3D; this.montoPorCasa;
-  }
-
-  establecerFechaActual(): void {
-    const ahora &#x3D; new Date();
-    // Formato para datetime-local: YYYY-MM-DDTHH:mm
-    const año &#x3D; ahora.getFullYear();
-    const mes &#x3D; String(ahora.getMonth() + 1).padStart(2, &#x27;0&#x27;);
-    const dia &#x3D; String(ahora.getDate()).padStart(2, &#x27;0&#x27;);
-    const horas &#x3D; String(ahora.getHours()).padStart(2, &#x27;0&#x27;);
-    const minutos &#x3D; String(ahora.getMinutes()).padStart(2, &#x27;0&#x27;);
-    
-    this.pagoForm.fechaPago &#x3D; &#x60;${año}-${mes}-${dia}T${horas}:${minutos}&#x60;;
-    this.pagoForm.mes &#x3D; &#x60;${año}-${mes}&#x60;;
-  }
-
-  registrarPago(): void {
-    if (!this.validarFormulario()) {
-      return;
-    }
-
-    const residente &#x3D; this.residentes.find(r &#x3D;&gt; r.email &#x3D;&#x3D;&#x3D; this.pagoForm.residenteEmail);
-    if (!residente) {
-      alert(&#x27;❌ Residente no encontrado&#x27;);
-      return;
-    }
-
-    const usuario &#x3D; this.authService.getCurrentUser();
-    
-    const nuevoPago: Pago &#x3D; {
-      id: this.generarId(),
-      residenteEmail: this.pagoForm.residenteEmail,
-      residenteNombre: residente.nombre,
-      casa: &#x60;${residente.pasaje}-${residente.casa}&#x60;,
-      mes: this.pagoForm.mes,
-      monto: Number(this.pagoForm.monto),
-      fechaPago: this.pagoForm.fechaPago,
-      metodoPago: this.pagoForm.metodoPago,
-      comprobante: this.pagoForm.comprobante,
-      observaciones: this.pagoForm.observaciones,
-      registradoPor: usuario?.nombre || &#x27;Admin&#x27;,
-      fechaRegistro: new Date().toISOString()
-    };
-
-    this.pagos.unshift(nuevoPago); // Agregar al inicio
-    this.guardarPagos();
-    
-    alert(&#x60;✅ Pago registrado correctamente\n\n&#x60; +
-          &#x60;Residente: ${residente.nombre}\n&#x60; +
-          &#x60;Monto: $${this.pagoForm.monto.toLocaleString(&#x27;es-CL&#x27;)}\n&#x60; +
-          &#x60;Mes: ${this.formatearMes(this.pagoForm.mes)}&#x60;);
-    
-    this.limpiarFormulario();
-    this.calcularEstadisticas();
-  }
-
-  eliminarPago(id: string): void {
-    const pago &#x3D; this.pagos.find(p &#x3D;&gt; p.id &#x3D;&#x3D;&#x3D; id);
-    if (!pago) return;
-
-    if (confirm(&#x60;¿Está seguro de eliminar este pago?\n\n&#x60; +
-                &#x60;Residente: ${pago.residenteNombre}\n&#x60; +
-                &#x60;Monto: $${pago.monto.toLocaleString(&#x27;es-CL&#x27;)}&#x60;)) {
-      this.pagos &#x3D; this.pagos.filter(p &#x3D;&gt; p.id !&#x3D;&#x3D; id);
-      this.guardarPagos();
-      this.calcularEstadisticas();
-      alert(&#x27;✅ Pago eliminado correctamente&#x27;);
-    }
-  }
-
-  limpiarFormulario(): void {
-    this.pagoForm &#x3D; {
-      residenteEmail: &#x27;&#x27;,
-      mes: &#x27;&#x27;,
-      monto: 0,
-      fechaPago: &#x27;&#x27;,
-      metodoPago: &#x27;&#x27;,
-      comprobante: &#x27;&#x27;,
-      observaciones: &#x27;&#x27;
-    };
-    this.establecerFechaActual();
-  }
-
-  validarFormulario(): boolean {
-    if (!this.pagoForm.residenteEmail) {
-      alert(&#x27;❌ Debe seleccionar un residente&#x27;);
-      return false;
-    }
-    if (!this.pagoForm.mes) {
-      alert(&#x27;❌ Debe seleccionar el mes de pago&#x27;);
-      return false;
-    }
-    if (!this.pagoForm.monto || this.pagoForm.monto &lt;&#x3D; 0) {
-      alert(&#x27;❌ El monto debe ser mayor a 0&#x27;);
-      return false;
-    }
-    if (!this.pagoForm.fechaPago) {
-      alert(&#x27;❌ Debe ingresar la fecha de pago&#x27;);
-      return false;
-    }
-    if (!this.pagoForm.metodoPago) {
-      alert(&#x27;❌ Debe seleccionar el método de pago&#x27;);
-      return false;
-    }
-    return true;
-  }
-
-  // Utilidades
-  obtenerUsuarios(): any[] {
-    const usuarios &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
-    return usuarios ? JSON.parse(usuarios) : [];
-  }
-
-  obtenerGastos(): any[] {
-    const gastos &#x3D; localStorage.getItem(&#x27;gastos&#x27;);
-    return gastos ? JSON.parse(gastos) : [];
-  }
-
-  guardarPagos(): void {
-    localStorage.setItem(&#x27;pagos&#x27;, JSON.stringify(this.pagos));
-  }
-
-  generarId(): string {
-    return &#x27;pago_&#x27; + Date.now() + &#x27;_&#x27; + Math.random().toString(36).substr(2, 9);
-  }
-
-  formatearMes(mes: string): string {
-    const [año, mesNum] &#x3D; mes.split(&#x27;-&#x27;);
-    const meses &#x3D; [
-      &#x27;Enero&#x27;, &#x27;Febrero&#x27;, &#x27;Marzo&#x27;, &#x27;Abril&#x27;, &#x27;Mayo&#x27;, &#x27;Junio&#x27;,
-      &#x27;Julio&#x27;, &#x27;Agosto&#x27;, &#x27;Septiembre&#x27;, &#x27;Octubre&#x27;, &#x27;Noviembre&#x27;, &#x27;Diciembre&#x27;
-    ];
-    return &#x60;${meses[parseInt(mesNum) - 1]} ${año}&#x60;;
-  }
+  direccion: string;
+  residente: Residente;
+  metrosCuadrados: number;
+  cantidadHabitantes: number;
+  activa: boolean;
 }
 </code></pre>
     </div>

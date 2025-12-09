@@ -245,24 +245,46 @@ export class DashboardComponent implements OnInit {
   // NAVEGACIÓN
   // ===================================
 
-  irAPagar(): void {
-    this.router.navigate(['/usuario/realizar-pago']);
+  /**
+   * Navega a la página de lista de casas
+   */
+  irAListaCasas(): void {
+    this.router.navigate(['/admin/lista-casas']);
   }
 
-  irAHistorial(): void {
-    this.router.navigate(['/usuario/historial-pagos']);
-  }
-
+  /**
+   * Navega a la página de gestión de gastos
+   */
   irAGestionarGastos(): void {
     this.router.navigate(['/admin/gestionar-gastos']);
   }
 
+  /**
+   * Navega a la página de gestión de residentes
+   */
   irAGestionarResidentes(): void {
     this.router.navigate(['/admin/gestionar-residentes']);
   }
 
+  /**
+   * Navega a la página de reportes
+   */
   irAReportes(): void {
     this.router.navigate(['/admin/reportes']);
+  }
+
+  /**
+   * Navega a la página de pago
+   */
+  irAPagar(): void {
+    this.router.navigate(['/usuario/realizar-pago']);
+  }
+
+  /**
+   * Navega al historial de pagos
+   */
+  irAHistorial(): void {
+    this.router.navigate(['/usuario/historial-pagos']);
   }
 
   // ===================================

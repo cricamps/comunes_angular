@@ -1,0 +1,42 @@
+.card {
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  &.border-primary .card-header {
+    border-bottom: 3px solid #0d6efd;
+  }
+  
+  &.border-warning .card-header {
+    border-bottom: 3px solid #ffc107;
+  }
+  
+  &.border-success .card-header {
+    border-bottom: 3px solid #198754;
+  }
+  
+  &.border-info .card-header {
+    border-bottom: 3px solid #0dcaf0;
+  }
+}
+
+.list-group-item {
+  border-left: none;
+  border-right: none;
+  
+  &:first-child {
+    border-top: none;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.alert {
+  border-radius: 0.5rem;
+}
+
+h5 {
+  color: #495057;
+  margin-bottom: 1rem;
+}

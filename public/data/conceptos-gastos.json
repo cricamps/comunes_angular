@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "nombre": "Agua",
+    "descripcion": "Consumo de agua potable de la comunidad",
+    "tipoCalculo": "fijo",
+    "montoPorDefecto": 8500,
+    "activo": true,
+    "categoria": "servicios-basicos"
+  },
+  {
+    "id": 2,
+    "nombre": "Luz Común",
+    "descripcion": "Consumo de electricidad en áreas comunes (iluminación de pasajes)",
+    "tipoCalculo": "fijo",
+    "montoPorDefecto": 12000,
+    "activo": true,
+    "categoria": "servicios-basicos"
+  },
+  {
+    "id": 3,
+    "nombre": "Recolección de Basura",
+    "descripcion": "Servicio de recolección de basura",
+    "tipoCalculo": "fijo",
+    "montoPorDefecto": 5000,
+    "activo": true,
+    "categoria": "servicios-basicos"
+  },
+  {
+    "id": 4,
+    "nombre": "Mantenimiento de Áreas Verdes",
+    "descripcion": "Jardinería y mantención de áreas verdes comunes",
+    "tipoCalculo": "fijo",
+    "montoPorDefecto": 7500,
+    "activo": true,
+    "categoria": "mantenimiento"
+  },
+  {
+    "id": 5,
+    "nombre": "Limpieza de Pasajes",
+    "descripcion": "Servicio de limpieza de pasajes y áreas comunes",
+    "tipoCalculo": "fijo",
+    "montoPorDefecto": 6000,
+    "activo": true,
+    "categoria": "mantenimiento"
+  },
+  {
+    "id": 6,
+    "nombre": "Seguro Comunitario",
+    "descripcion": "Seguro contra incendios y responsabilidad civil",
+    "tipoCalculo": "proporcional",
+    "montoPorDefecto": 4500,
+    "activo": true,
+    "categoria": "seguros"
+  },
+  {
+    "id": 7,
+    "nombre": "Fondo de Reserva",
+    "descripcion": "Ahorro para reparaciones mayores y emergencias",
+    "tipoCalculo": "fijo",
+    "montoPorDefecto": 10000,
+    "activo": true,
+    "categoria": "administracion"
+  },
+  {
+    "id": 8,
+    "nombre": "Administración",
+    "descripcion": "Gastos administrativos y de gestión de la comunidad",
+    "tipoCalculo": "fijo",
+    "montoPorDefecto": 8000,
+    "activo": true,
+    "categoria": "administracion"
+  },
+  {
+    "id": 9,
+    "nombre": "Internet Comunitario",
+    "descripcion": "Servicio de internet WiFi en áreas comunes",
+    "tipoCalculo": "fijo",
+    "montoPorDefecto": 3500,
+    "activo": false,
+    "categoria": "servicios-adicionales"
+  },
+  {
+    "id": 10,
+    "nombre": "Mantención de Alcantarillado",
+    "descripcion": "Limpieza y mantención del sistema de alcantarillado",
+    "tipoCalculo": "fijo",
+    "montoPorDefecto": 5500,
+    "activo": true,
+    "categoria": "mantenimiento"
+  }
+]

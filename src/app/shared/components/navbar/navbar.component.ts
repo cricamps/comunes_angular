@@ -50,6 +50,7 @@ export class NavbarComponent implements OnInit {
         { label: 'Gestionar Gastos', icon: 'bi-receipt', route: '/admin/gestionar-gastos' },
         { label: 'Residentes', icon: 'bi-people', route: '/admin/gestionar-residentes' },
         { label: 'Registrar Pagos', icon: 'bi-credit-card', route: '/admin/registrar-pagos' },
+        { label: 'Estadísticas', icon: 'bi-graph-up-arrow', route: '/admin/estadisticas-gastos' },
         { label: 'Solicitudes', icon: 'bi-envelope-check', route: '/admin/solicitudes' },
         { label: 'Reportes', icon: 'bi-file-earmark-bar-graph', route: '/admin/reportes' },
         { label: 'Configuración', icon: 'bi-gear', route: '/admin/configuracion' }

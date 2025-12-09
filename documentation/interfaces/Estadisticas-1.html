@@ -294,6 +294,9 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NavbarComponent } from &#x27;../../../shared/components/navbar/navbar.component&#x27;;
+import { Gasto } from &#x27;../../../models/gasto.interface&#x27;;
+import { Pago } from &#x27;../../../models/pago.interface&#x27;;
+import { Usuario } from &#x27;../../../models/usuario.interface&#x27;;
 
 interface Resumen {
   totalGastos: number;
@@ -319,13 +322,13 @@ export class ReportesComponent implements OnInit {
   reporteActual: string &#x3D; &#x27;&#x27;;
   mesActual: string &#x3D; &#x27;&#x27;;
   
-  gastos: any[] &#x3D; [];
-  pagos: any[] &#x3D; [];
-  residentes: any[] &#x3D; [];
+  gastos: Gasto[] &#x3D; [];
+  pagos: Pago[] &#x3D; [];
+  residentes: Usuario[] &#x3D; [];
   
-  gastosMesActual: any[] &#x3D; [];
-  pagosMesActual: any[] &#x3D; [];
-  top5Gastos: any[] &#x3D; [];
+  gastosActivos: Gasto[] &#x3D; [];
+  pagosMesActual: Pago[] &#x3D; [];
+  top5Gastos: Gasto[] &#x3D; [];
   
   resumen: Resumen &#x3D; {
     totalGastos: 0,
@@ -341,25 +344,10 @@ export class ReportesComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.establecerMesActual();
     this.cargarDatos();
     this.calcularResumen();
     this.calcularEstadisticas();
-    this.establecerMesActual();
-  }
-
-  cargarDatos(): void {
-    // Cargar gastos
-    const gastosStorage &#x3D; localStorage.getItem(&#x27;gastos&#x27;);
-    this.gastos &#x3D; gastosStorage ? JSON.parse(gastosStorage) : [];
-    
-    // Cargar pagos
-    const pagosStorage &#x3D; localStorage.getItem(&#x27;pagos&#x27;);
-    this.pagos &#x3D; pagosStorage ? JSON.parse(pagosStorage) : [];
-    
-    // Cargar residentes
-    const usuariosStorage &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
-    const usuarios &#x3D; usuariosStorage ? JSON.parse(usuariosStorage) : [];
-    this.residentes &#x3D; usuarios.filter((u: any) &#x3D;&gt; u.casa &amp;&amp; u.pasaje);
   }
 
   establecerMesActual(): void {
@@ -371,51 +359,241 @@ export class ReportesComponent implements OnInit {
     this.mesActual &#x3D; &#x60;${meses[ahora.getMonth()]} ${ahora.getFullYear()}&#x60;;
   }
 
-  calcularResumen(): void {
-    const mesActual &#x3D; new Date().toISOString().substring(0, 7); // YYYY-MM
+  cargarDatos(): void {
+    // Cargar gastos desde localStorage
+    const gastosStorage &#x3D; localStorage.getItem(&#x27;gastos&#x27;);
+    if (gastosStorage) {
+      this.gastos &#x3D; JSON.parse(gastosStorage);
+    } else {
+      // Si no hay gastos, inicializar con datos de ejemplo
+      this.inicializarGastosEjemplo();
+    }
     
-    // Filtrar datos del mes actual
-    this.gastosMesActual &#x3D; this.gastos.filter(g &#x3D;&gt; g.mes &#x3D;&#x3D;&#x3D; mesActual);
-    this.pagosMesActual &#x3D; this.pagos.filter(p &#x3D;&gt; p.mes &#x3D;&#x3D;&#x3D; mesActual);
+    // Cargar pagos desde localStorage
+    const pagosStorage &#x3D; localStorage.getItem(&#x27;pagos&#x27;);
+    if (pagosStorage) {
+      this.pagos &#x3D; JSON.parse(pagosStorage);
+    } else {
+      // Si no hay pagos, inicializar con datos de ejemplo
+      this.inicializarPagosEjemplo();
+    }
+    
+    // Cargar residentes desde localStorage
+    const usuariosStorage &#x3D; localStorage.getItem(&#x27;usuarios&#x27;);
+    if (usuariosStorage) {
+      const usuarios: Usuario[] &#x3D; JSON.parse(usuariosStorage);
+      this.residentes &#x3D; usuarios.filter(u &#x3D;&gt; u.casa &amp;&amp; u.pasaje);
+    } else {
+      this.residentes &#x3D; [];
+    }
+
+    console.log(&#x27;📊 Datos cargados:&#x27;, {
+      gastos: this.gastos.length,
+      pagos: this.pagos.length,
+      residentes: this.residentes.length
+    });
+  }
+
+  calcularResumen(): void {
+    const fechaActual &#x3D; new Date();
+    const mesActual &#x3D; fechaActual.getMonth();
+    const añoActual &#x3D; fechaActual.getFullYear();
+    
+    // Filtrar gastos activos (no por mes, sino por estado)
+    this.gastosActivos &#x3D; this.gastos.filter(g &#x3D;&gt; 
+      g.estado &#x3D;&#x3D;&#x3D; &#x27;Activo&#x27; || g.estado &#x3D;&#x3D;&#x3D; &#x27;aprobado&#x27;
+    );
+    
+    // Filtrar pagos del mes actual
+    this.pagosMesActual &#x3D; this.pagos.filter(p &#x3D;&gt; {
+      const fechaPago &#x3D; new Date(p.fecha);
+      return fechaPago.getMonth() &#x3D;&#x3D;&#x3D; mesActual &amp;&amp; 
+             fechaPago.getFullYear() &#x3D;&#x3D;&#x3D; añoActual;
+    });
     
     // Calcular totales
-    this.resumen.totalGastos &#x3D; this.gastosMesActual.reduce((sum, g) &#x3D;&gt; sum + g.monto, 0);
+    this.resumen.totalGastos &#x3D; this.gastosActivos.reduce((sum, g) &#x3D;&gt; sum + g.monto, 0);
     this.resumen.totalRecaudado &#x3D; this.pagosMesActual.reduce((sum, p) &#x3D;&gt; sum + p.monto, 0);
     
+    // Calcular pendiente
     const montoPorCasa &#x3D; Math.ceil(this.resumen.totalGastos / 13);
     const totalEsperado &#x3D; montoPorCasa * 13;
-    
     this.resumen.pendiente &#x3D; totalEsperado - this.resumen.totalRecaudado;
+    
+    // Calcular balance
     this.resumen.balance &#x3D; this.resumen.totalRecaudado - this.resumen.totalGastos;
     
-    // Top 5 gastos
-    this.top5Gastos &#x3D; [...this.gastosMesActual]
+    // Top 5 gastos más altos
+    this.top5Gastos &#x3D; [...this.gastosActivos]
       .sort((a, b) &#x3D;&gt; b.monto - a.monto)
       .slice(0, 5);
+
+    console.log(&#x27;💰 Resumen calculado:&#x27;, this.resumen);
+    console.log(&#x27;📈 Top 5 Gastos:&#x27;, this.top5Gastos);
   }
 
   calcularEstadisticas(): void {
     // Total residentes
-    this.estadisticas.totalResidentes &#x3D; this.residentes.length;
+    this.estadisticas.totalResidentes &#x3D; this.residentes.length || 13;
     
     // Tasa de pago
     if (this.resumen.totalGastos &gt; 0) {
       const montoPorCasa &#x3D; Math.ceil(this.resumen.totalGastos / 13);
       const totalEsperado &#x3D; montoPorCasa * 13;
-      this.estadisticas.tasaPago &#x3D; Math.round((this.resumen.totalRecaudado / totalEsperado) * 100);
+      if (totalEsperado &gt; 0) {
+        this.estadisticas.tasaPago &#x3D; Math.round((this.resumen.totalRecaudado / totalEsperado) * 100);
+      }
     }
     
-    // Casas al día (simulado - asumimos que si pagaron están al día)
-    const casasQuePagaron &#x3D; new Set(this.pagosMesActual.map(p &#x3D;&gt; p.casa));
+    // Casas al día (contamos cuántas casas diferentes pagaron)
+    const casasQuePagaron &#x3D; new Set&lt;string&gt;();
+    this.pagosMesActual.forEach(p &#x3D;&gt; {
+      const identificador &#x3D; &#x60;${p.pasaje}-${p.casa}&#x60;;
+      casasQuePagaron.add(identificador);
+    });
     this.estadisticas.casasAlDia &#x3D; casasQuePagaron.size;
+
+    console.log(&#x27;📊 Estadísticas calculadas:&#x27;, this.estadisticas);
   }
 
   verReporte(tipo: string): void {
     this.reporteActual &#x3D; tipo;
+    console.log(&#x27;📄 Ver reporte:&#x27;, tipo);
   }
 
   imprimirReporte(): void {
     window.print();
+  }
+
+  /**
+   * Inicializa datos de ejemplo para gastos si no existen
+   */
+  private inicializarGastosEjemplo(): void {
+    this.gastos &#x3D; [
+      {
+        id: 1,
+        concepto: &#x27;Mantención Áreas Verdes&#x27;,
+        descripcion: &#x27;Poda de árboles y mantención de jardines&#x27;,
+        monto: 350000,
+        fecha: new Date(2025, 10, 1).toISOString(),
+        estado: &#x27;Activo&#x27;,
+        categoria: &#x27;Mantención&#x27;
+      },
+      {
+        id: 2,
+        concepto: &#x27;Cuenta de Agua&#x27;,
+        descripcion: &#x27;Consumo de agua mes actual&#x27;,
+        monto: 125000,
+        fecha: new Date(2025, 10, 5).toISOString(),
+        estado: &#x27;Activo&#x27;,
+        categoria: &#x27;Servicios Básicos&#x27;
+      },
+      {
+        id: 3,
+        concepto: &#x27;Cuenta de Luz&#x27;,
+        descripcion: &#x27;Consumo de electricidad áreas comunes&#x27;,
+        monto: 85000,
+        fecha: new Date(2025, 10, 5).toISOString(),
+        estado: &#x27;Activo&#x27;,
+        categoria: &#x27;Servicios Básicos&#x27;
+      },
+      {
+        id: 4,
+        concepto: &#x27;Servicio de Seguridad&#x27;,
+        descripcion: &#x27;Pago mensual servicio de guardia&#x27;,
+        monto: 450000,
+        fecha: new Date(2025, 10, 1).toISOString(),
+        estado: &#x27;Activo&#x27;,
+        categoria: &#x27;Seguridad&#x27;
+      },
+      {
+        id: 5,
+        concepto: &#x27;Mantención Alumbrado&#x27;,
+        descripcion: &#x27;Reparación de farolas exteriores&#x27;,
+        monto: 180000,
+        fecha: new Date(2025, 9, 28).toISOString(),
+        estado: &#x27;Pagado&#x27;,
+        categoria: &#x27;Mantención&#x27;
+      }
+    ];
+    localStorage.setItem(&#x27;gastos&#x27;, JSON.stringify(this.gastos));
+    console.log(&#x27;✨ Gastos de ejemplo inicializados&#x27;);
+  }
+
+  /**
+   * Inicializa datos de ejemplo para pagos si no existen
+   */
+  private inicializarPagosEjemplo(): void {
+    this.pagos &#x3D; [
+      {
+        id: 1,
+        nombreResidente: &#x27;Juan Pérez&#x27;,
+        email: &#x27;juan.perez@email.com&#x27;,
+        pasaje: &#x27;8651&#x27;,
+        casa: &#x27;A&#x27;,
+        monto: 95000,
+        fecha: new Date(2025, 10, 2).toISOString(),
+        estado: &#x27;confirmado&#x27;,
+        metodoPago: &#x27;Transferencia&#x27;
+      },
+      {
+        id: 2,
+        nombreResidente: &#x27;María González&#x27;,
+        email: &#x27;maria.gonzalez@email.com&#x27;,
+        pasaje: &#x27;8651&#x27;,
+        casa: &#x27;B&#x27;,
+        monto: 95000,
+        fecha: new Date(2025, 10, 3).toISOString(),
+        estado: &#x27;confirmado&#x27;,
+        metodoPago: &#x27;Efectivo&#x27;
+      },
+      {
+        id: 3,
+        nombreResidente: &#x27;Carlos Rojas&#x27;,
+        email: &#x27;carlos.rojas@email.com&#x27;,
+        pasaje: &#x27;8707&#x27;,
+        casa: &#x27;C&#x27;,
+        monto: 95000,
+        fecha: new Date(2025, 10, 4).toISOString(),
+        estado: &#x27;confirmado&#x27;,
+        metodoPago: &#x27;Transferencia&#x27;
+      },
+      {
+        id: 4,
+        nombreResidente: &#x27;Ana Martínez&#x27;,
+        email: &#x27;ana.martinez@email.com&#x27;,
+        pasaje: &#x27;8651&#x27;,
+        casa: &#x27;D&#x27;,
+        monto: 95000,
+        fecha: new Date(2025, 10, 5).toISOString(),
+        estado: &#x27;confirmado&#x27;,
+        metodoPago: &#x27;Transferencia&#x27;
+      }
+    ];
+    localStorage.setItem(&#x27;pagos&#x27;, JSON.stringify(this.pagos));
+    console.log(&#x27;✨ Pagos de ejemplo inicializados&#x27;);
+  }
+
+  /**
+   * Obtiene la clase CSS para el estado de un gasto
+   */
+  getEstadoClase(estado: string): string {
+    const clases: { [key: string]: string } &#x3D; {
+      &#x27;Activo&#x27;: &#x27;badge bg-success&#x27;,
+      &#x27;Pendiente&#x27;: &#x27;badge bg-warning&#x27;,
+      &#x27;Pagado&#x27;: &#x27;badge bg-info&#x27;,
+      &#x27;Vencido&#x27;: &#x27;badge bg-danger&#x27;
+    };
+    return clases[estado] || &#x27;badge bg-secondary&#x27;;
+  }
+
+  /**
+   * Obtiene la clase CSS para el balance
+   */
+  getBalanceClase(): string {
+    if (this.resumen.balance &gt; 0) return &#x27;text-success&#x27;;
+    if (this.resumen.balance &lt; 0) return &#x27;text-danger&#x27;;
+    return &#x27;text-muted&#x27;;
   }
 }
 </code></pre>

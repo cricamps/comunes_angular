@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "numeroCasa": "8651-1",
+    "pasaje": "Pasaje 8651",
+    "direccion": "Pasaje 8651, Casa 1",
+    "residente": {
+      "nombre": "Juan Pérez",
+      "rut": "12345678-9",
+      "email": "juan.perez@email.com",
+      "telefono": "+56912345678"
+    },
+    "metrosCuadrados": 120,
+    "cantidadHabitantes": 4,
+    "activa": true
+  },
+  {
+    "id": 2,
+    "numeroCasa": "8651-2",
+    "pasaje": "Pasaje 8651",
+    "direccion": "Pasaje 8651, Casa 2",
+    "residente": {
+      "nombre": "María González",
+      "rut": "23456789-0",
+      "email": "maria.gonzalez@email.com",
+      "telefono": "+56923456789"
+    },
+    "metrosCuadrados": 115,
+    "cantidadHabitantes": 3,
+    "activa": true
+  },
+  {
+    "id": 3,
+    "numeroCasa": "8651-3",
+    "pasaje": "Pasaje 8651",
+    "direccion": "Pasaje 8651, Casa 3",
+    "residente": {
+      "nombre": "Carlos Rodríguez",
+      "rut": "34567890-1",
+      "email": "carlos.rodriguez@email.com",
+      "telefono": "+56934567890"
+    },
+    "metrosCuadrados": 130,
+    "cantidadHabitantes": 5,
+    "activa": true
+  },
+  {
+    "id": 4,
+    "numeroCasa": "8651-4",
+    "pasaje": "Pasaje 8651",
+    "direccion": "Pasaje 8651, Casa 4",
+    "residente": {
+      "nombre": "Ana Martínez",
+      "rut": "45678901-2",
+      "email": "ana.martinez@email.com",
+      "telefono": "+56945678901"
+    },
+    "metrosCuadrados": 110,
+    "cantidadHabitantes": 2,
+    "activa": true
+  },
+  {
+    "id": 5,
+    "numeroCasa": "8651-5",
+    "pasaje": "Pasaje 8651",
+    "direccion": "Pasaje 8651, Casa 5",
+    "residente": {
+      "nombre": "Pedro Sánchez",
+      "rut": "56789012-3",
+      "email": "pedro.sanchez@email.com",
+      "telefono": "+56956789012"
+    },
+    "metrosCuadrados": 125,
+    "cantidadHabitantes": 4,
+    "activa": true
+  },
+  {
+    "id": 6,
+    "numeroCasa": "8651-6",
+    "pasaje": "Pasaje 8651",
+    "direccion": "Pasaje 8651, Casa 6",
+    "residente": {
+      "nombre": "Laura Torres",
+      "rut": "67890123-4",
+      "email": "laura.torres@email.com",
+      "telefono": "+56967890123"
+    },
+    "metrosCuadrados": 118,
+    "cantidadHabitantes": 3,
+    "activa": true
+  },
+  {
+    "id": 7,
+    "numeroCasa": "8707-1",
+    "pasaje": "Pasaje 8707",
+    "direccion": "Pasaje 8707, Casa 1",
+    "residente": {
+      "nombre": "Roberto Díaz",
+      "rut": "78901234-5",
+      "email": "roberto.diaz@email.com",
+      "telefono": "+56978901234"
+    },
+    "metrosCuadrados": 135,
+    "cantidadHabitantes": 5,
+    "activa": true
+  },
+  {
+    "id": 8,
+    "numeroCasa": "8707-2",
+    "pasaje": "Pasaje 8707",
+    "direccion": "Pasaje 8707, Casa 2",
+    "residente": {
+      "nombre": "Carmen López",
+      "rut": "89012345-6",
+      "email": "carmen.lopez@email.com",
+      "telefono": "+56989012345"
+    },
+    "metrosCuadrados": 122,
+    "cantidadHabitantes": 4,
+    "activa": true
+  },
+  {
+    "id": 9,
+    "numeroCasa": "8707-3",
+    "pasaje": "Pasaje 8707",
+    "direccion": "Pasaje 8707, Casa 3",
+    "residente": {
+      "nombre": "Francisco Muñoz",
+      "rut": "90123456-7",
+      "email": "francisco.munoz@email.com",
+      "telefono": "+56990123456"
+    },
+    "metrosCuadrados": 128,
+    "cantidadHabitantes": 3,
+    "activa": true
+  },
+  {
+    "id": 10,
+    "numeroCasa": "8707-4",
+    "pasaje": "Pasaje 8707",
+    "direccion": "Pasaje 8707, Casa 4",
+    "residente": {
+      "nombre": "Patricia Ramírez",
+      "rut": "01234567-8",
+      "email": "patricia.ramirez@email.com",
+      "telefono": "+56901234567"
+    },
+    "metrosCuadrados": 112,
+    "cantidadHabitantes": 2,
+    "activa": true
+  },
+  {
+    "id": 11,
+    "numeroCasa": "8707-5",
+    "pasaje": "Pasaje 8707",
+    "direccion": "Pasaje 8707, Casa 5",
+    "residente": {
+      "nombre": "Jorge Herrera",
+      "rut": "11234567-9",
+      "email": "jorge.herrera@email.com",
+      "telefono": "+56911234567"
+    },
+    "metrosCuadrados": 126,
+    "cantidadHabitantes": 4,
+    "activa": true
+  },
+  {
+    "id": 12,
+    "numeroCasa": "8707-6",
+    "pasaje": "Pasaje 8707",
+    "direccion": "Pasaje 8707, Casa 6",
+    "residente": {
+      "nombre": "Isabel Castro",
+      "rut": "21234567-0",
+      "email": "isabel.castro@email.com",
+      "telefono": "+56921234567"
+    },
+    "metrosCuadrados": 119,
+    "cantidadHabitantes": 3,
+    "activa": true
+  },
+  {
+    "id": 13,
+    "numeroCasa": "8707-7",
+    "pasaje": "Pasaje 8707",
+    "direccion": "Pasaje 8707, Casa 7",
+    "residente": {
+      "nombre": "Miguel Flores",
+      "rut": "31234567-1",
+      "email": "miguel.flores@email.com",
+      "telefono": "+56931234567"
+    },
+    "metrosCuadrados": 133,
+    "cantidadHabitantes": 5,
+    "activa": true
+  }
+]

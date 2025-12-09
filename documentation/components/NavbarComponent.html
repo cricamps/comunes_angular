@@ -447,8 +447,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="82"
-                                    class="link-to-prism">src/app/shared/components/navbar/navbar.component.ts:82</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/shared/components/navbar/navbar.component.ts:83</a></div>
                         </td>
                     </tr>
 
@@ -590,8 +590,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="75"
-                                    class="link-to-prism">src/app/shared/components/navbar/navbar.component.ts:75</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/shared/components/navbar/navbar.component.ts:76</a></div>
                         </td>
                     </tr>
 
@@ -694,8 +694,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="69"
-                                    class="link-to-prism">src/app/shared/components/navbar/navbar.component.ts:69</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/shared/components/navbar/navbar.component.ts:70</a></div>
                         </td>
                     </tr>
 
@@ -929,6 +929,7 @@ export class NavbarComponent implements OnInit {
         { label: &#x27;Gestionar Gastos&#x27;, icon: &#x27;bi-receipt&#x27;, route: &#x27;/admin/gestionar-gastos&#x27; },
         { label: &#x27;Residentes&#x27;, icon: &#x27;bi-people&#x27;, route: &#x27;/admin/gestionar-residentes&#x27; },
         { label: &#x27;Registrar Pagos&#x27;, icon: &#x27;bi-credit-card&#x27;, route: &#x27;/admin/registrar-pagos&#x27; },
+        { label: &#x27;Estadísticas&#x27;, icon: &#x27;bi-graph-up-arrow&#x27;, route: &#x27;/admin/estadisticas-gastos&#x27; },
         { label: &#x27;Solicitudes&#x27;, icon: &#x27;bi-envelope-check&#x27;, route: &#x27;/admin/solicitudes&#x27; },
         { label: &#x27;Reportes&#x27;, icon: &#x27;bi-file-earmark-bar-graph&#x27;, route: &#x27;/admin/reportes&#x27; },
         { label: &#x27;Configuración&#x27;, icon: &#x27;bi-gear&#x27;, route: &#x27;/admin/configuracion&#x27; }
@@ -1051,7 +1052,7 @@ export class NavbarComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">  <div class="container-fluid">    <a class="navbar-brand fw-bold"        [routerLink]="esAdmin ? \'/admin/dashboard\' : \'/usuario/dashboard\'"       style="cursor: pointer;">      <i class="bi bi-building"></i> Gastos Comunes      <span *ngIf="esAdmin" class="badge bg-light text-primary ms-2">Admin</span>    </a>        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">      <span class="navbar-toggler-icon"></span>    </button>        <div class="collapse navbar-collapse" id="navbarNav">      <ul class="navbar-nav ms-auto">        <li class="nav-item" *ngFor="let item of menuItems">          <a class="nav-link"              [routerLink]="item.route"              routerLinkActive="active"             [routerLinkActiveOptions]="{exact: false}">            <i class="bi" [ngClass]="item.icon"></i> {{ item.label }}          </a>        </li>                <!-- DROPDOWN -->        <li class="nav-item dropdown">          <a class="nav-link dropdown-toggle"              (click)="toggleDropdown($event)">            <i class="bi bi-person-circle"></i> {{ nombreUsuario }}          </a>          <ul class="dropdown-menu dropdown-menu-end"               [class.show]="dropdownAbierto">            <li>              <a class="dropdown-item" (click)="irAPerfil($event)">                <i class="bi bi-person"></i> Mi Perfil              </a>            </li>            <li><hr class="dropdown-divider"></li>            <li>              <a class="dropdown-item" (click)="cerrarSesion($event)">                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión              </a>            </li>          </ul>        </li>      </ul>    </div>  </div></nav></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfiguracionComponent', 'selector': 'app-configuracion'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetalleGastoComponent', 'selector': 'app-detalle-gasto'},{'name': 'GestionarGastosComponent', 'selector': 'app-gestionar-gastos'},{'name': 'GestionarResidentesComponent', 'selector': 'app-gestionar-residentes'},{'name': 'HistorialPagosComponent', 'selector': 'app-historial-pagos'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MisGastosComponent', 'selector': 'app-mis-gastos'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RealizarPagoComponent', 'selector': 'app-realizar-pago'},{'name': 'RecuperarComponent', 'selector': 'app-recuperar'},{'name': 'RegistrarPagosComponent', 'selector': 'app-registrar-pagos'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'ReportesComponent', 'selector': 'app-reportes'},{'name': 'SolicitudesComponent', 'selector': 'app-solicitudes'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfiguracionComponent', 'selector': 'app-configuracion'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetalleGastoComponent', 'selector': 'app-detalle-gasto'},{'name': 'EstadisticasGastosComponent', 'selector': 'app-estadisticas-gastos'},{'name': 'GestionarGastosComponent', 'selector': 'app-gestionar-gastos'},{'name': 'GestionarResidentesComponent', 'selector': 'app-gestionar-residentes'},{'name': 'HistorialPagosComponent', 'selector': 'app-historial-pagos'},{'name': 'InfoFinancieraComponent', 'selector': 'app-info-financiera'},{'name': 'ListaCasasComponent', 'selector': 'app-lista-casas'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MisGastosComponent', 'selector': 'app-mis-gastos'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RealizarPagoComponent', 'selector': 'app-realizar-pago'},{'name': 'RecuperarComponent', 'selector': 'app-recuperar'},{'name': 'RegistrarPagosComponent', 'selector': 'app-registrar-pagos'},{'name': 'RegistroComponent', 'selector': 'app-registro'},{'name': 'ReportesComponent', 'selector': 'app-reportes'},{'name': 'SolicitudesComponent', 'selector': 'app-solicitudes'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};
 </script>

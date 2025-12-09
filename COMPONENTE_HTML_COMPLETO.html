@@ -1,0 +1,209 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h1 class="fw-bold mb-2">
+        <i class="bi bi-database"></i> Información Financiera
+      </h1>
+      <p class="text-muted">Demostración de las 3 formas de consumir datos en Angular</p>
+    </div>
+  </div>
+
+  <!-- FORMA 1: JSON LOCAL -->
+  <div class="card mb-4 border-primary">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">
+        <i class="bi bi-file-earmark-code"></i> FORMA 1: JSON Local
+      </h4>
+      <small>Ubicación: public/data/casas.json</small>
+    </div>
+    <div class="card-body">
+      <div *ngIf="!errorLocal" class="row">
+        <div class="col-md-6">
+          <h5>📊 Datos Cargados:</h5>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between">
+              <span><strong>Total de Casas:</strong></span>
+              <span class="badge bg-primary rounded-pill">{{ totalCasas }}</span>
+            </li>
+            <li class="list-group-item">
+              <strong>Fuente:</strong> Archivo JSON local en el proyecto
+            </li>
+            <li class="list-group-item">
+              <strong>Método:</strong> HttpClient.get()
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <div class="alert alert-success">
+            <i class="bi bi-check-circle"></i> <strong>Estado:</strong> Funcionando correctamente
+          </div>
+          <p><strong>Características:</strong></p>
+          <ul>
+            <li>No requiere internet</li>
+            <li>Datos controlados por el desarrollador</li>
+            <li>Ideal para datos estáticos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="errorLocal" class="alert alert-danger">
+        <i class="bi bi-exclamation-triangle"></i> {{ errorLocal }}
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMA 2: JSON EXTERNO (GitHub Pages) -->
+  <div class="card mb-4 border-warning">
+    <div class="card-header bg-warning">
+      <h4 class="mb-0">
+        <i class="bi bi-github"></i> FORMA 2: JSON Externo (GitHub Pages)
+      </h4>
+      <small>URL: https://TU-USUARIO.github.io/api-gastos-comunes/tasas-interes.json</small>
+    </div>
+    <div class="card-body">
+      <div *ngIf="!errorTasas && tasasInteres.length > 0" class="row">
+        <div class="col-md-6">
+          <h5>💰 Tasas de Interés:</h5>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let tasa of tasasInteres.slice(0, 3)">
+              <strong>{{ tasa.entidad }}</strong> - {{ tasa.tipoCredito }}
+              <br>
+              <span class="text-primary">Tasa: {{ tasa.tasaAnual }}% anual</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <div class="alert alert-success">
+            <i class="bi bi-check-circle"></i> <strong>Estado:</strong> Conectado
+          </div>
+          <div *ngIf="tasaMasBaja" class="alert alert-info">
+            <strong>Mejor Tasa:</strong> {{ tasaMasBaja.entidad }}
+            <br>
+            <span class="fs-4">{{ tasaMasBaja.tasaAnual }}%</span>
+          </div>
+          <p><strong>Características:</strong></p>
+          <ul>
+            <li>Datos alojados en GitHub Pages</li>
+            <li>Consumo vía URL pública</li>
+            <li>Ideal para datos compartidos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="errorTasas" class="alert alert-warning">
+        <i class="bi bi-exclamation-triangle"></i> {{ errorTasas }}
+        <hr>
+        <p class="mb-0">
+          <strong>Para activar esta función:</strong>
+          <ol>
+            <li>Sigue las instrucciones en <code>GITHUB_PAGES_INSTRUCCIONES.md</code></li>
+            <li>Actualiza la URL en <code>tasas-interes.service.ts</code></li>
+          </ol>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMA 3: API REAL EXTERNA -->
+  <div class="card mb-4 border-success">
+    <div class="card-header bg-success text-white">
+      <h4 class="mb-0">
+        <i class="bi bi-cloud"></i> FORMA 3: API Real Externa
+      </h4>
+      <small>API: https://api.exchangerate-api.com/v4/latest/USD</small>
+    </div>
+    <div class="card-body">
+      <div *ngIf="!errorTipoCambio && dolarHoy > 0" class="row">
+        <div class="col-md-6">
+          <h5>💵 Tipo de Cambio Actual:</h5>
+          <div class="card bg-light">
+            <div class="card-body text-center">
+              <h3>1 USD = <span class="text-success">{{ dolarHoy | number:'1.2-2' }}</span> CLP</h3>
+              <p class="text-muted">Dólar Estadounidense a Peso Chileno</p>
+            </div>
+          </div>
+          <div class="card bg-light mt-3">
+            <div class="card-body text-center">
+              <h3>1 EUR = <span class="text-primary">{{ euroHoy | number:'1.2-2' }}</span> CLP</h3>
+              <p class="text-muted">Euro a Peso Chileno</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="alert alert-success">
+            <i class="bi bi-check-circle"></i> <strong>Estado:</strong> Conectado en tiempo real
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>Fecha:</strong> {{ fechaActualizacion }}
+            </li>
+            <li class="list-group-item">
+              <strong>Fuente:</strong> API pública gratuita
+            </li>
+            <li class="list-group-item">
+              <strong>Actualización:</strong> Tiempo real
+            </li>
+          </ul>
+          <p class="mt-3"><strong>Características:</strong></p>
+          <ul>
+            <li>Datos actualizados constantemente</li>
+            <li>No requiere autenticación</li>
+            <li>Ideal para datos dinámicos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="errorTipoCambio" class="alert alert-danger">
+        <i class="bi bi-exclamation-triangle"></i> {{ errorTipoCambio }}
+        <p class="mb-0 mt-2">Verifica tu conexión a internet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUMEN -->
+  <div class="card border-info">
+    <div class="card-header bg-info text-white">
+      <h4 class="mb-0">
+        <i class="bi bi-info-circle"></i> Resumen de las 3 Formas
+      </h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Forma</th>
+            <th>Fuente</th>
+            <th>Internet</th>
+            <th>Actualización</th>
+            <th>Uso Ideal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. JSON Local</strong></td>
+            <td>public/data/</td>
+            <td><span class="badge bg-success">No requiere</span></td>
+            <td>Manual</td>
+            <td>Datos estáticos del proyecto</td>
+          </tr>
+          <tr>
+            <td><strong>2. JSON Externo</strong></td>
+            <td>GitHub Pages</td>
+            <td><span class="badge bg-warning">Requiere</span></td>
+            <td>Cuando se actualiza el repo</td>
+            <td>Datos compartidos entre proyectos</td>
+          </tr>
+          <tr>
+            <td><strong>3. API Real</strong></td>
+            <td>API pública</td>
+            <td><span class="badge bg-warning">Requiere</span></td>
+            <td>Tiempo real</td>
+            <td>Datos dinámicos y actualizados</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

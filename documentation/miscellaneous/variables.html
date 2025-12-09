@@ -191,7 +191,11 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideRouter(routes),
+    provideHttpClient(withFetch())
+  ]
 }</code>
                     </td>
                 </tr>
@@ -603,6 +607,14 @@
       {
         path: &#x27;configuracion&#x27;,
         loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/admin/configuracion/configuracion.component&#x27;).then(m &#x3D;&gt; m.ConfiguracionComponent)&quot;
+      },
+      {
+        path: &#x27;lista-casas&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/admin/lista-casas/lista-casas.component&#x27;).then(m &#x3D;&gt; m.ListaCasasComponent)&quot;
+      },
+      {
+        path: &#x27;estadisticas-gastos&#x27;,
+        loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/admin/estadisticas-gastos/estadisticas-gastos.component&#x27;).then(m &#x3D;&gt; m.EstadisticasGastosComponent)&quot;
       }
     ]
   },
@@ -641,6 +653,11 @@
     path: &#x27;detalle-gasto&#x27;,
     canActivate: [authGuard],
     loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/shared/detalle-gasto/detalle-gasto.component&#x27;).then(m &#x3D;&gt; m.DetalleGastoComponent)&quot;
+  },
+  {
+    path: &#x27;info-financiera&#x27;,
+    canActivate: [authGuard],
+    loadComponent: () &#x3D;&gt; &quot;import(&#x27;./features/shared/info-financiera/info-financiera.component&#x27;).then(m &#x3D;&gt; m.InfoFinancieraComponent)&quot;
   },
 
   // Ruta 404

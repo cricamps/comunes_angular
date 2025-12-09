@@ -10,11 +10,13 @@ Aplicación desarrollada con Angular que permite:
 - Control de pagos
 - Solicitudes de nuevas cuentas
 - Dashboard diferenciado para administradores y residentes
+- **🆕 Consumo de datos desde archivos JSON**
+- **🆕 Estadísticas y análisis de gastos**
 
 ## 🏗️ Estructura de la Comunidad
 
-- **Pasaje 8651**: 6 casas (A-F)
-- **Pasaje 8707**: 7 casas (A-G)
+- **Pasaje 8651**: 6 casas (numeradas 8651-1 a 8651-6)
+- **Pasaje 8707**: 7 casas (numeradas 8707-1 a 8707-7)
 - **Total**: 13 casas
 
 ## 🚀 Tecnologías Utilizadas
@@ -24,6 +26,7 @@ Aplicación desarrollada con Angular que permite:
 - **Lenguaje**: TypeScript 5.6.2
 - **Testing**: Jasmine + Karma
 - **Iconos**: Bootstrap Icons 1.13.1
+- **HTTP Client**: Para consumo de APIs JSON
 
 ## 📦 Instalación
 
@@ -79,7 +82,10 @@ src/app/
 │   ├── guards/
 │   │   └── auth.guard.ts     # Protección de rutas
 │   └── services/
-│       └── auth.service.ts   # Servicio de autenticación
+│       ├── auth.service.ts           # Autenticación
+│       ├── casas.service.ts          # 🆕 Consumo de casas.json
+│       ├── conceptos-gastos.service.ts # 🆕 Consumo de conceptos-gastos.json
+│       └── pagos-historicos.service.ts # 🆕 Consumo de pagos-historicos.json
 ├── data/                      # Datos mock
 │   ├── usuarios-mock.ts
 │   ├── gastos-mock.ts
@@ -96,7 +102,9 @@ src/app/
 │   │   ├── registrar-pagos/
 │   │   ├── solicitudes/
 │   │   ├── reportes/
-│   │   └── configuracion/
+│   │   ├── configuracion/
+│   │   ├── lista-casas/               # Consume casas.json
+│   │   └── estadisticas-gastos/       # 🆕 Consume todos los JSON
 │   ├── usuario/              # Panel de usuario
 │   │   ├── dashboard/
 │   │   ├── mis-gastos/
@@ -104,16 +112,24 @@ src/app/
 │   │   └── realizar-pago/
 │   └── shared/               # Componentes compartidos
 │       ├── perfil/
-│       └── detalle-gasto/    # Ejemplo de paso de datos
+│       └── detalle-gasto/
 ├── models/                    # Interfaces y modelos
 │   ├── usuario.model.ts
 │   ├── gasto.model.ts
-│   └── pago.model.ts
+│   ├── pago.model.ts
+│   ├── casa.interface.ts              # 🆕 Interface para casas
+│   ├── concepto-gasto.interface.ts    # 🆕 Interface para conceptos
+│   └── pago-historico.interface.ts    # 🆕 Interface para pagos
 └── shared/                    # Componentes y utilidades compartidas
     ├── components/
     │   └── navbar/
     └── validators/
         └── custom-validators.ts
+
+public/data/                   # 🆕 Archivos JSON
+├── casas.json                # Datos de las 13 casas
+├── conceptos-gastos.json     # Conceptos de gastos comunes
+└── pagos-historicos.json     # Historial de pagos
 ```
 
 ## ✨ Funcionalidades Principales
@@ -126,6 +142,8 @@ src/app/
 - ✅ Gestión de solicitudes de nuevas cuentas
 - ✅ Generación de reportes
 - ✅ Configuración del sistema
+- ✅ **🆕 Lista de casas (consumiendo JSON)**
+- ✅ **🆕 Estadísticas avanzadas de gastos (consumiendo JSON)**
 
 ### Para Residentes
 - ✅ Dashboard personalizado
@@ -143,6 +161,103 @@ src/app/
 - ✅ Directivas Angular (ngIf, ngFor, ngModel)
 - ✅ Navegación entre componentes con paso de datos
 - ✅ LocalStorage y SessionStorage para persistencia
+- ✅ **🆕 Consumo de APIs JSON con HttpClient**
+- ✅ **🆕 Manejo de Observables con RxJS**
+- ✅ **🆕 forkJoin para peticiones en paralelo**
+
+## 🆕 Semana 7: Integración de APIs JSON
+
+### Archivos JSON Creados
+
+#### 1. casas.json
+Contiene información de las 13 casas:
+- ID único
+- Número de casa
+- Pasaje
+- Dirección
+- Información del residente
+- Metros cuadrados
+- Cantidad de habitantes
+- Estado activo/inactivo
+
+#### 2. conceptos-gastos.json
+Contiene los conceptos de gastos:
+- ID único
+- Nombre del concepto
+- Descripción
+- Tipo de cálculo
+- Monto por defecto
+- Estado activo
+- Categoría
+
+#### 3. pagos-historicos.json
+Contiene el historial de pagos:
+- ID único
+- Información de la casa
+- Periodo (mes/año)
+- Fecha de pago
+- Monto total
+- Método de pago
+- Estado del pago
+- Detalle de gastos
+
+### Servicios Implementados
+
+#### CasasService
+Métodos disponibles:
+- `getCasas()`: Obtiene todas las casas
+- `getCasaById(id)`: Obtiene una casa específica
+- `getCasasByPasaje(pasaje)`: Filtra casas por pasaje
+- `getCasasActivas()`: Obtiene casas activas
+- `getTotalMetrosCuadrados()`: Calcula total de m²
+- `getTotalHabitantes()`: Calcula total de habitantes
+
+#### ConceptosGastosService
+Métodos disponibles:
+- `getConceptosGastos()`: Obtiene todos los conceptos
+- `getConceptoById(id)`: Obtiene un concepto específico
+- `getConceptosActivos()`: Filtra conceptos activos
+- `getConceptosByCategoria(categoria)`: Filtra por categoría
+- `calcularTotalMensual()`: Calcula el total mensual
+- `getCategorias()`: Obtiene categorías únicas
+
+#### PagosHistoricosService
+Métodos disponibles:
+- `getPagosHistoricos()`: Obtiene todos los pagos
+- `getPagoById(id)`: Obtiene un pago específico
+- `getPagosByCasaId(casaId)`: Filtra pagos por casa
+- `getPagosByEstado(estado)`: Filtra por estado
+- `getPagosByPeriodo(mes, anio)`: Filtra por periodo
+- `getTotalRecaudadoPeriodo(mes, anio)`: Calcula recaudación
+- `getPagosPendientes()`: Obtiene pagos pendientes
+- `getTotalDeudaPendiente()`: Calcula deuda total
+- `getEstadisticasCasa(casaId)`: Estadísticas por casa
+
+### Nuevo Componente: EstadisticasGastosComponent
+
+Componente que consume datos de los 3 servicios JSON y muestra:
+
+1. **Tarjetas de resumen**:
+   - Gasto mensual por casa
+   - Total recaudado
+   - Total pendiente
+   - Promedio por habitante
+
+2. **Distribución por categorías**:
+   - Gráficos de barras con porcentajes
+   - Valores en pesos chilenos
+   - Colores diferenciados
+
+3. **Lista de conceptos activos**:
+   - Conceptos de gasto activos
+   - Agrupados por categoría
+   - Montos individuales
+
+4. **Estado de pagos**:
+   - Total de pagos
+   - Pagos completados
+   - Pagos pendientes
+   - Barra de progreso visual
 
 ## 🎨 Directivas Angular Implementadas
 
@@ -150,6 +265,7 @@ src/app/
 ```html
 <div *ngIf="mostrarError">Mensaje de error</div>
 <span *ngIf="usuario.rol === 'administrador'">Admin</span>
+<div *ngIf="cargando" class="spinner-border"></div>
 ```
 
 ### *ngFor - Iteración sobre colecciones
@@ -157,18 +273,23 @@ src/app/
 <tr *ngFor="let residente of residentes">
   <td>{{ residente.nombre }}</td>
 </tr>
+
+<div *ngFor="let casa of casas">
+  <h5>{{ casa.numeroCasa }}</h5>
+</div>
 ```
 
 ### [(ngModel)] - Two-way Data Binding
 ```html
 <input [(ngModel)]="busqueda" placeholder="Buscar...">
+<input [(ngModel)]="filtro.mes" type="text">
 ```
 
 ## 🔄 Paso de Datos entre Componentes
 
 ### Ejemplo: Ver detalle de un gasto
 
-**Componente origen** (gestionar-gastos.component.ts):
+**Componente origen**:
 ```typescript
 verDetalleGasto(gasto: any): void {
   const navigationExtras: NavigationExtras = {
@@ -178,7 +299,7 @@ verDetalleGasto(gasto: any): void {
 }
 ```
 
-**Componente destino** (detalle-gasto.component.ts):
+**Componente destino**:
 ```typescript
 constructor(private router: Router) {
   const navigation = this.router.getCurrentNavigation();
@@ -191,11 +312,14 @@ constructor(private router: Router) {
 ## 🧪 Testing
 
 Ejecutar pruebas unitarias:
+```bash
 ng test
+```
 
 Ejecutar en modo headless:
+```bash
 ng test --watch=false --browsers=ChromeHeadless
-
+```
 
 ## 📝 Validaciones Personalizadas
 
@@ -226,6 +350,10 @@ ng test                     # Ejecutar tests
 # Instalación de dependencias
 npm install                 # Instalar todas las dependencias
 npm install bootstrap       # Instalar Bootstrap
+
+# Documentación
+npm run compodoc           # Generar documentación
+npm run compodoc:serve     # Generar y servir documentación
 ```
 
 ## 👨‍💻 Desarrollo
@@ -238,7 +366,6 @@ DSY2202 - Desarrollo Full Stack II
 
 ### Institución
 Duoc UC
-
 
 ---
 
@@ -256,12 +383,13 @@ ng test --code-coverage
 
 ### Pruebas implementadas
 
-**Total**: 29 pruebas unitarias
+**Total**: 31 pruebas unitarias (✅ PASANDO)
 
 Componentes con tests:
 - LoginComponent (10 tests)
 - RegistroComponent (10 tests)
 - DashboardComponent (9 tests)
+- ListaCasasComponent (2 tests)
 
 ---
 
@@ -290,18 +418,20 @@ La documentación se generará en la carpeta `documentation/`
 
 ## 📊 Estadísticas del Proyecto
 
-- **Componentes**: 21
-- **Servicios**: 1 (AuthService)
+- **Componentes**: 22 (🆕 +1 EstadisticasGastosComponent)
+- **Servicios**: 5 (Auth + 3 servicios JSON + Carrito)
 - **Guards**: 1 (AuthGuard)
-- **Modelos**: 3 (Usuario, Gasto, Pago)
+- **Modelos**: 6 (Usuario, Gasto, Pago + 3 interfaces JSON)
+- **Archivos JSON**: 3 (Casas, Conceptos, Pagos)
 - **Validadores personalizados**: 9
-- **Pruebas unitarias**: 29
-- **Directivas usadas**: ngIf (15+), ngFor (15+), ngModel (10+)
+- **Pruebas unitarias**: 31 ✅
+- **Directivas usadas**: ngIf (20+), ngFor (20+), ngModel (15+)
 - **Formularios reactivos**: 2 (Login, Registro)
-- **Validaciones totales**: 21 (18 built-in + 3 custom)
+- **Validaciones totales**: 21
+
 
 ---
 
-**Última actualización**: Noviembre 2025
-**Versión**: 2.0.0
-**Estado**: Semana 6 - Evaluación Sumativa 2
+**Última actualización**: Diciembre 2025
+**Versión**: 3.0.0 - Semana 7
+**Estado**: Semana 7 - Integración de APIs JSON Completada ✅
